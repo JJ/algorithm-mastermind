@@ -65,6 +65,11 @@ sub rules {
   return   $self->{'_rules'};
 }
 
+sub evaluated {
+  my $self=shift;
+  return $self->{'_evaluated'};
+}
+
 sub matches {
 
   my $self = shift;
