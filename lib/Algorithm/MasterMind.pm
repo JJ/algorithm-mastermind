@@ -16,6 +16,7 @@ our @EXPORT_OK = qw( check_combination );
 #  use Perl6::Slurp;
 #  use Perl6::Say;
 
+use lib qw( ../../lib ../lib ../../../lib );
 
 # Module implementation here
 
@@ -24,12 +25,6 @@ sub new {
   my $class = shift;
   my $options = shift || croak "Need options here in Algorithm::MasterMind::New\n";
 
-  if ( $class !~ /Algorithm::Evolutionary/ ) {
-    $class = "Algorithm::Evolutionary::$class";
-  }
-  if ( !$INC{ $class } ) {
-    require ($class) || croak "Can't load $class: $@\n";
-  }
   my $self =  { _rules => [],
 		_evaluated => 0 };
 
@@ -46,14 +41,18 @@ sub issue_next {
   croak "To be reimplemented in derived classes";
 }
 
+sub add_rule {
+  my $self = shift;
+  my ($combination, $result) = @_;
+  $result->{'combination'} = $combination;
+  push @{ $self->{'_rules'} }, $result;
+
+}
+
 sub feedback {
   my $self = shift;
-  my ($white, $black) = @_;
-  push @{ $self->{'_rules'} }, { combination => $self->{'_last'},
-				 blacks => $black,
-				 whites => $white };
-
-  croak "To be reimplemented in derived classes"
+  my ($result) = @_;
+  $self->add_rule( $self->{'_last'}, $result );
 }
 
 sub number_of_rules {
@@ -70,13 +69,29 @@ sub matches {
 
   my $self = shift;
   my $string = shift || croak "No string\n";
-  my @rules = $self->{'_rules'};
+  my @rules = @{$self->{'_rules'}};
   my $result = { matches => 0,
 		 result => [] };
 
-  for my $r ( @rules ) {
-    check_rule( $r, $string );
+  for my $r ( @rules ) {    
+    my $rule_result = check_rule( $r, $string );
+    $result->{'matches'}++ if ( $rule_result->{'match'} );
+    push @{ $result->{'result'} }, $result;
   }
+  return $result;
+}
+
+sub check_rule {
+  my $rule = shift;
+  my $string = shift;
+  my $result = check_combination( $rule->{'combination'}, $string );
+  if ( $rule->{'blacks'} eq $result->{'blacks'} 
+       && $rule->{'whites'} eq $result->{'whites'} ) {
+    $result->{'match'} = 1;
+  } else {
+    $result->{'match'} = 0;
+  }
+  return $result;
 }
 
 sub check_combination {
