@@ -4,7 +4,11 @@ use warnings;
 use strict;
 use Carp;
 
-use version; $VERSION = qv('0.0.3');
+use version; our $VERSION = qv('0.0.1');
+
+our @ISA = qw(Exporter);
+
+our @EXPORT_OK = qw( check_combination );
 
 # Other recommended modules (uncomment to use):
 #  use IO::Prompt;
@@ -15,13 +19,104 @@ use version; $VERSION = qv('0.0.3');
 
 # Module implementation here
 
+sub new {
 
-1; # Magic true value required at end of module
+  my $class = shift;
+  my $options = shift || croak "Need options here in Algorithm::MasterMind::New\n";
+
+  if ( $class !~ /Algorithm::Evolutionary/ ) {
+    $class = "Algorithm::Evolutionary::$class";
+  }
+  if ( !$INC{ $class } ) {
+    require ($class) || croak "Can't load $class: $@\n";
+  }
+  my $self =  { _rules => [],
+		_evaluated => 0 };
+
+  bless $self, $class;
+  $self->initialize( $options );
+  return $self;
+}
+
+sub issue_first {
+  croak "To be reimplemented in derived classes";
+}
+
+sub issue_next {
+  croak "To be reimplemented in derived classes";
+}
+
+sub feedback {
+  my $self = shift;
+  my ($white, $black) = @_;
+  push @{ $self->{'_rules'} }, { combination => $self->{'_last'},
+				 blacks => $black,
+				 whites => $white };
+
+  croak "To be reimplemented in derived classes"
+}
+
+sub number_of_rules {
+  my $self= shift;
+  return scalar @{ $self->{'_rules'}};
+}
+
+sub rules {
+  my $self= shift;
+  return   $self->{'_rules'};
+}
+
+sub matches {
+
+  my $self = shift;
+  my $string = shift || croak "No string\n";
+  my @rules = $self->{'_rules'};
+  my $result = { matches => 0,
+		 result => [] };
+
+  for my $r ( @rules ) {
+    check_rule( $r, $string );
+  }
+}
+
+sub check_combination {
+  my $combination = shift;
+  my $string = shift;
+  my $blacks = 0;
+  for ( my $i = 0; $i < length($combination); $i ++ ) {
+    if ( substr( $combination, $i, 1 ) eq substr( $string, $i, 1 ) ) {
+      substr( $combination, $i, 1 ) = substr( $string, $i, 1 ) = 0;
+      $blacks++;
+    }
+  }
+  my %hash_combination = hashify( $combination );
+  my %hash_string = hashify( $string );
+  my $whites = 0;
+  for my $k ( keys %hash_combination ) {
+    next if $k eq '0';
+    next if ! defined $hash_string{$k};
+    $whites += ($hash_combination{$k} > $hash_string{$k})
+      ?$hash_string{$k}
+	:$hash_combination{$k};
+  }
+  return { blacks => $blacks,
+	   whites => $whites };
+}
+
+sub hashify {
+  my $str = shift;
+  my %hash;
+  map( $hash{$_}++, split(//, $str));
+  return %hash;
+}
+
+"4 blacks, 0 white"; # Magic true value required at end of module
+
 __END__
 
 =head1 NAME
 
-Algorithm::MasterMind - [One line description of module's purpose here]
+Algorithm::MasterMind - Framework for algorithms that solve the MasterMind game
 
 
 =head1 VERSION
@@ -33,35 +128,57 @@ This document describes Algorithm::MasterMind version 0.0.1
 
     use Algorithm::MasterMind;
 
-=for author to fill in:
-    Brief code example(s) here showing commonest usage(s).
-    This section will be as far as many users bother reading
-    so make it as educational and exeplary as possible.
-  
   
 =head1 DESCRIPTION
 
-=for author to fill in:
-    Write a full description of the module and its features here.
-    Use subsections (=head2, =head3) as appropriate.
+Includes common functions used in Mastermind solvers; it should not be
+used directly, but from derived classes
 
 
 =head1 INTERFACE 
 
-=for author to fill in:
-    Write a separate section listing the public components of the modules
-    interface. These normally consist of either subroutines that may be
-    exported, or methods that may be called on objects belonging to the
-    classes provided by the module.
+=head2 new ( $options )
+
+Normally to be called from derived classes
+
+=head2 issue_first ()
+
+Issues the first combination, which might be generated in a particular
+way 
+
+=head2 issue_next()
+
+Issues the next combination
+
+=head2 feedback()
+
+Obtain the result to the last combination played
+
+=head2 guesses()
+
+Total number of guesses
+
+=head2 evaluated()
+
+Total number of combinations checked to issue result
+
+=head2 number_of_rules ()
+
+Returns the number of rules in the algorithm
+
+=head2 rules()
+
+Returns the rules (combinations, blacks, whites played so far) y a
+reference to array
+
+=head2 matches( $string ) 
+
+Returns a hash with the number of matches, and whether it matches
+every rule with the number of blacks and whites it obtains with each
+of them
 
 
 =head1 DIAGNOSTICS
-
-=for author to fill in:
-    List every single error and warning message that the module can
-    generate (even the ones that will "never happen"), with a full
-    explanation of each problem, one or more likely causes, and any
-    suggested remedies.
 
 =over
 
@@ -80,49 +197,20 @@ This document describes Algorithm::MasterMind version 0.0.1
 
 =head1 CONFIGURATION AND ENVIRONMENT
 
-=for author to fill in:
-    A full explanation of any configuration system(s) used by the
-    module, including the names and locations of any configuration
-    files, and the meaning of any environment variables or properties
-    that can be set. These descriptions must also include details of any
-    configuration language used.
-  
 Algorithm::MasterMind requires no configuration files or environment variables.
 
 
 =head1 DEPENDENCIES
-
-=for author to fill in:
-    A list of all the other modules that this module relies upon,
-    including any restrictions on versions, and an indication whether
-    the module is part of the standard Perl distribution, part of the
-    module's distribution, or must be installed separately. ]
 
 None.
 
 
 =head1 INCOMPATIBILITIES
 
-=for author to fill in:
-    A list of any modules that this module cannot be used in conjunction
-    with. This may be due to name conflicts in the interface, or
-    competition for system or program resources, or due to internal
-    limitations of Perl (for example, many modules that use source code
-    filters are mutually incompatible).
-
 None reported.
 
 
 =head1 BUGS AND LIMITATIONS
-
-=for author to fill in:
-    A list of known problems with the module, together with some
-    indication Whether they are likely to be fixed in an upcoming
-    release. Also a list of restrictions on the features the module
-    does provide: data types that cannot be handled, performance issues
-    and the circumstances in which they may arise, practical
-    limitations on the size of data sets, special cases that are not
-    (yet) handled, etc.
 
 No bugs have been reported.
 
