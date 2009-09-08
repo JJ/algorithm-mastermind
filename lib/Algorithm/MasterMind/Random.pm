@@ -1,4 +1,4 @@
-package Algorithm::MasterMind::Sequential;
+package Algorithm::MasterMind::Random;
 
 use warnings;
 use strict;
@@ -6,32 +6,32 @@ use Carp;
 
 use lib qw(../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.1 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
 sub initialize {
   my $self = shift;
-  my $options = shift || croak "Need options here";
+  my $options = shift;
   for my $o ( keys %$options ) {
-    $self->{"_$o"} = $options->{$o}
+    $self->{"_$o"} = $options->{$o};
   }
-  my @alphabet = @{$self->{'_alphabet'}};
-  $self->{'_current_string'} = $alphabet[0] x $self->{'_length'};
-  $self->{'_last_string'} = $alphabet[$#alphabet]x $self->{'_length'};
-
 }
 
 sub issue_next {
   my $self = shift;
   my $rules =  $self->number_of_rules();
   my ($match, $string);
+  my @alphabet = @{$self->{'_alphabet'}};
+  my $length = $self->{'_length'};
   do {
-    $string = $self->{'_current_string'};
+    $string ='';
+    for ( my $i = 0; $i < $length; $i++ ) {
+      $string .= $alphabet[rand(@alphabet)];
+    }
     $match = $self->matches($string);
     $self->{'_evaluated'}++;
-  } while ( ( $self->{'_current_string'}++ ne $self->{'_last_string'} )
-	    && $match->{'matches'} < $rules );
+  } while ( $match->{'matches'} < $rules );
   return  $self->{'_last'} = $string;
 }
 
@@ -41,13 +41,12 @@ __END__
 
 =head1 NAME
 
-Algorithm::MasterMind::Test - Mock class used for testing algorithms
-by hand
+Algorithm::MasterMind::Greedy - Tries to compute new solution from last
 
 
 =head1 SYNOPSIS
 
-    use Algorithm::MasterMind::Test;
+    use Algorithm::MasterMind::Greedy;
 
   
 =head1 DESCRIPTION

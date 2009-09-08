@@ -33,8 +33,19 @@ sub new {
   return $self;
 }
 
-sub issue_first {
-  croak "To be reimplemented in derived classes";
+sub random_combination {
+  my $self = shift;
+  my $string_to_play;
+  my @alphabet = @{ $self->{'_alphabet'} };
+  for (my $i = 0; $i <  $self->{'_length'}; $i++ ) {
+    $string_to_play .= $alphabet[ rand( @alphabet) ];
+  }
+  return $string_to_play;
+}
+
+sub issue_first { #Default implementation
+  my $self = shift;
+  return $self->{'_last'} = $self->random_combination;
 }
 
 sub issue_next {
@@ -128,6 +139,18 @@ sub hashify {
   my %hash;
   map( $hash{$_}++, split(//, $str));
   return %hash;
+}
+
+sub not_in_combination {
+  my $self = shift;
+  my $combination = shift;
+  my @alphabet = @{$self->{'_alphabet'}};
+  my %alphabet_hash;
+  map( $alphabet_hash{$_}=1, @alphabet );
+  for my $l ( split(//, $combination ) ) {
+    delete $alphabet_hash{$l} if  $alphabet_hash{$l};
+  }
+  return keys %alphabet_hash;
 }
 
 "4 blacks, 0 white"; # Magic true value required at end of module
