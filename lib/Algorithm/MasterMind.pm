@@ -92,7 +92,7 @@ sub matches {
   for my $r ( @rules ) {    
     my $rule_result = check_rule( $r, $string );
     $result->{'matches'}++ if ( $rule_result->{'match'} );
-    push @{ $result->{'result'} }, $result;
+    push @{ $result->{'result'} }, $rule_result;
   }
   return $result;
 }
