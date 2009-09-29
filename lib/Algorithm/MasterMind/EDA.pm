@@ -4,9 +4,12 @@ use warnings;
 use strict;
 use Carp;
 
-use lib qw(../../lib ../../../Algorithm-Evolutionary/lib ../../Algorithm-Evolutionary/lib);
+use lib qw(../../lib 
+	   ../../../../Algorithm-Evolutionary/lib
+	   ../../../Algorithm-Evolutionary/lib
+	   ../../Algorithm-Evolutionary/lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.1 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
@@ -19,12 +22,27 @@ sub fitness {
     my $combination = $object->{'_str'};
     my $matches = $self->matches( $combination );
 
-    my $blacks_and_whites = 0;
+    my $blacks_and_whites = 1;
     for my $r (@{$matches->{'result'}} ) {
 	$blacks_and_whites += $r->{'blacks'} + $r->{'whites'}+ $self->{'_length'}*$r->{'match'};
     }
     return $blacks_and_whites;
       
+}
+
+sub fitness_orig {
+  my $self = shift;
+  my $object = shift;
+  my $combination = $object->{'_str'};
+  my $matches = $self->matches( $combination );
+
+  my $fitness = 1;
+  my @rules = @{$self->{'_rules'}};
+  for ( my $r = 0; $r <= $#rules; $r++) {
+    $fitness += abs( $rules[$r]->{'blacks'} - $matches->{'result'}->[$r]->{'blacks'} ) +
+      abs( $rules[$r]->{'whites'} - $matches->{'result'}->[$r]->{'whites'} );
+  }
+  return 1/$fitness;
 }
 
 sub initialize {
@@ -34,26 +52,26 @@ sub initialize {
     $self->{"_$o"} = $options->{$o};
   }
 
-  my @pop;
-  my @alphabet;
   my $length = $options->{'length'}; 
-  for ( 0..$options->{'pop_size'} ) {
-      my $indi = Algorithm::Evolutionary::Individual::String->new( $self->{'_alphabet'}, $length );
-      push( @pop, $indi );
-  }
-  
 
 #----------------------------------------------------------#
 #
-  my $fitness = sub { $self->fitness(@_) };
+  my $fitness;
+  if ( $self->{'_orig'} ) {
+    $fitness = sub { $self->fitness_orig(@_) };
+  } else {
+    $fitness = sub { $self->fitness(@_) };
+  }
 
 #EDA itself
   my $eda = new Algorithm::Evolutionary::Op::EDA_step( $fitness, 
 						       $options->{'replacement_rate'},
-						       $options->{'pop_size'} );
+						       $options->{'pop_size'},
+						       $self->{'_alphabet'});
+  $self->{'_fitness'} = $fitness;
   $self->{'_eda'} = $eda;
-  $self->{'_pop'}= \@pop;
 
+  
 }
 
 sub issue_first {
@@ -65,6 +83,17 @@ sub issue_first {
     $string .= $alphabet[ $i % $half ]; # Recommendation Knuth
   }
   $self->{'_first'} = 1; # Flag to know when the second is due
+
+  #Initialize population for next step
+  my @pop;
+  for ( 0..$self->{'_pop_size'} ) {
+    my $indi = Algorithm::Evolutionary::Individual::String->new( $self->{'_alphabet'}, 
+								 $self->{'_length'} );
+    push( @pop, $indi );
+  }
+  
+  $self->{'_pop'}= \@pop;
+  
   return $self->{'_last'} = $string;
 }
 
@@ -75,13 +104,19 @@ sub issue_next {
   my $pop = $self->{'_pop'};
   my $eda = $self->{'_eda'};
 
-  do {
+  map( $_->evaluate( $self->{'_fitness'}), @$pop );
+  my @ranked_pop = sort { $b->{_fitness} <=> $a->{_fitness}; } @$pop;
+  if ( $ranked_pop[0]->Fitness() == 1 ) { #Already found!
+    return  $self->{'_last'} = $ranked_pop[0]->{'_str'};
+  } else {
+    do {
       $eda->apply( $pop );
       $best = $pop->[0];
       $match = $self->matches( $best->{'_str'} );
       $self->{'_evaluated'} += @$pop;
-  } while ( $match->{'matches'} < $rules );
-  return  $self->{'_last'} = $best->{'_str'};
+    } while ( $match->{'matches'} < $rules );
+    return  $self->{'_last'} = $best->{'_str'};
+  }
 
 }
 
