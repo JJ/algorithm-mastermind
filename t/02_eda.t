@@ -10,10 +10,11 @@ BEGIN {
 }
 
 my $secret_code = 'EAFC';
+my $population_size = 200;
 my @alphabet = qw( A B C D E F );
 my $solver = new Algorithm::MasterMind::EDA { alphabet => \@alphabet,
 						length => length( $secret_code ),
-					      pop_size => 300};
+						  pop_size => $population_size};
 
 isa_ok( $solver, 'Algorithm::MasterMind::EDA', 'Instance OK' );
 
@@ -32,7 +33,7 @@ is( $played_string, $secret_code, "Found code after ".$solver->evaluated()." com
 
 $solver = new Algorithm::MasterMind::EDA { alphabet => \@alphabet,
 					     length => length( $secret_code ),
-					       pop_size => 300,
+					       pop_size => $population_size,
 					     orig => 1};
 
 $first_string = $solver->issue_first;

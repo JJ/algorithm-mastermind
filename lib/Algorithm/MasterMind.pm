@@ -10,12 +10,6 @@ our @ISA = qw(Exporter);
 
 our @EXPORT_OK = qw( check_combination );
 
-# Other recommended modules (uncomment to use):
-#  use IO::Prompt;
-#  use Perl6::Export;
-#  use Perl6::Slurp;
-#  use Perl6::Say;
-
 use lib qw( ../../lib ../lib ../../../lib );
 
 # Module implementation here
@@ -94,6 +88,7 @@ sub matches {
     $result->{'matches'}++ if ( $rule_result->{'match'} );
     push @{ $result->{'result'} }, $rule_result;
   }
+  $self->{'_evaluated'}++;
   return $result;
 }
 
