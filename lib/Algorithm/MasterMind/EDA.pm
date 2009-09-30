@@ -9,7 +9,7 @@ use lib qw(../../lib
 	   ../../../Algorithm-Evolutionary/lib
 	   ../../Algorithm-Evolutionary/lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.5 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.6 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
@@ -131,19 +131,26 @@ __END__
 
 =head1 NAME
 
-Algorithm::MasterMind::Evolutionary - Tries to compute new solution from last
+Algorithm::MasterMind::EDA - Solver using an Estimation of Distribution Algorithm
 
 
 =head1 SYNOPSIS
 
-    use Algorithm::MasterMind::Evolutionary;
-
+    use Algorithm::MasterMind::EDA;
+    my $secret_code = 'EAFC';
+    my $population_size = 200;
+    my @alphabet = qw( A B C D E F );
+    my $solver = new Algorithm::MasterMind::EDA { alphabet => \@alphabet,
+						length => length( $secret_code ),
+						  pop_size => $population_size};
   
+    #The rest, same as the other solvers
+
 =head1 DESCRIPTION
 
-Mainly used in test functions, and as a way of instantiating base
-class. 
-
+Uses L<Algorithm::Evolutionary> instance of EDAs to solve MM; as there
+are two different fitness functions you can use; probably
+C<fitness_orig> works better. 
 
 =head1 INTERFACE 
 
@@ -202,6 +209,11 @@ Fitness proposed in the Applied and Soft Computing paper, difference
 between the number of blacks/whites obtained by rules against the
 secret code and by the combination against the combination in the
 rule. 
+
+=head1 SEE ALSO
+
+Other solvers: L<Algorithm::MasterMind::Sequential> and
+L<Algorithm::MasterMind::Random>. Don't work as well, really.
 
 
 =head1 AUTHOR

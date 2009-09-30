@@ -1,5 +1,8 @@
 2009-09-30    <jmerelo@localhost.localdomain>
 
+	* lib/Algorithm/MasterMind.pm (not_in_combination): Changing all
+	documentation to avoid problems, and added a few things.
+
 	* MANIFEST: Added set of files to the MANIFEST, and preparing
 	stuff for initial release 
 

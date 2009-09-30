@@ -4,7 +4,7 @@ use warnings;
 use strict;
 use Carp;
 
-use version; our $VERSION = qv('0.0.1');
+use version; our $VERSION = qv('0.0.2');
 
 our @ISA = qw(Exporter);
 
@@ -148,6 +148,7 @@ sub not_in_combination {
   return keys %alphabet_hash;
 }
 
+
 "4 blacks, 0 white"; # Magic true value required at end of module
 
 __END__
@@ -166,11 +167,21 @@ This document describes Algorithm::MasterMind version 0.0.1
 
     use Algorithm::MasterMind;
 
+    my $solver = new Algorithm::MasterMind::Solver $options;
+
+    my $first_string = $solver->issue_first();
+    $solver->feedback( check_combination( $secret_code, $first_string) );
+
+    my $played_string = $solver->issue_next;
+    $solver->feedback( check_combination( $secret_code, $played_string) );
+
+    #And so on until solution is found
   
 =head1 DESCRIPTION
 
 Includes common functions used in Mastermind solvers; it should not be
-used directly, but from derived classes
+used directly, but from derived classes. See examples in
+L<Algorithm::MasterMind::Random>, for instance.
 
 
 =head1 INTERFACE 
@@ -270,6 +281,12 @@ No bugs have been reported.
 Please report any bugs or feature requests to
 C<bug-algorithm-mastermind@rt.cpan.org>, or through the web interface at
 L<http://rt.cpan.org>.
+
+=head1 SEE ALSO
+
+Other modules in CPAN which you might find more useful than this one
+are at L<Games::Mastermind::Solver>, which I didn't use and extend for
+no reason, although I should. Also L<Games::Mastermind::Cracker>
 
 
 =head1 AUTHOR

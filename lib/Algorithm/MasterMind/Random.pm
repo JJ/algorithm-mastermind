@@ -6,7 +6,7 @@ use Carp;
 
 use lib qw(../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.1 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
@@ -41,25 +41,28 @@ __END__
 
 =head1 NAME
 
-Algorithm::MasterMind::Greedy - Tries to compute new solution from last
+Algorithm::MasterMind::Random - Plays random consistent combinations
 
 
 =head1 SYNOPSIS
 
-    use Algorithm::MasterMind::Greedy;
+    use Algorithm::MasterMind::Random;
+    my $secret_code = 'EAFC';
+    my @alphabet = qw( A B C D E F );
+    my $solver = new Algorithm::MasterMind::Random { alphabet => \@alphabet,
+						   length => length( $secret_code ) };
 
   
 =head1 DESCRIPTION
 
-Mainly used in test functions, and as a way of instantiating base
-class. 
-
+Not very efficient, but memory footprint is null and works pretty well
+for small spaces. Beware of big spaces, it could get stuck
 
 =head1 INTERFACE 
 
 =head2 initialize()
 
-Does nothing, really
+Called from C<new>
 
 =head2 new ( $options )
 

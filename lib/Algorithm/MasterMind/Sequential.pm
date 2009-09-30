@@ -6,7 +6,7 @@ use Carp;
 
 use lib qw(../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.3 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
@@ -41,26 +41,29 @@ __END__
 
 =head1 NAME
 
-Algorithm::MasterMind::Test - Mock class used for testing algorithms
-by hand
+Algorithm::MasterMind::Sequential - Tests each combination in turn.
 
 
 =head1 SYNOPSIS
 
-    use Algorithm::MasterMind::Test;
+    use Algorithm::MasterMind::Sequential;
 
-  
+    my $secret_code = 'ADCB';
+    my @alphabet = qw( A B C D E F );
+    my $solver = new Algorithm::MasterMind::Sequential { alphabet => \@alphabet,
+						       length => length( $secret_code ) };
+    
+
 =head1 DESCRIPTION
 
-Mainly used in test functions, and as a way of instantiating base
-class. 
-
+Test combinations in turn, starting by A x length. Should find the
+solution, but complexity increases with size. Not very efficient.
 
 =head1 INTERFACE 
 
 =head2 initialize()
 
-Does nothing, really
+Called from base class, mainly
 
 =head2 new ( $options )
 
