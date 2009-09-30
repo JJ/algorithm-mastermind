@@ -9,7 +9,7 @@ use lib qw(../../lib
 	   ../../../Algorithm-Evolutionary/lib
 	   ../../Algorithm-Evolutionary/lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.3 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.4 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
@@ -191,6 +191,18 @@ reference to array
 Returns a hash with the number of matches, and whether it matches
 every rule with the number of blacks and whites it obtains with each
 of them
+
+=head2 fitness( $individual )
+
+Computes fitness summing the number of correct black and whites plus
+the number of rules the combination meets times the length
+
+=head2 fitness_orig( $individual )
+
+Fitness proposed in the Applied and Soft Computing paper, difference
+between the number of blacks/whites obtained by rules against the
+secret code and by the combination against the combination in the
+rule. 
 
 
 =head1 AUTHOR

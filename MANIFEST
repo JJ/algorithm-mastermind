@@ -3,7 +3,12 @@ MANIFEST
 Makefile.PL
 README
 lib/Algorithm/MasterMind.pm
+lib/Algorithm/MasterMind/EDA.pm
+lib/Algorithm/MasterMind/Random.pm
+lib/Algorithm/MasterMind/Sequential.pm
 t/00.load.t
-t/perlcritic.t
-t/pod-coverage.t
-t/pod.t
+t/00_functions.t 
+t/00_sequential.t  
+t/02_eda.t  
+t/01_random.t 
+app/mm-eda.cgi

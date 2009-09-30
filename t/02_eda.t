@@ -1,7 +1,7 @@
 #!perl 
 
 use Test::More qw( no_plan ); #Random initial string...
-use lib qw( lib ../lib ../../lib  ); #Just in case we are testing it in-place
+use lib qw( lib ../lib ../../lib ../Algorithm-Evolutionary/lib ); #Just in case we are testing it in-place
 
 use Algorithm::MasterMind qw(check_combination);
 
@@ -39,7 +39,7 @@ $first_string = $solver->issue_first;
 diag( "This might take a while while it finds the code $secret_code" );
 is( length( $first_string), 4, 'Issued first '. $first_string );
 $solver->feedback( check_combination( $secret_code, $first_string) );
-my $played_string = $solver->issue_next;
+$played_string = $solver->issue_next;
 while ( $played_string ne $secret_code ) {
   is( length( $played_string), 4, 'Playing '. $played_string ) ;
   $solver->feedback( check_combination( $secret_code, $played_string) );

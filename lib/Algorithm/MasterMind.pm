@@ -184,6 +184,23 @@ used directly, but from derived classes
 
 Normally to be called from derived classes
 
+=head2 add_rule( $combination, $result)
+
+Adds a rule (set of combination and its result as a hash) to the set
+of rules. These rules represent the information we've got on the
+secret code. 
+
+=head2 check_combination( $secret_code, $combination )
+
+Checks a combination against the secret code, returning a hashref with
+the number of blacks (correct in position) and whites (correct in
+color, not position)
+
+=head2 check_rule ($rule, $combination) 
+
+Same as C<check_combination>, except that a rule contains a
+combination and how it scored against the secret code
+
 =head2 issue_first ()
 
 Issues the first combination, which might be generated in a particular
@@ -220,22 +237,20 @@ Returns a hash with the number of matches, and whether it matches
 every rule with the number of blacks and whites it obtains with each
 of them
 
+=head2 hashify ( $string )
 
-=head1 DIAGNOSTICS
+Turns a string into a hash, to help with comparisons. Used internally,
+mainly.
 
-=over
+=head2 not_in_combination( $string)
 
-=item C<< Error message here, perhaps with %s placeholders >>
+Returns the letters from the alphabet that are _not_ in this
+combination. Might be useful for certain strategies.
 
-[Description of error here]
+=head2 random_combination
 
-=item C<< Another error message here >>
-
-[Description of error here]
-
-[Et cetera, et cetera]
-
-=back
+Combines randomly the alphabet, issuing, you guessed it, a random
+combination. 
 
 
 =head1 CONFIGURATION AND ENVIRONMENT
@@ -245,7 +260,7 @@ Algorithm::MasterMind requires no configuration files or environment variables.
 
 =head1 DEPENDENCIES
 
-None.
+L<Algorithm::Evolutionary>, but only for one of the strategies.
 
 
 =head1 INCOMPATIBILITIES
