@@ -9,7 +9,7 @@ use lib qw(../../lib
 	   ../../../Algorithm-Evolutionary/lib
 	   ../../Algorithm-Evolutionary/lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.3 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
@@ -109,11 +109,17 @@ sub issue_next {
   if ( $ranked_pop[0]->Fitness() == 1 ) { #Already found!
     return  $self->{'_last'} = $ranked_pop[0]->{'_str'};
   } else {
+    my $generations_passed = 0;
     do {
       $eda->apply( $pop );
       $best = $pop->[0];
       $match = $self->matches( $best->{'_str'} );
       $self->{'_evaluated'} += @$pop;
+      $generations_passed ++;
+      if ($generations_passed == 15 ) {
+	$eda->reset( $pop );
+	$generations_passed = 0;
+      }
     } while ( $match->{'matches'} < $rules );
     return  $self->{'_last'} = $best->{'_str'};
   }
