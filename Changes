@@ -1,3 +1,8 @@
+2009-10-01  Juan Julian Merelo Guervos  <jmerelo@geneura.ugr.es>
+
+	* MANIFEST: Started version 0.0.3 after fixing docs form version
+	one. Still waiting for fail reports.
+
 2009-09-30    <jmerelo@localhost.localdomain>
 
 	* lib/Algorithm/MasterMind.pm (not_in_combination): Changing all

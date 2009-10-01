@@ -4,7 +4,7 @@ use warnings;
 use strict;
 use Carp;
 
-use version; our $VERSION = qv('0.0.2');
+use version; our $VERSION = qv('0.0.3');
 
 our @ISA = qw(Exporter);
 
@@ -288,6 +288,10 @@ Other modules in CPAN which you might find more useful than this one
 are at L<Games::Mastermind::Solver>, which I didn't use and extend for
 no reason, although I should. Also L<Games::Mastermind::Cracker>
 
+You can try and play this game at
+http://geneura.ugr.es/~jmerelo/GenMM/mm-eda.cgi, restricted to 4 pegs
+and 6 colors. The program C<mm-eda.cgi> should also be available in
+the C<apps> directory of this distribution.
 
 =head1 AUTHOR
 
