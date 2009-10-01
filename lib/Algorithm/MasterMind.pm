@@ -49,8 +49,9 @@ sub issue_next {
 sub add_rule {
   my $self = shift;
   my ($combination, $result) = @_;
-  $result->{'combination'} = $combination;
-  push @{ $self->{'_rules'} }, $result;
+  my %new_rule = %$result;
+  $new_rule{'combination'} = $combination;
+  push @{ $self->{'_rules'} }, \%new_rule;
 
 }
 

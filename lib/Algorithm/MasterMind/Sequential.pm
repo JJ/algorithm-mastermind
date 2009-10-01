@@ -6,7 +6,7 @@ use Carp;
 
 use lib qw(../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.3 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.4 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
@@ -17,6 +17,7 @@ sub initialize {
     $self->{"_$o"} = $options->{$o}
   }
   my @alphabet = @{$self->{'_alphabet'}};
+  $self->{'_range'} = $alphabet[0]."-".$alphabet[$#alphabet];
   $self->{'_current_string'} = $alphabet[0] x $self->{'_length'};
   $self->{'_last_string'} = $alphabet[$#alphabet]x $self->{'_length'};
 
@@ -29,10 +30,21 @@ sub issue_next {
   do {
     $string = $self->{'_current_string'};
     $match = $self->matches($string);
-    $self->{'_evaluated'}++;
-  } while ( ( $self->{'_current_string'}++ ne $self->{'_last_string'} )
+    $self->next_string;
+  } while ( ( $self->{'_current_string'} ne $self->{'_last_string'} )
 	    && $match->{'matches'} < $rules );
   return  $self->{'_last'} = $string;
+}
+
+sub next_string {
+  my $self = shift;
+  $self->{'_current_string'}++;
+  my $range = $self->{'_range'};
+  if ( $self->{'_current_string'} =~ /[^$range]/ )  {
+    $self->{'_current_string'} =~ s/[^$range]/Z/g;
+    $self->{'_current_string'}++; #Using magic increment
+  }
+  
 }
 
 "some blacks, 0 white"; # Magic true value required at end of module
@@ -85,10 +97,6 @@ Obtain the result to the last combination played
 =head2 guesses()
 
 Total number of guesses
-
-=head2 evaluated()
-
-Total number of combinations checked to issue result
 
 =head2 number_of_rules ()
 
