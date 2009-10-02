@@ -6,7 +6,7 @@ use Carp;
 
 use lib qw(../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.1 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
@@ -92,7 +92,8 @@ __END__
 
 =head1 NAME
 
-Algorithm::MasterMind::Sequential_Alt - Tests each combination in turn.
+Algorithm::MasterMind::Sequential_Alt - Tests each combination in
+    turn, alternating with the beginning and end of the sequence.
 
 
 =head1 SYNOPSIS
@@ -108,7 +109,8 @@ Algorithm::MasterMind::Sequential_Alt - Tests each combination in turn.
 =head1 DESCRIPTION
 
 Test combinations in turn, starting by A x length. Should find the
-solution, but complexity increases with size. Not very efficient.
+solution, but complexity increases with size. Not very efficient, but
+    a bit better than L<Algorithm::MasterMind::Sequential>
 
 =head1 INTERFACE 
 
@@ -151,6 +153,21 @@ reference to array
 Returns a hash with the number of matches, and whether it matches
 every rule with the number of blacks and whites it obtains with each
 of them
+
+=head2 next_string( $string )
+
+Computes the next string taking into account the limited alphabet, and
+    return the computed string
+
+=head2 prev_string( $string )
+
+Computes the previous string taking into account the limited alphabet, and
+    returns it.
+
+=head2 prev_letter ( $character )
+
+Returns the previous letter considering the limited alphabet. Needed
+    because magic auto-decrement does not work.
 
 
 =head1 AUTHOR

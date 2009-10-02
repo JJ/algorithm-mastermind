@@ -6,9 +6,13 @@ lib/Algorithm/MasterMind.pm
 lib/Algorithm/MasterMind/EDA.pm
 lib/Algorithm/MasterMind/Random.pm
 lib/Algorithm/MasterMind/Sequential.pm
+lib/Algorithm/MasterMind/Sequential_Alt.pm
 t/00.load.t
 t/00_functions.t 
 t/00_sequential.t  
-t/02_eda.t  
 t/01_random.t 
+t/02_eda.t  
+t/03_sequential_alt.t 
 app/mm-eda.cgi
+app/run_experiment.pl
+app/process_experiment.pl

@@ -1,3 +1,9 @@
+2009-10-02  Juan J. Merelo  <jmerelo@vega>
+
+	* MANIFEST: Fixing a distribution but in 0.0.2 and also adding new
+	methods. Fixed bugs in Sequential, and added program to run
+	experiments. 
+
 2009-10-01  Juan Julian Merelo Guervos  <jmerelo@geneura.ugr.es>
 
 	* MANIFEST: Started version 0.0.3 after fixing docs form version

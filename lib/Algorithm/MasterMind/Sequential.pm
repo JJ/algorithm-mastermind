@@ -6,7 +6,7 @@ use Carp;
 
 use lib qw(../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.4 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.5 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
@@ -113,6 +113,10 @@ Returns a hash with the number of matches, and whether it matches
 every rule with the number of blacks and whites it obtains with each
 of them
 
+=head2 next_string( $string )
+
+Computes the next string taking into account the limited alphabet, and
+    return the computed string
 
 =head1 AUTHOR
 
