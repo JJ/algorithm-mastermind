@@ -1,5 +1,8 @@
 2009-10-02  Juan J. Merelo  <jmerelo@vega>
 
+	* lib/Algorithm/MasterMind.pm (not_in_combination): Starting 0.0.4
+	with adding info to the main module file.
+
 	* MANIFEST: Fixing a distribution but in 0.0.2 and also adding new
 	methods. Fixed bugs in Sequential, and added program to run
 	experiments. 

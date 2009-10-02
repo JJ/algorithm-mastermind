@@ -4,7 +4,7 @@ use warnings;
 use strict;
 use Carp;
 
-use version; our $VERSION = qv('0.0.3');
+use version; our $VERSION = qv('0.0.4');
 
 our @ISA = qw(Exporter);
 
@@ -293,6 +293,10 @@ You can try and play this game at
 http://geneura.ugr.es/~jmerelo/GenMM/mm-eda.cgi, restricted to 4 pegs
 and 6 colors. The program C<mm-eda.cgi> should also be available in
 the C<apps> directory of this distribution.
+
+The development of this projects is hosted at sourceforge,
+https://sourceforge.net/projects/opeal/develop, check it out for the
+    latest bleeding edge release. 
 
 =head1 AUTHOR
 
