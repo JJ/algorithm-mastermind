@@ -83,7 +83,7 @@ sub matches {
   my @rules = @{$self->{'_rules'}};
   my $result = { matches => 0,
 		 result => [] };
-
+  print "Checking $string, ", $self->{'_evaluated'}, "\n";
   for my $r ( @rules ) {    
     my $rule_result = check_rule( $r, $string );
     $result->{'matches'}++ if ( $rule_result->{'match'} );

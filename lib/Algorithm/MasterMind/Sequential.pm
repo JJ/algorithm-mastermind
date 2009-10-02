@@ -6,9 +6,11 @@ use Carp;
 
 use lib qw(../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.5 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.6 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
+
+use Algorithm::Combinatorics qw(variations_with_repetition);
 
 sub initialize {
   my $self = shift;
@@ -17,6 +19,7 @@ sub initialize {
     $self->{"_$o"} = $options->{$o}
   }
   my @alphabet = @{$self->{'_alphabet'}};
+  $self->{'_engine'} = variations_with_repetition(\@alphabet, $options->{'length'});
   $self->{'_range'} = $alphabet[0]."-".$alphabet[$#alphabet];
   $self->{'_current_string'} = $alphabet[0] x $self->{'_length'};
   $self->{'_last_string'} = $alphabet[$#alphabet]x $self->{'_length'};
@@ -26,25 +29,14 @@ sub initialize {
 sub issue_next {
   my $self = shift;
   my $rules =  $self->number_of_rules();
-  my ($match, $string);
-  do {
-    $string = $self->{'_current_string'};
-    $match = $self->matches($string);
-    $self->next_string;
-  } while ( ( $self->{'_current_string'} ne $self->{'_last_string'} )
-	    && $match->{'matches'} < $rules );
-  return  $self->{'_last'} = $string;
-}
+  my ($match, $string, $combination);
 
-sub next_string {
-  my $self = shift;
-  $self->{'_current_string'}++;
-  my $range = $self->{'_range'};
-  if ( $self->{'_current_string'} =~ /[^$range]/ )  {
-    $self->{'_current_string'} =~ s/[^$range]/Z/g;
-    $self->{'_current_string'}++; #Using magic increment
+  while ( $combination = $self->{'_engine'}->next ) {
+    $string = join("", @$combination);
+    $match = $self->matches($string);
+    last if $match->{'matches'} == $rules;
   }
-  
+  return  $self->{'_last'} = $string;
 }
 
 "some blacks, 0 white"; # Magic true value required at end of module
@@ -112,11 +104,6 @@ reference to array
 Returns a hash with the number of matches, and whether it matches
 every rule with the number of blacks and whites it obtains with each
 of them
-
-=head2 next_string( $string )
-
-Computes the next string taking into account the limited alphabet, and
-    return the computed string
 
 =head1 AUTHOR
 

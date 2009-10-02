@@ -9,7 +9,7 @@ BEGIN {
 	use_ok( 'Algorithm::MasterMind::Sequential' );
 }
 
-my $secret_code = 'ADCB';
+my $secret_code = 'FAFA';
 my @alphabet = qw( A B C D E F );
 my $solver = new Algorithm::MasterMind::Sequential { alphabet => \@alphabet,
 						       length => length( $secret_code ) };

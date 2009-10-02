@@ -6,9 +6,10 @@ use Carp;
 
 use lib qw(../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.3 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
+use Algorithm::Combinatorics qw(variations_with_repetition);
 
 sub initialize {
   my $self = shift;
@@ -17,10 +18,11 @@ sub initialize {
     $self->{"_$o"} = $options->{$o}
   }
   my @alphabet = @{$self->{'_alphabet'}};
-  $self->{'_range'} = $alphabet[0]."-".$alphabet[$#alphabet];
-  $self->{'_current_min'} = $alphabet[0] x $self->{'_length'};
-  $self->{'_current_max'} = $alphabet[$#alphabet] x $self->{'_length'};
-  $self->{'_last_string'} = $alphabet[$#alphabet]x $self->{'_length'};
+  my @tebahpla = reverse @alphabet;
+  $self->{'_engine_fw'} = variations_with_repetition(\@alphabet, $options->{'length'});
+  $self->{'_engine_bw'} = variations_with_repetition(\@tebahpla, $options->{'length'});
+  $self->{'_current_min'} = $alphabet[0]x$options->{'length'};
+  $self->{'_current_max'} = $tebahpla[0]x$options->{'length'};
   $self->{'_direction'} = 1; # Forward, 0 for backwards
 }
 
@@ -30,60 +32,17 @@ sub issue_next {
   my ($match, $string);
   do {
     if ( $self->{'_direction'} ) {
-      $string = $self->{'_current_min'};
+      $string = join("",@{$self->{'_engine_fw'}->next});
+      $self->{'_current_min'} = $string;
     } else {
-      $string = $self->{'_current_max'};
+      $string = join("",@{$self->{'_engine_bw'}->next});
+      $self->{'_current_max'} = $string;
     }
     $match = $self->matches($string);
-    if ( $self->{'_direction'} ) {
-      $self->next_string;
-    } else {
-      $self->prev_string;
-    }
-  } while ( ( $self->{'_current_min'} ne $self->{'_current_max'} )
+  } while ( ( $self->{'_current_min'} lt $self->{'_current_max'} )
 	    && $match->{'matches'} < $rules );
   $self->{'_direction'} = !$self->{'_direction'};
   return  $self->{'_last'} = $string;
-}
-
-sub next_string {
-  my $self = shift;
-  $self->{'_current_min'}++;
-  my $range = $self->{'_range'};
-  if ( $self->{'_current_min'} =~ /[^$range]/ )  {
-    $self->{'_current_min'} =~ s/[^$range]/Z/g;
-    $self->{'_current_min'}++; #Using magic increment
-  }
-  
-}
-
-sub prev_string {
-  my $self = shift;
-  my @alphabet = @{$self->{'_alphabet'}};
-  my @array = split(//, $self->{'_current_max'});
-  $array[$#array] = $self->prev_letter( $array[$#array] );
-  for ( my $i=$#array; $i >= 1; $i-- ) {
-    if ( $array[$i] eq 'Z' ) {
-      $array[$i] = $alphabet[$#alphabet];
-      $array[$i-1] = $self->prev_letter($array[$i-1]);
-    }
-  }
-
-  $self->{'_current_max'} = join("",@array);
-  
-}
-
-sub prev_letter {
-  my $self = shift;
-  my @alphabet = @{$self->{'_alphabet'}};
-  my $letter = shift;
-  my $output;
-  if ( $letter ne $alphabet[0] ) {
-    $output = chr( ord( $letter ) -1 );
-  } else {
-    $output = 'Z'; # Marker for "out of bounds"
-  }
-  return $output;
 }
 
 "some blacks, 0 white"; # Magic true value required at end of module

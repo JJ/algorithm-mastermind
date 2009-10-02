@@ -1,3 +1,8 @@
+2009-10-02    <jmerelo@localhost.localdomain>
+
+	* Makefile.PL: Added Algorithm::Combinatorics which is used to
+	compute next combination in the Sequential algorithm
+
 2009-10-02  Juan J. Merelo  <jmerelo@vega>
 
 	* lib/Algorithm/MasterMind.pm (not_in_combination): Starting 0.0.4

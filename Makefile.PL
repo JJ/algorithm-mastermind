@@ -9,9 +9,10 @@ WriteMakefile(
     ABSTRACT_FROM       => 'lib/Algorithm/MasterMind.pm',
     PL_FILES            => {},
     PREREQ_PM => {
-        'Test::More' => 0,
-        'version'    => 0,
-	'Algorithm::Evolutionary' => 0.71
+		  'Test::More' => 0,
+		  'version'    => 0,
+		  'Algorithm::Evolutionary' => 0.71,
+		  'Algorithm::Combinatorics' => 0
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean               => { FILES => 'Algorithm-MasterMind-*' },
