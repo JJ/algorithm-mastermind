@@ -1,5 +1,8 @@
 #!perl 
 
+use strict;
+use warnings;
+
 use Test::More tests => 16;
 use lib qw( lib ../lib ../../lib  ); #Just in case we are testing it in-place
 
@@ -10,7 +13,7 @@ BEGIN {
 
 }
 
-diag( "Testing Algorithm::Evolutionary $Algorithm::Evolutionary::VERSION, Perl $], $^X" );
+diag( "Testing Algorithm::Mastermind $Algorithm::MasterMind::VERSION, Perl $], $^X" );
 
 my @combinations = qw( AAAA AABB AAAB ABCD ABCD);
 my @strings = qw( ABBB BBAA BAAA BADC ABCD);

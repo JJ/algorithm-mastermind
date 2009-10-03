@@ -1,3 +1,7 @@
+2009-10-03    <jmerelo@localhost.localdomain>
+
+	* t/00_functions.t: Fixed typo in test
+
 2009-10-02    <jmerelo@localhost.localdomain>
 
 	* Makefile.PL: Added Algorithm::Combinatorics which is used to
