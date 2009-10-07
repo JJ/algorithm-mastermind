@@ -9,19 +9,32 @@ use lib qw(../../lib
 	   ../../../Algorithm-Evolutionary/lib
 	   ../../Algorithm-Evolutionary/lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.6 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.7 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
 use Algorithm::Evolutionary qw( Individual::BitString
 				Op::EDA_step );
 
+sub entropy {
+  my $combination = shift;
+  my %freqs;
+  map( $freqs{$_}++, split( //, $combination));
+  my $entropy;
+  for my $k (keys %freqs ) {
+    my $probability = $freqs{$k}/length($combination);
+    $entropy -= $probability * log ($probability);
+  }
+#  print "$combination, $entropy\n";
+  return $entropy;
+}
+
 sub fitness {
     my $self = shift;
     my $object = shift;
     my $combination = $object->{'_str'};
     my $matches = $self->matches( $combination );
-
+    $object->{'_matches'} = $matches->{'matches'};
     my $blacks_and_whites = 1;
     for my $r (@{$matches->{'result'}} ) {
 	$blacks_and_whites += $r->{'blacks'} + $r->{'whites'}+ $self->{'_length'}*$r->{'match'};
@@ -35,6 +48,7 @@ sub fitness_orig {
   my $object = shift;
   my $combination = $object->{'_str'};
   my $matches = $self->matches( $combination );
+  $object->{'_matches'} = $matches->{'matches'};
 
   my $fitness = 1;
   my @rules = @{$self->{'_rules'}};
@@ -45,22 +59,43 @@ sub fitness_orig {
   return 1/$fitness;
 }
 
+sub fitness_compress {
+  my $self = shift;
+  my $object = shift;
+  my $combination = $object->{'_str'};
+  my $matches = $self->matches( $combination );
+  $object->{'_matches'} = $matches->{'matches'};
+  my $fitness = 1;
+  my @rules = @{$self->{'_rules'}};
+  my $rules_string = $combination;
+  for ( my $r = 0; $r <= $#rules; $r++) {
+    $rules_string .= $rules[$r]->{'combination'};
+    $fitness += abs( $rules[$r]->{'blacks'} - $matches->{'result'}->[$r]->{'blacks'} ) +
+      abs( $rules[$r]->{'whites'} - $matches->{'result'}->[$r]->{'whites'} );
+  }
+  
+  return entropy($rules_string)/$fitness;
+}
+
 sub initialize {
   my $self = shift;
   my $options = shift;
   for my $o ( keys %$options ) {
     $self->{"_$o"} = $options->{$o};
   }
-
+  $self->{'_fitness'} = 'orig' if !$self->{'_fitness'};
+  $self->{'_first'} = 'orig' if !$self->{'_first'};
   my $length = $options->{'length'}; 
 
 #----------------------------------------------------------#
 #
   my $fitness;
-  if ( $self->{'_orig'} ) {
+  if ( $self->{'_fitness'} eq 'orig' ) {
     $fitness = sub { $self->fitness_orig(@_) };
-  } else {
+  } elsif ( $self->{'_fitness'} eq 'naive' ) {
     $fitness = sub { $self->fitness(@_) };
+  } elsif ( $self->{'_fitness'} eq 'compress' ) {
+    $fitness = sub { $self->fitness_compress(@_) };
   }
 
 #EDA itself
@@ -76,11 +111,17 @@ sub initialize {
 
 sub issue_first {
   my $self = shift;
-  my $string;
+  my ( $i, $string);
   my @alphabet = @{ $self->{'_alphabet'}};
   my $half = @alphabet/2;
-  for ( my $i = 0; $i < $self->{'_length'}; $i ++ ) {
-    $string .= $alphabet[ $i % $half ]; # Recommendation Knuth
+  if ( $self->{'_first'} eq 'orig' ) {
+    for ( $i = 0; $i < $self->{'_length'}; $i ++ ) {
+      $string .= $alphabet[ $i % $half ]; # Recommendation Knuth
+    }
+  } elsif ( $self->{'_first'} eq 'half' ) {
+    for ( $i = 0; $i < $self->{'_length'}; $i ++ ) {
+      $string .= $alphabet[ $i /2  ]; # Recommendation first paper
+    }
   }
   $self->{'_first'} = 1; # Flag to know when the second is due
 
@@ -106,20 +147,22 @@ sub issue_next {
 
   map( $_->evaluate( $self->{'_fitness'}), @$pop );
   my @ranked_pop = sort { $b->{_fitness} <=> $a->{_fitness}; } @$pop;
-  if ( $ranked_pop[0]->Fitness() == 1 ) { #Already found!
+  if ( $ranked_pop[0]->{'_matches'} == $rules ) { #Already found!
     return  $self->{'_last'} = $ranked_pop[0]->{'_str'};
   } else {
     my $generations_passed = 0;
+    my @pop_by_matches;
     do {
       $eda->apply( $pop );
-      $best = $pop->[0];
-      $match = $self->matches( $best->{'_str'} );
+      map( $_->{'_matches'} = $_->{'_matches'}?$_->{'_matches'}:-1, @$pop ); #To avoid warnings
+      @pop_by_matches = sort { $b->{'_matches'} <=> $a->{'_matches'} } @$pop;
       $generations_passed ++;
+      $best = $pop_by_matches[0];
       if ($generations_passed == 15 ) {
 	$eda->reset( $pop );
 	$generations_passed = 0;
       }
-    } while ( $match->{'matches'} < $rules );
+    } while ( $best->{'_matches'} < $rules );
     return  $self->{'_last'} = $best->{'_str'};
   }
 

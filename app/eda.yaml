@@ -12,5 +12,5 @@ Method_options:
       - F
     length: 4
     pop_size: 200
-    orig: 1
+    fitness: orig
 
