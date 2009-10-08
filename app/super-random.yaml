@@ -1,0 +1,17 @@
+---
+tests: 1000
+ID: 1k
+Method: Random
+Method_options:
+    alphabet:
+      - A
+      - B
+      - C
+      - D
+      - E
+      - F
+      - G
+      - H
+      - I
+    length: 5
+

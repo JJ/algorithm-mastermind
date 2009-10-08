@@ -1,0 +1,19 @@
+---
+tests: 1000
+ID: super-1k-p300-entropy
+Method: EDA
+Method_options:
+    alphabet:
+      - A
+      - B
+      - C
+      - D
+      - E
+      - F
+      - G
+      - H
+      - I
+    length: 5
+    pop_size: 500
+    fitness: compress
+
