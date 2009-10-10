@@ -1,5 +1,6 @@
 ---
 tests: 1000
+repeats : 10
 ID: 1k
 Method: Sequential
 Method_options:
