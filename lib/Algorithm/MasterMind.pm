@@ -109,18 +109,23 @@ sub check_rule {
 sub check_combination {
   my $combination = shift;
   my $string = shift;
+
+  my @combination_arr = split(//, $combination );
+  my @string_arr = split(//, $string);
   my $blacks = 0;
   for ( my $i = 0; $i < length($combination); $i ++ ) {
-    if ( substr( $combination, $i, 1 ) eq substr( $string, $i, 1 ) ) {
-      substr( $combination, $i, 1 ) = substr( $string, $i, 1 ) = 0;
+    if ( $combination_arr[ $i ] eq $string_arr[ $i ] ) {
+      $combination_arr[ $i ] = $string_arr[ $i ] = 0;
       $blacks++;
     }
   }
-  my %hash_combination = hashify( $combination );
-  my %hash_string = hashify( $string );
+  my %hash_combination;
+  map( $hash_combination{$_}++, @combination_arr);
+  my %hash_string;
+  map( $hash_string{$_}++, @string_arr);
   my $whites = 0;
   for my $k ( keys %hash_combination ) {
-    next if $k eq '0';
+    next if $k eq '0'; # Mark for "already computed"
     next if ! defined $hash_string{$k};
     $whites += ($hash_combination{$k} > $hash_string{$k})
       ?$hash_string{$k}
