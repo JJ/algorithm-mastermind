@@ -1,6 +1,6 @@
 ---
 tests: 1000
-ID: 1k-p200-orig
+ID: 10k-p200-orig
 Method: EDA
 Method_options:
     alphabet:
