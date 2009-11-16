@@ -8,7 +8,7 @@ use version; our $VERSION = qv('0.0.4');
 
 our @ISA = qw(Exporter);
 
-our @EXPORT_OK = qw( check_combination );
+our @EXPORT_OK = qw( check_combination partitions );
 
 use lib qw( ../../lib ../lib ../../../lib );
 
@@ -154,6 +154,22 @@ sub not_in_combination {
   return keys %alphabet_hash;
 }
 
+sub partitions {
+  my @combinations = @_;
+
+  my %partitions;
+
+  for my $c ( @combinations ) {
+    for my $cc ( @combinations ) {
+      next if $c eq $cc;
+      my $result = check_combination ( $c, $cc );
+      $partitions{$c}{$result->{'blacks'}."b-".$result->{'whites'}."w"}++;
+    }
+    
+  }
+  return \%partitions;
+}
+
 
 "4 blacks, 0 white"; # Magic true value required at end of module
 
@@ -263,6 +279,14 @@ combination. Might be useful for certain strategies.
 
 Combines randomly the alphabet, issuing, you guessed it, a random
 combination. 
+
+=head2 partitions
+
+From a set of combinations, returns the "partitions", that is, the
+number of combinations that would return every set of black and white
+response. Inputs an array, returns a hash keyed to the combination,
+each key containing a value corresponding to the number of elements in
+each partition.
 
 
 =head1 CONFIGURATION AND ENVIRONMENT
