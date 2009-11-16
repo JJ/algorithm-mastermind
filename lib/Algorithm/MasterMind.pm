@@ -6,6 +6,8 @@ use Carp;
 
 use version; our $VERSION = qv('0.0.4');
 
+use Algorithm::Combinatorics qw(variations_with_repetition);
+
 our @ISA = qw(Exporter);
 
 our @EXPORT_OK = qw( check_combination partitions );
@@ -40,6 +42,18 @@ sub random_combination {
 sub issue_first { #Default implementation
   my $self = shift;
   return $self->{'_last'} = $self->random_combination;
+}
+
+sub issue_first_Knuth {
+  my $self = shift;
+  my $string;
+  my @alphabet = @{ $self->{'_alphabet'}};
+  my $half = @alphabet/2;
+  for ( my $i = 0; $i < $self->{'_length'}; $i ++ ) {
+    $string .= $alphabet[ $i % $half ]; # Recommendation Knuth
+  }
+  $self->{'_first'} = 1; # Flag to know when the second is due
+  return $self->{'_last_string'} = $string;
 }
 
 sub issue_next {
@@ -170,6 +184,12 @@ sub partitions {
   return \%partitions;
 }
 
+sub all_combinations {
+  my $self = shift; 
+  my @combinations_array = variations_with_repetition( $self->{'_alphabet'}, 
+						       $self->{'_length'});
+  my @combinations = map( join( "", @$_), @combinations_array );
+}
 
 "4 blacks, 0 white"; # Magic true value required at end of module
 
@@ -234,6 +254,11 @@ combination and how it scored against the secret code
 Issues the first combination, which might be generated in a particular
 way 
 
+=head2 issue_first_Knuth
+
+First combination looking like AABC for the normal
+mastermind. Proposed by Knuth in one of his original papers. 
+
 =head2 issue_next()
 
 Issues the next combination
@@ -287,6 +312,12 @@ number of combinations that would return every set of black and white
 response. Inputs an array, returns a hash keyed to the combination,
 each key containing a value corresponding to the number of elements in
 each partition.
+
+=head2 all_combinations
+
+Returns all possible combinations of the current alphabet and length
+in an array. Be careful with that, it could very easily fill up your
+memory, depending on length and alphabet size.
 
 
 =head1 CONFIGURATION AND ENVIRONMENT

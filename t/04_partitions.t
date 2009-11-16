@@ -3,18 +3,26 @@
 use strict;
 use warnings;
 
-use Test::More tests => 2;
+use Test::More tests => 3;
 use lib qw( lib ../lib ../../lib  ); #Just in case we are testing it in-place
 
 use Algorithm::MasterMind qw(partitions);
+use Algorithm::MasterMind::Test;
+
 use Algorithm::Combinatorics qw(variations_with_repetition);
 
 diag( "This could take a while \n" );
 
 my $length= 4;
 my @alphabet = qw( A B C D );
-my @combinations_array = variations_with_repetition( \@alphabet, $length);
-my @combinations = map( join( "", @$_), @combinations_array );
+
+my $mastermind = new Algorithm::MasterMind::Test( {alphabet => \@alphabet, 
+						   length => $length} );
+
+my @combinations = $mastermind->all_combinations;
+is ( $combinations[$#combinations], $alphabet[$#alphabet]x$length, 
+     "Combinations generated"),
+
 my $partitions = partitions( @combinations ) ;
 
 is( keys %$partitions, @combinations, "Number of partitions" );

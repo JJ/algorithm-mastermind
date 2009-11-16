@@ -6,14 +6,19 @@ use Carp;
 
 use lib qw(../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.3 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.4 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
 sub initialize {
   my $self = shift;
-  return 1;
+  my $options = shift;
+  for my $o ( keys %$options ) {
+    $self->{"_$o"} = $options->{$o};
+  }
+  $self->{'_test'} = 1;
 }
+
 
 "some blacks, 0 white"; # Magic true value required at end of module
 

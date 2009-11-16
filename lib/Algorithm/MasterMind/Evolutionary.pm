@@ -6,7 +6,7 @@ use Carp;
 
 use lib qw(../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.1 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
@@ -20,14 +20,7 @@ sub initialize {
 
 sub issue_first {
   my $self = shift;
-  my $string;
-  my @alphabet = @{ $self->{'_alphabet'}};
-  my $half = @alphabet/2;
-  for ( my $i = 0; $i < $self->{'_length'}; $i ++ ) {
-    $string .= $alphabet[ $i % $half ]; # Recommendation Knuth
-  }
-  $self->{'_first'} = 1; # Flag to know when the second is due
-  return $self->{'_last_string'} = $string;
+  return $self->issue_first_Knuth();
 }
 
 sub issue_next {
