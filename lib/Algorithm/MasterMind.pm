@@ -4,7 +4,7 @@ use warnings;
 use strict;
 use Carp;
 
-use version; our $VERSION = qv('0.0.4');
+use version; our $VERSION = qv('0.1.0');
 
 use Algorithm::Combinatorics qw(variations_with_repetition);
 
@@ -111,8 +111,8 @@ sub check_rule {
   my $rule = shift;
   my $string = shift;
   my $result = check_combination( $rule->{'combination'}, $string );
-  if ( $rule->{'blacks'} eq $result->{'blacks'} 
-       && $rule->{'whites'} eq $result->{'whites'} ) {
+  if ( ( $rule->{'blacks'} == $result->{'blacks'} )
+       && ( $rule->{'whites'} == $result->{'whites'} ) ) {
     $result->{'match'} = 1;
   } else {
     $result->{'match'} = 0;
@@ -189,6 +189,7 @@ sub all_combinations {
   my @combinations_array = variations_with_repetition( $self->{'_alphabet'}, 
 						       $self->{'_length'});
   my @combinations = map( join( "", @$_), @combinations_array );
+  
 }
 
 "4 blacks, 0 white"; # Magic true value required at end of module
