@@ -9,7 +9,7 @@ use lib qw(../../lib
 	   ../../../Algorithm-Evolutionary/lib
 	   ../../Algorithm-Evolutionary/lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.7 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.8 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
@@ -197,9 +197,19 @@ C<fitness_orig> works better.
 
 =head1 INTERFACE 
 
-=head2 initialize()
+=head2 initialize 
 
-Does nothing, really
+Performs bookkeeping, and assigns flags depending on the
+initialization values
+
+=head2 entropy( $combination)
+
+Computes the Jensen-Shannon entropy of the string and returns it.
+
+=head2 fitness_compress( $object ) 
+
+Uses as fitness the entropy of the string attached to all the strings
+already played computed above. 
 
 =head2 new ( $options )
 
