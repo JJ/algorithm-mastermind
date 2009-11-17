@@ -1,3 +1,9 @@
+2009-11-17  Juan Julian Merelo Guervos  <jmerelo@geneura.ugr.es>
+
+	* MANIFEST: Added several new algorithms, including Knuth's and
+	EDA. 
+	Changed minor to 0.1, since it's quite complete now. 
+
 2009-10-10    <jmerelo@localhost.localdomain>
 
 	* lib/Algorithm/MasterMind.pm (check_combination): Saving around

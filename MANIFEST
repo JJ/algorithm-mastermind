@@ -4,6 +4,7 @@ Makefile.PL
 README
 lib/Algorithm/MasterMind.pm
 lib/Algorithm/MasterMind/EDA.pm
+lib/Algorithm/MasterMind/Partition_Worst.pm 
 lib/Algorithm/MasterMind/Random.pm
 lib/Algorithm/MasterMind/Sequential.pm
 lib/Algorithm/MasterMind/Sequential_Alt.pm
@@ -14,6 +15,9 @@ t/00_sequential.t
 t/01_random.t 
 t/02_eda.t  
 t/03_sequential_alt.t 
+t/04_partitions.t 
+t/05_partition_worst.t 
 app/mm-eda.cgi
 app/run_experiment.pl
+app/run_experiment_all.pl
 app/process_experiment.pl
