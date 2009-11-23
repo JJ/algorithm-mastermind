@@ -6,7 +6,7 @@ use Carp;
 
 use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/ ../../Algorithm-Evolutionary/lib/);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.3 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.4 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
@@ -65,7 +65,7 @@ sub issue_first {
 
   #Initialize population for next step
   my @pop;
-  for ( 0..$self->{'_pop_size'} ) {
+  for ( 0.. ($self->{'_pop_size'}-1) ) {
     my $indi = Algorithm::Evolutionary::Individual::String->new( $self->{'_alphabet'}, 
 								 $self->{'_length'} );
     push( @pop, $indi );
@@ -93,6 +93,7 @@ sub issue_next {
     my $best;
     do {
       $moga->apply( $pop );
+      print "Población ", scalar @$pop, "\n";
       map( $_->{'_matches'} = $_->{'_matches'}?$_->{'_matches'}:-1, @$pop ); #To avoid warnings
       @pop_by_matches = sort { $b->{'_matches'} <=> $a->{'_matches'} } @$pop;
       $best = $pop_by_matches[0];
