@@ -4,11 +4,39 @@ use warnings;
 use strict;
 use Carp;
 
-use lib qw(../../lib);
+use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/ ../../Algorithm-Evolutionary/lib/);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.3 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
+
+use Algorithm::MasterMind qw(entropy);
+
+use Algorithm::Evolutionary::Op::String_Mutation; 
+use Algorithm::Evolutionary::Op::Crossover;
+use Algorithm::Evolutionary::Op::Easy_MO;
+use Algorithm::Evolutionary::Individual::String;
+
+# ---------------------------------------------------------------------------
+
+sub fitness {
+  my $self = shift;
+  my $object = shift;
+  my $combination = $object->{'_str'};
+  my $matches = $self->matches( $combination );
+  $object->{'_matches'} = $matches->{'matches'};
+  my $fitness = 0;
+  my @rules = @{$self->{'_rules'}};
+  my $rules_string = $combination;
+  for ( my $r = 0; $r <= $#rules; $r++) {
+    $rules_string .= $rules[$r]->{'combination'};
+    $fitness += abs( $rules[$r]->{'blacks'} - $matches->{'result'}->[$r]->{'blacks'} ) +
+      abs( $rules[$r]->{'whites'} - $matches->{'result'}->[$r]->{'whites'} );
+  }
+  
+  return [ $fitness, entropy($rules_string)];
+}
+
 
 sub initialize {
   my $self = shift;
@@ -16,19 +44,61 @@ sub initialize {
   for my $o ( keys %$options ) {
     $self->{"_$o"} = $options->{$o};
   }
+
+  # Variation operators
+  my $m = new Algorithm::Evolutionary::Op::String_Mutation; # Rate = 1
+  my $c = Algorithm::Evolutionary::Op::Crossover->new(2, 4 ); # Rate = 4
+
+  my $fitness = sub { $self->fitness(@_) };
+  my $moga = new Algorithm::Evolutionary::Op::Easy_MO( $fitness, 
+						       $options->{'replacement_rate'},
+						       [ $m, $c] );
+  $self->{'_fitness'} = $fitness;
+  $self->{'_moga'} = $moga;
+
+ 
+
 }
 
 sub issue_first {
   my $self = shift;
-  return $self->issue_first_Knuth();
+
+  #Initialize population for next step
+  my @pop;
+  for ( 0..$self->{'_pop_size'} ) {
+    my $indi = Algorithm::Evolutionary::Individual::String->new( $self->{'_alphabet'}, 
+								 $self->{'_length'} );
+    push( @pop, $indi );
+  }
+  
+  $self->{'_pop'}= \@pop;
+  
+  return $self->{'_last'} = $self->issue_first_Knuth();;
 }
 
 sub issue_next {
   my $self = shift;
   my $rules =  $self->number_of_rules();
-  my ($match, $string);
   my @alphabet = @{$self->{'_alphabet'}};
   my $length = $self->{'_length'};
+  my $pop = $self->{'_pop'};
+  my $moga = $self->{'_moga'};
+  map( $_->evaluate( $self->{'_fitness'}), @$pop );
+  my @ranked_pop = sort { $a->{_fitness}[0] <=> $b->{_fitness}[0]; } @$pop;
+
+  if ( $ranked_pop[0]->{'_matches'} == $rules ) { #Already found!
+    return  $self->{'_last'} = $ranked_pop[0]->{'_str'};
+  } else {
+    my @pop_by_matches;
+    my $best;
+    do {
+      $moga->apply( $pop );
+      map( $_->{'_matches'} = $_->{'_matches'}?$_->{'_matches'}:-1, @$pop ); #To avoid warnings
+      @pop_by_matches = sort { $b->{'_matches'} <=> $a->{'_matches'} } @$pop;
+      $best = $pop_by_matches[0];
+    } while ( $best->{'_matches'} < $rules );
+    return  $self->{'_last'} = $best->{'_str'};
+  }
 
 }
 

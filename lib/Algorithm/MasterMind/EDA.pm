@@ -9,25 +9,14 @@ use lib qw(../../lib
 	   ../../../Algorithm-Evolutionary/lib
 	   ../../Algorithm-Evolutionary/lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.8 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.9 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
+use Algorithm::MasterMind qw(entropy);
+
 use Algorithm::Evolutionary qw( Individual::BitString
 				Op::EDA_step );
-
-sub entropy {
-  my $combination = shift;
-  my %freqs;
-  map( $freqs{$_}++, split( //, $combination));
-  my $entropy;
-  for my $k (keys %freqs ) {
-    my $probability = $freqs{$k}/length($combination);
-    $entropy -= $probability * log ($probability);
-  }
-#  print "$combination, $entropy\n";
-  return $entropy;
-}
 
 sub fitness {
     my $self = shift;

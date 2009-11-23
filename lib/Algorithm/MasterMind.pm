@@ -201,7 +201,6 @@ sub entropy {
     my $probability = $freqs{$k}/length($combination);
     $entropy -= $probability * log ($probability);
   }
-#  print "$combination, $entropy\n";
   return $entropy;
 }
 
