@@ -6,7 +6,7 @@ use Carp;
 
 use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/ ../../Algorithm-Evolutionary/lib/);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.4 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.5 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
@@ -93,7 +93,7 @@ sub issue_next {
     my $best;
     do {
       $moga->apply( $pop );
-      print "Población ", scalar @$pop, "\n";
+#      print "Población ", scalar @$pop, "\n";
       map( $_->{'_matches'} = $_->{'_matches'}?$_->{'_matches'}:-1, @$pop ); #To avoid warnings
       @pop_by_matches = sort { $b->{'_matches'} <=> $a->{'_matches'} } @$pop;
       $best = $pop_by_matches[0];
@@ -125,6 +125,11 @@ class.
 
 =head1 INTERFACE 
 
+=head2 fitness()
+
+Returns the vectorial fitness for each combination, which combines
+entropy and the distance to a consistent combination.
+
 =head2 initialize()
 
 Does nothing, really
@@ -141,34 +146,6 @@ way
 =head2 issue_next()
 
 Issues the next combination
-
-=head2 feedback()
-
-Obtain the result to the last combination played
-
-=head2 guesses()
-
-Total number of guesses
-
-=head2 evaluated()
-
-Total number of combinations checked to issue result
-
-=head2 number_of_rules ()
-
-Returns the number of rules in the algorithm
-
-=head2 rules()
-
-Returns the rules (combinations, blacks, whites played so far) y a
-reference to array
-
-=head2 matches( $string ) 
-
-Returns a hash with the number of matches, and whether it matches
-every rule with the number of blacks and whites it obtains with each
-of them
-
 
 =head1 AUTHOR
 

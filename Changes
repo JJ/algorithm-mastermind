@@ -1,3 +1,8 @@
+2009-11-23  Juan Julian Merelo Guervos  <jmerelo@geneura.ugr.es>
+
+	* MANIFEST: Added a multiobjective evolutionary that tries to find
+	the combination via finding consistent combinations.
+
 2009-11-17    <jmerelo@localhost.localdomain>
 
 	* lib/Algorithm/MasterMind.pm: Starting 0.1.1, which will include
