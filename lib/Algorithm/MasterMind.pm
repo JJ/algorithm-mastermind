@@ -4,13 +4,13 @@ use warnings;
 use strict;
 use Carp;
 
-use version; our $VERSION = qv('0.1.0');
+use version; our $VERSION = qv('0.1.1');
 
 use Algorithm::Combinatorics qw(variations_with_repetition);
 
 our @ISA = qw(Exporter);
 
-our @EXPORT_OK = qw( check_combination partitions );
+our @EXPORT_OK = qw( check_combination partitions entropy );
 
 use lib qw( ../../lib ../lib ../../../lib );
 
@@ -192,6 +192,20 @@ sub all_combinations {
   
 }
 
+sub entropy {
+  my $combination = shift;
+  my %freqs;
+  map( $freqs{$_}++, split( //, $combination));
+  my $entropy;
+  for my $k (keys %freqs ) {
+    my $probability = $freqs{$k}/length($combination);
+    $entropy -= $probability * log ($probability);
+  }
+#  print "$combination, $entropy\n";
+  return $entropy;
+}
+
+
 "4 blacks, 0 white"; # Magic true value required at end of module
 
 __END__
@@ -320,6 +334,9 @@ Returns all possible combinations of the current alphabet and length
 in an array. Be careful with that, it could very easily fill up your
 memory, depending on length and alphabet size.
 
+=head2 entropy( $string )
+
+Computes the string entropy
 
 =head1 CONFIGURATION AND ENVIRONMENT
 
@@ -328,7 +345,9 @@ Algorithm::MasterMind requires no configuration files or environment variables.
 
 =head1 DEPENDENCIES
 
-L<Algorithm::Evolutionary>, but only for one of the strategies.
+L<Algorithm::Evolutionary>, but only for one of the
+strategies. L<Algorithm::Combinatorics>, used to generate combinations
+and for exhaustive search strategies. 
 
 
 =head1 INCOMPATIBILITIES

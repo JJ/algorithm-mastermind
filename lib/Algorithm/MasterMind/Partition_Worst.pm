@@ -4,9 +4,9 @@ use warnings;
 use strict;
 use Carp;
 
-use lib qw(../../lib);
+use lib qw(../../lib ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.1 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
@@ -86,7 +86,7 @@ __END__
 
 =head1 NAME
 
-Algorithm::MasterMind::Partition_Worst - Plays random consistent combinations
+Algorithm::MasterMind::Partition_Worst - Plays by Knuth's playbook
 
 
 =head1 SYNOPSIS
@@ -101,7 +101,12 @@ Algorithm::MasterMind::Partition_Worst - Plays random consistent combinations
 =head1 DESCRIPTION
 
 Solves the algorithm by issuing each time a combination that minimizes
-the size of the worst partition. 
+the size of the worst partition. This intends to maximally reduce the
+search space each time; it was the first algorithm used to play
+mastermind, but it's no longer state of the art, and does not work
+very well for spaces higher than 4-6. In fact, it will probably take a
+lot of time (and use a lot of memory) for 5-9 already, so use it
+carefully. 
 
 =head1 INTERFACE 
 

@@ -1,3 +1,9 @@
+2009-11-17    <jmerelo@localhost.localdomain>
+
+	* lib/Algorithm/MasterMind.pm: Starting 0.1.1, which will include
+	multiobjective algorithms and most of the stuff we're preparing
+	for EvoStar. Starting with minor doc changes.
+
 2009-11-17  Juan Julian Merelo Guervos  <jmerelo@geneura.ugr.es>
 
 	* MANIFEST: Added several new algorithms, including Knuth's and
