@@ -4,9 +4,11 @@ use warnings;
 use strict;
 use Carp;
 
-use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/ ../../Algorithm-Evolutionary/lib/);
+use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/ 
+	   ../../Algorithm-Evolutionary/lib/
+	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.1 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary';
 
@@ -32,7 +34,7 @@ sub issue_next {
   my @ranked_pop = sort { $b->{_fitness} <=> $a->{_fitness}; } @$pop;
 
   my %consistent;
-  print "Consistent in ", scalar keys %{$self->{'_consistent'}}, "\n";
+#   print "Consistent in ", scalar keys %{$self->{'_consistent'}}, "\n";
   if (  $self->{'_consistent'} ) { #Check for consistency
     %consistent = %{$self->{'_consistent'}};
     for my $c (keys %consistent ) {
@@ -44,7 +46,7 @@ sub issue_next {
   } else {
     %consistent = ();
   }
-  print "Consistent out ", scalar keys %consistent, "\n";
+#  print "Consistent out ", scalar keys %consistent, "\n";
   
   while ( $ranked_pop[0]->{'_matches'} == $rules ) {
     $consistent{$ranked_pop[0]->{'_str'}} = $ranked_pop[0];
@@ -53,13 +55,15 @@ sub issue_next {
   my $generations_equal = 0;
   # The 20 was computed in NICSO paper, valid for normal mastermind
   my $number_of_consistent = keys %consistent;
-  while ( ($generations_equal < 10) 
-	  && ( $number_of_consistent < 20 ) ) {
+  
+#  print "Consistent new ", scalar keys %consistent, "\n";
+  while (  $number_of_consistent < 20 ) {
     my $this_number_of_consistent = $number_of_consistent;
     $ga->apply( $pop );
-#    map( $_->{'_matches'} = $_->{'_matches'}?$_->{'_matches'}:-1, @$pop ); #To avoid warnings
-    for my $p( @$pop ) {
-      if ( $p->{'_matches'} == $rules ) {
+    for my $p( @$pop ) { 
+      my $matches = $self->matches( $p->{'_str'} );
+#      print "* ", $p->{'_str'}, " ", $matches->{'matches'}, "\n";      
+      if ( $matches->{'matches'} == $rules ) {
 #	print "Combination  ", $p->{'_str'}, " matches ", $p->{'_matches'}, "\n";
 	$consistent{$p->{'_str'}} = $p;
       }
@@ -70,32 +74,34 @@ sub issue_next {
     } else {
       $generations_equal = 0;
     }
+    last if ( ( $generations_equal == 10 ) && ( $number_of_consistent >= 1 ) );
   }
 
-  print "Combinations ", join( " ", keys %consistent ), "\n";
+#  print "After GA combinations ", join( " ", keys %consistent ), "\n";
   $self->{'_consistent'} = \%consistent;
-  print "Consistent ", scalar keys %consistent, "\n";
-  #Use whatever we've got to compute number of partitions
-  my $partitions = partitions( keys %consistent );
-
-  my $max_partitions = 0;
-  my %max_c;
-  for my $c ( keys %$partitions ) {
-    my $this_max =  keys %{$partitions->{$c}};
-    $max_c{$c} = $this_max;
-    if ( $this_max > $max_partitions ) {
-      $max_partitions = $this_max;
+  if ( keys %consistent > 1 ) {
+#    print "Consistent ", scalar keys %consistent, "\n";
+    #Use whatever we've got to compute number of partitions
+    my $partitions = partitions( keys %consistent );
+    
+    my $max_partitions = 0;
+    my %max_c;
+    for my $c ( keys %$partitions ) {
+      my $this_max =  keys %{$partitions->{$c}};
+      $max_c{$c} = $this_max;
+      if ( $this_max > $max_partitions ) {
+	$max_partitions = $this_max;
+      }
     }
+    # Find all partitions with that max
+    my @max_c = grep( $max_c{$_} == $max_partitions, keys %max_c );
+    # Break ties
+    my $string = $max_c[ rand( @max_c )];
+    # Obtain next
+    return  $self->{'_last'} = $string;
+  } else {
+    return $self->{'_last'} = (keys %consistent)[0];
   }
-  # Find all partitions with that max
-  my @max_c = grep( $max_c{$_} == $max_partitions, keys %max_c );
-  # Break ties
-  my $string = $max_c[ rand( @max_c )];
-  # Obtain next
-  if ( $string eq '' ) {
-    warn "Something is wrong\n";
-  }
-  return  $self->{'_last'} = $string;
   
 }
 

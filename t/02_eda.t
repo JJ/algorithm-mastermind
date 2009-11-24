@@ -48,9 +48,9 @@ sub solve_mastermind {
   $solver->feedback( check_combination( $secret_code, $first_string) );
   my $played_string = $solver->issue_next;
   while ( $played_string ne $secret_code ) {
-  is( length( $played_string), 4, 'Playing '. $played_string ) ;
-  $solver->feedback( check_combination( $secret_code, $played_string) );
-  $played_string = $solver->issue_next;
-}
-is( $played_string, $secret_code, "Found code after ".$solver->evaluated()." combinations" );
+    is( length( $played_string), 4, 'Playing '. $played_string ) ;
+    $solver->feedback( check_combination( $secret_code, $played_string) );
+    $played_string = $solver->issue_next;
+  }
+  is( $played_string, $secret_code, "Found code after ".$solver->evaluated()." combinations" );
 }
