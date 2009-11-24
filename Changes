@@ -1,5 +1,8 @@
 2009-11-24  Juan Julian Merelo Guervos  <jmerelo@geneura.ugr.es>
 
+	* lib/Algorithm/MasterMind.pm: Changed to 0.2 due to the new
+	modules added.
+
 	* lib/Algorithm/MasterMind/Evolutionary.pm: The new single
 	objective evolutionary works at least as well ad the old
 	EDA. Let's see if we can add partitions to it.
