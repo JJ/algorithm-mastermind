@@ -1,3 +1,16 @@
+2009-11-24  Juan Julian Merelo Guervos  <jmerelo@geneura.ugr.es>
+
+	* lib/Algorithm/MasterMind/Evolutionary.pm: The new single
+	objective evolutionary works at least as well ad the old
+	EDA. Let's see if we can add partitions to it.
+
+	* lib/Algorithm/MasterMind/Evolutionary_Base.pm (issue_first):
+	Completed motion of some functions to this class. Now on to the
+	evolutionary single_objective.
+
+	* t/06_moga.t: Since this MOGA does not seem to be able to find
+	the solution, I'll just do an iteration.
+
 2009-11-23  Juan Julian Merelo Guervos  <jmerelo@geneura.ugr.es>
 
 	* MANIFEST: Added a multiobjective evolutionary that tries to find

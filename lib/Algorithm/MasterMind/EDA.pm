@@ -9,9 +9,9 @@ use lib qw(../../lib
 	   ../../../Algorithm-Evolutionary/lib
 	   ../../Algorithm-Evolutionary/lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.9 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.10 $ =~ /(\d+)\.(\d+)/g; 
 
-use base 'Algorithm::MasterMind';
+use base 'Algorithm::MasterMind::Evolutionary_Base';
 
 use Algorithm::MasterMind qw(entropy);
 
@@ -48,23 +48,6 @@ sub fitness_orig {
   return 1/$fitness;
 }
 
-sub fitness_compress {
-  my $self = shift;
-  my $object = shift;
-  my $combination = $object->{'_str'};
-  my $matches = $self->matches( $combination );
-  $object->{'_matches'} = $matches->{'matches'};
-  my $fitness = 1;
-  my @rules = @{$self->{'_rules'}};
-  my $rules_string = $combination;
-  for ( my $r = 0; $r <= $#rules; $r++) {
-    $rules_string .= $rules[$r]->{'combination'};
-    $fitness += abs( $rules[$r]->{'blacks'} - $matches->{'result'}->[$r]->{'blacks'} ) +
-      abs( $rules[$r]->{'whites'} - $matches->{'result'}->[$r]->{'whites'} );
-  }
-  
-  return entropy($rules_string)/$fitness;
-}
 
 sub initialize {
   my $self = shift;
@@ -191,23 +174,9 @@ C<fitness_orig> works better.
 Performs bookkeeping, and assigns flags depending on the
 initialization values
 
-=head2 entropy( $combination)
-
-Computes the Jensen-Shannon entropy of the string and returns it.
-
-=head2 fitness_compress( $object ) 
-
-Uses as fitness the entropy of the string attached to all the strings
-already played computed above. 
-
 =head2 new ( $options )
 
 This function, and all the rest, are directly inherited from base
-
-=head2 issue_first ()
-
-Issues the first combination, which might be generated in a particular
-way 
 
 =head2 issue_next()
 

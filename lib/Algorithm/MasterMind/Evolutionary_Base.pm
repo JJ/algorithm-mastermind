@@ -1,4 +1,4 @@
-package Algorithm::MasterMind::Evolutionary;
+package Algorithm::MasterMind::Evolutionary_Base;
 
 use warnings;
 use strict;
@@ -6,66 +6,49 @@ use Carp;
 
 use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/ ../../Algorithm-Evolutionary/lib/);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.6 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.1 $ =~ /(\d+)\.(\d+)/g; 
 
-use base 'Algorithm::MasterMind::Evolutionary_Base';
+use base 'Algorithm::MasterMind';
 
-use Algorithm::Evolutionary::Op::String_Mutation; 
-use Algorithm::Evolutionary::Op::Permutation; 
-use Algorithm::Evolutionary::Op::Crossover;
-use Algorithm::Evolutionary::Op::Easy;
+use Algorithm::MasterMind qw(entropy);
+
 use Algorithm::Evolutionary::Individual::String;
 
 # ---------------------------------------------------------------------------
 
-
-sub initialize {
+sub fitness_compress {
   my $self = shift;
-  my $options = shift;
-  for my $o ( keys %$options ) {
-    $self->{"_$o"} = $options->{$o};
+  my $object = shift;
+  my $combination = $object->{'_str'};
+  my $matches = $self->matches( $combination );
+  $object->{'_matches'} = $matches->{'matches'};
+  my $fitness = 1;
+  my @rules = @{$self->{'_rules'}};
+  my $rules_string = $combination;
+  for ( my $r = 0; $r <= $#rules; $r++) {
+    $rules_string .= $rules[$r]->{'combination'};
+    $fitness += abs( $rules[$r]->{'blacks'} - $matches->{'result'}->[$r]->{'blacks'} ) +
+      abs( $rules[$r]->{'whites'} - $matches->{'result'}->[$r]->{'whites'} );
   }
-
-  # Variation operators
-  my $m = new Algorithm::Evolutionary::Op::String_Mutation; # Rate = 1
-  my $p = new Algorithm::Evolutionary::Op::Permutation; # Rate = 1
-  my $c = Algorithm::Evolutionary::Op::Crossover->new(2, 8 ); # Rate = 4
-
-  my $fitness = sub { $self->fitness_compress(@_) };
-  my $ga = new Algorithm::Evolutionary::Op::Easy( $fitness, 
-						    $options->{'replacement_rate'},
-						    [ $m, $p, $c] );
-  $self->{'_fitness'} = $fitness;
-  $self->{'_ga'} = $ga;
-
+  
+  return entropy($rules_string)/$fitness;
 }
 
 
-sub issue_next {
+sub issue_first {
   my $self = shift;
-  my $rules =  $self->number_of_rules();
-  my @alphabet = @{$self->{'_alphabet'}};
-  my $length = $self->{'_length'};
-  my $pop = $self->{'_pop'};
-  my $ga = $self->{'_ga'};
-  map( $_->evaluate( $self->{'_fitness'}), @$pop );
-  my @ranked_pop = sort { $b->{_fitness} <=> $a->{_fitness}; } @$pop;
 
-  if ( $ranked_pop[0]->{'_matches'} == $rules ) { #Already found!
-    return  $self->{'_last'} = $ranked_pop[0]->{'_str'};
-  } else {
-    my @pop_by_matches;
-    my $best;
-    do {
-      $ga->apply( $pop );
-      print "Población ", scalar @$pop, "\n";
-      map( $_->{'_matches'} = $_->{'_matches'}?$_->{'_matches'}:-1, @$pop ); #To avoid warnings
-      @pop_by_matches = sort { $b->{'_matches'} <=> $a->{'_matches'} } @$pop;
-      $best = $pop_by_matches[0];
-    } while ( $best->{'_matches'} < $rules );
-    return  $self->{'_last'} = $best->{'_str'};
+  #Initialize population for next step
+  my @pop;
+  for ( 0.. ($self->{'_pop_size'}-1) ) {
+    my $indi = Algorithm::Evolutionary::Individual::String->new( $self->{'_alphabet'}, 
+								 $self->{'_length'} );
+    push( @pop, $indi );
   }
-
+  
+  $self->{'_pop'}= \@pop;
+  
+  return $self->{'_last'} = $self->issue_first_Knuth();;
 }
 
 "some blacks, 0 white"; # Magic true value required at end of module
@@ -79,38 +62,25 @@ Algorithm::MasterMind::Evolutionary - Tries to compute new solution from last
 
 =head1 SYNOPSIS
 
-    use Algorithm::MasterMind::Evolutionary;
+    use base 'Algorithm::MasterMind::Evolutionary::Evolutionary_Base';
 
   
 =head1 DESCRIPTION
 
-Mainly used in test functions, and as a way of instantiating base
-class. 
-
+Base class with some default functions for evolutionary algorithm
+based classes. 
 
 =head1 INTERFACE 
 
-=head2 fitness()
+=head2 fitness_compress()
 
-Returns the vectorial fitness for each combination, which combines
+Returns the  fitness for each combination, which combines
 entropy and the distance to a consistent combination.
-
-=head2 initialize()
-
-Does nothing, really
-
-=head2 new ( $options )
-
-This function, and all the rest, are directly inherited from base
 
 =head2 issue_first ()
 
 Issues the first combination, which might be generated in a particular
-way 
-
-=head2 issue_next()
-
-Issues the next combination
+way; in this case Knuth's way. Might be used as a default. 
 
 =head1 AUTHOR
 
