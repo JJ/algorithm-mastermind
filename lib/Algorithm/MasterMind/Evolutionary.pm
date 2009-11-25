@@ -4,15 +4,17 @@ use warnings;
 use strict;
 use Carp;
 
-use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/ ../../Algorithm-Evolutionary/lib/);
+use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/ 
+	   ../../../lib
+	   ../../Algorithm-Evolutionary/lib/);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.6 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.7 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 
 use Algorithm::Evolutionary::Op::String_Mutation; 
 use Algorithm::Evolutionary::Op::Permutation; 
-use Algorithm::Evolutionary::Op::Crossover;
+use Algorithm::Evolutionary::Op::Uniform_Crossover;
 use Algorithm::Evolutionary::Op::Easy;
 use Algorithm::Evolutionary::Individual::String;
 
@@ -29,12 +31,15 @@ sub initialize {
   # Variation operators
   my $m = new Algorithm::Evolutionary::Op::String_Mutation; # Rate = 1
   my $p = new Algorithm::Evolutionary::Op::Permutation; # Rate = 1
-  my $c = Algorithm::Evolutionary::Op::Crossover->new(2, 8 ); # Rate = 4
+  my $crossover_probability = 0.5;
+  my $crossover_rate = 2;
+  my $c = Algorithm::Evolutionary::Op::Uniform_Crossover->new( $crossover_probability,
+							       $crossover_rate ); 
 
-  my $fitness = sub { $self->fitness_compress(@_) };
+  my $fitness = sub { $self->fitness_orig(@_) };
   my $ga = new Algorithm::Evolutionary::Op::Easy( $fitness, 
-						    $options->{'replacement_rate'},
-						    [ $m, $p, $c] );
+						  $options->{'replacement_rate'},
+						  [ $m, $p, $c] );
   $self->{'_fitness'} = $fitness;
   $self->{'_ga'} = $ga;
 
@@ -58,7 +63,7 @@ sub issue_next {
     my $best;
     do {
       $ga->apply( $pop );
-      print "Población ", scalar @$pop, "\n";
+      print "PoblaciÃ³n ", scalar @$pop, "\n";
       map( $_->{'_matches'} = $_->{'_matches'}?$_->{'_matches'}:-1, @$pop ); #To avoid warnings
       @pop_by_matches = sort { $b->{'_matches'} <=> $a->{'_matches'} } @$pop;
       $best = $pop_by_matches[0];

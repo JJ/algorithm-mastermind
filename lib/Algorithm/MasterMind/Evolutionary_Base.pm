@@ -4,9 +4,12 @@ use warnings;
 use strict;
 use Carp;
 
-use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/ ../../Algorithm-Evolutionary/lib/);
+use lib qw(../../lib 
+	   ../../../lib
+	   ../../../../Algorithm-Evolutionary/lib/ 
+	   ../../Algorithm-Evolutionary/lib/);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.1 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
@@ -34,6 +37,21 @@ sub fitness_compress {
   return entropy($rules_string)/$fitness;
 }
 
+sub fitness_orig {
+  my $self = shift;
+  my $object = shift;
+  my $combination = $object->{'_str'};
+  my $matches = $self->matches( $combination );
+  $object->{'_matches'} = $matches->{'matches'};
+
+  my $fitness = 1;
+  my @rules = @{$self->{'_rules'}};
+  for ( my $r = 0; $r <= $#rules; $r++) {
+    $fitness += abs( $rules[$r]->{'blacks'} - $matches->{'result'}->[$r]->{'blacks'} ) +
+      abs( $rules[$r]->{'whites'} - $matches->{'result'}->[$r]->{'whites'} );
+  }
+  return 1/$fitness;
+}
 
 sub issue_first {
   my $self = shift;
