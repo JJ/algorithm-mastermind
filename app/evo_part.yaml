@@ -1,0 +1,16 @@
+---
+tests: 1000
+ID: 10k-p256
+Method: Evolutionary_Partitions
+Method_options:
+    alphabet:
+      - A
+      - B
+      - C
+      - D
+      - E
+      - F
+    length: 4
+    pop_size: 256
+    fitness: orig
+    replacement_rate: 0.2
