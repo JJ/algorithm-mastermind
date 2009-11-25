@@ -10,14 +10,15 @@ BEGIN {
 }
 
 
-my @secret_codes = qw( AAAA ABCD CDEF BAFE FFFF);
+my @secret_codes = qw( AAAA ABCD CDEF ACAC BAFE FFFF);
 
 for my $secret_code ( @secret_codes ) {
   my $population_size = 256;
   my @alphabet = qw( A B C D E F );
   my $solver = new Algorithm::MasterMind::Evolutionary_Partitions { alphabet => \@alphabet,
 								      length => length( $secret_code ),
-								  pop_size => $population_size};
+									pop_size => $population_size,
+									  replacement_rate => 0.2 };
 
   solve_mastermind( $solver, $secret_code );
 }
