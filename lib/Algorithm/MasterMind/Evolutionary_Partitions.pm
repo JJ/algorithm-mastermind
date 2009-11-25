@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.3 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.4 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary';
 
@@ -74,12 +74,13 @@ sub issue_next {
     } else {
       $generations_equal = 0;
     }
-    last if ( ( $generations_equal >= 10 ) && ( $number_of_consistent >= 1 ) );
+#    print "G $generations_equal $number_of_consistent \n";
+    last if ( ( $generations_equal >= 3 ) && ( $number_of_consistent >= 1 ) );
   }
 
 #  print "After GA combinations ", join( " ", keys %consistent ), "\n";
   $self->{'_consistent'} = \%consistent;
-  if ( keys %consistent > 1 ) {
+  if ( $number_of_consistent > 1 ) {
 #    print "Consistent ", scalar keys %consistent, "\n";
     #Use whatever we've got to compute number of partitions
     my $partitions = partitions( keys %consistent );
