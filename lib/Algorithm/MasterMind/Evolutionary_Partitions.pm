@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.3 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary';
 
@@ -74,7 +74,7 @@ sub issue_next {
     } else {
       $generations_equal = 0;
     }
-    last if ( ( $generations_equal == 10 ) && ( $number_of_consistent >= 1 ) );
+    last if ( ( $generations_equal >= 10 ) && ( $number_of_consistent >= 1 ) );
   }
 
 #  print "After GA combinations ", join( " ", keys %consistent ), "\n";
