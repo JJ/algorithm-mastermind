@@ -1,7 +1,6 @@
 ---
-tests: 1000
-ID: p512_r02
-Method: Evolutionary_Partitions
+ID: p400
+Method: EDA_Partitions
 Method_options:
     alphabet:
       - A
@@ -11,6 +10,6 @@ Method_options:
       - E
       - F
     length: 4
-    pop_size: 512
+    pop_size: 400
     fitness: orig
-    replacement_rate: 0.2
+
