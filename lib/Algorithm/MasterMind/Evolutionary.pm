@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../../lib
 	   ../../Algorithm-Evolutionary/lib/);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.7 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.8 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 
@@ -32,7 +32,7 @@ sub initialize {
   my $m = new Algorithm::Evolutionary::Op::String_Mutation; # Rate = 1
   my $p = new Algorithm::Evolutionary::Op::Permutation; # Rate = 1
   my $crossover_probability = 0.5;
-  my $crossover_rate = 2;
+  my $crossover_rate = 3;
   my $c = Algorithm::Evolutionary::Op::Uniform_Crossover->new( $crossover_probability,
 							       $crossover_rate ); 
 
