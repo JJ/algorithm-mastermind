@@ -9,7 +9,7 @@ use lib qw(../../lib
 	   ../../../../Algorithm-Evolutionary/lib/ 
 	   ../../Algorithm-Evolutionary/lib/);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.3 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
@@ -55,20 +55,21 @@ sub fitness_orig {
 
 sub issue_first {
   my $self = shift;
-
   #Initialize population for next step
+  $self->reset();
+  return $self->{'_last'} = $self->issue_first_Knuth();
+}
+
+sub reset {
+  my $self=shift;
   my @pop;
   for ( 0.. ($self->{'_pop_size'}-1) ) {
     my $indi = Algorithm::Evolutionary::Individual::String->new( $self->{'_alphabet'}, 
 								 $self->{'_length'} );
     push( @pop, $indi );
   }
-  
   $self->{'_pop'}= \@pop;
-  
-  return $self->{'_last'} = $self->issue_first_Knuth();;
 }
-
 "some blacks, 0 white"; # Magic true value required at end of module
 
 __END__
@@ -94,6 +95,10 @@ based classes.
 
 Returns the  fitness for each combination, which combines
 entropy and the distance to a consistent combination.
+
+=head2 reset()
+
+Create a new population
 
 =head2 issue_first ()
 

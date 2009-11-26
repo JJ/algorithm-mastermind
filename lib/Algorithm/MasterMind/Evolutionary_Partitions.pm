@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.4 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.5 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary';
 
@@ -74,6 +74,12 @@ sub issue_next {
     } else {
       $generations_equal = 0;
     }
+
+    if ($generations_equal == 15 ) {
+      $ga->reset( $pop );
+      $generations_equal = 0;
+    }
+
 #    print "G $generations_equal $number_of_consistent \n";
     last if ( ( $generations_equal >= 3 ) && ( $number_of_consistent >= 1 ) );
   }

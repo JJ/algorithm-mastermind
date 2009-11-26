@@ -10,7 +10,7 @@ use lib qw(../../lib
 	   ../../../Algorithm-Evolutionary/lib
 	   ../../Algorithm-Evolutionary/lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.11 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.12 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 
@@ -44,8 +44,8 @@ sub initialize {
   $self->{'_first'} = 'orig' if !$self->{'_first'};
   my $length = $options->{'length'}; 
 
-#----------------------------------------------------------#
-#
+  #----------------------------------------------------------#
+  #                                                          #
   my $fitness;
   if ( $self->{'_fitness'} eq 'orig' ) {
     $fitness = sub { $self->fitness_orig(@_) };
@@ -55,7 +55,7 @@ sub initialize {
     $fitness = sub { $self->fitness_compress(@_) };
   }
 
-#EDA itself
+  #EDA itself
   my $eda = new Algorithm::Evolutionary::Op::EDA_step( $fitness, 
 						       $options->{'replacement_rate'},
 						       $options->{'pop_size'},
