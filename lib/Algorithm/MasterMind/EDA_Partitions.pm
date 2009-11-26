@@ -10,7 +10,7 @@ use lib qw(../../lib
 	   ../../../Algorithm-Evolutionary/lib
 	   ../../Algorithm-Evolutionary/lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.1 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::EDA';
 
@@ -66,6 +66,10 @@ sub issue_next {
     if ( $this_number_of_consistent == $number_of_consistent ) {
       $generations_equal++;
     } else {
+      $generations_equal = 0;
+    }
+    if ($generations_equal == 15 ) {
+      $eda->reset( $pop );
       $generations_equal = 0;
     }
 #    print "G $generations_equal $number_of_consistent \n";
