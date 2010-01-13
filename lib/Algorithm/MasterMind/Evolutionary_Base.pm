@@ -9,7 +9,7 @@ use lib qw(../../lib
 	   ../../../../Algorithm-Evolutionary/lib/ 
 	   ../../Algorithm-Evolutionary/lib/);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.3 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.4 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
@@ -95,6 +95,10 @@ based classes.
 
 Returns the  fitness for each combination, which combines
 entropy and the distance to a consistent combination.
+
+=head2 fitness_orig()
+
+Original fitness, used in one of the former papers
 
 =head2 reset()
 

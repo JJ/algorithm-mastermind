@@ -18,7 +18,7 @@ my $solver = new Algorithm::MasterMind::Evolutionary_MO { alphabet => \@alphabet
 						       pop_size => $population_size,
 						       replacement_rate => 0.2};
 
-isa_ok( $solver, 'Algorithm::MasterMind::Evolutionary', 'Instance OK' );
+isa_ok( $solver, 'Algorithm::MasterMind::Evolutionary_MO', 'Instance OK' );
 
  my $first_string = $solver->issue_first;
 diag( "This might take a while while it finds the code $secret_code" );

@@ -10,7 +10,7 @@ use lib qw(../../lib
 	   ../../../Algorithm-Evolutionary/lib
 	   ../../Algorithm-Evolutionary/lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.12 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.13 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 
@@ -162,6 +162,10 @@ initialization values
 =head2 new ( $options )
 
 This function, and all the rest, are directly inherited from base
+
+=head2 issue_first()
+
+Yields the first combination 
 
 =head2 issue_next()
 
