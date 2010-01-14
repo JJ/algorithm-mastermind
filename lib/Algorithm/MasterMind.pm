@@ -120,6 +120,33 @@ sub check_rule {
   return $result;
 }
 
+sub check_combination_new {
+  my $combination = shift;
+  my $string = shift;
+
+  my ( %hash_combination, %hash_string );
+  my $blacks = 0;
+  my ($c, $s);
+  while ( $c = chop( $combination ) ) {
+    $s = chop( $string );
+    if ( $c eq $s ) {
+      $blacks++;
+    } else {
+      $hash_combination{ $c }++;
+      $hash_string{ $s }++;
+    }
+  }
+  my $whites = 0;
+  for my $k ( keys %hash_combination ) {
+    next if ! defined $hash_string{$k};
+    $whites += ($hash_combination{$k} > $hash_string{$k})
+      ?$hash_string{$k}
+	:$hash_combination{$k};
+  }
+  return { blacks => $blacks,
+	   whites => $whites };
+}
+
 sub check_combination {
   my $combination = shift;
   my $string = shift;
