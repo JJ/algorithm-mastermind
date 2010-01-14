@@ -120,7 +120,7 @@ sub check_rule {
   return $result;
 }
 
-sub check_combination_new {
+sub check_combination {
   my $combination = shift;
   my $string = shift;
 
@@ -147,7 +147,7 @@ sub check_combination_new {
 	   whites => $whites };
 }
 
-sub check_combination {
+sub check_combination_old {
   my $combination = shift;
   my $string = shift;
 
@@ -284,6 +284,10 @@ secret code.
 Checks a combination against the secret code, returning a hashref with
 the number of blacks (correct in position) and whites (correct in
 color, not position)
+
+=head2 check_combination_old ( $secret_code, $combination )
+
+Old way of checking combinations, eliminated after profiling
 
 =head2 check_rule ($rule, $combination) 
 
