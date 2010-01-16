@@ -10,7 +10,7 @@ use lib qw(../../lib
 	   ../../../Algorithm-Evolutionary/lib
 	   ../../Algorithm-Evolutionary/lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.1 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 
@@ -48,7 +48,6 @@ sub issue_next {
   my $pop = $self->{'_pop'};
   my $cga = $self->{'_ga'};
   map( $_->evaluate( $self->{'_fitness'}), @$pop );
-  my @ranked_pop = sort { $b->{_fitness} <=> $a->{_fitness}; } @$pop;
 
   my %consistent;
 #   print "Consistent in ", scalar keys %{$self->{'_consistent'}}, "\n";
@@ -64,7 +63,7 @@ sub issue_next {
     %consistent = ();
   }
 #  print "Consistent out ", scalar keys %consistent, "\n";
-  
+  my @ranked_pop = sort { $b->{_fitness} <=> $a->{_fitness}; } @$pop;
   while ( $ranked_pop[0]->{'_matches'} == $rules ) {
     $consistent{$ranked_pop[0]->{'_str'}} = $ranked_pop[0];
     shift @ranked_pop;
@@ -73,36 +72,38 @@ sub issue_next {
   # The 20 was computed in NICSO paper, valid for normal mastermind
   my $number_of_consistent = keys %consistent;
   
+#  print "C< ", join( "-", keys %consistent ), "\n";
 #  print "Consistent new ", scalar keys %consistent, "\n";
-   while (  $number_of_consistent < 20 ) {
-     my $this_number_of_consistent = $number_of_consistent;
-     $cga->apply( $pop );
-     
-     #Add new consistent combinations
-     for my $p( @$pop ) { 
-       if ( $p->Fitness() ) {
-	 $consistent{$p->{'_str'}} = $p if ($p->Fitness() == 1); 
-       }
-     }
-     
-     #Check for termination
-     $number_of_consistent = keys %consistent;
-     if ( $this_number_of_consistent == $number_of_consistent ) {
-       $generations_equal++;
-     } else {
-       $generations_equal = 0;
-     }
-     
-     if ($generations_equal == 15 ) {
-       $cga->reset( $pop );
-       $generations_equal = 0;
-     }
-     last if ( ( $generations_equal >= 3 ) && ( $number_of_consistent >= 1 ) );
-#     print "GE $generations_equal\nNC $number_of_consistent\n";
+  while (  $number_of_consistent < 20 ) {
+    my $this_number_of_consistent = $number_of_consistent;
+    $cga->apply( $pop );
+    
+    #Add new consistent combinations
+    for my $p( @$pop ) { 
+      if ( $self->matches( $p->{'_str'} )->{'matches'} == $rules ) {
+	$consistent{$p->{'_str'}} = $p;
+      }
+    }
+    
+    #Check for termination
+    $number_of_consistent = keys %consistent;
+    if ( $this_number_of_consistent == $number_of_consistent ) {
+      $generations_equal++;
+    } else {
+      $generations_equal = 0;
+    }
+    
+    if ($generations_equal == 15 ) {
+      $cga->reset( $pop );
+      $generations_equal = 0;
+    }
+    last if ( ( $generations_equal >= 3 ) && ( $number_of_consistent >= 1 ) );
+    #     print "GE $generations_equal\nNC $number_of_consistent\n";
   }
-
-#  print "After GA combinations ", join( " ", keys %consistent ), "\n";
+  
+  #  print "After GA combinations ", join( " ", keys %consistent ), "\n";
   $self->{'_consistent'} = \%consistent;
+#  print "C> ", join( "-", keys %consistent ), "\n";
   if ( $number_of_consistent > 1 ) {
 #    print "Consistent ", scalar keys %consistent, "\n";
     #Use whatever we've got to compute number of partitions
