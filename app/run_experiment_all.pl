@@ -22,7 +22,9 @@ my $method = $conf->{'Method'};
 eval "require Algorithm::MasterMind::$method" || die "Can't load $method: $@\n";
 
 my $io = IO::YAML->new($conf->{'ID'}."-$method-".DateTime->now().".yaml", ">");
+
 my $method_options = $conf->{'Method_options'};
+$io->print( $method, $method_options );
 
 my $engine = variations_with_repetition($method_options->{'alphabet'}, 
 					$method_options->{'length'});
