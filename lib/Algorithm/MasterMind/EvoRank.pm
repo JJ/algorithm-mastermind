@@ -8,40 +8,39 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.1 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
 
-use base 'Algorithm::MasterMind::Evolutionary';
+use base 'Algorithm::MasterMind::Evolutionary_Base';
 
 use Algorithm::MasterMind qw(partitions);
 
-use Algorithm::Evolutionary::Op::String_Mutation; 
-use Algorithm::Evolutionary::Op::Permutation; 
-use Algorithm::Evolutionary::Op::Crossover;
-use Algorithm::Evolutionary::Op::Easy;
-use Algorithm::Evolutionary::Individual::String;
+use Algorithm::Evolutionary qw(Op::QuadXOver
+			       Op::String_Mutation
+			       Op::Permutation
+			       Op::Crossover
+			       Op::Canonical_GA_NN
+			       Individual::String );
 
 # ---------------------------------------------------------------------------
 my $max_number_of_consistent = 20;   # The 20 was computed in NICSO paper, valid for normal mastermind
 
-sub distance {
+sub initialize {
   my $self = shift;
-  my $object = shift;
-  my $rules =  $self->number_of_rules();
-  my $combination = $object->{'_str'};
-  my $matches = $self->matches( $combination );
-  $object->{'_matches'} = $matches->{'matches'};
-
-  my $distance = 0;
-  my @rules = @{$self->{'_rules'}};
-  for ( my $r = 0; $r <= $#rules; $r++) {
-    $distance -= abs( $rules[$r]->{'blacks'} - $matches->{'result'}->[$r]->{'blacks'} ) +
-      abs( $rules[$r]->{'whites'} - $matches->{'result'}->[$r]->{'whites'} );
-#     print "R B ", $rules[$r]->{'blacks'}, "M B ", $matches->{'result'}->[$r]->{'blacks'},
-#       "R W ",  $rules[$r]->{'whites'}, "M W ", $matches->{'result'}->[$r]->{'whites'},"\n",
-# 	"D $distance\n" ;
+  my $options = shift;
+  for my $o ( keys %$options ) {
+    $self->{"_$o"} = $options->{$o};
   }
 
-  return $distance;
+  # Variation operators
+  my $m = new Algorithm::Evolutionary::Op::String_Mutation; # Rate = 1
+  my $c = Algorithm::Evolutionary::Op::QuadXOver->new( 1,2 ); 
+
+  my $fitness = sub { $self->fitness_orig(@_) };
+  my $ga = new Algorithm::Evolutionary::Op::Canonical_GA_NN( $options->{'replacement_rate'},
+							     [ $m, $c] );
+  $self->{'_fitness'} = $fitness;
+  $self->{'_ga'} = $ga;
+
 }
 
 sub compute_fitness {
@@ -58,7 +57,7 @@ sub compute_fitness {
   for $p ( @$pop ) {
     $p->Fitness( $p->{'_distance'}+
 		 ($p->{'_partitions'}?$p->{'_partitions'}:0)-
-		 $min_distance );
+		 $min_distance + 1);
   }
 }
 
@@ -70,79 +69,81 @@ sub issue_next {
   my $pop = $self->{'_pop'};
   my $ga = $self->{'_ga'};
 
+#  print "Rules ", $rules, "\n";
   #Recalculate distances, new game
-  map( $_->{'_distance'} = $self->distance( $_ ), @$pop );
+  my ($p, %consistent );
+  for $p ( @$pop ) {
+    ($p->{'_distance'}, $p->{'_matches'}) = @{$self->distance( $p->{'_str'} )};
+     $consistent{$p->{'_str'}} = $p if ($p->{'_matches'} == $rules);
+  }
 
-  my %consistent;
-#   print "Consistent in ", scalar keys %{$self->{'_consistent'}}, "\n";
-#   if (  $self->{'_consistent'} ) { #Check for consistency
-#     %consistent = %{$self->{'_consistent'}};
-#     for my $c (keys %consistent ) {
-#       if ( $consistent{$c}->{'_distance'} < 0 ) {
-# 	delete $consistent{$c};
-#       }
-#     }
-#   } else {
-#     %consistent = ();
-#   }
-#  print "Consistent out ", scalar keys %consistent, "\n";
-  my $number_of_consistent = 0; 
+  my $number_of_consistent = keys %consistent;
+  if ( $number_of_consistent > 1 ) {
+    my $partitions = partitions( keys %consistent );      
+    for my $c ( keys %$partitions ) {
+      $consistent{$c}->{'_partitions'} = scalar (keys  %{$partitions->{$c}});
+    }
+  }
   my $generations_equal = 0;
-  my $this_number_of_consistent;
+  my $this_number_of_consistent = $number_of_consistent;
   
-#  print "Consistent new ", scalar keys %consistent, "\n";
-  do {
-    my $p;
+  while ( $this_number_of_consistent < $max_number_of_consistent ) {  
 
-#    print "INto the loop\n ";
+      
+    #Compute fitness
+    compute_fitness( $pop );
+    #      print join( " - ", map( $_->{'_fitness'}, @$pop )), "\n";
+    
+    #Apply GA
+    $ga->apply( $pop );
+    
+    #Compute new distances
+    %consistent = ();  # Empty to avoid problems
     for $p ( @$pop ) {
-#      print $p->{'_str'}, " -> ", $p->{'_distance'}, "\n";
-      $consistent{$p->{'_str'}} = $p if ($p->{'_distance'} == 0);
+      ($p->{'_distance'}, $p->{'_matches'}) = @{$self->distance( $p->{'_str'} )};
+      if ($p->{'_matches'} == $rules) {
+	$consistent{$p->{'_str'}} = $p;
+	#	print $p->{'_str'}, " -> ", $p->{'_distance'}, " - ";
+      } else {
+	$p->{'_partitions'} = 0;
+      }
     }
     
+    #Check termination again, and reset
+    if ($generations_equal == 50 ) {
+      $ga->reset( $pop );
+      for $p ( @$pop ) {
+	($p->{'_distance'}, $p->{'_matches'}) = @{$self->distance( $p->{'_str'} )};
+      }
+      $generations_equal = 0;
+    }
+
+#     print "Consistent - => ", join( " - ", 
+# 				    map( "* $_ - ".$consistent{$_}->{'_matches'}, 
+# 					 sort keys %consistent ) ), "\n\n"; 
     #Check termination conditions
     $this_number_of_consistent =  keys %consistent;
-    unless ( $this_number_of_consistent > $max_number_of_consistent ) {
-      if ( $this_number_of_consistent == $number_of_consistent ) {
-	$generations_equal++;
-      } else {
-	$generations_equal = 0;
-	$number_of_consistent = $this_number_of_consistent;
-	# Compute number of partitions
-	if ( $number_of_consistent > 1 ) {
-	  my $partitions = partitions( keys %consistent );      
-	  for my $c ( keys %$partitions ) {
-	    $consistent{$c}->{'_partitions'} = scalar (keys  %{$partitions->{$c}});
-	  }
+
+    if ( $this_number_of_consistent == $number_of_consistent ) {
+      $generations_equal++;
+    } else {
+      $generations_equal = 0;
+      $number_of_consistent = $this_number_of_consistent;
+      # Compute number of partitions
+      if ( $number_of_consistent > 1 ) {
+	my $partitions = partitions( keys %consistent );      
+	for my $c ( keys %$partitions ) {
+	  $consistent{$c}->{'_partitions'} = scalar (keys  %{$partitions->{$c}});
 	}
-      }
-      
-      #Compute fitness
-      compute_fitness( $pop );
-      
-      #Apply GA
-      $ga->apply( $pop );
-      
-      #Compute new distances
-      for $p ( @$pop ) {
-	if ( !$p->{'_fitness'} ) { #newborns
-	  $p->{'_distance'}  = $self->distance( $p );
-	}
-      }
-      
-      #Check termination again, and reset
-      if ($generations_equal == 15 ) {
-	$ga->reset( $pop );
-	$generations_equal = 0;
       }
     }
-      #    print "G $generations_equal $number_of_consistent \n";
-  } until ( ( $this_number_of_consistent > $max_number_of_consistent ) ||
-	    ( $generations_equal >= 3 ) && ( $number_of_consistent >= 1 ) );
-    
+    last if ( $generations_equal >= 3 ) && ( $this_number_of_consistent >= 1 ) ;
+    #    print "G $generations_equal $this_number_of_consistent \n";
+  }
+  
+  
   #  print "After GA combinations ", join( " ", keys %consistent ), "\n";
-#  $self->{'_consistent'} = \%consistent;
-#  print "Consistent => \n", join( "\n", keys %consistent ), "\n\n"; 
+#  print "Consistent + => ", join( "-", sort keys %consistent ), "\n\n"; 
   if ( $this_number_of_consistent > 1 ) {
     #    print "Consistent ", scalar keys %consistent, "\n";
     #Use whatever we've got to compute number of partitions

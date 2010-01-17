@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 16;
+use Test::More tests => 27;
 use lib qw( lib ../lib ../../lib  ); #Just in case we are testing it in-place
 
 BEGIN {
@@ -43,11 +43,20 @@ my @played = qw( ABCA BCAE BBAD BCAD );
 my $mm = new Algorithm::MasterMind::Test { options => ''};
 my $number_of_rules = 0;
 my @matches = qw( 0 1 0 3);
+my @distances = qw( 0 0 -4 0 );
 for my $p ( @played ) {
   my $matches = $mm->matches( $p );
   is( $matches->{'matches'}, shift @matches, "Matching" );
   my $result = check_combination( $code, $p );
+  my $distance = shift @distances;
+  is( $mm->distance( $p ), $distance, "Distance correct");
   $mm->add_rule( $p, $result );
   $number_of_rules++;
   is( $mm->number_of_rules(), $number_of_rules, "Rule added ".$matches->{'matches'} );
+  if ( $p ne $code ) {
+    is( $mm->distance( $p ) < $distance, 1, "Distance correct");
+  }
+  $matches = $mm->matches( $p );
+  is( $mm->number_of_rules(), $number_of_rules, "Check self"  );
 }
+

@@ -44,9 +44,10 @@ while ( $combination = $engine->next() ) {
     push @{$game->{'combinations'}}, [$first_string,$response] ;
     
     $solver->feedback( $response );
-    
+    print "Code $secret_code\n";
     my $played_string = $solver->issue_next;
     while ( $played_string ne $secret_code ) {
+      print "Playing $played_string\n";
       $response = check_combination( $secret_code, $played_string);
       push @{$game->{'combinations'}}, [$played_string, $response] ;
       $solver->feedback( $response );
@@ -54,6 +55,7 @@ while ( $combination = $engine->next() ) {
     }  
     $game->{'evaluations'} = $solver->evaluated();
     $io->print($game);
+    print "Finished\n";
   }
 }
 $io->close;

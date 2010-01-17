@@ -10,6 +10,6 @@ Method_options:
       - E
       - F
     length: 4
-    pop_size: 256
+    pop_size: 400
     fitness: orig
 

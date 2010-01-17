@@ -147,6 +147,22 @@ sub check_combination {
 	   whites => $whites };
 }
 
+sub distance {
+  my $self = shift;
+  my $combination = shift || croak "Can't compute distance to nothing";
+  my $rules =  $self->number_of_rules();
+  my $matches = $self->matches( $combination );
+
+  my $distance = 0;
+  my @rules = @{$self->{'_rules'}};
+  for ( my $r = 0; $r <= $#rules; $r++) {
+    $distance -= abs( $rules[$r]->{'blacks'} - $matches->{'result'}->[$r]->{'blacks'} ) +
+      abs( $rules[$r]->{'whites'} - $matches->{'result'}->[$r]->{'whites'} );
+  }
+
+  return [$distance, $matches->{'matches'}];
+}
+
 sub check_combination_old {
   my $combination = shift;
   my $string = shift;
@@ -285,7 +301,15 @@ Checks a combination against the secret code, returning a hashref with
 the number of blacks (correct in position) and whites (correct in
 color, not position)
 
-=head2 check_combination_old ( $secret_code, $combination )
+=head2 distance( $object )
+
+Computes distance to a consistent combination, computed as the number
+of blacks and whites that need change to become a consistent
+combination. 
+
+
+=head2 check_combination_old ( $secret_code,
+$combination )
 
 Old way of checking combinations, eliminated after profiling
 
