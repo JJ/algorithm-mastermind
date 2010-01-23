@@ -12,6 +12,8 @@ my $results_io = IO::YAML->new($yaml_file, '<') || die "Can't open $yaml_file: $
 print "Evaluations, Played\n";
 while(defined(my $yaml = <$results_io>)) {
   my $these_results = YAML::Load($yaml);
+  next if !(ref $these_results);
+  next if !$these_results->{'code'};
   print $these_results->{'evaluations'}, ", ",  
 		  @{$these_results->{'combinations'}}+1, "\n";
 }
