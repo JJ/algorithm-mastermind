@@ -10,7 +10,7 @@ use lib qw(../../lib
 	   ../../../Algorithm-Evolutionary/lib
 	   ../../Algorithm-Evolutionary/lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.1 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Canonical_GA';
 
@@ -74,7 +74,7 @@ sub issue_next {
   }
 
 #  print "After GA combinations ", join( " ", keys %consistent ), "\n";
-  $self->{'_consistent'} = \%consistent;
+  $self->{'_consistent'} = \%consistent; #This mainly for outside info
   if ( $number_of_consistent > 1 ) {
 #    print "Consistent ", scalar keys %consistent, "\n";
     #Use whatever we've got to compute number of partitions

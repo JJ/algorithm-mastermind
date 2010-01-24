@@ -1,5 +1,5 @@
 ---
-ID: p256
+ID: info-p400
 Method: EvoRank
 Method_options:
     alphabet:
@@ -11,5 +11,4 @@ Method_options:
       - F
     length: 4
     pop_size: 400
-    fitness: orig
 
