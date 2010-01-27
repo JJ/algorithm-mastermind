@@ -49,12 +49,12 @@ for my $p ( @played ) {
   is( $matches->{'matches'}, shift @matches, "Matching" );
   my $result = check_combination( $code, $p );
   my $distance = shift @distances;
-  is( $mm->distance( $p ), $distance, "Distance correct");
+  is( $mm->distance( $p )->[0], $distance, "Distance correct");
   $mm->add_rule( $p, $result );
   $number_of_rules++;
   is( $mm->number_of_rules(), $number_of_rules, "Rule added ".$matches->{'matches'} );
   if ( $p ne $code ) {
-    is( $mm->distance( $p ) < $distance, 1, "Distance correct");
+    is( $mm->distance( $p )->[0] < $distance, 1, "Distance correct");
   }
   $matches = $mm->matches( $p );
   is( $mm->number_of_rules(), $number_of_rules, "Check self"  );

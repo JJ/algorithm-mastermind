@@ -1,7 +1,10 @@
 #!perl 
 
 use Test::More qw( no_plan ); #Random initial string...
-use lib qw( lib ../lib ../../lib ../../Algorithm-Evolutionary/lib ); #Just in case we are testing it in-place
+use lib qw( lib ../lib ../../lib 
+	    ../Algorithm-Evolutionary/lib 
+	    ../../Algorithm-Evolutionary/lib 
+	    ../../../Algorithm-Evolutionary/lib ); #Just in case we are testing it in-place
 
 use Algorithm::MasterMind qw(check_combination);
 use Algorithm::MasterMind::Test_Solver qw( solve_mastermind );

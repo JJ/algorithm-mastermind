@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.3 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.4 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 
@@ -47,14 +47,13 @@ sub compute_fitness {
   my $pop = shift;
   #Compute min
   my $min_distance = 0;
-  my $p;
-  for $p ( @$pop ) {
+  for my $p ( @$pop ) {
     $min_distance = ( $p->{'_distance'} < $min_distance )?
       $p->{'_distance'}:
 	$min_distance;
   }
 
-  for $p ( @$pop ) {
+  for my $p ( @$pop ) {
     $p->Fitness( $p->{'_distance'}+
 		 ($p->{'_partitions'}?$p->{'_partitions'}:0)-
 		 $min_distance + 1);
@@ -71,8 +70,8 @@ sub issue_next {
 
 #  print "Rules ", $rules, "\n";
   #Recalculate distances, new game
-  my ($p, %consistent );
-  for $p ( @$pop ) {
+  my (%consistent );
+  for my $p ( @$pop ) {
     ($p->{'_distance'}, $p->{'_matches'}) = @{$self->distance( $p->{'_str'} )};
      $consistent{$p->{'_str'}} = $p if ($p->{'_matches'} == $rules);
   }
@@ -99,7 +98,7 @@ sub issue_next {
     
     #Compute new distances
     %consistent = ();  # Empty to avoid problems
-    for $p ( @$pop ) {
+    for my $p ( @$pop ) {
       ($p->{'_distance'}, $p->{'_matches'}) = @{$self->distance( $p->{'_str'} )};
       if ($p->{'_matches'} == $rules) {
 	$consistent{$p->{'_str'}} = $p;
@@ -112,7 +111,7 @@ sub issue_next {
     #Check termination again, and reset
     if ($generations_equal == 50 ) {
       $ga->reset( $pop );
-      for $p ( @$pop ) {
+      for my $p ( @$pop ) {
 	($p->{'_distance'}, $p->{'_matches'}) = @{$self->distance( $p->{'_str'} )};
       }
       $generations_equal = 0;
@@ -175,7 +174,8 @@ __END__
 
 =head1 NAME
 
-Algorithm::MasterMind::EvoRank - Evolutionary algorith with the partition method and ranked fitness
+Algorithm::MasterMind::EvoRank - Evolutionary algorith with the
+partition method and ranked fitness, prepared for GECCO 2010 
 
 
 =head1 SYNOPSIS
@@ -185,14 +185,27 @@ Algorithm::MasterMind::EvoRank - Evolutionary algorith with the partition method
   
 =head1 DESCRIPTION
 
-The partition method was introduced in a 2009 paper, and then changed
-by Runarsson and Merelo. 
+The partition method was introduced in a 2010 paper, and then changed
+by Runarsson and Merelo to incorporate it in the genetic search. It
+was prepared for a conference paper.
 
 =head1 INTERFACE 
 
+=head2 initialize
+
+Initializes the genetic part of the algorithm
+
 =head2 issue_next()
 
-Issues the next combination
+Issues the next combination, using this method.
+
+=head2 compute_fitness()
+
+Processes "raw" fitness to assign fitness once consistency and/or
+distance to it is known. It's lineally scaled to make the lowes
+combination = 1
+
+
 
 =head1 AUTHOR
 

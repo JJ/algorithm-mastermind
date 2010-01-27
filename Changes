@@ -1,3 +1,16 @@
+2010-01-27    <jmerelo@localhost.localdomain>
+
+	* MANIFEST: Changed license back to "perl". Mostly, in order to
+	not have to modify all source. Added lots of new files with new
+	algorithms (and rather esoteric, I admit).
+
+2010-01-26    <jmerelo@localhost.localdomain>
+
+	* Makefile.PL: Added license and changed min version of
+	Algorithm::Evolutionary, just uploaded. Changed lots of modules
+	after profiling (check_combination, again), and added more
+	algorithms. 
+
 2009-11-24  Juan Julian Merelo Guervos  <jmerelo@geneura.ugr.es>
 
 	* lib/Algorithm/MasterMind.pm: Changed to 0.2 due to the new
