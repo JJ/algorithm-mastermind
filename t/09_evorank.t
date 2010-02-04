@@ -22,5 +22,11 @@ for my $secret_code ( @secret_codes ) {
 							  replacement_rate => 0.5 };
 
   solve_mastermind( $solver, $secret_code );
+  $solver = new Algorithm::MasterMind::EvoRank { alphabet => \@alphabet,
+						      length => length( $secret_code ),
+							pop_size => $population_size,
+							  replacement_rate => 0.4,
+							    distance => 'distance_chebyshev' };
+  solve_mastermind( $solver, $secret_code );
 }
 

@@ -147,7 +147,7 @@ sub check_combination {
 	   whites => $whites };
 }
 
-sub distance {
+sub distance_taxicab {
   my $self = shift;
   my $combination = shift || croak "Can't compute distance to nothing";
   my $rules =  $self->number_of_rules();
@@ -158,6 +158,24 @@ sub distance {
   for ( my $r = 0; $r <= $#rules; $r++) {
     $distance -= abs( $rules[$r]->{'blacks'} - $matches->{'result'}->[$r]->{'blacks'} ) +
       abs( $rules[$r]->{'whites'} - $matches->{'result'}->[$r]->{'whites'} );
+  }
+
+  return [$distance, $matches->{'matches'}];
+}
+
+sub distance_chebyshev {
+  my $self = shift;
+  my $combination = shift || croak "Can't compute distance to nothing";
+  my $rules =  $self->number_of_rules();
+  my $matches = $self->matches( $combination );
+
+  my $distance = 0;
+  my @rules = @{$self->{'_rules'}};
+  for ( my $r = 0; $r <= $#rules; $r++) {
+    my $diff_black = abs( $rules[$r]->{'blacks'} - $matches->{'result'}->[$r]->{'blacks'});
+    my $diff_white = abs( $rules[$r]->{'whites'} - $matches->{'result'}->[$r]->{'whites'} );
+    my $this_distance = ($diff_black > $diff_white)?$diff_black:$diff_white;
+    $distance -= $this_distance ;
   }
 
   return [$distance, $matches->{'matches'}];

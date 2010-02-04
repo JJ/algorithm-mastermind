@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.4 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.5 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 
@@ -38,7 +38,9 @@ sub initialize {
   my $fitness = sub { $self->fitness_orig(@_) };
   my $ga = new Algorithm::Evolutionary::Op::Canonical_GA_NN( $options->{'replacement_rate'},
 							     [ $m, $c] );
-  $self->{'_fitness'} = $fitness;
+  if (!$self->{'_distance'}) {
+    $self->{'_distance'} = 'distance_taxicab';
+  }
   $self->{'_ga'} = $ga;
 
 }
@@ -71,8 +73,9 @@ sub issue_next {
 #  print "Rules ", $rules, "\n";
   #Recalculate distances, new game
   my (%consistent );
+  my $distance = $self->{'_distance'};
   for my $p ( @$pop ) {
-    ($p->{'_distance'}, $p->{'_matches'}) = @{$self->distance( $p->{'_str'} )};
+    ($p->{'_distance'}, $p->{'_matches'}) = @{$self->$distance( $p->{'_str'} )};
      $consistent{$p->{'_str'}} = $p if ($p->{'_matches'} == $rules);
   }
 
@@ -99,7 +102,7 @@ sub issue_next {
     #Compute new distances
     %consistent = ();  # Empty to avoid problems
     for my $p ( @$pop ) {
-      ($p->{'_distance'}, $p->{'_matches'}) = @{$self->distance( $p->{'_str'} )};
+      ($p->{'_distance'}, $p->{'_matches'}) = @{$self->$distance( $p->{'_str'} )};
       if ($p->{'_matches'} == $rules) {
 	$consistent{$p->{'_str'}} = $p;
 	#	print $p->{'_str'}, " -> ", $p->{'_distance'}, " - ";
@@ -112,14 +115,11 @@ sub issue_next {
     if ($generations_equal == 50 ) {
       $ga->reset( $pop );
       for my $p ( @$pop ) {
-	($p->{'_distance'}, $p->{'_matches'}) = @{$self->distance( $p->{'_str'} )};
+	($p->{'_distance'}, $p->{'_matches'}) = @{$self->$distance( $p->{'_str'} )};
       }
       $generations_equal = 0;
     }
 
-#     print "Consistent - => ", join( " - ", 
-# 				    map( "* $_ - ".$consistent{$_}->{'_matches'}, 
-# 					 sort keys %consistent ) ), "\n\n"; 
     #Check termination conditions
     $this_number_of_consistent =  keys %consistent;
     if ( $this_number_of_consistent == $number_of_consistent ) {
