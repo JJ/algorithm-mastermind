@@ -1,0 +1,15 @@
+---
+ID: p400-cheby
+Method: EvoRank
+Method_options:
+    alphabet:
+      - A
+      - B
+      - C
+      - D
+      - E
+      - F
+    length: 4
+    pop_size: 400
+    distance: distance_chebyshev
+
