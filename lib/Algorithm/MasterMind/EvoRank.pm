@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.6 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.7 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 
@@ -44,7 +44,7 @@ sub initialize {
     $self->{'_distance'} = 'distance_taxicab';
   }
   $self->{'_ga'} = $ga;
-
+  $self->{'_max_consistent'} = $max_number_of_consistent;
 }
 
 sub compute_fitness {
@@ -71,6 +71,7 @@ sub issue_next {
   my $length = $self->{'_length'};
   my $pop = $self->{'_pop'};
   my $ga = $self->{'_ga'};
+  my $max_number_of_consistent  = $self->{'_max_consistent'};
 
 #  print "Rules ", $rules, "\n";
   #Recalculate distances, new game
