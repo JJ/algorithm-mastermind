@@ -253,6 +253,28 @@ sub all_combinations {
   
 }
 
+sub all_responses {
+    my $self = shift;
+    my $length = $self->{'_length'};
+    my @responses_array = variations_with_repetition( ['B', 'W', '-'], 
+						      $length );
+    my %responses;
+    for my $r ( @responses_array ) {
+      my %partial = ( W => 0,
+		      B => 0 );
+      for my $c (@$r) {
+	$partial{$c}++;
+      }
+      
+      $responses{$partial{'B'}."B-".$partial{'W'}."W"} = 1;
+    }
+    # Delete impossible
+    my $impossible = ($length-1)."B-1W";
+    delete $responses{$impossible};
+    return sort keys %responses;
+
+}
+
 sub entropy {
   my $combination = shift;
   my %freqs;

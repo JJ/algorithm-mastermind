@@ -1,6 +1,5 @@
----
-ID: Rnd
-Method: Random
+ID: mm-4-8-p500
+Method: EvoRank
 Method_options:
     alphabet:
       - A
@@ -9,5 +8,9 @@ Method_options:
       - D
       - E
       - F
+      - G
+      - H
     length: 4
+    pop_size: 400
+
 

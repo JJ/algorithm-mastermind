@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.5 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.6 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 
@@ -22,7 +22,7 @@ use Algorithm::Evolutionary qw(Op::QuadXOver
 			       Individual::String );
 
 # ---------------------------------------------------------------------------
-my $max_number_of_consistent = 20;   # The 20 was computed in NICSO paper, valid for normal mastermind
+
 
 sub initialize {
   my $self = shift;
@@ -32,10 +32,12 @@ sub initialize {
   }
 
   # Variation operators
-  my $m = new Algorithm::Evolutionary::Op::String_Mutation; # Rate = 1
-  my $c = Algorithm::Evolutionary::Op::QuadXOver->new( 1,2 ); 
+  my $mutation_rate = $options->{'mutation_rate'} || 1;
+  my $xover_rate = $options->{'xover_rate'} || 2;
+  my $max_number_of_consistent = $options->{'consistent_set_card'} || 20;   # The 20 was computed in NICSO paper, valid for normal mastermind
+  my $m = new Algorithm::Evolutionary::Op::String_Mutation $mutation_rate ; # Rate = 1
+  my $c = Algorithm::Evolutionary::Op::QuadXOver->new( 1, $xover_rate ); 
 
-  my $fitness = sub { $self->fitness_orig(@_) };
   my $ga = new Algorithm::Evolutionary::Op::Canonical_GA_NN( $options->{'replacement_rate'},
 							     [ $m, $c] );
   if (!$self->{'_distance'}) {

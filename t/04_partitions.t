@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 3;
+use Test::More tests => 7;
 use lib qw( lib ../lib ../../lib  ); #Just in case we are testing it in-place
 
 use Algorithm::MasterMind qw(partitions);
@@ -19,6 +19,8 @@ my @alphabet = qw( A B C D );
 my $mastermind = new Algorithm::MasterMind::Test( {alphabet => \@alphabet, 
 						   length => $length} );
 
+my @responses = $mastermind->all_responses();
+is ( $#responses, 13, "Responses" );
 my @combinations = $mastermind->all_combinations;
 is ( $combinations[$#combinations], $alphabet[$#alphabet]x$length, 
      "Combinations generated"),
@@ -34,3 +36,12 @@ for my $p ( keys %{$partitions->{$first_combo}} ) {
   $number_of_combos += $partitions->{$first_combo}{$p}
 }
 is ( $number_of_combos, $#combinations, "Number of combinations" );
+
+#Test responses
+for my $length ( 5..7 ) {
+  $mastermind = new Algorithm::MasterMind::Test( { alphabet => \@alphabet, 
+						   length => $length } );
+
+  my @responses = $mastermind->all_responses();
+  is( $responses[$#responses-1], ($length-1)."B-0W", "Responses $length" );
+}
