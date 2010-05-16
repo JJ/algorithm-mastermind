@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.5 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.6 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary';
 
@@ -118,7 +118,7 @@ __END__
 
 =head1 NAME
 
-Algorithm::MasterMind::Evolutionary_Partions - Evolutionary algorith with the partition method
+Algorithm::MasterMind::Evolutionary_Partitions - Evolutionary algorithm with the partition method
 
 
 =head1 SYNOPSIS

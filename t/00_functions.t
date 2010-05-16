@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 27;
+use Test::More tests => 28;
 use lib qw( lib ../lib ../../lib  ); #Just in case we are testing it in-place
 
 BEGIN {
@@ -15,8 +15,8 @@ BEGIN {
 
 diag( "Testing Algorithm::Mastermind $Algorithm::MasterMind::VERSION, Perl $], $^X" );
 
-my @combinations = qw( AAAA AABB AAAB ABCD ABCD);
-my @strings = qw( ABBB BBAA BAAA BADC ABCD);
+my @combinations = qw( AAAA AABB AAAB ABCD ABCD AFFF);
+my @strings = qw( ABBB BBAA BAAA BADC ABCD EAEE);
 my @results = ( { blacks => 1,
 		  whites => 0 },
 		{ blacks => 0,
@@ -26,7 +26,9 @@ my @results = ( { blacks => 1,
 		{ blacks => 0,
 		  whites => 4 },
 		{ blacks => 4,
-		  whites => 0 } );
+		  whites => 0 },
+		{ blacks => 0,
+		  whites => 1} );
 
 while (@combinations ) {
   my $combination = shift @combinations;
@@ -49,12 +51,12 @@ for my $p ( @played ) {
   is( $matches->{'matches'}, shift @matches, "Matching" );
   my $result = check_combination( $code, $p );
   my $distance = shift @distances;
-  is( $mm->distance( $p )->[0], $distance, "Distance correct");
+  is( $mm->distance_taxicab( $p )->[0], $distance, "Distance correct");
   $mm->add_rule( $p, $result );
   $number_of_rules++;
   is( $mm->number_of_rules(), $number_of_rules, "Rule added ".$matches->{'matches'} );
   if ( $p ne $code ) {
-    is( $mm->distance( $p )->[0] < $distance, 1, "Distance correct");
+    is( $mm->distance_taxicab( $p )->[0] < $distance, 1, "Distance correct");
   }
   $matches = $mm->matches( $p );
   is( $mm->number_of_rules(), $number_of_rules, "Check self"  );

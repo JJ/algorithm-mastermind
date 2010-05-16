@@ -15,6 +15,7 @@ my $first_string = $solver->issue_first;
 my $response =  check_combination( $secret_code, $first_string);
 $solver->feedback( $response );
 print Dump( $first_string, $response );
+#print "Partitions \n", Dump( partitions( @{$solver->{'_consistent'}}) ), "\n\n";
 my $played_string = $solver->issue_next;
 while ( $played_string ne $secret_code ) {
   print "Partitions \n", Dump( partitions( @{$solver->{'_consistent'}}) ), "\n\n";

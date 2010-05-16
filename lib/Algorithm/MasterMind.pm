@@ -4,7 +4,7 @@ use warnings;
 use strict;
 use Carp;
 
-use version; our $VERSION = qv('0.2.0');
+use version; our $VERSION = qv('0.3.0');
 
 use Algorithm::Combinatorics qw(variations_with_repetition);
 
@@ -271,7 +271,8 @@ sub all_responses {
     # Delete impossible
     my $impossible = ($length-1)."B-1W";
     delete $responses{$impossible};
-    return sort keys %responses;
+    my @possible_responses = sort keys %responses;
+    return @possible_responses;
 
 }
 
@@ -432,6 +433,21 @@ memory, depending on length and alphabet size.
 
 Computes the string entropy
 
+=head2 distance_taxicab( $string )
+
+Computes the sums of taxicab distances to all combinations in the
+game, and returns it as [$distance, $matches]
+
+=head2 distance_chebyshev( $string )
+
+Computes the Chebyshev distance, that is, the max of distances in all
+dimensions. Returns as a arrayref with [$distance, matches]
+
+=head2 all_responses()
+
+Returns all possible responses (combination of black and white pegs)
+for the combination length
+
 =head1 CONFIGURATION AND ENVIRONMENT
 
 Algorithm::MasterMind requires no configuration files or environment variables.
@@ -471,6 +487,20 @@ the C<apps> directory of this distribution.
 The development of this projects is hosted at sourceforge,
 https://sourceforge.net/projects/opeal/develop, check it out for the
     latest bleeding edge release. 
+
+If you use any of these modules for your own research, we would very
+grateful if you would reference the papers that describe this, such as
+this one:
+
+ @article{merelo2010finding,
+  title={{Finding Better Solutions to the Mastermind Puzzle Using Evolutionary Algorithms}},
+  author={Merelo-Guerv{\'o}s, J. and Runarsson, T.},
+  journal={Applications of Evolutionary Computation},
+  pages={121--130},
+  year={2010},
+  publisher={Springer}
+ }
+
 
 =head1 AUTHOR
 

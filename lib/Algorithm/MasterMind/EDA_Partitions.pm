@@ -10,7 +10,7 @@ use lib qw(../../lib
 	   ../../../Algorithm-Evolutionary/lib
 	   ../../Algorithm-Evolutionary/lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.3 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::EDA';
 
@@ -110,7 +110,7 @@ __END__
 
 =head1 NAME
 
-Algorithm::MasterMind::EDA - Solver using an Estimation of Distribution Algorithm
+Algorithm::MasterMind::EDA_Partitions - Solver using an EDA plus partitions
 
 
 =head1 SYNOPSIS

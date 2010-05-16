@@ -9,7 +9,7 @@ use lib qw(../../lib
 	   ../../../../Algorithm-Evolutionary/lib/ 
 	   ../../Algorithm-Evolutionary/lib/);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.4 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.5 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
@@ -76,7 +76,7 @@ __END__
 
 =head1 NAME
 
-Algorithm::MasterMind::Evolutionary - Tries to compute new solution from last
+Algorithm::MasterMind::Evolutionary_Base - Base class for evolutionary-based algorithms
 
 
 =head1 SYNOPSIS
