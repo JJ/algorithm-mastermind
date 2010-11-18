@@ -6,7 +6,7 @@ use Carp;
 
 use lib qw(../../lib ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.3 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
@@ -112,52 +112,22 @@ carefully.
 
 =head2 initialize()
 
-Called from C<new>
-
-=head2 new ( $options )
-
-This function, and all the rest, are directly inherited from base
+Called from C<new>, initializes data structures.
 
 =head2 issue_first ()
 
 Issues it in the Knuth way, AABC. This should probably be computed
-from scratch, but it's already published, so what the hell.
+from scratch (to be coherent with the algorithm), but it's already
+    published, so what the hell. 
 
 =head2 issue_next()
 
 Issues the next combination
 
-=head2 feedback()
-
-Obtain the result to the last combination played
-
-=head2 guesses()
-
-Total number of guesses
-
-=head2 evaluated()
-
-Total number of combinations checked to issue result
-
-=head2 number_of_rules ()
-
-Returns the number of rules in the algorithm
-
-=head2 rules()
-
-Returns the rules (combinations, blacks, whites played so far) y a
-reference to array
-
-=head2 matches( $string ) 
-
-Returns a hash with the number of matches, and whether it matches
-every rule with the number of blacks and whites it obtains with each
-of them
-
-
 =head1 AUTHOR
 
-JJ Merelo  C<< <jj@merelo.net> >>
+JJ Merelo  C<< <jj@merelo.net> >>, and obviously, Donald Knuth as
+    author of the algorithm.
 
 
 =head1 LICENCE AND COPYRIGHT

@@ -9,7 +9,7 @@ use lib qw(../../lib
 	   ../../../../Algorithm-Evolutionary/lib/ 
 	   ../../Algorithm-Evolutionary/lib/);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.5 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION = sprintf "%d.%03d", q$Revision: 1.6 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
@@ -70,6 +70,25 @@ sub reset {
   }
   $self->{'_pop'}= \@pop;
 }
+
+sub realphabet {
+    my $self = shift;
+    my $alphabet = $self->{'_alphabet'};
+    my $pop = $self->{'_pop'};
+     
+    my %alphabet_hash;
+    map ( $alphabet_hash{$_} = 1, @$alphabet );
+
+    for my $p ( @$pop ) {
+	for ( my $i = 0; $i < length( $p->{'_str'} ); $i++ ) {
+	    if ( !$alphabet_hash{substr($p->{'_str'},$i,1)} ) {
+		substr($p->{'_str'},$i,1, $alphabet->[rand( @$alphabet )]);
+	    }
+	}
+	$p->{'_chars'} = $alphabet;
+    }
+}
+
 "some blacks, 0 white"; # Magic true value required at end of module
 
 __END__

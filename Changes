@@ -1,3 +1,7 @@
+2010-11-18  Juan J. Merelo  <jmerelo@sheldon>
+
+	* lib/Algorithm/MasterMind/EvoRank.pm (initialize): Taking out magic numbers 
+
 2010-01-27    <jmerelo@localhost.localdomain>
 
 	* MANIFEST: Changed license back to "perl". Mostly, in order to

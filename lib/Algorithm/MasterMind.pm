@@ -288,7 +288,6 @@ sub entropy {
   return $entropy;
 }
 
-
 "4 blacks, 0 white"; # Magic true value required at end of module
 
 __END__
