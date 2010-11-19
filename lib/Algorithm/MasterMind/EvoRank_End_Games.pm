@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.3 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::EvoRank';
 
@@ -34,7 +34,8 @@ sub issue_next {
 	  }
       }
       $self->realphabet;
-      $self->shrink_to( @$pop * @{$self->{'_alphabet'}} / $alphabet_size );
+      my $shrinkage = ( @{$self->{'_alphabet'}} ** $length ) /($alphabet_size ** $length ) ;
+      $self->shrink_to(  @$pop * $shrinkage );
   }
 
   #Check for colors guessed right
@@ -43,7 +44,8 @@ sub issue_next {
       map ( $these_colors{$_} = 1, split( //, $last_rule->{'combination'} ) );
       @{$self->{'_alphabet'}} = keys %these_colors;
       $self->realphabet;
-      $self->shrink_to( @$pop * @{$self->{'_alphabet'}} / $alphabet_size );
+      my $shrinkage = ( @{$self->{'_alphabet'}} ** $length ) /($alphabet_size ** $length ) ;
+      $self->shrink_to( @$pop * $shrinkage );
   }
 
   my $to_play = $self->SUPER::issue_next();
