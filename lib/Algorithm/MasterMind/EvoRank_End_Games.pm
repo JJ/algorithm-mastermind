@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.1 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::EvoRank';
 
@@ -24,6 +24,7 @@ sub issue_next {
   my $last_rule = $rules[$#rules];
   
   #Check for no color
+  my $alphabet_size = @{$self->{'_alphabet'}};
   if ($last_rule->{'blacks'}+$last_rule->{'whites'} == 0 ) {
       my %these_colors;
       map ( $these_colors{$_} = 1, split( //, $last_rule->{'combination'} ) );
@@ -33,8 +34,18 @@ sub issue_next {
 	  }
       }
       $self->realphabet;
+      $self->shrink_to( @$pop * @{$self->{'_alphabet'}} / $alphabet_size );
   }
-  
+
+  #Check for colors guessed right
+  if ($last_rule->{'blacks'}+$last_rule->{'whites'} == $length ) {
+      my %these_colors;
+      map ( $these_colors{$_} = 1, split( //, $last_rule->{'combination'} ) );
+      @{$self->{'_alphabet'}} = keys %these_colors;
+      $self->realphabet;
+      $self->shrink_to( @$pop * @{$self->{'_alphabet'}} / $alphabet_size );
+  }
+
   my $to_play = $self->SUPER::issue_next();
   return $to_play;
   

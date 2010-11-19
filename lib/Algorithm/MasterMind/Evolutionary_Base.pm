@@ -9,7 +9,7 @@ use lib qw(../../lib
 	   ../../../../Algorithm-Evolutionary/lib/ 
 	   ../../Algorithm-Evolutionary/lib/);
 
-our $VERSION = sprintf "%d.%03d", q$Revision: 1.6 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION = sprintf "%d.%03d", q$Revision: 1.7 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
@@ -30,8 +30,9 @@ sub fitness_compress {
   my $rules_string = $combination;
   for ( my $r = 0; $r <= $#rules; $r++) {
     $rules_string .= $rules[$r]->{'combination'};
-    $fitness += abs( $rules[$r]->{'blacks'} - $matches->{'result'}->[$r]->{'blacks'} ) +
-      abs( $rules[$r]->{'whites'} - $matches->{'result'}->[$r]->{'whites'} );
+    $fitness += abs( $rules[$r]->{'blacks'} 
+		     - $matches->{'result'}->[$r]->{'blacks'} ) 
+      + abs( $rules[$r]->{'whites'} - $matches->{'result'}->[$r]->{'whites'} );
   }
   
   return entropy($rules_string)/$fitness;
@@ -89,6 +90,15 @@ sub realphabet {
     }
 }
 
+sub shrink_to {
+  my $self = shift;
+  my $new_size = shift || croak "Need a new size" ;
+
+  do  {
+    splice( @{$self->{'_pop'}}, rand( @{$self->{'_pop'}} ), 1 )
+  } until (@{$self->{'_pop'}} < $new_size );
+}
+
 "some blacks, 0 white"; # Magic true value required at end of module
 
 __END__
@@ -122,6 +132,11 @@ Original fitness, used in one of the former papers
 =head2 reset()
 
 Create a new population
+
+=head2 realphabet()
+
+Convert the whole population to a new alphabet, changing no-existent
+letters to random letters in the new alphabet. 
 
 =head2 issue_first ()
 

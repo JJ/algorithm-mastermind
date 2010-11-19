@@ -8,9 +8,10 @@ use lib qw(../../lib
 	   ../../../lib
 	   ../../../../Algorithm-Evolutionary/lib
 	   ../../../Algorithm-Evolutionary/lib
-	   ../../Algorithm-Evolutionary/lib);
+	   ../../Algorithm-Evolutionary/lib 
+	   ../Algorithm-Evolutionary/lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.3 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 
@@ -28,8 +29,9 @@ sub new {
   }
 
   $self->{'_fitness'} =  sub { $self->fitness_orig(@_) } ;
-  my $ga;
-  eval "\$ga  = new Algorithm::Evolutionary::Op::$generational_func( \$self->{'_fitness'}, \@\$generational_params );";
+  my $op_class = "Algorithm::Evolutionary::Op::$generational_func";
+  eval "require $op_class" || croak "Can't load $op_class";   ## no critic
+  my $ga  = $op_class->new( $self->{'_fitness'}, @$generational_params );
   croak "Problems instantiating $generational_func\n" if !$ga;
 
   $self->{'_ga'} = $ga;
