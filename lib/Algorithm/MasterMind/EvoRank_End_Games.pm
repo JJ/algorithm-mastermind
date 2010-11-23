@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.3 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.4 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::EvoRank';
 
@@ -30,22 +30,33 @@ sub issue_next {
       map ( $these_colors{$_} = 1, split( //, $last_rule->{'combination'} ) );
       for (my $i = 0; $i < @{$self->{'_alphabet'}}; $i++ ) {
 	  if ($these_colors{$self->{'_alphabet'}->[$i]} ) {
-	      splice( @{$self->{'_alphabet'}},$i,1)  ;
+	      delete $self->{'_alphabet'}->[$i]  ;
 	  }
       }
-      $self->realphabet;
-      my $shrinkage = ( @{$self->{'_alphabet'}} ** $length ) /($alphabet_size ** $length ) ;
-      $self->shrink_to(  @$pop * $shrinkage );
+      @{$self->{'_alphabet'}} = grep( $_,  @{$self->{'_alphabet'}} ); # Eliminate nulls
+      if ( @{$self->{'_alphabet'}} > $alphabet_size ) {
+	  $self->realphabet;
+	  my $shrinkage =  @{$self->{'_alphabet'}} /$alphabet_size;
+	  $self->shrink_to( (scalar @$pop) * $shrinkage );
+      }
+     
   }
+
 
   #Check for colors guessed right
   if ($last_rule->{'blacks'}+$last_rule->{'whites'} == $length ) {
       my %these_colors;
       map ( $these_colors{$_} = 1, split( //, $last_rule->{'combination'} ) );
       @{$self->{'_alphabet'}} = keys %these_colors;
-      $self->realphabet;
-      my $shrinkage = ( @{$self->{'_alphabet'}} ** $length ) /($alphabet_size ** $length ) ;
-      $self->shrink_to( @$pop * $shrinkage );
+      if ( @{$self->{'_alphabet'}} > $alphabet_size ) {
+	  $self->realphabet;
+	  print @{$self->{'_alphabet'}} ** $length, " ", $alphabet_size ** $length , "l = $length\n";
+	  my $shrinkage = ( @{$self->{'_alphabet'}} ** $length ) /($alphabet_size ** $length ) ;
+	  print "Shrinking to size ", @$pop * $shrinkage
+	      ," with alphabet ", join( " ", @{$self->{'_alphabet'}} ), "\n";
+	  $self->shrink_to( @$pop * $shrinkage );
+      }
+
   }
 
   my $to_play = $self->SUPER::issue_next();

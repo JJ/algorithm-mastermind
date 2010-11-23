@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.8 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.9 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 
@@ -21,6 +21,8 @@ use Algorithm::Evolutionary qw(Op::QuadXOver
 			       Op::Canonical_GA_NN
 			       Individual::String );
 
+use Clone::Fast qw(clone);
+
 # ---------------------------------------------------------------------------
 use constant { MAX_CONSISTENT_SET => 20, # This number 20 was computed in NICSO paper, valid for default 4-6 mastermind
 	       MAX_GENERATIONS_EQUAL => 3} ;
@@ -29,7 +31,7 @@ sub initialize {
   my $self = shift;
   my $options = shift;
   for my $o ( keys %$options ) {
-    $self->{"_$o"} = $options->{$o};
+    $self->{"_$o"} = clone($options->{$o});
   }
 
   # Variation operators

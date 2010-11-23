@@ -9,7 +9,7 @@ use lib qw(../../lib
 	   ../../../../Algorithm-Evolutionary/lib/ 
 	   ../../Algorithm-Evolutionary/lib/);
 
-our $VERSION = sprintf "%d.%03d", q$Revision: 1.7 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION = sprintf "%d.%03d", q$Revision: 1.8 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
@@ -137,6 +137,11 @@ Create a new population
 
 Convert the whole population to a new alphabet, changing no-existent
 letters to random letters in the new alphabet. 
+
+=head2 shrink_to( $new_size )
+
+Reduce population size (in case a partial solution has been found).
+
 
 =head2 issue_first ()
 

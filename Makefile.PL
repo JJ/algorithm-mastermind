@@ -12,6 +12,7 @@ WriteMakefile(
     PREREQ_PM => {
 		  'Test::More' => 0,
 		  'version'    => 0,
+		  'Clone::Fast' => 0,
 		  'Algorithm::Evolutionary' => 0.72,
 		  'Algorithm::Combinatorics' => 0
     },

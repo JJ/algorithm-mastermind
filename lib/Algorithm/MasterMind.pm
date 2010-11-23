@@ -150,7 +150,6 @@ sub check_combination {
 sub distance_taxicab {
   my $self = shift;
   my $combination = shift || croak "Can't compute distance to nothing";
-  my $rules =  $self->number_of_rules();
   my $matches = $self->matches( $combination );
 
   my $distance = 0;
