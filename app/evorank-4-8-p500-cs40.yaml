@@ -1,0 +1,17 @@
+ID: mm-4-8-p500-cs40
+Method: EvoRank
+Method_options:
+    alphabet:
+      - A
+      - B
+      - C
+      - D
+      - E
+      - F
+      - G
+      - H
+    length: 4
+    pop_size: 500
+    consistent_set_card: 40
+
+

@@ -1,0 +1,17 @@
+ID: mm-4-8-p400-c-eg
+Method: EvoRank_End_Games
+Method_options:
+    alphabet:
+      - A
+      - B
+      - C
+      - D
+      - E
+      - F
+      - G
+      - H
+    length: 4
+    pop_size: 400
+    consistent_set_card: 50
+
+
