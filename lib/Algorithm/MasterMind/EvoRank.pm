@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.9 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.10 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 
@@ -80,8 +80,9 @@ sub issue_next {
   my (%consistent );
   my $distance = $self->{'_distance'};
   for my $p ( @$pop ) {
-    ($p->{'_distance'}, $p->{'_matches'}) = @{$self->$distance( $p->{'_str'} )};
-     $consistent{$p->{'_str'}} = $p if ($p->{'_matches'} == $rules);
+      ($p->{'_distance'}, $p->{'_matches'}) = @{$self->$distance( $p->{'_str'} )};
+#      ($p->{'_distance'}, $p->{'_matches'}) = @{$self->distance( $p )};
+      $consistent{$p->{'_str'}} = $p if ($p->{'_matches'} == $rules);
   }
 
   my $number_of_consistent = keys %consistent;
@@ -107,21 +108,23 @@ sub issue_next {
     %consistent = ();  # Empty to avoid problems
     for my $p ( @$pop ) {
       ($p->{'_distance'}, $p->{'_matches'}) = @{$self->$distance( $p->{'_str'} )};
-      if ($p->{'_matches'} == $rules) {
-	$consistent{$p->{'_str'}} = $p;
-	#	print $p->{'_str'}, " -> ", $p->{'_distance'}, " - ";
-      } else {
-	$p->{'_partitions'} = 0;
-      }
+#	($p->{'_distance'}, $p->{'_matches'}) = @{$self->distance( $p )};
+	if ($p->{'_matches'} == $rules) {
+	    $consistent{$p->{'_str'}} = $p;
+	    #	print $p->{'_str'}, " -> ", $p->{'_distance'}, " - ";
+	} else {
+	    $p->{'_partitions'} = 0;
+	}
     }
     
     #Check termination again, and reset
     if ($generations_equal == 50 ) {
-      $ga->reset( $pop );
-      for my $p ( @$pop ) {
+	$ga->reset( $pop );
+	for my $p ( @$pop ) {
 	($p->{'_distance'}, $p->{'_matches'}) = @{$self->$distance( $p->{'_str'} )};
-      }
-      $generations_equal = 0;
+#	    ($p->{'_distance'}, $p->{'_matches'}) = @{$self->distance( $p )};
+	}
+	$generations_equal = 0;
     }
 
     #Check termination conditions

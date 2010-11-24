@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.4 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.5 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::EvoRank';
 
@@ -34,7 +34,10 @@ sub issue_next {
 	  }
       }
       @{$self->{'_alphabet'}} = grep( $_,  @{$self->{'_alphabet'}} ); # Eliminate nulls
-      if ( @{$self->{'_alphabet'}} > $alphabet_size ) {
+      if ( @{$self->{'_alphabet'}} == 1 ) { # It could happen, and has happened
+	  return $self->{'_alphabet'}->[0] x $length;
+      }
+      if ( @{$self->{'_alphabet'}} < $alphabet_size ) {
 	  $self->realphabet;
 	  my $shrinkage =  @{$self->{'_alphabet'}} /$alphabet_size;
 	  $self->shrink_to( (scalar @$pop) * $shrinkage );
@@ -48,9 +51,9 @@ sub issue_next {
       my %these_colors;
       map ( $these_colors{$_} = 1, split( //, $last_rule->{'combination'} ) );
       @{$self->{'_alphabet'}} = keys %these_colors;
-      if ( @{$self->{'_alphabet'}} > $alphabet_size ) {
+      if ( @{$self->{'_alphabet'}} < $alphabet_size ) {
 	  $self->realphabet;
-	  print @{$self->{'_alphabet'}} ** $length, " ", $alphabet_size ** $length , "l = $length\n";
+	  print "To ", @{$self->{'_alphabet'}} ** $length, " from ", $alphabet_size ** $length , "\n";
 	  my $shrinkage = ( @{$self->{'_alphabet'}} ** $length ) /($alphabet_size ** $length ) ;
 	  print "Shrinking to size ", @$pop * $shrinkage
 	      ," with alphabet ", join( " ", @{$self->{'_alphabet'}} ), "\n";

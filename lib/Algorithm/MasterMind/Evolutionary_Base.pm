@@ -9,11 +9,11 @@ use lib qw(../../lib
 	   ../../../../Algorithm-Evolutionary/lib/ 
 	   ../../Algorithm-Evolutionary/lib/);
 
-our $VERSION = sprintf "%d.%03d", q$Revision: 1.8 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION = sprintf "%d.%03d", q$Revision: 1.9 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
-use Algorithm::MasterMind qw(entropy);
+use Algorithm::MasterMind qw(entropy check_rule);
 
 use Algorithm::Evolutionary::Individual::String;
 
@@ -99,6 +99,31 @@ sub shrink_to {
   } until (@{$self->{'_pop'}} < $new_size );
 }
 
+# sub distance {
+#     my $self = shift;
+#     my $evo_comb = shift || croak "Need somebody to love\n"; 
+
+#     my @rules = @{$self->{'_rules'}};
+#     my $matches = 0;
+#     my $distance = 0;
+# #  print "Checking $string, ", $self->{'_evaluated'}, "\n";
+#     my $string = $evo_comb->{'_str'};
+#     for my $r ( @rules ) {    
+# 	my $rule_result; 
+# 	if ( !$evo_comb->{'_results'}->{$r->{'combination'}} ) {
+# 	    $rule_result = check_rule( $r, $string );
+# 	    $evo_comb->{'_results'}->{$r->{'combination'}} = $rule_result;
+# 	} else {
+# 	    $rule_result = $evo_comb->{'_results'}->{$r->{'combination'}};
+# 	}
+# 	$matches++ if ( $rule_result->{'match'} );
+# 	$distance -= abs( $r->{'blacks'} - $rule_result->{'blacks'} ) +
+# 	    abs( $r->{'whites'} - $rule_result->{'whites'} );
+#     }
+
+#     return [$distance, $matches];
+    
+# }
 "some blacks, 0 white"; # Magic true value required at end of module
 
 __END__

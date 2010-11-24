@@ -8,9 +8,12 @@ use version; our $VERSION = qv('0.3.0');
 
 use Algorithm::Combinatorics qw(variations_with_repetition);
 
+#use Memoize;
+#memoize( "check_combination" );
+
 our @ISA = qw(Exporter);
 
-our @EXPORT_OK = qw( check_combination partitions entropy );
+our @EXPORT_OK = qw( check_combination partitions entropy check_rule );
 
 use lib qw( ../../lib ../lib ../../../lib );
 
