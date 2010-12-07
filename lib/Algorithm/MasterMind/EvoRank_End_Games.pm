@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.5 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.6 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::EvoRank';
 
@@ -40,6 +40,8 @@ sub issue_next {
       if ( @{$self->{'_alphabet'}} < $alphabet_size ) {
 	  $self->realphabet;
 	  my $shrinkage =  @{$self->{'_alphabet'}} /$alphabet_size;
+	  print "Shrinking to size ", @$pop * $shrinkage
+	    ," with alphabet ", join( " ", @{$self->{'_alphabet'}} ), "\n";
 	  $self->shrink_to( (scalar @$pop) * $shrinkage );
       }
      
@@ -53,11 +55,10 @@ sub issue_next {
       @{$self->{'_alphabet'}} = keys %these_colors;
       if ( @{$self->{'_alphabet'}} < $alphabet_size ) {
 	  $self->realphabet;
-	  print "To ", @{$self->{'_alphabet'}} ** $length, " from ", $alphabet_size ** $length , "\n";
-	  my $shrinkage = ( @{$self->{'_alphabet'}} ** $length ) /($alphabet_size ** $length ) ;
+	  my $shrinkage =  @{$self->{'_alphabet'}} /$alphabet_size;
+	  $self->shrink_to( (scalar @$pop) * $shrinkage );
 	  print "Shrinking to size ", @$pop * $shrinkage
 	      ," with alphabet ", join( " ", @{$self->{'_alphabet'}} ), "\n";
-	  $self->shrink_to( @$pop * $shrinkage );
       }
 
   }

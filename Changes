@@ -1,3 +1,18 @@
+2010-12-07  Juan J. Merelo Guervós  <jmerelo@localhost.localdomain>
+
+	* lib/Algorithm/MasterMind.pm: Changed minor to 0.3.1, next
+	release with the new methods.
+	Added version requisite to 0.77, instead of 0, as before. There
+	were a couple of "not available" test results.
+
+	* MANIFEST: Added Evorank_End_Games to the MANIFEST, for testing
+	and release. 
+
+2010-11-27  Juan J. Merelo Guervós  <jmerelo@localhost.localdomain>
+
+	* lib/Algorithm/MasterMind/EvoRank_End_Games.pm (issue_next):
+	Reduced shrinkage when alphabets are reduced...
+
 2010-11-18  Juan J. Merelo  <jmerelo@sheldon>
 
 	* lib/Algorithm/MasterMind/EvoRank.pm (initialize): Taking out magic numbers 

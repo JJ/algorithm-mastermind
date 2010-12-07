@@ -11,7 +11,7 @@ WriteMakefile(
     PL_FILES            => {},
     PREREQ_PM => {
 		  'Test::More' => 0,
-		  'version'    => 0,
+		  'version'    => 0.77,
 		  'Clone::Fast' => 0,
 		  'Algorithm::Evolutionary' => 0.72,
 		  'Algorithm::Combinatorics' => 0

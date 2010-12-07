@@ -12,6 +12,7 @@ lib/Algorithm/MasterMind/Evolutionary_MO.pm
 lib/Algorithm/MasterMind/Evolutionary_Partitions.pm
 lib/Algorithm/MasterMind/Evolutionary.pm
 lib/Algorithm/MasterMind/EvoRank.pm
+lib/Algorithm/MasterMind/EvoRank_End_Games.pm
 lib/Algorithm/MasterMind/Generational_Partitions.pm
 lib/Algorithm/MasterMind/MOGA.pm
 lib/Algorithm/MasterMind/Partition_Worst.pm 
@@ -36,7 +37,9 @@ t/08_evo_part.t
 t/09_canonical_ga.t  
 t/09_evorank.t
 t/10_generational_partitions.t
+11_evorank_end.t
 app/mm-eda.cgi
 app/run_experiment.pl
 app/run_experiment_all.pl
+app/evorank.yaml
 app/process_experiment.pl
