@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.10 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.11 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 
@@ -37,12 +37,17 @@ sub initialize {
   # Variation operators
   my $mutation_rate = $options->{'mutation_rate'} || 1;
   my $xover_rate = $options->{'xover_rate'} || 2;
+  my $permutation_rate = $options->{'permutation_rate'} || 0;
   my $max_number_of_consistent = $options->{'consistent_set_card'} || MAX_CONSISTENT_SET;   
   my $m = new Algorithm::Evolutionary::Op::String_Mutation $mutation_rate ; # Rate = 1
   my $c = Algorithm::Evolutionary::Op::QuadXOver->new( 1, $xover_rate ); 
-
+  my $operators = [$m,$c];
+  if ( $permutation_rate > 0 ) {
+    my $p =  new Algorithm::Evolutionary::Op::Permutation $permutation_rate; 
+    push @$operators, $p;
+  }
   my $ga = new Algorithm::Evolutionary::Op::Canonical_GA_NN( $options->{'replacement_rate'},
-							     [ $m, $c] );
+							     $operators );
   if (!$self->{'_distance'}) {
     $self->{'_distance'} = 'distance_taxicab';
   }

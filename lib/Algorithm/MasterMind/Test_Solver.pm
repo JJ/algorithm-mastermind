@@ -6,7 +6,7 @@ use Carp;
 
 use lib qw(../../lib ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.1 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Exporter';
 use Algorithm::MasterMind qw(check_combination);
@@ -24,12 +24,15 @@ sub solve_mastermind {
   is( length( $first_string), $length, 'Issued first '. $first_string );
   $solver->feedback( check_combination( $secret_code, $first_string) );
   my $played_string = $solver->issue_next;
+  my $played = 2;
   while ( $played_string ne $secret_code ) {
       is( length( $played_string), $length, 'Playing '. $played_string ) ;
       $solver->feedback( check_combination( $secret_code, $played_string) );
       $played_string = $solver->issue_next;
+      $played ++;
   }
   is( $played_string, $secret_code, "Found code after ".$solver->evaluated()." combinations" );
+  return [$solver->evaluated(), $played];
 }
 
 "some blacks, all white"; # Magic true value required at end of module

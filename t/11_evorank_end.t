@@ -11,7 +11,7 @@ BEGIN {
 }
 
 
-my @secret_codes = qw( AAAA ABCD CDEF ACAC BAFE FFFF);
+my @secret_codes = qw( AAAA ABBB CCEF ACAC BFFE FFFF);
 
 for my $secret_code ( @secret_codes ) {
   my $population_size = 256;
@@ -24,11 +24,17 @@ for my $secret_code ( @secret_codes ) {
 
   solve_mastermind( $solver, $secret_code );
   $solver = new Algorithm::MasterMind::EvoRank_End_Games 
-  { alphabet => \@alphabet,
-    length => length( $secret_code ),
-    pop_size => $population_size,
-    replacement_rate => 0.4,
-    distance => 'distance_chebyshev' };
+    { alphabet => \@alphabet,
+	length => length( $secret_code ),
+	  pop_size => $population_size,
+	    distance => 'distance_chebyshev' };
+  solve_mastermind( $solver, $secret_code );
+
+  $solver = new Algorithm::MasterMind::EvoRank_End_Games 
+    { alphabet => \@alphabet,
+	length => length( $secret_code ),
+	  pop_size => $population_size,
+	    noshrink => 1 };
   solve_mastermind( $solver, $secret_code );
 }
 

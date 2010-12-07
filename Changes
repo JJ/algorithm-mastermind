@@ -1,5 +1,9 @@
 2010-12-07  Juan J. Merelo Guervós  <jmerelo@localhost.localdomain>
 
+	* lib/Algorithm/MasterMind/EvoRank.pm (initialize): Added
+	permutation with default rate 0 to EvoRank, don't know why I
+	eliminated it. 
+
 	* lib/Algorithm/MasterMind.pm: Changed minor to 0.3.1, next
 	release with the new methods.
 	Added version requisite to 0.77, instead of 0, as before. There

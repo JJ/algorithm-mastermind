@@ -12,7 +12,7 @@ BEGIN {
 
 
 my @secret_codes = qw( AAAA ABCD CDEF ACAC BAFE FFFF);
-
+my @stats;
 for my $secret_code ( @secret_codes ) {
   my $population_size = 256;
   my @alphabet = qw( A B C D E F );
@@ -21,12 +21,33 @@ for my $secret_code ( @secret_codes ) {
 							pop_size => $population_size,
 							  replacement_rate => 0.5 };
 
-  solve_mastermind( $solver, $secret_code );
+  push @{$stats[0]}, solve_mastermind( $solver, $secret_code );
   $solver = new Algorithm::MasterMind::EvoRank { alphabet => \@alphabet,
 						      length => length( $secret_code ),
 							pop_size => $population_size,
-							  replacement_rate => 0.4,
 							    distance => 'distance_chebyshev' };
-  solve_mastermind( $solver, $secret_code );
+  push @{$stats[1]}, solve_mastermind( $solver, $secret_code );
+
+  $solver = new Algorithm::MasterMind::EvoRank { alphabet => \@alphabet,
+						   length => length( $secret_code ),
+						     pop_size => $population_size,
+						       permutation_rate => 2 };
+  push @{$stats[2]}, solve_mastermind( $solver, $secret_code );
+
+  $solver = new Algorithm::MasterMind::EvoRank { alphabet => \@alphabet,
+						   length => length( $secret_code ),
+						     pop_size => $population_size,
+						       permutation_rate => 1,
+							  replacement_rate => 0.3,
+							    crossover_rate => 8};
+  push @{$stats[3]}, solve_mastermind( $solver, $secret_code );
 }
 
+for my $s (@stats) {
+  my ($combinations, $games);
+  for my $i ( @$s ) {
+    $combinations += $i->[0];
+    $games += $i->[1];
+  }
+  diag( "Average combinations " . $combinations / @$s  . " Games " . $games / @$s );
+}
