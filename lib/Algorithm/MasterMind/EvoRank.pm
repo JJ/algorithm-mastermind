@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.11 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.12 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 
@@ -46,12 +46,14 @@ sub initialize {
     my $p =  new Algorithm::Evolutionary::Op::Permutation $permutation_rate; 
     push @$operators, $p;
   }
-  my $ga = new Algorithm::Evolutionary::Op::Canonical_GA_NN( $options->{'replacement_rate'},
-							     $operators );
+  if (! $self->{'_ga'} ) { # Not given as an option
+    $self->{'_ga'} = new Algorithm::Evolutionary::Op::Canonical_GA_NN( $options->{'replacement_rate'},
+								       $operators );    
+  }
+
   if (!$self->{'_distance'}) {
     $self->{'_distance'} = 'distance_taxicab';
   }
-  $self->{'_ga'} = $ga;
   $self->{'_max_consistent'} = $max_number_of_consistent;
 }
 
@@ -83,6 +85,7 @@ sub issue_next {
 
   #Recalculate distances, new game
   my (%consistent );
+  my $partitions;
   my $distance = $self->{'_distance'};
   for my $p ( @$pop ) {
       ($p->{'_distance'}, $p->{'_matches'}) = @{$self->$distance( $p->{'_str'} )};
@@ -92,7 +95,7 @@ sub issue_next {
 
   my $number_of_consistent = keys %consistent;
   if ( $number_of_consistent > 1 ) {
-    my $partitions = partitions( keys %consistent );      
+    $partitions = partitions( keys %consistent );      
     for my $c ( keys %$partitions ) {
       $consistent{$c}->{'_partitions'} = scalar (keys  %{$partitions->{$c}});
     }
@@ -141,7 +144,7 @@ sub issue_next {
       $number_of_consistent = $this_number_of_consistent;
       # Compute number of partitions
       if ( $number_of_consistent > 1 ) {
-	my $partitions = partitions( keys %consistent );      
+	$partitions = partitions( keys %consistent );      
 	for my $c ( keys %$partitions ) {
 	  $consistent{$c}->{'_partitions'} = scalar (keys  %{$partitions->{$c}});
 	}
@@ -157,7 +160,7 @@ sub issue_next {
   if ( $this_number_of_consistent > 1 ) {
     #    print "Consistent ", scalar keys %consistent, "\n";
     #Use whatever we've got to compute number of partitions
-    my $partitions = partitions( keys %consistent );
+#    my $partitions = partitions( keys %consistent );
     
     my $max_partitions = 0;
     my %max_c;

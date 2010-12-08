@@ -9,7 +9,7 @@ use version; our $VERSION = qv("v0.3.1");
 use Algorithm::Combinatorics qw(variations_with_repetition);
 
 #use Memoize;
-#memoize( "check_combination" );
+#memoize( "check_rule" );
 
 our @ISA = qw(Exporter);
 
@@ -232,14 +232,20 @@ sub not_in_combination {
 }
 
 sub partitions {
-  my @combinations = @_;
+  my @combinations = sort @_;
 
   my %partitions;
-
+  my %hash_results;
   for my $c ( @combinations ) {
     for my $cc ( @combinations ) {
       next if $c eq $cc;
-      my $result = check_combination ( $c, $cc );
+      my $result;
+      if ( $c lt $cc ) {
+	$result = check_combination ( $c, $cc );
+	$hash_results{$c}{$cc} = $result;
+      } else {
+	$result = $hash_results{$cc}{$c};
+      }
       $partitions{$c}{$result->{'blacks'}."b-".$result->{'whites'}."w"}++;
     }
     
