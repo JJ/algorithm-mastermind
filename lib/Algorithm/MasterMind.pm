@@ -13,7 +13,7 @@ use Algorithm::Combinatorics qw(variations_with_repetition);
 
 our @ISA = qw(Exporter);
 
-our @EXPORT_OK = qw( check_combination partitions entropy check_rule );
+our @EXPORT_OK = qw( check_combination partitions entropy );
 
 use lib qw( ../../lib ../lib ../../../lib );
 
@@ -25,7 +25,8 @@ sub new {
   my $options = shift || croak "Need options here in Algorithm::MasterMind::New\n";
 
   my $self =  { _rules => [],
-		_evaluated => 0 };
+		_evaluated => 0,
+		_hash_rules => {} };
 
   bless $self, $class;
   $self->initialize( $options );
@@ -102,7 +103,7 @@ sub matches {
 		 result => [] };
 #  print "Checking $string, ", $self->{'_evaluated'}, "\n";
   for my $r ( @rules ) {    
-    my $rule_result = check_rule( $r, $string );
+    my $rule_result = $self->check_rule( $r, $string );
     $result->{'matches'}++ if ( $rule_result->{'match'} );
     push @{ $result->{'result'} }, $rule_result;
   }
@@ -111,16 +112,20 @@ sub matches {
 }
 
 sub check_rule {
+  my $self = shift;
   my $rule = shift;
   my $string = shift;
-  my $result = check_combination( $rule->{'combination'}, $string );
-  if ( ( $rule->{'blacks'} == $result->{'blacks'} )
-       && ( $rule->{'whites'} == $result->{'whites'} ) ) {
-    $result->{'match'} = 1;
-  } else {
-    $result->{'match'} = 0;
-  }
-  return $result;
+  if ( ! $self->{'_rules_hash'}->{ $rule->{'combination'} }{ $string } ) {
+    my $result = check_combination( $rule->{'combination'}, $string );
+    if ( ( $rule->{'blacks'} == $result->{'blacks'} )
+	 && ( $rule->{'whites'} == $result->{'whites'} ) ) {
+      $result->{'match'} = 1;
+    } else {
+      $result->{'match'} = 0;
+    }
+    $self->{'_rules_hash'}->{ $rule->{'combination'} }{ $string } = $result;
+  } 
+  return $self->{'_rules_hash'}->{ $rule->{'combination'} }{ $string };
 }
 
 sub check_combination {

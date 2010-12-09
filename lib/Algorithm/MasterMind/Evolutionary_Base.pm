@@ -9,11 +9,11 @@ use lib qw(../../lib
 	   ../../../../Algorithm-Evolutionary/lib/ 
 	   ../../Algorithm-Evolutionary/lib/);
 
-our $VERSION = sprintf "%d.%03d", q$Revision: 1.9 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION = sprintf "%d.%03d", q$Revision: 1.10 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
-use Algorithm::MasterMind qw(entropy check_rule);
+use Algorithm::MasterMind qw(entropy);
 
 use Algorithm::Evolutionary::Individual::String;
 
