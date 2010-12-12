@@ -13,9 +13,11 @@ BEGIN {
 
 my @secret_codes = qw( AAAA ABCD CDEF ACAC BAFE FFFF);
 my @stats;
+my @alphabet = qw( A B C D E F );
+my $population_size = 256;
+
 for my $secret_code ( @secret_codes ) {
-  my $population_size = 256;
-  my @alphabet = qw( A B C D E F );
+
   my $solver = new Algorithm::MasterMind::EvoRank { alphabet => \@alphabet,
 						      length => length( $secret_code ),
 							pop_size => $population_size,
