@@ -1,3 +1,8 @@
+2010-12-13  Juan J. Merelo Guervós  <jmerelo@localhost.localdomain>
+
+	* lib/Algorithm/MasterMind.pm (start_from): new subroutine for
+	continuing from other algorithm. Test works.
+
 2010-12-07  Juan J. Merelo Guervós  <jmerelo@localhost.localdomain>
 
 	* lib/Algorithm/MasterMind/EvoRank.pm (initialize): Added

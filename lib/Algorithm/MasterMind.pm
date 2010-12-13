@@ -48,6 +48,18 @@ sub issue_first { #Default implementation
   return $self->{'_last'} = $self->random_combination;
 }
 
+sub start_from {
+  my $class = shift;
+  my $options = shift || croak "Options needed to start!";
+
+  my $self = {};
+  bless $self, $class;
+  for my $o ( qw( consistent alphabet rules evaluated ) ) {
+    $self->{"_$o"} = $options->{$o};
+  }
+  return $self;
+}
+
 sub issue_first_Knuth {
   my $self = shift;
   my $string;
@@ -375,6 +387,11 @@ combination and how it scored against the secret code
 
 Issues the first combination, which might be generated in a particular
 way 
+
+=head2 init_from ()
+
+Used when you want to create an solver once it's been partially
+solved; it contains partial solutions. 
 
 =head2 issue_first_Knuth
 
