@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.12 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.13 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 
@@ -189,7 +189,7 @@ __END__
 
 =head1 NAME
 
-Algorithm::MasterMind::EvoRank - Evolutionary algorith with the
+Algorithm::MasterMind::EvoRank - Evolutionary algorithm with the
 partition method and ranked fitness, prepared for GECCO 2010 
 
 
@@ -202,7 +202,23 @@ partition method and ranked fitness, prepared for GECCO 2010
 
 The partition method was introduced in a 2010 paper, and then changed
 by Runarsson and Merelo to incorporate it in the genetic search. It
-was prepared for a conference paper.
+was prepared for a conference paper, this one:
+
+  @INPROCEEDINGS{mm:cig,
+   author={Merelo, J.J. and Mora, A.M. and Runarsson, T.P. and Cotta, C.},
+   booktitle={Computational Intelligence and Games (CIG), 2010 IEEE Symposium on}, 
+   title={Assessing efficiency of different evolutionary strategies playing MasterMind},
+   year=2010,
+   month={August},
+   pages={38--45},
+   keywords={MasterMind player;constrained optimization problem;evolutionary algorithm;evolutionary strategy;fitness function;computer games;evolutionary computation;},
+   doi={10.1109/ITW.2010.5593373}
+  }
+
+This method is the evolutionary equivalent of
+L<Algorithm::MasterMind::Partitition::Most>, using the number of
+non-null partitions to score consistent combinations, while using
+distance-to-consistency to score non-consistent. 
 
 =head1 INTERFACE 
 
@@ -212,15 +228,15 @@ Initializes the genetic part of the algorithm
 
 =head2 issue_next()
 
-Issues the next combination, using this method.
+Issues the next combination, using this method. Every generation runs
+an evolutionary algorithm to compute the next string.
 
 =head2 compute_fitness()
 
 Processes "raw" fitness to assign fitness once consistency and/or
-distance to it is known. It's lineally scaled to make the lowes
-combination = 1
-
-
+distance to it is known. It's lineally scaled to make the lowest
+combination have a fitness equal to 1, which is needed just in case
+the selection method uses roulette wheel (which it does).
 
 =head1 AUTHOR
 
