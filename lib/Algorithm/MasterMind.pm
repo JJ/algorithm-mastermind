@@ -388,7 +388,7 @@ combination and how it scored against the secret code
 Issues the first combination, which might be generated in a particular
 way 
 
-=head2 init_from ()
+=head2 start_from ()
 
 Used when you want to create an solver once it's been partially
 solved; it contains partial solutions. 
@@ -420,7 +420,7 @@ Returns the number of rules in the algorithm
 
 =head2 rules()
 
-Returns the rules (combinations, blacks, whites played so far) y a
+Returns the rules (combinations, blacks, whites played so far) as a
 reference to array
 
 =head2 matches( $string ) 

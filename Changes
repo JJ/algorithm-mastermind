@@ -1,5 +1,9 @@
 2010-12-13  Juan J. Merelo Guervós  <jmerelo@localhost.localdomain>
 
+	* lib/Algorithm/MasterMind/Test_Solver.pm (solve_mastermind):
+	Changed so that it checks that the combination played hasn't
+	occurred before. All tests change
+
 	* lib/Algorithm/MasterMind.pm (start_from): new subroutine for
 	continuing from other algorithm. Test works.
 

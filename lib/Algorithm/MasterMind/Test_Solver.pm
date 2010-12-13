@@ -6,7 +6,7 @@ use Carp;
 
 use lib qw(../../lib ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.3 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Exporter';
 use Algorithm::MasterMind qw(check_combination);
@@ -19,14 +19,17 @@ sub solve_mastermind {
   my $solver = shift;
   my $secret_code = shift;
   my $length = length( $secret_code );
+  my %played;
   my $first_string = $solver->issue_first;
+  $played{$first_string} = 1;
   diag( "This might take a while while it finds the code $secret_code" );
   is( length( $first_string), $length, 'Issued first '. $first_string );
   $solver->feedback( check_combination( $secret_code, $first_string) );
   my $played_string = $solver->issue_next;
   my $played = 2;
   while ( $played_string ne $secret_code ) {
-      is( length( $played_string), $length, 'Playing '. $played_string ) ;
+      is( $played{ $played_string}, undef, 'Playing '. $played_string ) ;
+      $played{$played_string} = 1;
       $solver->feedback( check_combination( $secret_code, $played_string) );
       $played_string = $solver->issue_next;
       $played ++;

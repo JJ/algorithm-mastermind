@@ -11,7 +11,7 @@ BEGIN {
 }
 
 
-my @secret_codes = qw( AAAA ABBB CCEF ACAC BFFE FFFF);
+my @secret_codes = qw( EFEF ABBB BAAC DEFF ACAC BFFF AAFF FFFF);
 
 for my $secret_code ( @secret_codes ) {
   my $population_size = 256;

@@ -8,9 +8,13 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.7 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.8 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::EvoRank';
+use Algorithm::Combinatorics qw(permutations);
+use Algorithm::MasterMind::Partition::Most;
+
+#----------------------------------------------------------------------------
 
 sub issue_next {
   my $self = shift;
@@ -18,20 +22,42 @@ sub issue_next {
   my @alphabet = @{$self->{'_alphabet'}};
   my $length = $self->{'_length'};
   my $pop = $self->{'_pop'};
-  my $ga = $self->{'_ga'};
-  my $max_number_of_consistent  = $self->{'_max_consistent'};
 
   my $last_rule = $rules[$#rules];
-  
-  #Check for no color
   my $alphabet_size = @{$self->{'_alphabet'}};
-  if ($last_rule->{'blacks'}+$last_rule->{'whites'} == 0 ) {
+  #Check for combination guessed right except for permutation
+  if ($last_rule->{'blacks'}+$last_rule->{'whites'} == $length ) {
+    if ( ! $self->{'_consistent_endgame'} ) {
+      my %permutations;
+      map( $permutations{$_} = 1,
+	   map(join("",@$_), 
+	       permutations([ split( //, $last_rule->{'combination'} ) ] ) ) );
+      my @permutations = keys %permutations;
+      $self->{'_endgame'}  = 
+	Algorithm::MasterMind::Partition::Most->start_from( { evaluated => $self->{'_evaluated'},
+							      alphabet => \@alphabet,
+							      rules => $self->{'_rules'},
+							      consistent => \@permutations} );
+    } else {
+      $self->{'_endgame'}  = 
+	Algorithm::MasterMind::Partition::Most->start_from( { evaluated => $self->{'_evaluated'},
+							      alphabet => \@alphabet,
+							      rules => $self->{'_rules'},
+							      consistent => $self->{'_consistent_endgame'} } );
+    }
+    my $string =  $self->{'_endgame'}->issue_next();
+    $self->{'_consistent_endgame'} =  $self->{'_endgame'}->{'_consistent'};
+    $self->{'_evaluated'} = $self->{'_endgame'}->{'_evaluated'};
+    return  $self->{'_last'} = $string;
+  } else {
+    #Check for no pegs
+    if ($last_rule->{'blacks'}+$last_rule->{'whites'} == 0 ) {
       my %these_colors;
       map ( $these_colors{$_} = 1, split( //, $last_rule->{'combination'} ) );
       for (my $i = 0; $i < @{$self->{'_alphabet'}}; $i++ ) {
-	  if ($these_colors{$self->{'_alphabet'}->[$i]} ) {
-	      delete $self->{'_alphabet'}->[$i]  ;
-	  }
+	if ($these_colors{$self->{'_alphabet'}->[$i]} ) {
+	  delete $self->{'_alphabet'}->[$i]  ;
+	}
       }
       @{$self->{'_alphabet'}} = grep( $_,  @{$self->{'_alphabet'}} ); # Eliminate nulls
       if ( @{$self->{'_alphabet'}} == 1 ) { # It could happen, and has happened
@@ -45,31 +71,13 @@ sub issue_next {
 	      ," with alphabet ", join( " ", @{$self->{'_alphabet'}} ), "\n";
 	    $self->shrink_to( (scalar @$pop) * $shrinkage );
 	  }
-      }
-     
+	}
+      
+    }
+    
+    my $to_play = $self->SUPER::issue_next();
+    return $self->{'_last'}= $to_play;
   }
-
-
-  #Check for colors guessed right
-  if ($last_rule->{'blacks'}+$last_rule->{'whites'} == $length ) {
-      my %these_colors;
-      map ( $these_colors{$_} = 1, split( //, $last_rule->{'combination'} ) );
-      @{$self->{'_alphabet'}} = keys %these_colors;
-      if ( @{$self->{'_alphabet'}} < $alphabet_size ) {
-	  $self->realphabet;
-	  if ( !$self->{'_noshrink'} ) {
-	    my $shrinkage =  @{$self->{'_alphabet'}} /$alphabet_size;
-	    $self->shrink_to( (scalar @$pop) * $shrinkage );
-	    print "Shrinking to size ", @$pop * $shrinkage
-	      ," with alphabet ", join( " ", @{$self->{'_alphabet'}} ), "\n";
-	  }
-      }
-
-  }
-
-  my $to_play = $self->SUPER::issue_next();
-  return $to_play;
-  
 }
 
 "some blacks, 1 white"; # Magic true value required at end of module

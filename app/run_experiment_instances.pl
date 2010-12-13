@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use lib qw(../lib ../../Algorithm-Evolutionary/lib);
+use lib qw(../lib ../../lib ../../Algorithm-Evolutionary/lib ../../../Algorithm-Evolutionary/lib);
 
 use YAML qw(LoadFile);
 use File::Slurp qw(read_file);
