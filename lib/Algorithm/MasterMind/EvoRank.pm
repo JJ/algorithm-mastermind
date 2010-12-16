@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.13 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.14 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 
@@ -25,6 +25,7 @@ use Clone::Fast qw(clone);
 
 # ---------------------------------------------------------------------------
 use constant { MAX_CONSISTENT_SET => 20, # This number 20 was computed in NICSO paper, valid for default 4-6 mastermind
+	       MAX_GENERATIONS_RESET => 50,
 	       MAX_GENERATIONS_EQUAL => 3} ;
 
 sub initialize {
@@ -126,7 +127,7 @@ sub issue_next {
     }
     
     #Check termination again, and reset
-    if ($generations_equal == 50 ) {
+    if ($generations_equal == MAX_GENERATIONS_RESET ) {
 	$ga->reset( $pop );
 	for my $p ( @$pop ) {
 	($p->{'_distance'}, $p->{'_matches'}) = @{$self->$distance( $p->{'_str'} )};
