@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.3 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.4 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 use Algorithm::MasterMind qw(partitions);
@@ -42,7 +42,9 @@ sub initialize {
   my $mutation_rate = $options->{'mutation_rate'} || 1;
   my $permutation_rate = $options->{'mutation_rate'} || 1;
   my $xover_rate = $options->{'xover_rate'} || 4;
-  my $max_number_of_consistent = $options->{'consistent_set_card'} || MAX_CONSISTENT_SET;   
+  my $max_number_of_consistent = $options->{'consistent_set_card'} 
+    || MAX_CONSISTENT_SET;  
+  $self->{'_replacement_rate'}= $self->{'_replacement_rate'} || 0.5;
   my $m = new Algorithm::Evolutionary::Op::String_Mutation $mutation_rate ; # Rate = 1
   my $c = Algorithm::Evolutionary::Op::Uniform_Crossover->new( 1, $xover_rate ); 
   my $operators = [$m,$c];
