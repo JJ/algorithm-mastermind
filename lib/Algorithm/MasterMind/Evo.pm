@@ -8,16 +8,18 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.3 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 use Algorithm::MasterMind qw(partitions);
+
 use Algorithm::Evolutionary qw(Op::String_Mutation
 			       Op::Permutation
 			       Op::Uniform_Crossover
-			       Op::Generation_Skel
-Op::Replace_Worst
-Op::TournamentSelect
+			       Op::TournamentSelect
+			       Op::Breeder
+			       Op::Replace_Worst
+			       Op::TournamentSelect
 			       Individual::String );
 
 use Algorithm::Combinatorics qw(permutations);
@@ -48,12 +50,11 @@ sub initialize {
     my $p =  new Algorithm::Evolutionary::Op::Permutation $permutation_rate; 
     push @$operators, $p;
   }
-  my $select = new Algorithm::Evolutionary::Op::TournamentSelect $self>{'_pop_size'}, 2;
-  my $replace = new Algorithm::Evolutionary::Op::ReplaceWorst 
+  my $select = new Algorithm::Evolutionary::Op::Tournament_Selection $self->{'_tournament_size'} || 2;
   if (! $self->{'_ga'} ) { # Not given as an option
-    $self->{'_ga'} = new Algorithm::Evolutionary::Op::Canonical_GA_NN( $options->{'replacement_rate'},
-								       $operators );    
+    $self->{'_ga'} = new Algorithm::Evolutionary::Op::Breeder( $operators, $select );    
   }
+  $self->{'_replacer'} = new Algorithm::Evolutionary::Op::Replace_Worst;
 
   if (!$self->{'_distance'}) {
     $self->{'_distance'} = 'distance_taxicab';
@@ -141,9 +142,8 @@ sub issue_next {
 	}
       
     }
-    
 
-    #Recalculate distances, new game
+    #Recalculate distances, new turn
     my (%consistent );
     my $partitions;
     my $distance = $self->{'_distance'};
@@ -162,66 +162,52 @@ sub issue_next {
     }
     my $generations_equal = 0;
     my $this_number_of_consistent = $number_of_consistent;
-    
+
     while ( $this_number_of_consistent < $max_number_of_consistent ) {  
-	
-	#Compute fitness
-	compute_fitness( $pop );
-	#      print join( " - ", map( $_->{'_fitness'}, @$pop )), "\n";
-	
-	#Apply GA
-	$ga->apply( $pop );
-	
-	#Compute new distances
-	%consistent = ();  # Empty to avoid problems
-	for my $p ( @$pop ) {
-	    ($p->{'_distance'}, $p->{'_matches'}) = @{$self->$distance( $p->{'_str'} )};
-#	($p->{'_distance'}, $p->{'_matches'}) = @{$self->distance( $p )};
-	    if ($p->{'_matches'} == $rules) {
-		$consistent{$p->{'_str'}} = $p;
-		#	print $p->{'_str'}, " -> ", $p->{'_distance'}, " - ";
-	    } else {
-		$p->{'_partitions'} = 0;
-	    }
-	}
-	
-	#Check termination again, and reset
-	if ($generations_equal == MAX_GENERATIONS_RESET ) {
-	    $ga->reset( $pop );
-	    for my $p ( @$pop ) {
-		($p->{'_distance'}, $p->{'_matches'}) = @{$self->$distance( $p->{'_str'} )};
-#	    ($p->{'_distance'}, $p->{'_matches'}) = @{$self->distance( $p )};
-	    }
-	    $generations_equal = 0;
-	}
-	
-	#Check termination conditions
-	$this_number_of_consistent =  keys %consistent;
-	if ( $this_number_of_consistent == $number_of_consistent ) {
-	    $generations_equal++;
+
+      compute_fitness( $pop ); #Compute fitness
+      my $new_pop = $ga->apply( $pop, @$pop * $self->{'_replacement_rate'} );  #Apply GA
+      $pop = $self->{'_replacer'}->apply( $pop, $new_pop );
+
+      #Compute new distances
+      %consistent = ();  # Empty to avoid problems
+      for my $p ( @$pop ) {
+	($p->{'_distance'}, $p->{'_matches'}) = @{$self->$distance( $p->{'_str'} )};
+	if ($p->{'_matches'} == $rules) {
+	  $consistent{$p->{'_str'}} = $p;
+	  #	print $p->{'_str'}, " -> ", $p->{'_distance'}, " - ";
 	} else {
-	    $generations_equal = 0;
-	    $number_of_consistent = $this_number_of_consistent;
-	    # Compute number of partitions
-	    if ( $number_of_consistent > 1 ) {
-		$partitions = partitions( keys %consistent );      
-		for my $c ( keys %$partitions ) {
-		    $consistent{$c}->{'_partitions'} = scalar (keys  %{$partitions->{$c}});
-		}
-	    }
+	  $p->{'_partitions'} = 0;
 	}
-	last if ( $generations_equal >= MAX_GENERATIONS_EQUAL ) && ( $this_number_of_consistent >= 1 ) ;
-	#    print "G $generations_equal $this_number_of_consistent \n";
+      }
+      #Check termination again, and reset
+      if ($generations_equal == MAX_GENERATIONS_RESET ) {
+	$ga->reset( $pop );
+	for my $p ( @$pop ) {
+	  ($p->{'_distance'}, $p->{'_matches'}) = @{$self->$distance( $p->{'_str'} )};
+	}
+	$generations_equal = 0;
+      }
+      #Check termination conditions
+      $this_number_of_consistent =  keys %consistent;
+      if ( $this_number_of_consistent == $number_of_consistent ) {
+	$generations_equal++;
+      } else {
+	$generations_equal = 0;
+	$number_of_consistent = $this_number_of_consistent;
+	# Compute number of partitions
+	if ( $number_of_consistent > 1 ) {
+	  $partitions = partitions( keys %consistent );      
+	  for my $c ( keys %$partitions ) {
+	    $consistent{$c}->{'_partitions'} = scalar (keys  %{$partitions->{$c}});
+	  }
+	}
+      }
+      last if ( $generations_equal >= MAX_GENERATIONS_EQUAL ) && ( $this_number_of_consistent >= 1 ) ;
     }
     
     $self->{'_consistent'} = \%consistent; #This mainly for outside info
-    #  print "After GA combinations ", join( " ", keys %consistent ), "\n";
-#  print "Consistent + => ", join( "-", sort keys %consistent ), "\n\n"; 
     if ( $this_number_of_consistent > 1 ) {
-	#    print "Consistent ", scalar keys %consistent, "\n";
-	#Use whatever we've got to compute number of partitions
-#    my $partitions = partitions( keys %consistent );
-	
 	my $max_partitions = 0;
 	my %max_c;
 	for my $c ( keys %$partitions ) {
