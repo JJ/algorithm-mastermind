@@ -7,9 +7,11 @@ use Carp;
 use lib qw(../../lib 
 	   ../../../lib
 	   ../../../../Algorithm-Evolutionary/lib/ 
-	   ../../Algorithm-Evolutionary/lib/);
+	   ../../../Algorithm-Evolutionary/lib/ 
+	   ../../Algorithm-Evolutionary/lib/
+	   ../Algorithm-Evolutionary/lib/);
 
-our $VERSION = sprintf "%d.%03d", q$Revision: 1.10 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION = sprintf "%d.%03d", q$Revision: 1.11 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 

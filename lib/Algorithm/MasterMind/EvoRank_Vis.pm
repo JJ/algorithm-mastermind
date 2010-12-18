@@ -1,4 +1,4 @@
-package Algorithm::MasterMind::EvoRank;
+package Algorithm::MasterMind::EvoRank_Vis;
 
 use warnings;
 use strict;
@@ -6,13 +6,14 @@ use Carp;
 
 use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/ 
 	   ../../Algorithm-Evolutionary/lib/
-	   ../../../lib);
+	   ../../../lib );
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.15 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.1 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 
 use Algorithm::MasterMind qw(partitions);
+use Algorithm::MasterMind::Evolutionary::Animated_GIF_Output;
 
 use Algorithm::Evolutionary qw(Op::QuadXOver
 			       Op::String_Mutation
@@ -56,6 +57,13 @@ sub initialize {
     $self->{'_distance'} = 'distance_taxicab';
   }
   $self->{'_max_consistent'} = $max_number_of_consistent;
+
+  # Visualization
+  my $ago_options = { pixels_per_bit => 5,
+                  length => $self->{'_length'},
+		  number_of_strings => $self->{'_pop_size'} };
+  $self->{'_visualizer'} = new Algorithm::MasterMind::Evolutionary::Animated_GIF_Output $ago_options;
+  
 }
 
 sub compute_fitness {
@@ -107,6 +115,7 @@ sub issue_next {
   while ( $this_number_of_consistent < $max_number_of_consistent ) {  
      
     #Compute fitness
+    $self->{'_visualizer'}->apply( $pop );
     compute_fitness( $pop );
     #      print join( " - ", map( $_->{'_fitness'}, @$pop )), "\n";
     
@@ -184,19 +193,25 @@ sub issue_next {
   
 }
 
+sub terminate_and_return_gif {
+  my $self = shift;
+  $self->{'_visualizer'}->terminate();
+  return $self->{'_visualizer'}->output();
+}
 "some blacks, 0 white"; # Magic true value required at end of module
 
 __END__
 
 =head1 NAME
 
-Algorithm::MasterMind::EvoRank - Evolutionary algorithm with the
-partition method and ranked fitness, prepared for GECCO 2010 
+Algorithm::MasterMind::EvoRank_Vis - Evolutionary algorithm with the
+partition method and ranked fitness, prepared for GECCO 2010 and
+hooked for testing visualization algorithms
 
 
 =head1 SYNOPSIS
 
-    use Algorithm::MasterMind::Evolutionary_Partitions;
+    use Algorithm::MasterMind::EvoRank_Vis;
 
   
 =head1 DESCRIPTION

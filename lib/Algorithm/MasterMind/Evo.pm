@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.4 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.5 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 use Algorithm::MasterMind qw(partitions);
@@ -37,16 +37,18 @@ sub initialize {
   for my $o ( keys %$options ) {
     $self->{"_$o"} = clone($options->{$o});
   }
+  croak "No population" if $self->{'_pop_size'} == 0;
 
   # Variation operators
   my $mutation_rate = $options->{'mutation_rate'} || 1;
-  my $permutation_rate = $options->{'mutation_rate'} || 1;
+  my $permutation_rate = $options->{'permutation_rate'} || 1;
   my $xover_rate = $options->{'xover_rate'} || 4;
+  my $xover_probability = $options->{'xover_probability'} || 0.5;
   my $max_number_of_consistent = $options->{'consistent_set_card'} 
     || MAX_CONSISTENT_SET;  
   $self->{'_replacement_rate'}= $self->{'_replacement_rate'} || 0.5;
   my $m = new Algorithm::Evolutionary::Op::String_Mutation $mutation_rate ; # Rate = 1
-  my $c = Algorithm::Evolutionary::Op::Uniform_Crossover->new( 1, $xover_rate ); 
+  my $c = Algorithm::Evolutionary::Op::Uniform_Crossover->new( $xover_probability, $xover_rate ); 
   my $operators = [$m,$c];
   if ( $permutation_rate > 0 ) {
     my $p =  new Algorithm::Evolutionary::Op::Permutation $permutation_rate; 
@@ -157,7 +159,8 @@ sub issue_next {
     
     my $number_of_consistent = keys %consistent;
     if ( $number_of_consistent > 1 ) {
-	$partitions = partitions( keys %consistent );      
+	$partitions = partitions( keys %consistent );
+	# Need this to compute fitness
 	for my $c ( keys %$partitions ) {
 	    $consistent{$c}->{'_partitions'} = scalar (keys  %{$partitions->{$c}});
 	}
