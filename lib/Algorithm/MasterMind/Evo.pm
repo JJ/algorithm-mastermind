@@ -8,16 +8,16 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.5 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.6 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 use Algorithm::MasterMind qw(partitions);
 
 use Algorithm::Evolutionary qw(Op::String_Mutation
 			       Op::Permutation
-			       Op::Uniform_Crossover
+			       Op::Uniform_Crossover_Diff
 			       Op::TournamentSelect
-			       Op::Breeder
+			       Op::Breeder_Diverser
 			       Op::Replace_Worst
 			       Op::TournamentSelect
 			       Individual::String );
@@ -28,7 +28,7 @@ use Clone::Fast qw(clone);
 
 # ---------------------------------------------------------------------------
 use constant { MAX_CONSISTENT_SET => 20, # This number 20 was computed in NICSO paper, valid for default 4-6 mastermind
-	       MAX_GENERATIONS_RESET => 50,
+	       MAX_GENERATIONS_RESET => 100,
 	       MAX_GENERATIONS_EQUAL => 3} ;
 
 sub initialize {
@@ -42,13 +42,12 @@ sub initialize {
   # Variation operators
   my $mutation_rate = $options->{'mutation_rate'} || 1;
   my $permutation_rate = $options->{'permutation_rate'} || 1;
-  my $xover_rate = $options->{'xover_rate'} || 4;
-  my $xover_probability = $options->{'xover_probability'} || 0.5;
+  my $xover_rate = $options->{'xover_rate'} || 1;
   my $max_number_of_consistent = $options->{'consistent_set_card'} 
     || MAX_CONSISTENT_SET;  
-  $self->{'_replacement_rate'}= $self->{'_replacement_rate'} || 0.5;
+  $self->{'_replacement_rate'}= $self->{'_replacement_rate'} || 0.25;
   my $m = new Algorithm::Evolutionary::Op::String_Mutation $mutation_rate ; # Rate = 1
-  my $c = Algorithm::Evolutionary::Op::Uniform_Crossover->new( $xover_probability, $xover_rate ); 
+  my $c = Algorithm::Evolutionary::Op::Uniform_Crossover_Diff->new( $options->{'length'}/2, $xover_rate ); 
   my $operators = [$m,$c];
   if ( $permutation_rate > 0 ) {
     my $p =  new Algorithm::Evolutionary::Op::Permutation $permutation_rate; 
@@ -56,7 +55,7 @@ sub initialize {
   }
   my $select = new Algorithm::Evolutionary::Op::Tournament_Selection $self->{'_tournament_size'} || 2;
   if (! $self->{'_ga'} ) { # Not given as an option
-    $self->{'_ga'} = new Algorithm::Evolutionary::Op::Breeder( $operators, $select );    
+    $self->{'_ga'} = new Algorithm::Evolutionary::Op::Breeder_Diverser( $operators, $select );    
   }
   $self->{'_replacer'} = new Algorithm::Evolutionary::Op::Replace_Worst;
 
@@ -172,11 +171,8 @@ sub issue_next {
 
       compute_fitness( $pop ); #Compute fitness
       my $new_pop = $ga->apply( $pop, @$pop * $self->{'_replacement_rate'} );  #Apply GA
-      $pop = $self->{'_replacer'}->apply( $pop, $new_pop );
-
       #Compute new distances
-      %consistent = ();  # Empty to avoid problems
-      for my $p ( @$pop ) {
+      for my $p ( @$new_pop ) {
 	($p->{'_distance'}, $p->{'_matches'}) = @{$self->$distance( $p->{'_str'} )};
 	if ($p->{'_matches'} == $rules) {
 	  $consistent{$p->{'_str'}} = $p;
@@ -185,8 +181,13 @@ sub issue_next {
 	  $p->{'_partitions'} = 0;
 	}
       }
+      $pop = $self->{'_replacer'}->apply( $pop, $new_pop );
+
+     
       #Check termination again, and reset
       if ($generations_equal == MAX_GENERATIONS_RESET ) {
+	print join("-",map(  $_->{'_str'}, sort { $a->{'_str'} cmp $b->{'_str'} } @$pop )), "\n";
+	print "Reset ", $pop->[0]->Fitness(), "\n";
 	$ga->reset( $pop );
 	for my $p ( @$pop ) {
 	  ($p->{'_distance'}, $p->{'_matches'}) = @{$self->$distance( $p->{'_str'} )};
