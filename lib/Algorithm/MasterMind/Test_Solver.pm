@@ -6,7 +6,7 @@ use Carp;
 
 use lib qw(../../lib ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.3 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.4 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Exporter';
 use Algorithm::MasterMind qw(check_combination);
@@ -30,6 +30,12 @@ sub solve_mastermind {
   while ( $played_string ne $secret_code ) {
       is( $played{ $played_string}, undef, 'Playing '. $played_string ) ;
       $played{$played_string} = 1;
+#      my (%combinations, %fitness);
+      # map ( $combinations{$_->{'_str'}}++, @{$solver->{'_pop'}});
+      # map ( $fitness{$_->{'_str'}} = $_->Fitness(), @{$solver->{'_pop'}});
+      # for my $c ( sort {$combinations{$a} <=> $combinations{$b} } keys %combinations ) {
+      # 	print "$c =>  $combinations{$c} $fitness{$c}\n" if $combinations{$c}>1 ;
+      # }
       $solver->feedback( check_combination( $secret_code, $played_string) );
       $played_string = $solver->issue_next;
       $played ++;

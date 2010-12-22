@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.6 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.7 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 use Algorithm::MasterMind qw(partitions);
@@ -16,10 +16,9 @@ use Algorithm::MasterMind qw(partitions);
 use Algorithm::Evolutionary qw(Op::String_Mutation
 			       Op::Permutation
 			       Op::Uniform_Crossover_Diff
-			       Op::TournamentSelect
 			       Op::Breeder_Diverser
 			       Op::Replace_Worst
-			       Op::TournamentSelect
+			       Op::Tournament_Selection
 			       Individual::String );
 
 use Algorithm::Combinatorics qw(permutations);
@@ -30,6 +29,14 @@ use Clone::Fast qw(clone);
 use constant { MAX_CONSISTENT_SET => 20, # This number 20 was computed in NICSO paper, valid for default 4-6 mastermind
 	       MAX_GENERATIONS_RESET => 100,
 	       MAX_GENERATIONS_EQUAL => 3} ;
+
+sub factorial {
+  my $value = shift;
+  my $factorial = 1;
+  $factorial *= $_ foreach 1..$value;
+  return $factorial;
+}
+
 
 sub initialize {
   my $self = shift;
@@ -42,6 +49,7 @@ sub initialize {
   # Variation operators
   my $mutation_rate = $options->{'mutation_rate'} || 1;
   my $permutation_rate = $options->{'permutation_rate'} || 1;
+  my $permutation_iters = $options->{'permutation_iterations'} || factorial($options->{'length'});
   my $xover_rate = $options->{'xover_rate'} || 1;
   my $max_number_of_consistent = $options->{'consistent_set_card'} 
     || MAX_CONSISTENT_SET;  
@@ -50,7 +58,7 @@ sub initialize {
   my $c = Algorithm::Evolutionary::Op::Uniform_Crossover_Diff->new( $options->{'length'}/2, $xover_rate ); 
   my $operators = [$m,$c];
   if ( $permutation_rate > 0 ) {
-    my $p =  new Algorithm::Evolutionary::Op::Permutation $permutation_rate; 
+    my $p =  new Algorithm::Evolutionary::Op::Permutation $permutation_rate, $permutation_iters; 
     push @$operators, $p;
   }
   my $select = new Algorithm::Evolutionary::Op::Tournament_Selection $self->{'_tournament_size'} || 2;
@@ -150,10 +158,16 @@ sub issue_next {
     my (%consistent );
     my $partitions;
     my $distance = $self->{'_distance'};
+#    print "Evaluating all \n";
     for my $p ( @$pop ) {
 	($p->{'_distance'}, $p->{'_matches'}) = @{$self->$distance( $p->{'_str'} )};
 #      ($p->{'_distance'}, $p->{'_matches'}) = @{$self->distance( $p )};
-	$consistent{$p->{'_str'}} = $p if ($p->{'_matches'} == $rules);
+#	print "$p->{'_distance'}, $p->{'_matches'}) =  $p->{'_str'} \n";
+	if ($p->{'_matches'} == $rules) {
+	  $consistent{$p->{'_str'}} = $p;
+	} else {
+	  $p->{'_partitions'} = 0;
+	}
     }
     
     my $number_of_consistent = keys %consistent;
@@ -172,8 +186,10 @@ sub issue_next {
       compute_fitness( $pop ); #Compute fitness
       my $new_pop = $ga->apply( $pop, @$pop * $self->{'_replacement_rate'} );  #Apply GA
       #Compute new distances
+#      print  "Evaluating new\n";
       for my $p ( @$new_pop ) {
 	($p->{'_distance'}, $p->{'_matches'}) = @{$self->$distance( $p->{'_str'} )};
+#	print "$p->{'_distance'}, $p->{'_matches'}) =  $p->{'_str'} \n";
 	if ($p->{'_matches'} == $rules) {
 	  $consistent{$p->{'_str'}} = $p;
 	  #	print $p->{'_str'}, " -> ", $p->{'_distance'}, " - ";
@@ -256,6 +272,10 @@ by Runarsson and Merelo to incorporate it in the genetic search. It
 was prepared for a conference paper.
 
 =head1 INTERFACE 
+
+=head2 factorial
+
+Computes factorial, needed as a default value for the permutation operator 
 
 =head2 initialize
 
