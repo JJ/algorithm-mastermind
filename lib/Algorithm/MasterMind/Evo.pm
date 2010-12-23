@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.7 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.8 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 use Algorithm::MasterMind qw(partitions);
@@ -164,7 +164,7 @@ sub issue_next {
 #      ($p->{'_distance'}, $p->{'_matches'}) = @{$self->distance( $p )};
 #	print "$p->{'_distance'}, $p->{'_matches'}) =  $p->{'_str'} \n";
 	if ($p->{'_matches'} == $rules) {
-	  $consistent{$p->{'_str'}} = $p;
+	  push @{$consistent{$p->{'_str'}}}, $p;
 	} else {
 	  $p->{'_partitions'} = 0;
 	}
@@ -175,7 +175,9 @@ sub issue_next {
 	$partitions = partitions( keys %consistent );
 	# Need this to compute fitness
 	for my $c ( keys %$partitions ) {
-	    $consistent{$c}->{'_partitions'} = scalar (keys  %{$partitions->{$c}});
+	  for my $p ( @{$consistent{$c}} ) {
+	    $p->{'_partitions'} = scalar (keys  %{$partitions->{$c}});
+	  }
 	}
     }
     my $generations_equal = 0;
@@ -184,6 +186,10 @@ sub issue_next {
     while ( $this_number_of_consistent < $max_number_of_consistent ) {  
 
       compute_fitness( $pop ); #Compute fitness
+      # print "Fitness computed ===============\n";
+      # for my $p (sort {$b->{'_str'} cmp $a->{'_str'} } @$pop) {
+      # 	print $p->{'_str'}, " => ", $p->Fitness(), " d ", $p->{'_distance'}, " m ", $p->{'_matches'}, " p ", $p->{'_partitions'}, "\n";
+      # }
       my $new_pop = $ga->apply( $pop, @$pop * $self->{'_replacement_rate'} );  #Apply GA
       #Compute new distances
 #      print  "Evaluating new\n";
@@ -191,7 +197,7 @@ sub issue_next {
 	($p->{'_distance'}, $p->{'_matches'}) = @{$self->$distance( $p->{'_str'} )};
 #	print "$p->{'_distance'}, $p->{'_matches'}) =  $p->{'_str'} \n";
 	if ($p->{'_matches'} == $rules) {
-	  $consistent{$p->{'_str'}} = $p;
+	  push @{$consistent{$p->{'_str'}}}, $p;
 	  #	print $p->{'_str'}, " -> ", $p->{'_distance'}, " - ";
 	} else {
 	  $p->{'_partitions'} = 0;
@@ -219,10 +225,13 @@ sub issue_next {
 	$number_of_consistent = $this_number_of_consistent;
 	# Compute number of partitions
 	if ( $number_of_consistent > 1 ) {
-	  $partitions = partitions( keys %consistent );      
-	  for my $c ( keys %$partitions ) {
-	    $consistent{$c}->{'_partitions'} = scalar (keys  %{$partitions->{$c}});
-	  }
+	  $partitions = partitions( keys %consistent );
+	  
+	}
+      }
+      for my $c ( keys %$partitions ) {
+	for my $p ( @{$consistent{$c}}) {
+	  $p->{'_partitions'} = scalar (keys  %{$partitions->{$c}});
 	}
       }
       last if ( $generations_equal >= MAX_GENERATIONS_EQUAL ) && ( $this_number_of_consistent >= 1 ) ;
