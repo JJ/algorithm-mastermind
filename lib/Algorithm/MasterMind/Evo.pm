@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.8 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.9 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 use Algorithm::MasterMind qw(partitions);
@@ -172,13 +172,19 @@ sub issue_next {
     
     my $number_of_consistent = keys %consistent;
     if ( $number_of_consistent > 1 ) {
-	$partitions = partitions( keys %consistent );
-	# Need this to compute fitness
-	for my $c ( keys %$partitions ) {
-	  for my $p ( @{$consistent{$c}} ) {
-	    $p->{'_partitions'} = scalar (keys  %{$partitions->{$c}});
-	  }
+      $partitions = partitions( keys %consistent );
+      # Need this to compute fitness
+      for my $c ( keys %$partitions ) {
+	for my $p ( @{$consistent{$c}} ) {
+	  $p->{'_partitions'} = scalar (keys  %{$partitions->{$c}});
 	}
+      }
+    } elsif ( $number_of_consistent == 1 ) {
+      for my $c ( keys %consistent ) {
+	for my $p ( @{$consistent{$c}} ) {
+	  $p->{'_partitions'} = 1;
+	}
+      }
     }
     my $generations_equal = 0;
     my $this_number_of_consistent = $number_of_consistent;
@@ -186,10 +192,10 @@ sub issue_next {
     while ( $this_number_of_consistent < $max_number_of_consistent ) {  
 
       compute_fitness( $pop ); #Compute fitness
-      # print "Fitness computed ===============\n";
-      # for my $p (sort {$b->{'_str'} cmp $a->{'_str'} } @$pop) {
-      # 	print $p->{'_str'}, " => ", $p->Fitness(), " d ", $p->{'_distance'}, " m ", $p->{'_matches'}, " p ", $p->{'_partitions'}, "\n";
-      # }
+       # print "Fitness computed ===============\n";
+       # for my $p (sort {$b->{'_str'} cmp $a->{'_str'} } @$pop) {
+       # 	print $p->{'_str'}, " => ", $p->Fitness(), " d ", $p->{'_distance'}, " m ", $p->{'_matches'}, " p ", $p->{'_partitions'}, "\n";
+       # }
       my $new_pop = $ga->apply( $pop, @$pop * $self->{'_replacement_rate'} );  #Apply GA
       #Compute new distances
 #      print  "Evaluating new\n";
@@ -226,10 +232,12 @@ sub issue_next {
 	# Compute number of partitions
 	if ( $number_of_consistent > 1 ) {
 	  $partitions = partitions( keys %consistent );
-	  
+	} else {
+	  $partitions->{(keys %consistent )[0]} = { "allblacks" => 1}; # I know, this is a hack
+#	  print "Hack used on " , (keys %consistent )[0], "\n";
 	}
       }
-      for my $c ( keys %$partitions ) {
+      for my $c ( keys %consistent ) {
 	for my $p ( @{$consistent{$c}}) {
 	  $p->{'_partitions'} = scalar (keys  %{$partitions->{$c}});
 	}
