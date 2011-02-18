@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.9 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.10 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 use Algorithm::MasterMind qw(partitions);
@@ -23,7 +23,7 @@ use Algorithm::Evolutionary qw(Op::String_Mutation
 
 use Algorithm::Combinatorics qw(permutations);
 use Algorithm::MasterMind::Partition::Most;
-use Clone::Fast qw(clone);
+use Clone qw(clone);
 
 # ---------------------------------------------------------------------------
 use constant { MAX_CONSISTENT_SET => 20, # This number 20 was computed in NICSO paper, valid for default 4-6 mastermind

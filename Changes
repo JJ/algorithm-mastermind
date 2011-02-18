@@ -1,3 +1,9 @@
+2011-02-18  Juan Julian Merelo Guervos  <jjmerelo@gmail.com>
+
+	* lib/Algorithm/MasterMind/Evolutionary_Base.pm (reset): Changed
+	population-generation function; now all strings in the population
+	are different. 
+
 2010-12-13  Juan J. Merelo Guervós  <jmerelo@localhost.localdomain>
 
 	* lib/Algorithm/MasterMind/Test_Solver.pm (solve_mastermind):

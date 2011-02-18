@@ -11,7 +11,7 @@ use lib qw(../../lib
 	   ../../Algorithm-Evolutionary/lib/
 	   ../Algorithm-Evolutionary/lib/);
 
-our $VERSION = sprintf "%d.%03d", q$Revision: 1.11 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION = sprintf "%d.%03d", q$Revision: 1.12 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
@@ -64,6 +64,20 @@ sub issue_first {
 }
 
 sub reset {
+  my $self=shift;
+  my %pop;
+  if (  scalar( (@{$self->{'_alphabet'}})** $self->{'_length'} ) < $self->{'_pop_size'} ) {
+      croak( "Can't do, population bigger than space" );
+  }
+  while ( scalar ( keys %pop ) < $self->{'_pop_size'} ) {
+      my $indi = Algorithm::Evolutionary::Individual::String->new( $self->{'_alphabet'}, $self->{'_length'} );
+      $pop{ $indi->{'_str'}} = $indi;
+  }
+  my @pop = values %pop;
+  $self->{'_pop'}= \@pop;
+}
+
+sub reset_old {
   my $self=shift;
   my @pop;
   for ( 0.. ($self->{'_pop_size'}-1) ) {
@@ -156,9 +170,13 @@ entropy and the distance to a consistent combination.
 
 Original fitness, used in one of the former papers
 
+=head2 reset_old()
+
+Create a new population, old version
+
 =head2 reset()
 
-Create a new population
+Create a new population making sure that all strings appear only once. 
 
 =head2 realphabet()
 
