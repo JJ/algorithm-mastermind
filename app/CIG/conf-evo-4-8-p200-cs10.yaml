@@ -1,0 +1,16 @@
+ID: log-evo-4-8-p200-cs10
+Method: Evo
+Method_options:
+    alphabet:
+      - A
+      - B
+      - C
+      - D
+      - E
+      - F
+      - G
+      - H
+    length: 4
+    pop_size: 300
+    consistent_set_card: 10
+
