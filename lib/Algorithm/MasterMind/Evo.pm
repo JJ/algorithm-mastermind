@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.10 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.11 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 use Algorithm::MasterMind qw(partitions);
@@ -17,7 +17,7 @@ use Algorithm::Evolutionary qw(Op::String_Mutation
 			       Op::Permutation
 			       Op::Uniform_Crossover_Diff
 			       Op::Breeder_Diverser
-			       Op::Replace_Worst
+			       Op::Replace_Different
 			       Op::Tournament_Selection
 			       Individual::String );
 
@@ -49,7 +49,7 @@ sub initialize {
   # Variation operators
   my $mutation_rate = $options->{'mutation_rate'} || 1;
   my $permutation_rate = $options->{'permutation_rate'} || 1;
-  my $permutation_iters = $options->{'permutation_iterations'} || factorial($options->{'length'});
+  my $permutation_iters = $options->{'permutation_iterations'} || factorial($options->{'length'}) - 1 ;
   my $xover_rate = $options->{'xover_rate'} || 1;
   my $max_number_of_consistent = $options->{'consistent_set_card'} 
     || MAX_CONSISTENT_SET;  
@@ -65,11 +65,12 @@ sub initialize {
   if (! $self->{'_ga'} ) { # Not given as an option
     $self->{'_ga'} = new Algorithm::Evolutionary::Op::Breeder_Diverser( $operators, $select );    
   }
-  $self->{'_replacer'} = new Algorithm::Evolutionary::Op::Replace_Worst;
+  $self->{'_replacer'} = new Algorithm::Evolutionary::Op::Replace_Different;
 
   if (!$self->{'_distance'}) {
     $self->{'_distance'} = 'distance_taxicab';
   }
+
   $self->{'_max_consistent'} = $max_number_of_consistent;
 }
 
@@ -89,6 +90,18 @@ sub compute_fitness {
 		 $min_distance + 1);
   }
 }
+#----------------------------------------------------------------------------
+sub eliminate_last_played {
+  my $self = shift;
+  my $last_played = $self->{'_last'};
+
+  for my $p ( @{$self->{'_pop'}} ) {
+    if ($p->{'_str'} eq $last_played ) {
+      $p =  new Algorithm::Evolutionary::Individual::String( $self->{'_alphabet'}, $self->{'_length'} );
+    }
+  }
+}
+
 
 #----------------------------------------------------------------------------
 
@@ -104,6 +117,10 @@ sub issue_next {
 
   my $last_rule = $rules[$#rules];
   my $alphabet_size = @{$self->{'_alphabet'}};
+
+  if ( $self->{'_played_out'} ) {
+    $self->eliminate_last_played;
+  }
   #Check for combination guessed right except for permutation
   if ($last_rule->{'blacks'}+$last_rule->{'whites'} == $length ) {
     if ( ! $self->{'_consistent_endgame'} ) {
@@ -191,38 +208,17 @@ sub issue_next {
 
     while ( $this_number_of_consistent < $max_number_of_consistent ) {  
 
-      compute_fitness( $pop ); #Compute fitness
-       # print "Fitness computed ===============\n";
-       # for my $p (sort {$b->{'_str'} cmp $a->{'_str'} } @$pop) {
-       # 	print $p->{'_str'}, " => ", $p->Fitness(), " d ", $p->{'_distance'}, " m ", $p->{'_matches'}, " p ", $p->{'_partitions'}, "\n";
-       # }
+      compute_fitness( $pop ); 
       my $new_pop = $ga->apply( $pop, @$pop * $self->{'_replacement_rate'} );  #Apply GA
-      #Compute new distances
-#      print  "Evaluating new\n";
       for my $p ( @$new_pop ) {
 	($p->{'_distance'}, $p->{'_matches'}) = @{$self->$distance( $p->{'_str'} )};
-#	print "$p->{'_distance'}, $p->{'_matches'}) =  $p->{'_str'} \n";
 	if ($p->{'_matches'} == $rules) {
 	  push @{$consistent{$p->{'_str'}}}, $p;
-	  #	print $p->{'_str'}, " -> ", $p->{'_distance'}, " - ";
 	} else {
 	  $p->{'_partitions'} = 0;
 	}
       }
       $pop = $self->{'_replacer'}->apply( $pop, $new_pop );
-
-     
-      #Check termination again, and reset
-      if ($generations_equal == MAX_GENERATIONS_RESET ) {
-	print join("-",map(  $_->{'_str'}, sort { $a->{'_str'} cmp $b->{'_str'} } @$pop )), "\n";
-	print "Reset ", $pop->[0]->Fitness(), "\n";
-	$ga->reset( $pop );
-	for my $p ( @$pop ) {
-	  ($p->{'_distance'}, $p->{'_matches'}) = @{$self->$distance( $p->{'_str'} )};
-	}
-	$generations_equal = 0;
-      }
-      #Check termination conditions
       $this_number_of_consistent =  keys %consistent;
       if ( $this_number_of_consistent == $number_of_consistent ) {
 	$generations_equal++;
@@ -234,7 +230,6 @@ sub issue_next {
 	  $partitions = partitions( keys %consistent );
 	} else {
 	  $partitions->{(keys %consistent )[0]} = { "allblacks" => 1}; # I know, this is a hack
-#	  print "Hack used on " , (keys %consistent )[0], "\n";
 	}
       }
       for my $c ( keys %consistent ) {
@@ -242,8 +237,27 @@ sub issue_next {
 	  $p->{'_partitions'} = scalar (keys  %{$partitions->{$c}});
 	}
       }
-      last if ( $generations_equal >= MAX_GENERATIONS_EQUAL ) && ( $this_number_of_consistent >= 1 ) ;
-    }
+
+      if ($generations_equal == MAX_GENERATIONS_RESET ) { #reset pop
+	# Print for debugging
+	my %population;
+	for my $p ( @$pop ) {
+	  $population{$p->{'_str'}}++;
+	}
+	for my $s ( sort { $population{$b} <=> $population{$a} } keys %population ) {
+	  print $s, ": ", $population{$s}, " C\n";
+	}
+	print "Reset\n\n";
+	#Do the thing
+	$ga->reset( $pop );
+	for my $p ( @$pop ) {
+	  ($p->{'_distance'}, $p->{'_matches'}) = @{$self->$distance( $p->{'_str'} )};
+	}
+	$generations_equal = 0;
+      }
+      last if ( $generations_equal >= MAX_GENERATIONS_EQUAL ) 
+	&& ( $this_number_of_consistent >= 1 ) ;
+    } # end while
     
     $self->{'_consistent'} = \%consistent; #This mainly for outside info
     if ( $this_number_of_consistent > 1 ) {

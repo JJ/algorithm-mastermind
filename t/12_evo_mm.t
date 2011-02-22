@@ -23,12 +23,23 @@ for my $secret_code ( @secret_codes ) {
     replacement_rate => 0.5 };
 
   solve_mastermind( $solver, $secret_code );
+
+  # Other combination
   $solver = new Algorithm::MasterMind::Evo 
   { alphabet => \@alphabet,
     length => length( $secret_code ),
     pop_size => $population_size,
     replacement_rate => 0.4,
     distance => 'distance_chebyshev' };
+  solve_mastermind( $solver, $secret_code );
+
+  #Just another
+  $solver = new Algorithm::MasterMind::Evo 
+  { alphabet => \@alphabet,
+      length => length( $secret_code ),
+	pop_size => $population_size*2,
+	  replacement_rate => 0.8,
+	    played_out => 1 };
   solve_mastermind( $solver, $secret_code );
 }
 

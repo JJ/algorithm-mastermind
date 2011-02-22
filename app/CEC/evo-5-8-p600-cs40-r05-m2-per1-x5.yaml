@@ -1,0 +1,20 @@
+ID: evo-5-8-p600-m2-per1-x5-cs40-r05
+Method: Evo
+Method_options:
+    alphabet:
+      - A
+      - B
+      - C
+      - D
+      - E
+      - F
+      - G
+      - H
+    length: 5
+    pop_size: 600
+    permutation_rate: 1
+    mutation_rate: 2
+    crossover_rate: 10
+    consistent_set_card: 40
+    replacement_rate: 0.5
+

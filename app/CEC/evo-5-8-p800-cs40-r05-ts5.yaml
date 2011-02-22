@@ -1,0 +1,19 @@
+ID: evo-5-8-p800-cs40-r05-ts5
+Method: Evo
+Method_options:
+    alphabet:
+      - A
+      - B
+      - C
+      - D
+      - E
+      - F
+      - G
+      - H
+    length: 5
+    pop_size: 800
+    consistent_set_card: 40
+    replacement_rate: 0.5
+    tournament_size: 5
+
+

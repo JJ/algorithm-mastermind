@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use lib qw(../lib ../../Algorithm-Evolutionary/lib);
+use lib qw(../lib ../../Algorithm-Evolutionary/lib ../../lib);
 
 use YAML qw(LoadFile Dump);
 use DateTime;
@@ -43,5 +43,8 @@ for ( 1..$repeats ) {
   }  
   $game->{'evaluations'} = $solver->evaluated();
   print Dump($game);
+  for my $data qw( max_fitness avg_fitness entropy ) {
+    print Dump( { $data => $solver->{"_$data"} } );
+  }
 }
 

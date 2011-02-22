@@ -1,4 +1,4 @@
-ID: log-4-8-p400-cs30-po
+ID: log-evo-5-9-p1k-cs80-r075
 Method: Evo
 Method_options:
     alphabet:
@@ -10,10 +10,9 @@ Method_options:
       - F
       - G
       - H
-    length: 4
-    pop_size: 400
-    consistent_set_card: 30
+      - I
+    length: 5
+    pop_size: 1000
+    consistent_set_card: 80
     replacement_rate: 0.75
-    played_out: 1
-
 

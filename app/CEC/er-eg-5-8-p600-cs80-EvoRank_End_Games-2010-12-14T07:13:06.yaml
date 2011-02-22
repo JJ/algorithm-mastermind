@@ -1,0 +1,14 @@
+--- EvoRank_End_Games
+---
+alphabet:
+  - A
+  - B
+  - C
+  - D
+  - E
+  - F
+  - G
+  - H
+consistent_set_card: 80
+length: 5
+pop_size: 600

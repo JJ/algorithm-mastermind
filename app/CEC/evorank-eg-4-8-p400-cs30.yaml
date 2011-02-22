@@ -1,5 +1,5 @@
-ID: log-evo-4-8-p200-cs10
-Method: Evo
+ID: er-eg-4-8-p600-cs60
+Method: EvoRank_End_Games
 Method_options:
     alphabet:
       - A
@@ -11,6 +11,7 @@ Method_options:
       - G
       - H
     length: 4
-    pop_size: 200
-    consistent_set_card: 10
+    pop_size: 600
+    consistent_set_card: 60
+
 
