@@ -1,0 +1,18 @@
+ID: log-evo-6-9-p1k-cs200-r075
+Method: Evo
+Method_options:
+    alphabet:
+      - A
+      - B
+      - C
+      - D
+      - E
+      - F
+      - G
+      - H
+      - I
+    length: 6
+    pop_size: 1000
+    consistent_set_card: 200
+    replacement_rate: 0.75
+

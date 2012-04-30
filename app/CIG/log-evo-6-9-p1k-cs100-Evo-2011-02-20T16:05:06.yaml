@@ -1,0 +1,12675 @@
+--- Evo
+---
+alphabet:
+  - A
+  - B
+  - C
+  - D
+  - E
+  - F
+  - G
+  - H
+  - I
+consistent_set_card: 100
+length: 6
+pop_size: 1000
+---
+code: BEHGGB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - HHIGBB
+    - blacks: 2
+      whites: 2
+  -
+    - GIIBGB
+    - blacks: 2
+      whites: 2
+  -
+    - EIHIBB
+    - blacks: 2
+      whites: 2
+  -
+    - IEGBBB
+    - blacks: 2
+      whites: 2
+  -
+    - GGEHBB
+    - blacks: 1
+      whites: 5
+evaluations: 36360
+---
+code: CGGIGF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - HGIIHC
+    - blacks: 2
+      whites: 1
+  -
+    - HCGGEC
+    - blacks: 1
+      whites: 2
+  -
+    - FDGIHG
+    - blacks: 2
+      whites: 2
+  -
+    - BGGFHH
+    - blacks: 2
+      whites: 1
+  -
+    - GGGICF
+    - blacks: 4
+      whites: 2
+evaluations: 23740
+---
+code: CFHDCH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - ACIEIG
+    - blacks: 0
+      whites: 1
+  -
+    - HEBFHB
+    - blacks: 0
+      whites: 3
+  -
+    - BDHDGH
+    - blacks: 3
+      whites: 0
+  -
+    - FHHDCH
+    - blacks: 4
+      whites: 1
+evaluations: 23250
+---
+code: FHACFH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - IDEFCI
+    - blacks: 0
+      whites: 2
+  -
+    - CAFHHH
+    - blacks: 1
+      whites: 4
+  -
+    - BHHHFC
+    - blacks: 2
+      whites: 2
+  -
+    - GFHAHC
+    - blacks: 0
+      whites: 5
+  -
+    - HHFCFA
+    - blacks: 3
+      whites: 3
+evaluations: 21610
+---
+code: FBGDHE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 0
+  -
+    - FGCHAG
+    - blacks: 1
+      whites: 2
+  -
+    - GDEDAH
+    - blacks: 1
+      whites: 3
+  -
+    - DECDHF
+    - blacks: 2
+      whites: 2
+  -
+    - HCCDGE
+    - blacks: 2
+      whites: 2
+  -
+    - FEHDGB
+    - blacks: 2
+      whites: 4
+evaluations: 35440
+---
+code: EFIAGH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - GIFBHI
+    - blacks: 0
+      whites: 4
+  -
+    - IHGCFH
+    - blacks: 1
+      whites: 3
+  -
+    - BHHFEG
+    - blacks: 0
+      whites: 4
+  -
+    - FDGHIE
+    - blacks: 0
+      whites: 5
+  -
+    - HEIGFA
+    - blacks: 1
+      whites: 5
+evaluations: 34440
+---
+code: IFIBAA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - GCFEBB
+    - blacks: 0
+      whites: 2
+  -
+    - EAADDF
+    - blacks: 0
+      whites: 3
+  -
+    - IDEBAI
+    - blacks: 3
+      whites: 1
+  -
+    - HHEBAD
+    - blacks: 2
+      whites: 0
+  -
+    - CIEAAI
+    - blacks: 1
+      whites: 3
+evaluations: 30500
+---
+code: EHBHDB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - AGAHHC
+    - blacks: 1
+      whites: 1
+  -
+    - EFADDA
+    - blacks: 2
+      whites: 0
+  -
+    - CFACFB
+    - blacks: 1
+      whites: 0
+  -
+    - EGHBDB
+    - blacks: 3
+      whites: 2
+evaluations: 22000
+---
+code: IEEFGF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 0
+  -
+    - HHFGFG
+    - blacks: 0
+      whites: 3
+  -
+    - FFEIEH
+    - blacks: 1
+      whites: 4
+  -
+    - EGIHEF
+    - blacks: 1
+      whites: 4
+  -
+    - GEEFIF
+    - blacks: 4
+      whites: 2
+evaluations: 9530
+---
+code: DABCCB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 4
+  -
+    - BDBCAC
+    - blacks: 2
+      whites: 4
+  -
+    - CABCDB
+    - blacks: 4
+      whites: 2
+evaluations: 4406
+---
+code: EDADGI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - GAGDII
+    - blacks: 2
+      whites: 2
+  -
+    - BGIDFI
+    - blacks: 2
+      whites: 1
+  -
+    - IDADDI
+    - blacks: 4
+      whites: 0
+  -
+    - IEADEI
+    - blacks: 3
+      whites: 1
+evaluations: 19500
+---
+code: BAEACH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 4
+  -
+    - DHBBIC
+    - blacks: 0
+      whites: 3
+  -
+    - CEAIDA
+    - blacks: 0
+      whites: 4
+  -
+    - EAFCBD
+    - blacks: 1
+      whites: 3
+evaluations: 27500
+---
+code: HEDDBF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - AIBEHF
+    - blacks: 1
+      whites: 3
+  -
+    - AEHGFC
+    - blacks: 1
+      whites: 2
+  -
+    - AFIAEE
+    - blacks: 0
+      whites: 2
+  -
+    - DBHEIG
+    - blacks: 0
+      whites: 4
+  -
+    - HEDFHB
+    - blacks: 3
+      whites: 2
+evaluations: 58000
+---
+code: HFBBGD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - FDBFHC
+    - blacks: 1
+      whites: 3
+  -
+    - IHDHBC
+    - blacks: 0
+      whites: 3
+  -
+    - FCIADF
+    - blacks: 0
+      whites: 2
+  -
+    - CEBBFH
+    - blacks: 2
+      whites: 2
+  -
+    - BDFBGH
+    - blacks: 2
+      whites: 4
+evaluations: 20470
+---
+code: HEDDFF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 0
+  -
+    - GEDDEH
+    - blacks: 3
+      whites: 1
+  -
+    - GDGDEG
+    - blacks: 1
+      whites: 2
+  -
+    - HGDDFH
+    - blacks: 4
+      whites: 0
+  -
+    - HEDDFI
+    - blacks: 5
+      whites: 0
+  -
+    - HEDDFD
+    - blacks: 5
+      whites: 0
+evaluations: 30250
+---
+code: DDEFHI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - GGEEIC
+    - blacks: 1
+      whites: 1
+  -
+    - IHHEDF
+    - blacks: 0
+      whites: 5
+  -
+    - HDIFIE
+    - blacks: 2
+      whites: 3
+  -
+    - HEDIIH
+    - blacks: 0
+      whites: 4
+  -
+    - FDEFHI
+    - blacks: 5
+      whites: 0
+evaluations: 24750
+---
+code: CDBAEC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 4
+  -
+    - HGBBDC
+    - blacks: 2
+      whites: 1
+  -
+    - CDBADE
+    - blacks: 4
+      whites: 1
+  -
+    - CEBADI
+    - blacks: 3
+      whites: 2
+  -
+    - CDBIDA
+    - blacks: 3
+      whites: 1
+  -
+    - CABEDE
+    - blacks: 2
+      whites: 3
+evaluations: 20250
+---
+code: FGFFGH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 0
+  -
+    - HEFFEG
+    - blacks: 2
+      whites: 2
+  -
+    - IEEHIG
+    - blacks: 0
+      whites: 2
+  -
+    - HGFGFH
+    - blacks: 3
+      whites: 2
+  -
+    - HFFGGF
+    - blacks: 2
+      whites: 4
+  -
+    - HGGFFF
+    - blacks: 2
+      whites: 4
+evaluations: 9433
+---
+code: AFBBBI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - BECBCH
+    - blacks: 1
+      whites: 1
+  -
+    - AAHICF
+    - blacks: 1
+      whites: 2
+  -
+    - GEHAAD
+    - blacks: 0
+      whites: 1
+  -
+    - BBBIFA
+    - blacks: 1
+      whites: 5
+  -
+    - FABBIB
+    - blacks: 2
+      whites: 4
+  -
+    - BAIFBB
+    - blacks: 1
+      whites: 5
+evaluations: 18002
+---
+code: FCCAGA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - FAGDFA
+    - blacks: 2
+      whites: 2
+  -
+    - EDCGFA
+    - blacks: 2
+      whites: 2
+  -
+    - FCHGAA
+    - blacks: 3
+      whites: 2
+  -
+    - CAFGAA
+    - blacks: 1
+      whites: 4
+evaluations: 23750
+---
+code: AEDGCD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - BBEHDF
+    - blacks: 0
+      whites: 2
+  -
+    - AFDCFD
+    - blacks: 3
+      whites: 1
+  -
+    - AGDECD
+    - blacks: 4
+      whites: 2
+evaluations: 6220
+---
+code: EBAEED
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - DFCBHG
+    - blacks: 0
+      whites: 2
+  -
+    - EAADIF
+    - blacks: 2
+      whites: 1
+  -
+    - IAIDBI
+    - blacks: 0
+      whites: 3
+  -
+    - BBFAIF
+    - blacks: 1
+      whites: 1
+  -
+    - ACAIIH
+    - blacks: 1
+      whites: 0
+  -
+    - EBAEDE
+    - blacks: 4
+      whites: 2
+evaluations: 17990
+---
+code: IBGBGC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - AAECIE
+    - blacks: 0
+      whites: 2
+  -
+    - CBBIHI
+    - blacks: 1
+      whites: 3
+  -
+    - FIDICB
+    - blacks: 0
+      whites: 3
+  -
+    - IBFHBA
+    - blacks: 2
+      whites: 1
+  -
+    - GBIBBC
+    - blacks: 3
+      whites: 2
+evaluations: 34250
+---
+code: BEICEG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - DIDCIG
+    - blacks: 2
+      whites: 1
+  -
+    - GEDFIA
+    - blacks: 1
+      whites: 2
+  -
+    - DFBHID
+    - blacks: 0
+      whites: 2
+  -
+    - ICDCCE
+    - blacks: 1
+      whites: 2
+  -
+    - GHECDG
+    - blacks: 2
+      whites: 1
+  -
+    - EEICBG
+    - blacks: 4
+      whites: 2
+evaluations: 27470
+---
+code: EFFICB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - HBFAGH
+    - blacks: 1
+      whites: 1
+  -
+    - BBEIIF
+    - blacks: 1
+      whites: 3
+  -
+    - BIFDDI
+    - blacks: 1
+      whites: 2
+  -
+    - IBGCEI
+    - blacks: 0
+      whites: 4
+  -
+    - CEFFIB
+    - blacks: 2
+      whites: 4
+  -
+    - ECFIFB
+    - blacks: 4
+      whites: 2
+evaluations: 13974
+---
+code: EFCBBF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - CBFGHD
+    - blacks: 0
+      whites: 3
+  -
+    - FEBCCB
+    - blacks: 0
+      whites: 5
+  -
+    - BICFBE
+    - blacks: 2
+      whites: 3
+  -
+    - BCCBIF
+    - blacks: 3
+      whites: 1
+evaluations: 16500
+---
+code: IFHGCF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - HEHCFE
+    - blacks: 1
+      whites: 2
+  -
+    - EDFIDE
+    - blacks: 0
+      whites: 2
+  -
+    - FIHHGA
+    - blacks: 1
+      whites: 3
+  -
+    - GFHFCI
+    - blacks: 3
+      whites: 3
+  -
+    - IGHFCF
+    - blacks: 4
+      whites: 2
+evaluations: 19978
+---
+code: ADEBGG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - ICBIGB
+    - blacks: 1
+      whites: 1
+  -
+    - DHDHBB
+    - blacks: 0
+      whites: 2
+  -
+    - EIBDFA
+    - blacks: 0
+      whites: 4
+evaluations: 15250
+---
+code: ACBECH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - DFDBHB
+    - blacks: 0
+      whites: 2
+  -
+    - GBAAFE
+    - blacks: 0
+      whites: 3
+  -
+    - CDFFAG
+    - blacks: 0
+      whites: 2
+  -
+    - EHCHBA
+    - blacks: 0
+      whites: 5
+  -
+    - AEBCEH
+    - blacks: 3
+      whites: 2
+  -
+    - ACBEIH
+    - blacks: 5
+      whites: 0
+evaluations: 29750
+---
+code: AIAIBH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - AFGABH
+    - blacks: 3
+      whites: 1
+  -
+    - EFGACB
+    - blacks: 0
+      whites: 2
+  -
+    - AAAIBH
+    - blacks: 5
+      whites: 0
+  -
+    - AHAIBH
+    - blacks: 5
+      whites: 0
+evaluations: 23000
+---
+code: CHCGHH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 0
+  -
+    - FGGHFB
+    - blacks: 0
+      whites: 2
+  -
+    - AHEIIF
+    - blacks: 1
+      whites: 0
+  -
+    - DHHDDG
+    - blacks: 1
+      whites: 2
+  -
+    - GEEDGD
+    - blacks: 0
+      whites: 1
+  -
+    - HHCGHH
+    - blacks: 5
+      whites: 0
+evaluations: 35250
+---
+code: DACHIE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - CFEBAG
+    - blacks: 0
+      whites: 3
+  -
+    - FDHHCB
+    - blacks: 1
+      whites: 2
+  -
+    - FACFHA
+    - blacks: 2
+      whites: 1
+  -
+    - DACHGD
+    - blacks: 4
+      whites: 0
+  -
+    - IACHED
+    - blacks: 3
+      whites: 3
+evaluations: 23190
+---
+code: GDADBG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - IDDCEB
+    - blacks: 1
+      whites: 2
+  -
+    - CIFBHB
+    - blacks: 0
+      whites: 1
+  -
+    - ADGADI
+    - blacks: 1
+      whites: 3
+  -
+    - AADEIA
+    - blacks: 0
+      whites: 2
+  -
+    - BDADGG
+    - blacks: 4
+      whites: 2
+evaluations: 19610
+---
+code: IFHHAA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - IFCEGD
+    - blacks: 2
+      whites: 0
+  -
+    - IHCCHA
+    - blacks: 2
+      whites: 2
+  -
+    - HFCBHC
+    - blacks: 1
+      whites: 2
+  -
+    - CACCGH
+    - blacks: 0
+      whites: 2
+evaluations: 27500
+---
+code: ACHFCI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - GFBHAI
+    - blacks: 1
+      whites: 3
+  -
+    - FDHGAH
+    - blacks: 1
+      whites: 2
+  -
+    - IHFEAA
+    - blacks: 0
+      whites: 4
+  -
+    - FACIHI
+    - blacks: 1
+      whites: 4
+  -
+    - ACHCFI
+    - blacks: 4
+      whites: 2
+evaluations: 19720
+---
+code: BICDID
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 1
+  -
+    - IBCHED
+    - blacks: 2
+      whites: 2
+  -
+    - ABIHHC
+    - blacks: 0
+      whites: 3
+  -
+    - EICGAD
+    - blacks: 3
+      whites: 0
+evaluations: 25500
+---
+code: CCEGAC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - AFBGEE
+    - blacks: 1
+      whites: 2
+  -
+    - BIHEEB
+    - blacks: 0
+      whites: 1
+  -
+    - AAGIFF
+    - blacks: 0
+      whites: 2
+  -
+    - GBFGDG
+    - blacks: 1
+      whites: 0
+evaluations: 19000
+---
+code: CGFDHE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - AGFGDE
+    - blacks: 3
+      whites: 1
+  -
+    - AGHIDF
+    - blacks: 1
+      whites: 3
+  -
+    - BGFDHE
+    - blacks: 5
+      whites: 0
+evaluations: 13250
+---
+code: ADHGIH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - CIGDEI
+    - blacks: 0
+      whites: 3
+  -
+    - DEEHGB
+    - blacks: 0
+      whites: 3
+  -
+    - IBHGCF
+    - blacks: 2
+      whites: 1
+  -
+    - IBDEFD
+    - blacks: 0
+      whites: 2
+  -
+    - AAHGIE
+    - blacks: 4
+      whites: 0
+evaluations: 38750
+---
+code: IAHGDG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - CDFGDH
+    - blacks: 2
+      whites: 1
+  -
+    - IAEGDD
+    - blacks: 4
+      whites: 0
+  -
+    - IIEGDC
+    - blacks: 3
+      whites: 0
+  -
+    - FAEGDG
+    - blacks: 4
+      whites: 0
+evaluations: 20750
+---
+code: IGDGFF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - IFDFDG
+    - blacks: 2
+      whites: 3
+  -
+    - FIDFGI
+    - blacks: 1
+      whites: 4
+  -
+    - IDGFFH
+    - blacks: 2
+      whites: 3
+evaluations: 27250
+---
+code: CCFIDE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - HEDCCI
+    - blacks: 0
+      whites: 5
+  -
+    - CIEHDD
+    - blacks: 2
+      whites: 2
+  -
+    - CCHEGD
+    - blacks: 2
+      whites: 2
+  -
+    - CCEBIH
+    - blacks: 2
+      whites: 2
+evaluations: 38000
+---
+code: GEHEDG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - FGHHBG
+    - blacks: 2
+      whites: 1
+  -
+    - FCHCGI
+    - blacks: 1
+      whites: 1
+  -
+    - FAEGEG
+    - blacks: 1
+      whites: 3
+  -
+    - FGBEFE
+    - blacks: 1
+      whites: 2
+  -
+    - EGHAEH
+    - blacks: 1
+      whites: 3
+evaluations: 35750
+---
+code: FIBDEE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - DIEHFB
+    - blacks: 1
+      whites: 4
+  -
+    - GEHIDB
+    - blacks: 0
+      whites: 4
+  -
+    - HBEFIC
+    - blacks: 0
+      whites: 4
+  -
+    - BIFDEF
+    - blacks: 3
+      whites: 2
+  -
+    - EIFDBI
+    - blacks: 2
+      whites: 3
+evaluations: 37500
+---
+code: CIDIFC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - DIFFDC
+    - blacks: 2
+      whites: 2
+  -
+    - CDFFHE
+    - blacks: 1
+      whites: 2
+  -
+    - FAFCIC
+    - blacks: 1
+      whites: 3
+  -
+    - DAIFFI
+    - blacks: 1
+      whites: 3
+  -
+    - CIICDF
+    - blacks: 2
+      whites: 4
+evaluations: 31360
+---
+code: CEAAHF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - EABFFC
+    - blacks: 0
+      whites: 4
+  -
+    - FCEIDA
+    - blacks: 0
+      whites: 4
+  -
+    - IIACBE
+    - blacks: 1
+      whites: 2
+  -
+    - CFAAIF
+    - blacks: 4
+      whites: 0
+  -
+    - CFAAEG
+    - blacks: 3
+      whites: 2
+  -
+    - CEAACF
+    - blacks: 5
+      whites: 0
+evaluations: 30750
+---
+code: CABFIH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - CGGIBD
+    - blacks: 1
+      whites: 2
+  -
+    - DCGHHA
+    - blacks: 0
+      whites: 3
+  -
+    - CIDACE
+    - blacks: 1
+      whites: 2
+  -
+    - CDFBEH
+    - blacks: 2
+      whites: 2
+  -
+    - BGFAEC
+    - blacks: 0
+      whites: 4
+  -
+    - CAHBFI
+    - blacks: 2
+      whites: 4
+evaluations: 37190
+---
+code: FDIGBI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - ICBEEF
+    - blacks: 0
+      whites: 3
+  -
+    - CEFGFA
+    - blacks: 1
+      whites: 1
+  -
+    - CHHFDI
+    - blacks: 1
+      whites: 2
+  -
+    - DFIGBI
+    - blacks: 4
+      whites: 2
+evaluations: 25720
+---
+code: AICFGH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 0
+  -
+    - EFIDAG
+    - blacks: 0
+      whites: 4
+  -
+    - AECIGE
+    - blacks: 3
+      whites: 1
+  -
+    - AGCGFE
+    - blacks: 2
+      whites: 2
+  -
+    - AICFGI
+    - blacks: 5
+      whites: 0
+  -
+    - AICFGF
+    - blacks: 5
+      whites: 0
+  -
+    - AICFGC
+    - blacks: 5
+      whites: 0
+evaluations: 26500
+---
+code: GCCBAI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 1
+  -
+    - HFIDBB
+    - blacks: 0
+      whites: 2
+  -
+    - AHCBGE
+    - blacks: 2
+      whites: 2
+  -
+    - GGCBAF
+    - blacks: 4
+      whites: 0
+  -
+    - FECBAF
+    - blacks: 3
+      whites: 0
+  -
+    - GICBAC
+    - blacks: 4
+      whites: 2
+evaluations: 31720
+---
+code: IEAAFD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - CCIBBH
+    - blacks: 0
+      whites: 1
+  -
+    - DFEAIA
+    - blacks: 1
+      whites: 5
+evaluations: 5220
+---
+code: GAEAEA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - BHGIHC
+    - blacks: 0
+      whites: 1
+  -
+    - EDDEBF
+    - blacks: 0
+      whites: 2
+  -
+    - IIFAFD
+    - blacks: 1
+      whites: 0
+  -
+    - GEAAEG
+    - blacks: 3
+      whites: 2
+evaluations: 21250
+---
+code: ECCAIH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - AGFAHG
+    - blacks: 1
+      whites: 1
+  -
+    - FBIFCG
+    - blacks: 0
+      whites: 2
+  -
+    - CGECAE
+    - blacks: 0
+      whites: 4
+  -
+    - EECAIH
+    - blacks: 5
+      whites: 0
+evaluations: 29000
+---
+code: ABBCAD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 3
+      whites: 3
+  -
+    - ACADBB
+    - blacks: 1
+      whites: 5
+  -
+    - CBDAAB
+    - blacks: 2
+      whites: 4
+evaluations: 422
+---
+code: GCIHDB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - AGFCIA
+    - blacks: 0
+      whites: 3
+  -
+    - IADEAD
+    - blacks: 0
+      whites: 2
+  -
+    - BEIFCB
+    - blacks: 2
+      whites: 1
+  -
+    - CEGAGB
+    - blacks: 1
+      whites: 2
+  -
+    - BCIDGC
+    - blacks: 2
+      whites: 3
+  -
+    - BIGDCH
+    - blacks: 0
+      whites: 6
+  -
+    - DCIGHB
+    - blacks: 3
+      whites: 3
+evaluations: 20196
+---
+code: IFGAHD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - BDFFIH
+    - blacks: 0
+      whites: 4
+  -
+    - EFIHDC
+    - blacks: 1
+      whites: 3
+  -
+    - IEDHBD
+    - blacks: 2
+      whites: 1
+  -
+    - FADHGI
+    - blacks: 0
+      whites: 6
+  -
+    - IFAGHD
+    - blacks: 4
+      whites: 2
+evaluations: 21444
+---
+code: HFAAFD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - BCGFFD
+    - blacks: 2
+      whites: 1
+  -
+    - ECDFIA
+    - blacks: 0
+      whites: 3
+  -
+    - BAGHDI
+    - blacks: 0
+      whites: 3
+  -
+    - FHAAFD
+    - blacks: 4
+      whites: 2
+evaluations: 15610
+---
+code: AAHFCH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - BFICAI
+    - blacks: 0
+      whites: 3
+  -
+    - FECAHA
+    - blacks: 0
+      whites: 5
+  -
+    - AAEFFC
+    - blacks: 3
+      whites: 1
+  -
+    - AAGFCH
+    - blacks: 5
+      whites: 0
+  -
+    - AAAFCH
+    - blacks: 5
+      whites: 0
+evaluations: 26250
+---
+code: HGEEAG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 0
+  -
+    - GIHEEB
+    - blacks: 1
+      whites: 3
+  -
+    - GBFIHH
+    - blacks: 0
+      whites: 2
+  -
+    - AEIEGI
+    - blacks: 1
+      whites: 3
+  -
+    - EHGEAG
+    - blacks: 3
+      whites: 3
+evaluations: 16860
+---
+code: IAACHH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - BFIHCA
+    - blacks: 0
+      whites: 4
+  -
+    - DAHFDC
+    - blacks: 1
+      whites: 2
+  -
+    - DCGIBF
+    - blacks: 0
+      whites: 2
+  -
+    - CAEBEH
+    - blacks: 2
+      whites: 1
+  -
+    - HABAFH
+    - blacks: 2
+      whites: 2
+evaluations: 21750
+---
+code: AEGHBC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - CFDFGB
+    - blacks: 0
+      whites: 3
+  -
+    - HCFCAD
+    - blacks: 0
+      whites: 3
+  -
+    - ADEBIF
+    - blacks: 1
+      whites: 2
+  -
+    - EHCBDH
+    - blacks: 0
+      whites: 4
+  -
+    - BDHDCI
+    - blacks: 0
+      whites: 3
+  -
+    - AEBGHC
+    - blacks: 3
+      whites: 3
+  -
+    - AGBHEC
+    - blacks: 3
+      whites: 3
+evaluations: 32694
+---
+code: HGFHDB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - AFAAIG
+    - blacks: 0
+      whites: 2
+  -
+    - FBBIFE
+    - blacks: 0
+      whites: 2
+  -
+    - GCGDEI
+    - blacks: 0
+      whites: 2
+  -
+    - DDFGDB
+    - blacks: 3
+      whites: 1
+  -
+    - DGFHHB
+    - blacks: 4
+      whites: 2
+  -
+    - DHFHGB
+    - blacks: 3
+      whites: 3
+evaluations: 17724
+---
+code: AFFBBI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - AIDCDC
+    - blacks: 1
+      whites: 1
+  -
+    - GBBCII
+    - blacks: 1
+      whites: 2
+  -
+    - EIABAI
+    - blacks: 2
+      whites: 1
+  -
+    - EBAGGC
+    - blacks: 0
+      whites: 2
+  -
+    - BIBFAH
+    - blacks: 0
+      whites: 5
+evaluations: 30500
+---
+code: ECBABA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 5
+  -
+    - BFDACA
+    - blacks: 2
+      whites: 2
+  -
+    - BEAABC
+    - blacks: 2
+      whites: 4
+  -
+    - BAABCE
+    - blacks: 0
+      whites: 6
+evaluations: 11868
+---
+code: BGGGBI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - GFDEGC
+    - blacks: 0
+      whites: 2
+  -
+    - DAFFHH
+    - blacks: 0
+      whites: 0
+  -
+    - BIBGIG
+    - blacks: 2
+      whites: 3
+  -
+    - IGBBIE
+    - blacks: 1
+      whites: 3
+evaluations: 11698
+---
+code: ICGGDA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - BIFCED
+    - blacks: 0
+      whites: 3
+  -
+    - GADIIC
+    - blacks: 0
+      whites: 5
+  -
+    - ICAGDH
+    - blacks: 4
+      whites: 1
+evaluations: 10750
+---
+code: GGCHID
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - IBDEIF
+    - blacks: 1
+      whites: 1
+  -
+    - DGCCDF
+    - blacks: 2
+      whites: 1
+  -
+    - ACICHF
+    - blacks: 0
+      whites: 3
+  -
+    - CHCEDE
+    - blacks: 1
+      whites: 2
+  -
+    - IGCHGD
+    - blacks: 4
+      whites: 2
+evaluations: 26970
+---
+code: GBIDDB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 3
+      whites: 0
+  -
+    - AHHDGB
+    - blacks: 2
+      whites: 1
+  -
+    - IEEDAB
+    - blacks: 2
+      whites: 1
+  -
+    - BBHEAB
+    - blacks: 2
+      whites: 0
+  -
+    - DBGDIB
+    - blacks: 3
+      whites: 3
+evaluations: 12610
+---
+code: IADIEF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - HGDCCF
+    - blacks: 2
+      whites: 0
+  -
+    - DIDCIE
+    - blacks: 1
+      whites: 3
+  -
+    - IGDBED
+    - blacks: 3
+      whites: 0
+evaluations: 18500
+---
+code: AIGEIA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - AFAHGI
+    - blacks: 1
+      whites: 3
+  -
+    - HFGCAF
+    - blacks: 1
+      whites: 1
+  -
+    - EIAFAE
+    - blacks: 1
+      whites: 3
+  -
+    - IAEHAH
+    - blacks: 0
+      whites: 4
+  -
+    - AIGGEA
+    - blacks: 4
+      whites: 1
+evaluations: 24750
+---
+code: FGICFH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - HEHCGI
+    - blacks: 1
+      whites: 3
+  -
+    - HCGHCF
+    - blacks: 0
+      whites: 4
+  -
+    - CFIFGH
+    - blacks: 2
+      whites: 4
+  -
+    - GFHFIC
+    - blacks: 0
+      whites: 6
+evaluations: 11238
+---
+code: IDGFDB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - EIGDBH
+    - blacks: 1
+      whites: 3
+  -
+    - CEIDGI
+    - blacks: 0
+      whites: 3
+  -
+    - HBGCHE
+    - blacks: 1
+      whites: 1
+  -
+    - AHGFID
+    - blacks: 2
+      whites: 2
+evaluations: 33500
+---
+code: GAEFEE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - ECEFCI
+    - blacks: 2
+      whites: 1
+  -
+    - HGEFDE
+    - blacks: 3
+      whites: 1
+  -
+    - HGEBFI
+    - blacks: 1
+      whites: 2
+  -
+    - EIEGDE
+    - blacks: 2
+      whites: 2
+evaluations: 18750
+---
+code: CCFDFE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - HCGDID
+    - blacks: 2
+      whites: 0
+  -
+    - FBIEID
+    - blacks: 0
+      whites: 3
+  -
+    - HFFDEA
+    - blacks: 2
+      whites: 2
+  -
+    - ECFDCF
+    - blacks: 3
+      whites: 3
+evaluations: 23610
+---
+code: EDADCF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - HEIBCB
+    - blacks: 1
+      whites: 1
+  -
+    - HCCADG
+    - blacks: 0
+      whites: 3
+  -
+    - AIAGCF
+    - blacks: 3
+      whites: 0
+  -
+    - AIDICD
+    - blacks: 1
+      whites: 3
+  -
+    - DIAGIB
+    - blacks: 1
+      whites: 1
+evaluations: 35000
+---
+code: ECGIHD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - DCFIHD
+    - blacks: 4
+      whites: 0
+  -
+    - GCIIHD
+    - blacks: 4
+      whites: 1
+  -
+    - DCIIHH
+    - blacks: 3
+      whites: 1
+  -
+    - CCGIHD
+    - blacks: 5
+      whites: 0
+evaluations: 23750
+---
+code: EFFACC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - CAEEIF
+    - blacks: 0
+      whites: 4
+  -
+    - DHAFEI
+    - blacks: 0
+      whites: 3
+  -
+    - ICGCFA
+    - blacks: 0
+      whites: 4
+  -
+    - EFBICG
+    - blacks: 3
+      whites: 0
+evaluations: 25750
+---
+code: IIDEDF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - EFIHID
+    - blacks: 0
+      whites: 5
+  -
+    - IEFFDH
+    - blacks: 2
+      whites: 2
+  -
+    - HGFIDI
+    - blacks: 1
+      whites: 3
+  -
+    - IDDFEI
+    - blacks: 2
+      whites: 4
+evaluations: 19110
+---
+code: FEEFHB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 0
+  -
+    - IHHEAG
+    - blacks: 0
+      whites: 2
+  -
+    - FICFEF
+    - blacks: 2
+      whites: 1
+  -
+    - CECCEI
+    - blacks: 1
+      whites: 1
+  -
+    - GFCFHC
+    - blacks: 2
+      whites: 1
+  -
+    - EFGFEB
+    - blacks: 2
+      whites: 3
+evaluations: 34750
+---
+code: AHDFCF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - CAEFAI
+    - blacks: 1
+      whites: 2
+  -
+    - IHDIAA
+    - blacks: 2
+      whites: 1
+  -
+    - DIDGAC
+    - blacks: 1
+      whites: 2
+  -
+    - EDGEAA
+    - blacks: 0
+      whites: 2
+  -
+    - AHDFCH
+    - blacks: 5
+      whites: 0
+evaluations: 24750
+---
+code: DFEHBE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - CCDFIH
+    - blacks: 0
+      whites: 3
+  -
+    - HDAHFG
+    - blacks: 1
+      whites: 2
+  -
+    - FFIHBA
+    - blacks: 3
+      whites: 0
+  -
+    - FDIGBD
+    - blacks: 1
+      whites: 2
+  -
+    - GFEHBC
+    - blacks: 4
+      whites: 0
+evaluations: 24000
+---
+code: CIBGIG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - FGEACH
+    - blacks: 0
+      whites: 2
+  -
+    - EFIIBD
+    - blacks: 0
+      whites: 3
+  -
+    - ICDCDF
+    - blacks: 0
+      whites: 2
+  -
+    - GDBHIG
+    - blacks: 3
+      whites: 1
+  -
+    - DDBEGG
+    - blacks: 2
+      whites: 1
+  -
+    - GIBBFG
+    - blacks: 3
+      whites: 1
+evaluations: 45250
+---
+code: FCFDEB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 1
+  -
+    - HCCAAF
+    - blacks: 1
+      whites: 1
+  -
+    - BBFEAI
+    - blacks: 1
+      whites: 2
+  -
+    - IAGIAB
+    - blacks: 1
+      whites: 0
+  -
+    - DFCEDB
+    - blacks: 1
+      whites: 4
+  -
+    - ECFDEB
+    - blacks: 5
+      whites: 0
+  -
+    - ECFDFB
+    - blacks: 4
+      whites: 2
+evaluations: 33970
+---
+code: BAIHEC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - BCEHDH
+    - blacks: 2
+      whites: 2
+  -
+    - BCFCED
+    - blacks: 2
+      whites: 1
+  -
+    - BIECHA
+    - blacks: 1
+      whites: 5
+  -
+    - ICBHEA
+    - blacks: 2
+      whites: 4
+evaluations: 20696
+---
+code: FHIFEA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - FIDIIG
+    - blacks: 1
+      whites: 1
+  -
+    - CHEFIH
+    - blacks: 2
+      whites: 2
+  -
+    - FFEGCH
+    - blacks: 1
+      whites: 3
+  -
+    - CFFEIC
+    - blacks: 0
+      whites: 4
+  -
+    - HIEFBF
+    - blacks: 1
+      whites: 4
+evaluations: 30000
+---
+code: DBIFHH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - CCFIHB
+    - blacks: 1
+      whites: 3
+  -
+    - FCICAE
+    - blacks: 1
+      whites: 1
+  -
+    - BHIFFB
+    - blacks: 2
+      whites: 2
+  -
+    - DFIHIB
+    - blacks: 2
+      whites: 3
+  -
+    - FHDGIB
+    - blacks: 0
+      whites: 5
+evaluations: 30000
+---
+code: CGIGGH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - DHFGFI
+    - blacks: 1
+      whites: 2
+  -
+    - GCFHCH
+    - blacks: 1
+      whites: 2
+  -
+    - GHHEDG
+    - blacks: 0
+      whites: 3
+  -
+    - BIIGHH
+    - blacks: 3
+      whites: 0
+  -
+    - CIEGEH
+    - blacks: 3
+      whites: 1
+evaluations: 27000
+---
+code: IEFIAG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 0
+  -
+    - FGCHEG
+    - blacks: 1
+      whites: 2
+  -
+    - IBGIHG
+    - blacks: 3
+      whites: 0
+  -
+    - IBGEEF
+    - blacks: 1
+      whites: 3
+  -
+    - FBHIHE
+    - blacks: 1
+      whites: 2
+  -
+    - IEEDHG
+    - blacks: 3
+      whites: 0
+  -
+    - IFEIAG
+    - blacks: 4
+      whites: 2
+evaluations: 40720
+---
+code: AFCEAA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 3
+      whites: 0
+  -
+    - ABIDEE
+    - blacks: 1
+      whites: 1
+  -
+    - FDCDCB
+    - blacks: 1
+      whites: 1
+  -
+    - AAFHAB
+    - blacks: 2
+      whites: 2
+  -
+    - AICFAA
+    - blacks: 4
+      whites: 1
+  -
+    - AHCFAI
+    - blacks: 3
+      whites: 1
+evaluations: 20250
+---
+code: HBHEDH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - CBGGGF
+    - blacks: 1
+      whites: 0
+  -
+    - EBBHIH
+    - blacks: 2
+      whites: 2
+  -
+    - DBEEHH
+    - blacks: 3
+      whites: 2
+  -
+    - HBEHHD
+    - blacks: 2
+      whites: 4
+evaluations: 19490
+---
+code: ICDFBD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - GGBEDC
+    - blacks: 0
+      whites: 3
+  -
+    - EDHCIA
+    - blacks: 0
+      whites: 3
+  -
+    - DFAGBH
+    - blacks: 1
+      whites: 2
+  -
+    - BFDICI
+    - blacks: 1
+      whites: 4
+  -
+    - CIDFBD
+    - blacks: 4
+      whites: 2
+evaluations: 28470
+---
+code: FGHCAD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - DCCHGA
+    - blacks: 0
+      whites: 5
+  -
+    - ADHFCG
+    - blacks: 1
+      whites: 5
+  -
+    - CGDFAH
+    - blacks: 2
+      whites: 4
+  -
+    - CFHGAD
+    - blacks: 3
+      whites: 3
+evaluations: 7530
+---
+code: HEEAFD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - FADEIF
+    - blacks: 0
+      whites: 4
+  -
+    - GFFCDE
+    - blacks: 0
+      whites: 3
+  -
+    - EDAGEI
+    - blacks: 0
+      whites: 4
+  -
+    - DIGFHA
+    - blacks: 0
+      whites: 4
+  -
+    - BEIAFG
+    - blacks: 3
+      whites: 0
+evaluations: 23250
+---
+code: BFEBGH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - CFAEHE
+    - blacks: 1
+      whites: 2
+  -
+    - FCDHHF
+    - blacks: 0
+      whites: 2
+  -
+    - EIEECD
+    - blacks: 1
+      whites: 0
+  -
+    - HHGEBA
+    - blacks: 0
+      whites: 4
+  -
+    - GIABFH
+    - blacks: 2
+      whites: 2
+evaluations: 19000
+---
+code: IEEBHF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - EIHIBH
+    - blacks: 0
+      whites: 4
+  -
+    - DHIHFE
+    - blacks: 0
+      whites: 4
+  -
+    - IEBGHF
+    - blacks: 4
+      whites: 1
+  -
+    - IFBEHF
+    - blacks: 3
+      whites: 2
+evaluations: 25250
+---
+code: GHFBFB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - EFGIAA
+    - blacks: 0
+      whites: 2
+  -
+    - BHFDHE
+    - blacks: 2
+      whites: 1
+  -
+    - HCFDCI
+    - blacks: 1
+      whites: 1
+  -
+    - IIBDEE
+    - blacks: 0
+      whites: 1
+  -
+    - FHFGBB
+    - blacks: 3
+      whites: 3
+  -
+    - FGFBHB
+    - blacks: 3
+      whites: 3
+evaluations: 34364
+---
+code: BFGAFF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - FCIBHI
+    - blacks: 0
+      whites: 2
+  -
+    - CFEGDE
+    - blacks: 1
+      whites: 1
+  -
+    - DAEHID
+    - blacks: 0
+      whites: 1
+  -
+    - BFAFFG
+    - blacks: 3
+      whites: 3
+  -
+    - GFBFFA
+    - blacks: 2
+      whites: 4
+evaluations: 11248
+---
+code: IEEFAF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 0
+  -
+    - HHFIFB
+    - blacks: 0
+      whites: 3
+  -
+    - IIGHAH
+    - blacks: 2
+      whites: 0
+  -
+    - IECHCF
+    - blacks: 3
+      whites: 0
+evaluations: 27000
+---
+code: IGHHCG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - GHFCFH
+    - blacks: 0
+      whites: 4
+  -
+    - FGEIHC
+    - blacks: 1
+      whites: 3
+  -
+    - EGHHCG
+    - blacks: 5
+      whites: 0
+evaluations: 16250
+---
+code: HIBHAB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 1
+  -
+    - AHEDEA
+    - blacks: 0
+      whites: 2
+  -
+    - DECGCB
+    - blacks: 1
+      whites: 0
+  -
+    - HIBFAB
+    - blacks: 5
+      whites: 0
+  -
+    - HIBIAB
+    - blacks: 5
+      whites: 0
+  -
+    - HIBBAB
+    - blacks: 5
+      whites: 0
+evaluations: 26500
+---
+code: DBBFEC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 3
+  -
+    - CBABHI
+    - blacks: 1
+      whites: 2
+  -
+    - DCGBGB
+    - blacks: 1
+      whites: 3
+  -
+    - BDCBDF
+    - blacks: 0
+      whites: 5
+  -
+    - DBBCCD
+    - blacks: 3
+      whites: 1
+  -
+    - DBBFFC
+    - blacks: 5
+      whites: 0
+  -
+    - DBBEFC
+    - blacks: 4
+      whites: 2
+evaluations: 26470
+---
+code: DHIDEC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - BGFEIB
+    - blacks: 0
+      whites: 2
+  -
+    - FFCCDE
+    - blacks: 0
+      whites: 3
+  -
+    - DEEFAD
+    - blacks: 1
+      whites: 2
+  -
+    - HCEDEI
+    - blacks: 2
+      whites: 3
+  -
+    - IDEDCH
+    - blacks: 1
+      whites: 5
+  -
+    - ECIDHD
+    - blacks: 2
+      whites: 4
+evaluations: 26982
+---
+code: FDFGAB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 1
+  -
+    - EBCBHF
+    - blacks: 0
+      whites: 2
+  -
+    - AIFCAG
+    - blacks: 2
+      whites: 1
+  -
+    - AFDAAH
+    - blacks: 1
+      whites: 2
+  -
+    - FDBDAG
+    - blacks: 3
+      whites: 2
+  -
+    - AGBDFG
+    - blacks: 0
+      whites: 5
+evaluations: 26500
+---
+code: BBHAEF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - FBHBGD
+    - blacks: 2
+      whites: 2
+  -
+    - FHDBAE
+    - blacks: 0
+      whites: 5
+  -
+    - DBHAFH
+    - blacks: 3
+      whites: 1
+  -
+    - GBEAFD
+    - blacks: 2
+      whites: 2
+  -
+    - EBHABF
+    - blacks: 4
+      whites: 2
+evaluations: 32470
+---
+code: GAEIAD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - EDAGAD
+    - blacks: 2
+      whites: 3
+  -
+    - ADAAGE
+    - blacks: 0
+      whites: 5
+  -
+    - HAGEAD
+    - blacks: 3
+      whites: 2
+  -
+    - EADEAG
+    - blacks: 2
+      whites: 3
+  -
+    - GAEFAD
+    - blacks: 5
+      whites: 0
+evaluations: 33000
+---
+code: CBGADE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 3
+  -
+    - HBBCDG
+    - blacks: 2
+      whites: 2
+  -
+    - CBDBDC
+    - blacks: 3
+      whites: 0
+  -
+    - IBAGDC
+    - blacks: 2
+      whites: 3
+  -
+    - HBDAIC
+    - blacks: 2
+      whites: 2
+  -
+    - CBABIG
+    - blacks: 2
+      whites: 2
+evaluations: 38750
+---
+code: CGCGBD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - BDIHDB
+    - blacks: 0
+      whites: 2
+  -
+    - ICDIAC
+    - blacks: 0
+      whites: 3
+  -
+    - EGADCH
+    - blacks: 1
+      whites: 2
+  -
+    - CACCBH
+    - blacks: 3
+      whites: 0
+  -
+    - GGCCBD
+    - blacks: 4
+      whites: 2
+  -
+    - DGCCBG
+    - blacks: 3
+      whites: 3
+evaluations: 17614
+---
+code: GHEGDH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - HGGIGD
+    - blacks: 0
+      whites: 4
+  -
+    - EDIHEG
+    - blacks: 0
+      whites: 4
+  -
+    - IHDGFI
+    - blacks: 2
+      whites: 1
+  -
+    - GEBGHI
+    - blacks: 2
+      whites: 2
+evaluations: 20500
+---
+code: IDIDIH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 0
+  -
+    - HBIFFG
+    - blacks: 1
+      whites: 1
+  -
+    - FCCEFE
+    - blacks: 0
+      whites: 0
+  -
+    - DDHDHG
+    - blacks: 2
+      whites: 1
+  -
+    - DGIDII
+    - blacks: 3
+      whites: 2
+  -
+    - GDIDGI
+    - blacks: 3
+      whites: 1
+evaluations: 17432
+---
+code: HBCBBA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 2
+  -
+    - AGCBDC
+    - blacks: 2
+      whites: 1
+  -
+    - ABEADF
+    - blacks: 1
+      whites: 1
+  -
+    - IBCBHD
+    - blacks: 3
+      whites: 1
+evaluations: 24000
+---
+code: IGDFCB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - HIBFAC
+    - blacks: 1
+      whites: 3
+  -
+    - HAIGBB
+    - blacks: 1
+      whites: 2
+  -
+    - FBEIBC
+    - blacks: 0
+      whites: 4
+  -
+    - CIACEB
+    - blacks: 1
+      whites: 2
+  -
+    - BCHFCB
+    - blacks: 3
+      whites: 0
+  -
+    - ICDFGB
+    - blacks: 4
+      whites: 2
+  -
+    - GCDFIB
+    - blacks: 3
+      whites: 3
+evaluations: 33446
+---
+code: FIBIIG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - EIEGBI
+    - blacks: 1
+      whites: 3
+  -
+    - EGICIC
+    - blacks: 1
+      whites: 2
+  -
+    - GHFBII
+    - blacks: 1
+      whites: 4
+  -
+    - HIBHIG
+    - blacks: 4
+      whites: 0
+  -
+    - HIBEIF
+    - blacks: 3
+      whites: 1
+  -
+    - IIBFIG
+    - blacks: 4
+      whites: 2
+evaluations: 34740
+---
+code: FCEIFE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - GFEAFI
+    - blacks: 2
+      whites: 2
+  -
+    - EFGGDI
+    - blacks: 0
+      whites: 3
+  -
+    - GHFEFC
+    - blacks: 1
+      whites: 3
+  -
+    - BGEFFE
+    - blacks: 3
+      whites: 1
+  -
+    - FIECFE
+    - blacks: 4
+      whites: 2
+evaluations: 22610
+---
+code: CEDGAG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - GBBCFI
+    - blacks: 0
+      whites: 2
+  -
+    - ECADID
+    - blacks: 0
+      whites: 4
+  -
+    - AFDECH
+    - blacks: 1
+      whites: 3
+  -
+    - IHCADH
+    - blacks: 0
+      whites: 3
+  -
+    - CDDFAC
+    - blacks: 3
+      whites: 0
+  -
+    - CDGEAE
+    - blacks: 2
+      whites: 3
+evaluations: 47000
+---
+code: IIECDA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - CGAHDC
+    - blacks: 1
+      whites: 2
+  -
+    - CEBFGD
+    - blacks: 0
+      whites: 3
+  -
+    - EAHBDI
+    - blacks: 1
+      whites: 3
+  -
+    - EHAGBA
+    - blacks: 1
+      whites: 1
+  -
+    - DCIEDA
+    - blacks: 2
+      whites: 3
+  -
+    - DCAIEI
+    - blacks: 0
+      whites: 6
+evaluations: 27970
+---
+code: DCGEEI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - HAFEDE
+    - blacks: 1
+      whites: 2
+  -
+    - IHFCHD
+    - blacks: 0
+      whites: 3
+  -
+    - CCDEFG
+    - blacks: 2
+      whites: 2
+  -
+    - CGAEIF
+    - blacks: 1
+      whites: 3
+  -
+    - HCAFCG
+    - blacks: 1
+      whites: 1
+  -
+    - CEEIDG
+    - blacks: 0
+      whites: 6
+evaluations: 20720
+---
+code: IEABHA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - HEBAGC
+    - blacks: 1
+      whites: 3
+  -
+    - ECAIGA
+    - blacks: 2
+      whites: 2
+  -
+    - EIBFCA
+    - blacks: 1
+      whites: 3
+  -
+    - CGIBGA
+    - blacks: 2
+      whites: 1
+  -
+    - CEDIHA
+    - blacks: 3
+      whites: 1
+evaluations: 36500
+---
+code: DCCDAH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 3
+      whites: 0
+  -
+    - HBEHAB
+    - blacks: 1
+      whites: 1
+  -
+    - EBCDIF
+    - blacks: 2
+      whites: 0
+  -
+    - GDCDAH
+    - blacks: 4
+      whites: 1
+evaluations: 19500
+---
+code: FAFGDB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - GBDFDC
+    - blacks: 1
+      whites: 3
+  -
+    - BHHDFC
+    - blacks: 0
+      whites: 3
+  -
+    - ADEBDF
+    - blacks: 1
+      whites: 3
+  -
+    - DBGAGF
+    - blacks: 0
+      whites: 5
+  -
+    - FFDBAG
+    - blacks: 1
+      whites: 5
+evaluations: 21220
+---
+code: BHFCAB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 2
+  -
+    - ABGACE
+    - blacks: 0
+      whites: 3
+  -
+    - EDCHBB
+    - blacks: 1
+      whites: 3
+  -
+    - DFCBAH
+    - blacks: 1
+      whites: 4
+  -
+    - FHBCAB
+    - blacks: 4
+      whites: 2
+evaluations: 24470
+---
+code: IDBDEH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - ICECAH
+    - blacks: 2
+      whites: 1
+  -
+    - IGBEAF
+    - blacks: 2
+      whites: 1
+  -
+    - IHFAAI
+    - blacks: 1
+      whites: 1
+  -
+    - IBEEHD
+    - blacks: 1
+      whites: 4
+  -
+    - IEBDDH
+    - blacks: 4
+      whites: 2
+evaluations: 20720
+---
+code: GAGIAH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - CBIHEG
+    - blacks: 0
+      whites: 3
+  -
+    - AFGCHC
+    - blacks: 1
+      whites: 2
+  -
+    - EEGAAH
+    - blacks: 3
+      whites: 1
+  -
+    - IHGAAA
+    - blacks: 2
+      whites: 3
+  -
+    - HAGIAH
+    - blacks: 5
+      whites: 0
+evaluations: 25750
+---
+code: GIIDAF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 0
+  -
+    - IBCFCH
+    - blacks: 0
+      whites: 2
+  -
+    - AEIEGB
+    - blacks: 1
+      whites: 2
+  -
+    - AIFDFG
+    - blacks: 2
+      whites: 3
+  -
+    - DFIDAG
+    - blacks: 3
+      whites: 2
+evaluations: 19000
+---
+code: DADGBF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - HAAEHC
+    - blacks: 1
+      whites: 0
+  -
+    - IIABGD
+    - blacks: 0
+      whites: 4
+  -
+    - DDIGBC
+    - blacks: 3
+      whites: 1
+  -
+    - BDIIFC
+    - blacks: 0
+      whites: 3
+evaluations: 23750
+---
+code: GEBIBE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - FEGACH
+    - blacks: 1
+      whites: 1
+  -
+    - HDIHCI
+    - blacks: 0
+      whites: 1
+  -
+    - DEFBEF
+    - blacks: 1
+      whites: 2
+  -
+    - DGGEBD
+    - blacks: 1
+      whites: 2
+  -
+    - BEBEIG
+    - blacks: 2
+      whites: 4
+  -
+    - IEBGBE
+    - blacks: 4
+      whites: 2
+evaluations: 32114
+---
+code: FHICHD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - DGICGH
+    - blacks: 2
+      whites: 2
+  -
+    - FGDCHE
+    - blacks: 3
+      whites: 1
+  -
+    - FIDCDH
+    - blacks: 2
+      whites: 3
+  -
+    - FFICHD
+    - blacks: 5
+      whites: 0
+  -
+    - FCICHD
+    - blacks: 5
+      whites: 0
+evaluations: 32500
+---
+code: IAFHAA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - HIFDCC
+    - blacks: 1
+      whites: 2
+  -
+    - IAGDHI
+    - blacks: 2
+      whites: 1
+  -
+    - IIBFHB
+    - blacks: 1
+      whites: 2
+  -
+    - IGEDBF
+    - blacks: 1
+      whites: 1
+  -
+    - IFFCAI
+    - blacks: 3
+      whites: 0
+  -
+    - IAFAAH
+    - blacks: 4
+      whites: 2
+evaluations: 22990
+---
+code: GFFFCB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - GIBGAH
+    - blacks: 1
+      whites: 1
+  -
+    - AIDEEF
+    - blacks: 0
+      whites: 1
+  -
+    - DGCGCD
+    - blacks: 1
+      whites: 1
+  -
+    - HHBDHD
+    - blacks: 0
+      whites: 1
+  -
+    - CFFGFB
+    - blacks: 3
+      whites: 3
+  -
+    - FBFGFC
+    - blacks: 1
+      whites: 5
+evaluations: 18494
+---
+code: GIHCDD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - HGDCII
+    - blacks: 1
+      whites: 4
+  -
+    - IHDHCG
+    - blacks: 0
+      whites: 5
+  -
+    - HCIEGD
+    - blacks: 1
+      whites: 4
+  -
+    - DCFGIH
+    - blacks: 0
+      whites: 5
+  -
+    - GDICHC
+    - blacks: 2
+      whites: 3
+  -
+    - HDGIDC
+    - blacks: 1
+      whites: 5
+evaluations: 37720
+---
+code: DHHDFH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 0
+  -
+    - EGGHAH
+    - blacks: 1
+      whites: 1
+  -
+    - IECHCE
+    - blacks: 0
+      whites: 1
+  -
+    - FBGIGF
+    - blacks: 0
+      whites: 1
+  -
+    - HDDDFH
+    - blacks: 3
+      whites: 2
+  -
+    - HHFDDH
+    - blacks: 3
+      whites: 3
+evaluations: 30120
+---
+code: BBHBEC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - CBAEII
+    - blacks: 1
+      whites: 2
+  -
+    - BBGCBE
+    - blacks: 2
+      whites: 3
+  -
+    - GBIBBC
+    - blacks: 3
+      whites: 1
+  -
+    - BBBBEC
+    - blacks: 5
+      whites: 0
+evaluations: 15500
+---
+code: DHDHGI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - HFGCHG
+    - blacks: 0
+      whites: 3
+  -
+    - EGHFFD
+    - blacks: 0
+      whites: 3
+  -
+    - GHEICI
+    - blacks: 2
+      whites: 1
+  -
+    - GEFBGI
+    - blacks: 2
+      whites: 0
+  -
+    - FCFHCI
+    - blacks: 2
+      whites: 0
+evaluations: 20250
+---
+code: IBHFDI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - AFEHIC
+    - blacks: 0
+      whites: 3
+  -
+    - FGCBGE
+    - blacks: 0
+      whites: 2
+  -
+    - ICDDFI
+    - blacks: 2
+      whites: 2
+  -
+    - GCIDHD
+    - blacks: 0
+      whites: 3
+  -
+    - IIDGAF
+    - blacks: 1
+      whites: 3
+evaluations: 21000
+---
+code: IDDHDI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - FFEGHD
+    - blacks: 0
+      whites: 2
+  -
+    - BEIIFE
+    - blacks: 0
+      whites: 2
+  -
+    - CIGFGC
+    - blacks: 0
+      whites: 1
+  -
+    - IDHHIH
+    - blacks: 3
+      whites: 1
+  -
+    - HAHEIH
+    - blacks: 0
+      whites: 2
+evaluations: 28250
+---
+code: CFECEE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - HHBGEE
+    - blacks: 2
+      whites: 0
+  -
+    - HCFCIE
+    - blacks: 2
+      whites: 2
+  -
+    - HFFIEA
+    - blacks: 2
+      whites: 0
+  -
+    - HHFHCC
+    - blacks: 0
+      whites: 3
+evaluations: 29250
+---
+code: GFEBGF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - DEIFDI
+    - blacks: 0
+      whites: 2
+  -
+    - CFGCGE
+    - blacks: 2
+      whites: 2
+  -
+    - CHGEIC
+    - blacks: 0
+      whites: 2
+  -
+    - FGBGGE
+    - blacks: 1
+      whites: 4
+  -
+    - EFEBGG
+    - blacks: 4
+      whites: 1
+evaluations: 34000
+---
+code: AAAEAI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 0
+  -
+    - EBIHAE
+    - blacks: 1
+      whites: 2
+  -
+    - FBCIHI
+    - blacks: 1
+      whites: 0
+  -
+    - CECEAC
+    - blacks: 2
+      whites: 0
+  -
+    - GEGDAI
+    - blacks: 2
+      whites: 1
+evaluations: 24250
+---
+code: AHBFFI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - IFCGIA
+    - blacks: 0
+      whites: 3
+  -
+    - EGGFAD
+    - blacks: 1
+      whites: 1
+  -
+    - FIAHAH
+    - blacks: 0
+      whites: 4
+  -
+    - AHGBHI
+    - blacks: 3
+      whites: 1
+  -
+    - AHIIHD
+    - blacks: 2
+      whites: 1
+evaluations: 25500
+---
+code: AHEHDE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - AHIFBF
+    - blacks: 2
+      whites: 0
+  -
+    - ADIEEG
+    - blacks: 1
+      whites: 3
+  -
+    - AGEFGD
+    - blacks: 2
+      whites: 1
+evaluations: 22500
+---
+code: HDHIED
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - GGIBHE
+    - blacks: 0
+      whites: 3
+  -
+    - FHHCEI
+    - blacks: 2
+      whites: 2
+  -
+    - DHEFFI
+    - blacks: 0
+      whites: 4
+  -
+    - IEHHED
+    - blacks: 3
+      whites: 2
+evaluations: 15000
+---
+code: CEEHHA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - HFIEDC
+    - blacks: 0
+      whites: 3
+  -
+    - GHGACF
+    - blacks: 0
+      whites: 3
+  -
+    - DIDGHA
+    - blacks: 2
+      whites: 0
+  -
+    - CIFCIA
+    - blacks: 2
+      whites: 0
+  -
+    - BEFHHA
+    - blacks: 4
+      whites: 0
+  -
+    - CEHHHA
+    - blacks: 5
+      whites: 0
+evaluations: 32750
+---
+code: ICBGAD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 3
+  -
+    - AAFCHD
+    - blacks: 1
+      whites: 2
+  -
+    - CBICDA
+    - blacks: 0
+      whites: 5
+  -
+    - AIDBEC
+    - blacks: 0
+      whites: 5
+  -
+    - BCADID
+    - blacks: 2
+      whites: 3
+  -
+    - BAGDCI
+    - blacks: 0
+      whites: 6
+evaluations: 31190
+---
+code: AEDGGH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - FDHHAD
+    - blacks: 0
+      whites: 3
+  -
+    - AIFGCH
+    - blacks: 3
+      whites: 0
+  -
+    - AIFEDE
+    - blacks: 1
+      whites: 2
+  -
+    - DIEDCH
+    - blacks: 1
+      whites: 2
+  -
+    - AGDGEH
+    - blacks: 4
+      whites: 2
+evaluations: 17470
+---
+code: GIGDDH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 0
+  -
+    - GFHIAG
+    - blacks: 1
+      whites: 3
+  -
+    - AFGHHE
+    - blacks: 1
+      whites: 1
+  -
+    - GIIGHB
+    - blacks: 2
+      whites: 2
+  -
+    - GGGFIB
+    - blacks: 2
+      whites: 1
+evaluations: 21000
+---
+code: HBIAIF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - IIECGB
+    - blacks: 0
+      whites: 3
+  -
+    - HCIDEF
+    - blacks: 3
+      whites: 0
+  -
+    - CCDDEG
+    - blacks: 0
+      whites: 0
+  -
+    - HBIBIF
+    - blacks: 5
+      whites: 0
+evaluations: 20057
+---
+code: GIHDHD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 0
+  -
+    - IBGFIE
+    - blacks: 0
+      whites: 2
+  -
+    - EDDDHF
+    - blacks: 2
+      whites: 1
+  -
+    - HGHDFF
+    - blacks: 2
+      whites: 2
+  -
+    - HFCEHF
+    - blacks: 1
+      whites: 1
+  -
+    - HDIDGH
+    - blacks: 1
+      whites: 5
+  -
+    - DIHDHG
+    - blacks: 4
+      whites: 2
+evaluations: 23114
+---
+code: CIBGBC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - GFFBCD
+    - blacks: 0
+      whites: 3
+  -
+    - CHDHBE
+    - blacks: 2
+      whites: 0
+  -
+    - CIDGGA
+    - blacks: 3
+      whites: 0
+evaluations: 15750
+---
+code: FECEGD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - FBEAIH
+    - blacks: 1
+      whites: 1
+  -
+    - GAEEAG
+    - blacks: 1
+      whites: 2
+  -
+    - IGIAAI
+    - blacks: 0
+      whites: 1
+  -
+    - EBGBGG
+    - blacks: 1
+      whites: 1
+evaluations: 37500
+---
+code: IDBADC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 4
+  -
+    - FCABBH
+    - blacks: 0
+      whites: 3
+  -
+    - CABEGD
+    - blacks: 1
+      whites: 3
+  -
+    - BAGCCA
+    - blacks: 0
+      whites: 3
+  -
+    - DDBADC
+    - blacks: 5
+      whites: 0
+  -
+    - DDBAIC
+    - blacks: 4
+      whites: 2
+  -
+    - DIBADC
+    - blacks: 4
+      whites: 2
+evaluations: 16224
+---
+code: GBBCAH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 2
+  -
+    - AHECBB
+    - blacks: 1
+      whites: 4
+  -
+    - HCBGAB
+    - blacks: 2
+      whites: 4
+  -
+    - ABBGCH
+    - blacks: 3
+      whites: 3
+evaluations: 9988
+---
+code: AGFHBC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - IBGACH
+    - blacks: 0
+      whites: 5
+  -
+    - GECBIA
+    - blacks: 0
+      whites: 4
+  -
+    - HHBIAC
+    - blacks: 1
+      whites: 3
+  -
+    - FHACGB
+    - blacks: 0
+      whites: 6
+  -
+    - AFHGBC
+    - blacks: 3
+      whites: 3
+evaluations: 13208
+---
+code: HAGIFA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - BGAHEI
+    - blacks: 0
+      whites: 4
+  -
+    - EFBCHG
+    - blacks: 0
+      whites: 3
+  -
+    - IAIBFE
+    - blacks: 2
+      whites: 1
+  -
+    - IAFAGH
+    - blacks: 1
+      whites: 5
+  -
+    - GAHIFA
+    - blacks: 4
+      whites: 2
+evaluations: 11726
+---
+code: ABGGAG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 3
+      whites: 0
+  -
+    - AFCGHB
+    - blacks: 2
+      whites: 1
+  -
+    - AEGIAB
+    - blacks: 3
+      whites: 1
+  -
+    - ABFIEB
+    - blacks: 2
+      whites: 0
+  -
+    - AGAAAB
+    - blacks: 2
+      whites: 2
+  -
+    - AACIAG
+    - blacks: 3
+      whites: 0
+evaluations: 52500
+---
+code: HCIBGE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - EAFICG
+    - blacks: 0
+      whites: 4
+  -
+    - IGDFFC
+    - blacks: 0
+      whites: 3
+  -
+    - GHBCEF
+    - blacks: 0
+      whites: 5
+  -
+    - FCEHBI
+    - blacks: 1
+      whites: 4
+  -
+    - CEGBHI
+    - blacks: 1
+      whites: 5
+  -
+    - CIHGBE
+    - blacks: 1
+      whites: 5
+evaluations: 26448
+---
+code: BCAACD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 5
+  -
+    - CAEABD
+    - blacks: 2
+      whites: 3
+  -
+    - DABACA
+    - blacks: 2
+      whites: 3
+  -
+    - CADBIA
+    - blacks: 0
+      whites: 5
+  -
+    - DCAABF
+    - blacks: 3
+      whites: 2
+evaluations: 18000
+---
+code: HEIHDG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - IGFCEE
+    - blacks: 0
+      whites: 3
+  -
+    - DHIHFG
+    - blacks: 3
+      whites: 2
+  -
+    - DIHFFG
+    - blacks: 1
+      whites: 3
+  -
+    - HFIHBG
+    - blacks: 4
+      whites: 0
+evaluations: 15250
+---
+code: CFHHDB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - ECDCGB
+    - blacks: 1
+      whites: 2
+  -
+    - FDECAH
+    - blacks: 0
+      whites: 4
+  -
+    - AIDBHE
+    - blacks: 0
+      whites: 3
+  -
+    - EBFFCA
+    - blacks: 0
+      whites: 3
+  -
+    - DCADED
+    - blacks: 0
+      whites: 2
+evaluations: 31250
+---
+code: HEFGBE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - EEICHH
+    - blacks: 1
+      whites: 2
+  -
+    - GCFHGH
+    - blacks: 1
+      whites: 2
+  -
+    - DIHFIH
+    - blacks: 0
+      whites: 2
+  -
+    - HEEAGF
+    - blacks: 2
+      whites: 3
+evaluations: 31500
+---
+code: BFIEEF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - DDIHGH
+    - blacks: 1
+      whites: 0
+  -
+    - ECIFFI
+    - blacks: 1
+      whites: 3
+  -
+    - EFGCGF
+    - blacks: 2
+      whites: 1
+  -
+    - CEICEF
+    - blacks: 3
+      whites: 1
+evaluations: 24750
+---
+code: GGDIFH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - GDDEGH
+    - blacks: 3
+      whites: 1
+  -
+    - IDHGGH
+    - blacks: 1
+      whites: 4
+  -
+    - GHDIGI
+    - blacks: 3
+      whites: 2
+evaluations: 13000
+---
+code: EFDGDF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - FGEECE
+    - blacks: 0
+      whites: 3
+  -
+    - HIGCGF
+    - blacks: 1
+      whites: 1
+  -
+    - EEDIGI
+    - blacks: 2
+      whites: 1
+  -
+    - EEIBFF
+    - blacks: 2
+      whites: 1
+  -
+    - EEGGBG
+    - blacks: 2
+      whites: 0
+evaluations: 28750
+---
+code: ADFDHE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 0
+  -
+    - AEFHFB
+    - blacks: 2
+      whites: 2
+  -
+    - AGIFHB
+    - blacks: 2
+      whites: 1
+  -
+    - FECFIB
+    - blacks: 0
+      whites: 2
+  -
+    - ADFDHF
+    - blacks: 5
+      whites: 0
+  -
+    - AHFDHF
+    - blacks: 4
+      whites: 0
+evaluations: 30750
+---
+code: BGGEFE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - DHFHEE
+    - blacks: 1
+      whites: 2
+  -
+    - GDHHDG
+    - blacks: 0
+      whites: 2
+  -
+    - EHEIGC
+    - blacks: 0
+      whites: 3
+  -
+    - HGBFEF
+    - blacks: 1
+      whites: 3
+  -
+    - FFDGEI
+    - blacks: 0
+      whites: 3
+evaluations: 53000
+---
+code: CCAHAG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - HDHBDB
+    - blacks: 0
+      whites: 1
+  -
+    - FCIDFA
+    - blacks: 1
+      whites: 1
+  -
+    - IBAIGA
+    - blacks: 1
+      whites: 2
+  -
+    - GACCHA
+    - blacks: 0
+      whites: 6
+evaluations: 27860
+---
+code: EDEFAB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 1
+  -
+    - EBBDDF
+    - blacks: 1
+      whites: 3
+  -
+    - BDHDAE
+    - blacks: 2
+      whites: 2
+  -
+    - DBFIAE
+    - blacks: 1
+      whites: 4
+  -
+    - AFGDBE
+    - blacks: 0
+      whites: 5
+evaluations: 24250
+---
+code: IGDEHF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - GDHEEF
+    - blacks: 2
+      whites: 3
+  -
+    - DHGEIF
+    - blacks: 2
+      whites: 4
+  -
+    - DFHEGI
+    - blacks: 1
+      whites: 5
+  -
+    - DGIHEF
+    - blacks: 2
+      whites: 4
+evaluations: 7496
+---
+code: EAGEHB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - HDEGAD
+    - blacks: 0
+      whites: 4
+  -
+    - GEBDDI
+    - blacks: 0
+      whites: 3
+  -
+    - AHGEBH
+    - blacks: 2
+      whites: 3
+  -
+    - EHGAEB
+    - blacks: 3
+      whites: 3
+  -
+    - EHAEGB
+    - blacks: 3
+      whites: 3
+evaluations: 20724
+---
+code: HDBBFD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - BHAGBF
+    - blacks: 0
+      whites: 4
+  -
+    - GABICH
+    - blacks: 1
+      whites: 1
+  -
+    - FDBBFG
+    - blacks: 4
+      whites: 0
+  -
+    - HDBBFE
+    - blacks: 5
+      whites: 0
+evaluations: 21000
+---
+code: BCFBEB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - AFFCGD
+    - blacks: 1
+      whites: 1
+  -
+    - IEBCAI
+    - blacks: 0
+      whites: 3
+  -
+    - HCFEBB
+    - blacks: 3
+      whites: 2
+  -
+    - CFEEBB
+    - blacks: 1
+      whites: 4
+evaluations: 25000
+---
+code: DCDHHA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - HDABGH
+    - blacks: 0
+      whites: 4
+  -
+    - GEHCDA
+    - blacks: 1
+      whites: 3
+  -
+    - BAEGDG
+    - blacks: 0
+      whites: 2
+  -
+    - IHDHCA
+    - blacks: 3
+      whites: 2
+  -
+    - CFDHHA
+    - blacks: 4
+      whites: 1
+evaluations: 42000
+---
+code: CACHEH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - GIEAAF
+    - blacks: 0
+      whites: 2
+  -
+    - DFIHDB
+    - blacks: 1
+      whites: 0
+  -
+    - BEBGEB
+    - blacks: 1
+      whites: 0
+  -
+    - CACHEC
+    - blacks: 5
+      whites: 0
+  -
+    - HACHEC
+    - blacks: 4
+      whites: 2
+evaluations: 16610
+---
+code: EGHFGI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 0
+  -
+    - GFHFIG
+    - blacks: 2
+      whites: 3
+  -
+    - GEIFFH
+    - blacks: 1
+      whites: 4
+  -
+    - FIHFGI
+    - blacks: 4
+      whites: 0
+evaluations: 10838
+---
+code: GHEBBF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - BDEGEH
+    - blacks: 1
+      whites: 3
+  -
+    - HEEFDC
+    - blacks: 1
+      whites: 2
+  -
+    - HDDBIE
+    - blacks: 1
+      whites: 2
+  -
+    - GEGBCH
+    - blacks: 2
+      whites: 2
+  -
+    - GGDFBH
+    - blacks: 2
+      whites: 2
+  -
+    - GEDGHA
+    - blacks: 1
+      whites: 2
+evaluations: 64500
+---
+code: HHCDAG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 3
+      whites: 0
+  -
+    - GBHDAE
+    - blacks: 2
+      whites: 2
+  -
+    - HECDAF
+    - blacks: 4
+      whites: 0
+  -
+    - HICDAG
+    - blacks: 5
+      whites: 0
+  -
+    - HGCDAG
+    - blacks: 5
+      whites: 0
+evaluations: 24750
+---
+code: CDFCEA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - BAHGCC
+    - blacks: 0
+      whites: 3
+  -
+    - IDABDG
+    - blacks: 1
+      whites: 1
+  -
+    - HDFCFA
+    - blacks: 4
+      whites: 0
+evaluations: 13750
+---
+code: ADIECB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 2
+  -
+    - DBBFCB
+    - blacks: 2
+      whites: 1
+  -
+    - ABBCIH
+    - blacks: 1
+      whites: 3
+  -
+    - IABDGB
+    - blacks: 1
+      whites: 3
+  -
+    - DHGCAB
+    - blacks: 1
+      whites: 3
+  -
+    - AIDICB
+    - blacks: 3
+      whites: 2
+evaluations: 29000
+---
+code: HGGGDG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - CFHFHG
+    - blacks: 1
+      whites: 1
+  -
+    - HDEEHH
+    - blacks: 1
+      whites: 1
+  -
+    - BFIEFE
+    - blacks: 0
+      whites: 0
+  -
+    - GGDGHD
+    - blacks: 2
+      whites: 3
+  -
+    - GDDHDG
+    - blacks: 2
+      whites: 2
+evaluations: 14195
+---
+code: ADHFED
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - CBEGGC
+    - blacks: 0
+      whites: 1
+  -
+    - AHAEHA
+    - blacks: 1
+      whites: 2
+  -
+    - ADHIEI
+    - blacks: 4
+      whites: 0
+  -
+    - ADHFEE
+    - blacks: 5
+      whites: 0
+  -
+    - ADHFEF
+    - blacks: 5
+      whites: 0
+evaluations: 26000
+---
+code: CHHDFH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - GHCIDH
+    - blacks: 2
+      whites: 2
+  -
+    - BHCCGI
+    - blacks: 1
+      whites: 1
+  -
+    - GAHDGH
+    - blacks: 3
+      whites: 0
+  -
+    - FHHDCH
+    - blacks: 4
+      whites: 2
+evaluations: 14240
+---
+code: BAAGGC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 4
+  -
+    - DABGGC
+    - blacks: 4
+      whites: 1
+  -
+    - CABGGA
+    - blacks: 3
+      whites: 3
+  -
+    - GABAGC
+    - blacks: 3
+      whites: 3
+evaluations: 5114
+---
+code: EBEEGH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 0
+  -
+    - FFCHGC
+    - blacks: 1
+      whites: 1
+  -
+    - AFIEEF
+    - blacks: 1
+      whites: 1
+  -
+    - EHGEGB
+    - blacks: 3
+      whites: 2
+  -
+    - IBGEGH
+    - blacks: 4
+      whites: 0
+  -
+    - EBHEGH
+    - blacks: 5
+      whites: 0
+evaluations: 27500
+---
+code: EACAIB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 2
+  -
+    - AAGEDB
+    - blacks: 2
+      whites: 2
+  -
+    - CACAEB
+    - blacks: 4
+      whites: 1
+evaluations: 13750
+---
+code: ABEAGI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 1
+  -
+    - HECFAD
+    - blacks: 0
+      whites: 2
+  -
+    - BFGDGB
+    - blacks: 1
+      whites: 1
+  -
+    - IBHICB
+    - blacks: 1
+      whites: 1
+  -
+    - AAFAIB
+    - blacks: 2
+      whites: 2
+  -
+    - ABGAEI
+    - blacks: 4
+      whites: 2
+evaluations: 25720
+---
+code: CEFEHD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - DCFEGF
+    - blacks: 2
+      whites: 2
+  -
+    - DIFGFA
+    - blacks: 1
+      whites: 1
+  -
+    - DGDECH
+    - blacks: 1
+      whites: 3
+  -
+    - DEGCGE
+    - blacks: 1
+      whites: 3
+  -
+    - DCEFED
+    - blacks: 1
+      whites: 4
+evaluations: 34000
+---
+code: DGBIDF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - FEAGDF
+    - blacks: 2
+      whites: 1
+  -
+    - DHAGHI
+    - blacks: 1
+      whites: 2
+  -
+    - FAIGGC
+    - blacks: 0
+      whites: 3
+  -
+    - GEAIIA
+    - blacks: 1
+      whites: 1
+  -
+    - HEFCDI
+    - blacks: 1
+      whites: 2
+  -
+    - IDAFDD
+    - blacks: 1
+      whites: 3
+evaluations: 37000
+---
+code: AIDIHG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - EDGFGB
+    - blacks: 0
+      whites: 2
+  -
+    - AFECIF
+    - blacks: 1
+      whites: 1
+  -
+    - AGAEEA
+    - blacks: 1
+      whites: 1
+  -
+    - AIDIDG
+    - blacks: 5
+      whites: 0
+  -
+    - AIIIDG
+    - blacks: 4
+      whites: 1
+evaluations: 24250
+---
+code: IHBFEF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - FEFIDF
+    - blacks: 1
+      whites: 3
+  -
+    - GDHFEF
+    - blacks: 3
+      whites: 1
+  -
+    - GDGEIF
+    - blacks: 1
+      whites: 2
+  -
+    - HAIFEF
+    - blacks: 3
+      whites: 2
+evaluations: 34250
+---
+code: HGIICI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - EEAIFG
+    - blacks: 1
+      whites: 1
+  -
+    - IIDIGD
+    - blacks: 1
+      whites: 3
+  -
+    - DGHIDH
+    - blacks: 2
+      whites: 1
+  -
+    - FDFIDI
+    - blacks: 2
+      whites: 0
+evaluations: 21750
+---
+code: GCEAAD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 3
+  -
+    - CBFAGA
+    - blacks: 1
+      whites: 3
+  -
+    - ADGADC
+    - blacks: 1
+      whites: 4
+  -
+    - HACGDA
+    - blacks: 0
+      whites: 5
+  -
+    - GCIAAD
+    - blacks: 5
+      whites: 0
+evaluations: 30750
+---
+code: ECBEGC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - DCFGEE
+    - blacks: 1
+      whites: 3
+  -
+    - EIAGFC
+    - blacks: 2
+      whites: 1
+  -
+    - CFDGHC
+    - blacks: 1
+      whites: 2
+  -
+    - EEFHBC
+    - blacks: 2
+      whites: 2
+  -
+    - EADHFE
+    - blacks: 1
+      whites: 1
+  -
+    - ECEBGC
+    - blacks: 4
+      whites: 2
+evaluations: 38110
+---
+code: IGBGII
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - HHEGDG
+    - blacks: 1
+      whites: 1
+  -
+    - GFIFCG
+    - blacks: 0
+      whites: 3
+  -
+    - HIHHFC
+    - blacks: 0
+      whites: 1
+  -
+    - IGAGII
+    - blacks: 5
+      whites: 0
+evaluations: 19500
+---
+code: GAIDAC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 2
+  -
+    - FCAGAB
+    - blacks: 1
+      whites: 3
+  -
+    - HBBAAF
+    - blacks: 1
+      whites: 1
+  -
+    - GICBAD
+    - blacks: 2
+      whites: 3
+evaluations: 29500
+---
+code: DHCHCH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - BECFHE
+    - blacks: 1
+      whites: 1
+  -
+    - HGCIGD
+    - blacks: 1
+      whites: 2
+  -
+    - EACGIC
+    - blacks: 1
+      whites: 1
+  -
+    - CDCHCH
+    - blacks: 4
+      whites: 1
+  -
+    - CHCHDH
+    - blacks: 4
+      whites: 2
+evaluations: 21370
+---
+code: FBECHG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - GBFIDG
+    - blacks: 2
+      whites: 1
+  -
+    - EGCCDG
+    - blacks: 2
+      whites: 1
+  -
+    - CGFDDD
+    - blacks: 0
+      whites: 3
+  -
+    - GFCAFG
+    - blacks: 1
+      whites: 2
+  -
+    - FBHCCG
+    - blacks: 4
+      whites: 1
+evaluations: 25000
+---
+code: DCIBIH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - DFECBG
+    - blacks: 1
+      whites: 2
+  -
+    - GIACEA
+    - blacks: 0
+      whites: 2
+  -
+    - IHBEBD
+    - blacks: 0
+      whites: 4
+  -
+    - DCHBHI
+    - blacks: 3
+      whites: 2
+  -
+    - DDHBIC
+    - blacks: 3
+      whites: 2
+evaluations: 28500
+---
+code: EDHADH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - GFEHBD
+    - blacks: 0
+      whites: 3
+  -
+    - BIFIHC
+    - blacks: 0
+      whites: 1
+  -
+    - DEDGCG
+    - blacks: 0
+      whites: 3
+  -
+    - EAGEDI
+    - blacks: 2
+      whites: 1
+  -
+    - HDAEDH
+    - blacks: 3
+      whites: 3
+evaluations: 19860
+---
+code: GAFEEH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - EEFCHG
+    - blacks: 1
+      whites: 4
+  -
+    - HEGIFC
+    - blacks: 0
+      whites: 4
+  -
+    - CGFGEE
+    - blacks: 2
+      whites: 2
+  -
+    - EGHFEA
+    - blacks: 1
+      whites: 5
+  -
+    - FGAEHE
+    - blacks: 1
+      whites: 5
+evaluations: 18976
+---
+code: IEDECG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - IDGGHC
+    - blacks: 1
+      whites: 3
+  -
+    - DHEHIC
+    - blacks: 0
+      whites: 4
+  -
+    - HDDICF
+    - blacks: 2
+      whites: 1
+  -
+    - HEAGCI
+    - blacks: 2
+      whites: 2
+  -
+    - CIDGCE
+    - blacks: 2
+      whites: 3
+  -
+    - IGDECI
+    - blacks: 4
+      whites: 1
+evaluations: 40250
+---
+code: CACAFD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 3
+  -
+    - FBAHBD
+    - blacks: 1
+      whites: 2
+  -
+    - CAAGFB
+    - blacks: 3
+      whites: 1
+  -
+    - BEAGCB
+    - blacks: 0
+      whites: 2
+evaluations: 29500
+---
+code: DHCBHB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 2
+  -
+    - IBCAGD
+    - blacks: 1
+      whites: 2
+  -
+    - DBBDHC
+    - blacks: 2
+      whites: 3
+  -
+    - DBFHCB
+    - blacks: 2
+      whites: 3
+  -
+    - BBEDCH
+    - blacks: 0
+      whites: 5
+evaluations: 32500
+---
+code: CFICHA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - CAFEHG
+    - blacks: 2
+      whites: 2
+  -
+    - CGAIHH
+    - blacks: 2
+      whites: 2
+  -
+    - BFAHHG
+    - blacks: 2
+      whites: 1
+  -
+    - CCEHHA
+    - blacks: 3
+      whites: 1
+evaluations: 25250
+---
+code: HEDACD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - BDDBFE
+    - blacks: 1
+      whites: 2
+  -
+    - CDIEBI
+    - blacks: 0
+      whites: 3
+  -
+    - BGHCDD
+    - blacks: 1
+      whites: 3
+  -
+    - FCBHFD
+    - blacks: 1
+      whites: 2
+  -
+    - GIBBDH
+    - blacks: 0
+      whites: 2
+  -
+    - EHDACD
+    - blacks: 4
+      whites: 2
+evaluations: 27970
+---
+code: AEEBFH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - BFEGIB
+    - blacks: 1
+      whites: 2
+  -
+    - IHDHEB
+    - blacks: 0
+      whites: 3
+  -
+    - EEGDIC
+    - blacks: 1
+      whites: 1
+  -
+    - HBEFCC
+    - blacks: 1
+      whites: 3
+  -
+    - BEHFAE
+    - blacks: 1
+      whites: 5
+  -
+    - AEEBHF
+    - blacks: 4
+      whites: 2
+evaluations: 16974
+---
+code: HFDBHE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - DEFHBF
+    - blacks: 0
+      whites: 5
+  -
+    - FIEBHD
+    - blacks: 2
+      whites: 3
+  -
+    - EGHBFD
+    - blacks: 1
+      whites: 4
+  -
+    - BFDEHD
+    - blacks: 3
+      whites: 2
+evaluations: 35500
+---
+code: ABGDGI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 3
+      whites: 0
+  -
+    - AGCEIB
+    - blacks: 1
+      whites: 3
+  -
+    - EBCDGD
+    - blacks: 3
+      whites: 0
+  -
+    - EBCHAC
+    - blacks: 1
+      whites: 1
+  -
+    - ABFDGI
+    - blacks: 5
+      whites: 0
+evaluations: 20250
+---
+code: BEGGFD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - FGIEDA
+    - blacks: 0
+      whites: 4
+  -
+    - GAFCII
+    - blacks: 0
+      whites: 2
+  -
+    - EDGIBG
+    - blacks: 1
+      whites: 4
+  -
+    - BEDIGH
+    - blacks: 2
+      whites: 2
+  -
+    - BFDGEG
+    - blacks: 2
+      whites: 4
+  -
+    - BDEGGF
+    - blacks: 2
+      whites: 4
+evaluations: 28724
+---
+code: FHFHFI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 0
+  -
+    - HIFFEH
+    - blacks: 1
+      whites: 4
+  -
+    - EHFHGI
+    - blacks: 4
+      whites: 0
+  -
+    - EHFEFI
+    - blacks: 4
+      whites: 0
+  -
+    - EHFHFF
+    - blacks: 4
+      whites: 1
+evaluations: 8613
+---
+code: IAFHCH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - HAGIDG
+    - blacks: 1
+      whites: 2
+  -
+    - HCDHEI
+    - blacks: 1
+      whites: 3
+  -
+    - HDICID
+    - blacks: 0
+      whites: 3
+  -
+    - CCEGDH
+    - blacks: 1
+      whites: 1
+  -
+    - IHBHDF
+    - blacks: 2
+      whites: 2
+evaluations: 71000
+---
+code: ACDGCH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - FBBIHC
+    - blacks: 0
+      whites: 2
+  -
+    - ADAHFE
+    - blacks: 1
+      whites: 2
+  -
+    - GDHBAD
+    - blacks: 0
+      whites: 4
+  -
+    - HCADDH
+    - blacks: 2
+      whites: 2
+  -
+    - ACDGDF
+    - blacks: 4
+      whites: 0
+evaluations: 21250
+---
+code: HDBFCB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 3
+  -
+    - BACBIE
+    - blacks: 0
+      whites: 3
+  -
+    - DDBCGB
+    - blacks: 3
+      whites: 1
+  -
+    - CDBHCB
+    - blacks: 4
+      whites: 1
+evaluations: 25250
+---
+code: IABFIF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - CDHGGD
+    - blacks: 0
+      whites: 0
+  -
+    - FFAAEE
+    - blacks: 0
+      whites: 3
+  -
+    - IEEIBA
+    - blacks: 1
+      whites: 3
+  -
+    - BIFFIA
+    - blacks: 2
+      whites: 4
+  -
+    - BAFIFI
+    - blacks: 1
+      whites: 5
+evaluations: 6506
+---
+code: CIDIBF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - CDEGBI
+    - blacks: 2
+      whites: 2
+  -
+    - ECAGBF
+    - blacks: 2
+      whites: 1
+  -
+    - BIAGDI
+    - blacks: 1
+      whites: 3
+  -
+    - EADEBI
+    - blacks: 2
+      whites: 1
+evaluations: 36250
+---
+code: ADFCCC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - GEDAAD
+    - blacks: 0
+      whites: 2
+  -
+    - FBBEDE
+    - blacks: 0
+      whites: 2
+  -
+    - AAFBHI
+    - blacks: 2
+      whites: 0
+  -
+    - DGCBHG
+    - blacks: 0
+      whites: 2
+  -
+    - CAFDCF
+    - blacks: 2
+      whites: 3
+  -
+    - ADFCFF
+    - blacks: 4
+      whites: 0
+evaluations: 32750
+---
+code: FIDBFI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - GDEGCH
+    - blacks: 0
+      whites: 1
+  -
+    - BFDIFD
+    - blacks: 2
+      whites: 3
+  -
+    - DIFIBD
+    - blacks: 1
+      whites: 4
+  -
+    - IIDBFF
+    - blacks: 4
+      whites: 2
+evaluations: 22360
+---
+code: DDHFDF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - DFHGEG
+    - blacks: 2
+      whites: 1
+  -
+    - IFEGCF
+    - blacks: 1
+      whites: 1
+  -
+    - HHBGIG
+    - blacks: 0
+      whites: 1
+  -
+    - DFFFFH
+    - blacks: 2
+      whites: 2
+evaluations: 21250
+---
+code: DEFAGB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - HEAIAC
+    - blacks: 1
+      whites: 1
+  -
+    - FAADGG
+    - blacks: 1
+      whites: 3
+  -
+    - GBAGID
+    - blacks: 0
+      whites: 4
+  -
+    - HFGDBA
+    - blacks: 0
+      whites: 5
+  -
+    - BDEFAG
+    - blacks: 0
+      whites: 6
+evaluations: 18440
+---
+code: IEBCHF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - DEBIDF
+    - blacks: 3
+      whites: 1
+  -
+    - DEBEHI
+    - blacks: 3
+      whites: 1
+  -
+    - DGBIHD
+    - blacks: 2
+      whites: 1
+  -
+    - DEBGFE
+    - blacks: 2
+      whites: 1
+  -
+    - IEBAHF
+    - blacks: 5
+      whites: 0
+evaluations: 34750
+---
+code: ECIGAC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - CDIDHE
+    - blacks: 1
+      whites: 2
+  -
+    - EEGDDA
+    - blacks: 1
+      whites: 2
+  -
+    - BGDDIG
+    - blacks: 0
+      whites: 2
+  -
+    - ADFHDD
+    - blacks: 0
+      whites: 1
+  -
+    - ICGIAE
+    - blacks: 2
+      whites: 3
+  -
+    - CIGEAC
+    - blacks: 2
+      whites: 4
+evaluations: 26720
+---
+code: EAGECE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - DEEHFA
+    - blacks: 0
+      whites: 3
+  -
+    - HGACHE
+    - blacks: 1
+      whites: 3
+  -
+    - IDGCEH
+    - blacks: 1
+      whites: 2
+  -
+    - EHAIBH
+    - blacks: 1
+      whites: 1
+  -
+    - CCAGEF
+    - blacks: 0
+      whites: 4
+  -
+    - FGFACH
+    - blacks: 1
+      whites: 2
+evaluations: 32250
+---
+code: CFEEAB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 1
+  -
+    - GFCAAF
+    - blacks: 2
+      whites: 1
+  -
+    - GBECAG
+    - blacks: 2
+      whites: 2
+  -
+    - GAHEAB
+    - blacks: 3
+      whites: 0
+  -
+    - GDFGAB
+    - blacks: 2
+      whites: 1
+  -
+    - GACCIB
+    - blacks: 1
+      whites: 2
+evaluations: 45500
+---
+code: FFBFDB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - AFGACG
+    - blacks: 1
+      whites: 0
+  -
+    - HEDADB
+    - blacks: 2
+      whites: 0
+  -
+    - IFDBIB
+    - blacks: 2
+      whites: 2
+  -
+    - IIIABB
+    - blacks: 1
+      whites: 1
+  -
+    - BFBFDB
+    - blacks: 5
+      whites: 0
+  -
+    - BFFFDB
+    - blacks: 4
+      whites: 2
+evaluations: 41620
+---
+code: FAHGHF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - FAHFGG
+    - blacks: 3
+      whites: 2
+  -
+    - GGHFGA
+    - blacks: 1
+      whites: 3
+  -
+    - FAHGFF
+    - blacks: 5
+      whites: 0
+evaluations: 7500
+---
+code: CBEGFG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - GIIDBH
+    - blacks: 0
+      whites: 2
+  -
+    - AHFGFA
+    - blacks: 2
+      whites: 0
+  -
+    - AEGGCI
+    - blacks: 1
+      whites: 3
+  -
+    - AHECIE
+    - blacks: 1
+      whites: 1
+  -
+    - CBFGGE
+    - blacks: 3
+      whites: 3
+evaluations: 14720
+---
+code: FBFBGC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - GGDAIB
+    - blacks: 0
+      whites: 2
+  -
+    - BFBDED
+    - blacks: 0
+      whites: 3
+  -
+    - CBFCDH
+    - blacks: 2
+      whites: 1
+  -
+    - CBEBCG
+    - blacks: 2
+      whites: 2
+  -
+    - CBHIBE
+    - blacks: 1
+      whites: 2
+evaluations: 47000
+---
+code: EEBIEC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - EIEFBC
+    - blacks: 2
+      whites: 3
+  -
+    - ECICBF
+    - blacks: 1
+      whites: 3
+  -
+    - EGBFCE
+    - blacks: 2
+      whites: 2
+  -
+    - EIDBFE
+    - blacks: 1
+      whites: 3
+  -
+    - EFEACI
+    - blacks: 1
+      whites: 3
+  -
+    - EHBEIC
+    - blacks: 3
+      whites: 2
+evaluations: 45250
+---
+code: DCAFDE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - CGFBDE
+    - blacks: 2
+      whites: 2
+  -
+    - BGICDC
+    - blacks: 1
+      whites: 1
+  -
+    - CFAEDF
+    - blacks: 2
+      whites: 3
+  -
+    - DCFEDA
+    - blacks: 3
+      whites: 3
+evaluations: 16220
+---
+code: DHACAD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 3
+  -
+    - AAIGCD
+    - blacks: 1
+      whites: 3
+  -
+    - AEABDI
+    - blacks: 1
+      whites: 2
+  -
+    - AIBCBG
+    - blacks: 1
+      whites: 1
+  -
+    - ACDAHH
+    - blacks: 0
+      whites: 5
+  -
+    - HDACAD
+    - blacks: 4
+      whites: 2
+evaluations: 15110
+---
+code: ACBBGH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 3
+  -
+    - BGAIAD
+    - blacks: 0
+      whites: 3
+  -
+    - FBIBDC
+    - blacks: 1
+      whites: 2
+  -
+    - AHFABC
+    - blacks: 1
+      whites: 3
+  -
+    - FDCAEA
+    - blacks: 0
+      whites: 2
+  -
+    - ACBBHG
+    - blacks: 4
+      whites: 2
+evaluations: 27720
+---
+code: CBEHII
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - CGIHAH
+    - blacks: 2
+      whites: 1
+  -
+    - EGFCAC
+    - blacks: 0
+      whites: 2
+  -
+    - CDIDIG
+    - blacks: 2
+      whites: 1
+  -
+    - IAIDEH
+    - blacks: 0
+      whites: 4
+evaluations: 18000
+---
+code: AHEHDF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - GCFIAI
+    - blacks: 0
+      whites: 2
+  -
+    - EGCCED
+    - blacks: 0
+      whites: 2
+  -
+    - DBDFDG
+    - blacks: 1
+      whites: 1
+  -
+    - HBHECF
+    - blacks: 1
+      whites: 3
+  -
+    - AHBEHG
+    - blacks: 2
+      whites: 2
+  -
+    - ADHFHE
+    - blacks: 1
+      whites: 5
+evaluations: 47220
+---
+code: CAEDEC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - DBHBFI
+    - blacks: 0
+      whites: 1
+  -
+    - GCAIAC
+    - blacks: 1
+      whites: 2
+  -
+    - CGDGAD
+    - blacks: 1
+      whites: 2
+  -
+    - AGAEBG
+    - blacks: 0
+      whites: 2
+  -
+    - CCEDEA
+    - blacks: 4
+      whites: 2
+evaluations: 22610
+---
+code: BEGGCD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - FCDAFE
+    - blacks: 0
+      whites: 3
+  -
+    - BAEIDD
+    - blacks: 2
+      whites: 1
+  -
+    - BFAHDH
+    - blacks: 1
+      whites: 1
+  -
+    - BAGGEC
+    - blacks: 3
+      whites: 2
+  -
+    - BGGCED
+    - blacks: 3
+      whites: 3
+evaluations: 41970
+---
+code: GEGDBF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - FEBGAG
+    - blacks: 1
+      whites: 4
+  -
+    - EBAGFE
+    - blacks: 0
+      whites: 4
+  -
+    - FGGAIB
+    - blacks: 1
+      whites: 3
+  -
+    - GGEFAD
+    - blacks: 1
+      whites: 4
+  -
+    - BGFDEG
+    - blacks: 1
+      whites: 5
+evaluations: 18970
+---
+code: HABBDE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 4
+  -
+    - BCBEID
+    - blacks: 1
+      whites: 3
+  -
+    - IABCBF
+    - blacks: 2
+      whites: 1
+  -
+    - DGBHBC
+    - blacks: 1
+      whites: 3
+  -
+    - EDBCHA
+    - blacks: 1
+      whites: 4
+  -
+    - EAHBBD
+    - blacks: 2
+      whites: 4
+evaluations: 30720
+---
+code: DHHCIA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - CIIFBD
+    - blacks: 0
+      whites: 3
+  -
+    - DHAEIC
+    - blacks: 3
+      whites: 2
+  -
+    - DCGEIA
+    - blacks: 3
+      whites: 1
+  -
+    - DCACIH
+    - blacks: 3
+      whites: 2
+evaluations: 15500
+---
+code: ACABAG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 2
+  -
+    - ACBDDC
+    - blacks: 2
+      whites: 1
+  -
+    - ABAADE
+    - blacks: 2
+      whites: 2
+  -
+    - AAIIDB
+    - blacks: 1
+      whites: 2
+  -
+    - ACDEAE
+    - blacks: 3
+      whites: 0
+  -
+    - ACABAH
+    - blacks: 5
+      whites: 0
+evaluations: 26750
+---
+code: DGCBCC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - ADHAGE
+    - blacks: 0
+      whites: 2
+  -
+    - HBGBCF
+    - blacks: 2
+      whites: 1
+  -
+    - IBGCDG
+    - blacks: 0
+      whites: 4
+  -
+    - BIEDCF
+    - blacks: 1
+      whites: 2
+  -
+    - DGCBCD
+    - blacks: 5
+      whites: 0
+evaluations: 24000
+---
+code: GAHGFE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - FHICHE
+    - blacks: 1
+      whites: 2
+  -
+    - EIIEFA
+    - blacks: 1
+      whites: 2
+  -
+    - GIFIHD
+    - blacks: 1
+      whites: 2
+  -
+    - GHEAFF
+    - blacks: 2
+      whites: 3
+  -
+    - GGAHFE
+    - blacks: 3
+      whites: 3
+evaluations: 23470
+---
+code: IAHEHI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - EIHCHC
+    - blacks: 2
+      whites: 2
+  -
+    - HHHCFI
+    - blacks: 2
+      whites: 1
+  -
+    - CIHEGI
+    - blacks: 3
+      whites: 1
+  -
+    - GAHEHI
+    - blacks: 5
+      whites: 0
+evaluations: 12000
+---
+code: AEAHBI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - BIDEHB
+    - blacks: 0
+      whites: 4
+  -
+    - AHIBDH
+    - blacks: 1
+      whites: 3
+  -
+    - IDCFBH
+    - blacks: 1
+      whites: 2
+  -
+    - IEEBAD
+    - blacks: 1
+      whites: 3
+  -
+    - DBEAGH
+    - blacks: 0
+      whites: 4
+  -
+    - EDIHAA
+    - blacks: 1
+      whites: 4
+evaluations: 32000
+---
+code: AIBEFB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 1
+  -
+    - BBHDIF
+    - blacks: 0
+      whites: 4
+  -
+    - AFIEBB
+    - blacks: 3
+      whites: 3
+evaluations: 7720
+---
+code: AHGAGF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - EDADGE
+    - blacks: 1
+      whites: 1
+  -
+    - EHIHAA
+    - blacks: 1
+      whites: 2
+  -
+    - EBEBHH
+    - blacks: 0
+      whites: 1
+  -
+    - AEAFFA
+    - blacks: 1
+      whites: 2
+  -
+    - IDHFAF
+    - blacks: 1
+      whites: 2
+  -
+    - HFAGAG
+    - blacks: 0
+      whites: 6
+evaluations: 30110
+---
+code: DCGHHB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - AADEGG
+    - blacks: 0
+      whites: 2
+  -
+    - FBHBDE
+    - blacks: 0
+      whites: 3
+  -
+    - EIBDCI
+    - blacks: 0
+      whites: 3
+  -
+    - CFCGBD
+    - blacks: 0
+      whites: 4
+  -
+    - BEFCAC
+    - blacks: 0
+      whites: 2
+evaluations: 25750
+---
+code: HHIAEG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - GGGCCI
+    - blacks: 0
+      whites: 2
+  -
+    - ICHIEF
+    - blacks: 1
+      whites: 2
+  -
+    - EAEIIG
+    - blacks: 1
+      whites: 3
+  -
+    - IEEGFD
+    - blacks: 0
+      whites: 3
+  -
+    - BIIIGE
+    - blacks: 1
+      whites: 2
+  -
+    - HIAHEG
+    - blacks: 3
+      whites: 3
+evaluations: 38970
+---
+code: FIGIFD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - BFGFEH
+    - blacks: 1
+      whites: 2
+  -
+    - FFDIGD
+    - blacks: 3
+      whites: 2
+  -
+    - FEGIDD
+    - blacks: 4
+      whites: 0
+  -
+    - FGGIFD
+    - blacks: 5
+      whites: 0
+evaluations: 15750
+---
+code: IFEEEI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 0
+  -
+    - FHEGHG
+    - blacks: 1
+      whites: 1
+  -
+    - FIIEEF
+    - blacks: 2
+      whites: 3
+  -
+    - IEEEFF
+    - blacks: 3
+      whites: 2
+evaluations: 7641
+---
+code: BHAGED
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - IHEBDC
+    - blacks: 1
+      whites: 3
+  -
+    - BGDEEC
+    - blacks: 2
+      whites: 2
+  -
+    - GFDIBC
+    - blacks: 0
+      whites: 3
+evaluations: 25000
+---
+code: IHHGDI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - HIDEGG
+    - blacks: 0
+      whites: 4
+  -
+    - FDIFEH
+    - blacks: 0
+      whites: 3
+  -
+    - IHGICE
+    - blacks: 2
+      whites: 2
+  -
+    - IGHIHD
+    - blacks: 2
+      whites: 4
+  -
+    - GHHIDI
+    - blacks: 4
+      whites: 2
+evaluations: 12364
+---
+code: IIFGEF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 0
+  -
+    - IHEEGH
+    - blacks: 1
+      whites: 2
+  -
+    - GIHGGF
+    - blacks: 3
+      whites: 0
+  -
+    - GHHFHF
+    - blacks: 1
+      whites: 2
+evaluations: 7641
+---
+code: AABCCG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 3
+  -
+    - CFBBDB
+    - blacks: 1
+      whites: 1
+  -
+    - AGIBBA
+    - blacks: 1
+      whites: 3
+  -
+    - IEABAD
+    - blacks: 0
+      whites: 3
+  -
+    - CBHAGA
+    - blacks: 0
+      whites: 5
+  -
+    - AABGCG
+    - blacks: 5
+      whites: 0
+  -
+    - AABGCC
+    - blacks: 4
+      whites: 2
+evaluations: 32860
+---
+code: ECCDAE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 3
+      whites: 0
+  -
+    - AFGDEB
+    - blacks: 1
+      whites: 2
+  -
+    - GHCIAB
+    - blacks: 2
+      whites: 0
+  -
+    - FDCDAC
+    - blacks: 3
+      whites: 1
+evaluations: 26750
+---
+code: IBAAID
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 3
+  -
+    - AAACCD
+    - blacks: 2
+      whites: 1
+  -
+    - IAAGDB
+    - blacks: 2
+      whites: 3
+  -
+    - AABIDI
+    - blacks: 0
+      whites: 6
+  -
+    - IIABAD
+    - blacks: 3
+      whites: 3
+evaluations: 22864
+---
+code: IBBEFG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - HFADIF
+    - blacks: 0
+      whites: 2
+  -
+    - DDGIEB
+    - blacks: 0
+      whites: 4
+  -
+    - GBBEHI
+    - blacks: 3
+      whites: 2
+  -
+    - EBBGFI
+    - blacks: 3
+      whites: 3
+  -
+    - GBEBFI
+    - blacks: 2
+      whites: 4
+evaluations: 16474
+---
+code: FCEAIC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - HAIFBH
+    - blacks: 0
+      whites: 3
+  -
+    - IEHADD
+    - blacks: 1
+      whites: 2
+  -
+    - EIFAFC
+    - blacks: 2
+      whites: 3
+  -
+    - CFEAIC
+    - blacks: 4
+      whites: 2
+evaluations: 13220
+---
+code: IBCGGI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 0
+  -
+    - GGFDHB
+    - blacks: 0
+      whites: 3
+  -
+    - EBCFIG
+    - blacks: 2
+      whites: 2
+  -
+    - EBGEAF
+    - blacks: 1
+      whites: 1
+  -
+    - IBCHFI
+    - blacks: 4
+      whites: 0
+evaluations: 18000
+---
+code: ADIFIH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - IBEFDG
+    - blacks: 1
+      whites: 2
+  -
+    - AAIFFE
+    - blacks: 3
+      whites: 0
+  -
+    - HACFGE
+    - blacks: 1
+      whites: 2
+  -
+    - AHIFHD
+    - blacks: 3
+      whites: 2
+  -
+    - AHIHDE
+    - blacks: 2
+      whites: 2
+evaluations: 38500
+---
+code: CHCDAA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 3
+      whites: 1
+  -
+    - ABDIAH
+    - blacks: 1
+      whites: 3
+  -
+    - AFCDHA
+    - blacks: 3
+      whites: 2
+  -
+    - AACFHB
+    - blacks: 1
+      whites: 3
+  -
+    - HCCDAA
+    - blacks: 4
+      whites: 2
+evaluations: 20610
+---
+code: CACEFH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - BDIDFI
+    - blacks: 1
+      whites: 0
+  -
+    - HCIHAE
+    - blacks: 0
+      whites: 4
+  -
+    - GHHDEC
+    - blacks: 0
+      whites: 3
+  -
+    - AEGGCI
+    - blacks: 0
+      whites: 3
+evaluations: 22750
+---
+code: BIEFAI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - DGIDFC
+    - blacks: 0
+      whites: 2
+  -
+    - AFEGHA
+    - blacks: 1
+      whites: 2
+  -
+    - HBEIBG
+    - blacks: 1
+      whites: 2
+  -
+    - IBAFHI
+    - blacks: 2
+      whites: 3
+  -
+    - IFAIEB
+    - blacks: 0
+      whites: 6
+evaluations: 17970
+---
+code: BDBDBC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 3
+  -
+    - ACFADF
+    - blacks: 0
+      whites: 2
+  -
+    - BAEDBD
+    - blacks: 3
+      whites: 1
+  -
+    - BIBDCD
+    - blacks: 3
+      whites: 2
+  -
+    - BICEBD
+    - blacks: 2
+      whites: 2
+evaluations: 30250
+---
+code: EICEHI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 0
+  -
+    - FEGFEB
+    - blacks: 0
+      whites: 2
+  -
+    - HHEGAI
+    - blacks: 1
+      whites: 2
+  -
+    - HIFDGG
+    - blacks: 1
+      whites: 1
+  -
+    - HCCEHF
+    - blacks: 3
+      whites: 0
+  -
+    - CCCEGI
+    - blacks: 3
+      whites: 0
+evaluations: 75750
+---
+code: HFIBCD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - EIBCBH
+    - blacks: 0
+      whites: 4
+  -
+    - BGHAIC
+    - blacks: 0
+      whites: 4
+  -
+    - CHAIDE
+    - blacks: 0
+      whites: 4
+  -
+    - HCIBFD
+    - blacks: 4
+      whites: 2
+evaluations: 10940
+---
+code: EGEEFD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - BHIGFI
+    - blacks: 1
+      whites: 1
+  -
+    - GDFEFG
+    - blacks: 2
+      whites: 2
+  -
+    - EIDEFF
+    - blacks: 3
+      whites: 1
+  -
+    - CGEEFF
+    - blacks: 4
+      whites: 0
+evaluations: 36500
+---
+code: DHAFHH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - DFECII
+    - blacks: 1
+      whites: 1
+  -
+    - DDAHGE
+    - blacks: 2
+      whites: 1
+  -
+    - DDGGBF
+    - blacks: 1
+      whites: 1
+  -
+    - DHFHFA
+    - blacks: 2
+      whites: 3
+evaluations: 21250
+---
+code: GFIEDB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - FGAHEB
+    - blacks: 1
+      whites: 3
+  -
+    - GBFHBH
+    - blacks: 1
+      whites: 2
+  -
+    - GEIFDB
+    - blacks: 4
+      whites: 2
+  -
+    - GEDFIB
+    - blacks: 2
+      whites: 4
+evaluations: 14446
+---
+code: HIAFFF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - GDIEEF
+    - blacks: 1
+      whites: 1
+  -
+    - CGIIHC
+    - blacks: 0
+      whites: 2
+  -
+    - GHDHDG
+    - blacks: 0
+      whites: 1
+  -
+    - EEEECH
+    - blacks: 0
+      whites: 1
+  -
+    - FIHFBF
+    - blacks: 3
+      whites: 2
+evaluations: 27000
+---
+code: EIEBBE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - CIBHGH
+    - blacks: 1
+      whites: 1
+  -
+    - CHDEED
+    - blacks: 0
+      whites: 2
+  -
+    - FAGHDF
+    - blacks: 0
+      whites: 0
+  -
+    - EEBIBI
+    - blacks: 2
+      whites: 3
+  -
+    - BEBBIE
+    - blacks: 2
+      whites: 3
+evaluations: 16466
+---
+code: CFFCDC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - GFDAFH
+    - blacks: 1
+      whites: 2
+  -
+    - FAEFFC
+    - blacks: 1
+      whites: 2
+  -
+    - CCGIFA
+    - blacks: 1
+      whites: 2
+  -
+    - DCDFEG
+    - blacks: 0
+      whites: 3
+  -
+    - IDICFF
+    - blacks: 1
+      whites: 3
+evaluations: 30500
+---
+code: IECGIF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 0
+  -
+    - IFGFEB
+    - blacks: 1
+      whites: 3
+  -
+    - FIEHIB
+    - blacks: 1
+      whites: 3
+  -
+    - HBEFGE
+    - blacks: 0
+      whites: 3
+  -
+    - EFIHAF
+    - blacks: 1
+      whites: 2
+  -
+    - EIGDFI
+    - blacks: 0
+      whites: 5
+evaluations: 34750
+---
+code: BGCHCB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 1
+  -
+    - CBBCIB
+    - blacks: 1
+      whites: 3
+  -
+    - ACHICB
+    - blacks: 2
+      whites: 2
+  -
+    - DBCICG
+    - blacks: 2
+      whites: 2
+  -
+    - GHCBCB
+    - blacks: 3
+      whites: 3
+evaluations: 28110
+---
+code: HFABBC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 4
+  -
+    - FAABDI
+    - blacks: 2
+      whites: 1
+  -
+    - DHABCG
+    - blacks: 2
+      whites: 2
+  -
+    - BAHBCF
+    - blacks: 1
+      whites: 5
+  -
+    - CFABBH
+    - blacks: 4
+      whites: 2
+evaluations: 19224
+---
+code: DADBFA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 4
+  -
+    - BHDAFA
+    - blacks: 3
+      whites: 2
+  -
+    - BFDCHA
+    - blacks: 2
+      whites: 2
+  -
+    - BDAEFA
+    - blacks: 2
+      whites: 3
+  -
+    - BGFADA
+    - blacks: 1
+      whites: 4
+evaluations: 31250
+---
+code: DADDBC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 3
+  -
+    - BCBDFE
+    - blacks: 1
+      whites: 2
+  -
+    - CABHHB
+    - blacks: 1
+      whites: 2
+  -
+    - AIBBDG
+    - blacks: 0
+      whites: 3
+  -
+    - FCAAGB
+    - blacks: 0
+      whites: 3
+  -
+    - BADEAH
+    - blacks: 2
+      whites: 1
+evaluations: 26000
+---
+code: FAHCIC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - GEBAIF
+    - blacks: 1
+      whites: 2
+  -
+    - BHDGGF
+    - blacks: 0
+      whites: 2
+  -
+    - HIAFIC
+    - blacks: 2
+      whites: 3
+  -
+    - HCFHIA
+    - blacks: 1
+      whites: 4
+  -
+    - HFIAFC
+    - blacks: 1
+      whites: 4
+  -
+    - CFACIH
+    - blacks: 2
+      whites: 4
+evaluations: 25970
+---
+code: CHIFDG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - DCDEGH
+    - blacks: 0
+      whites: 4
+  -
+    - HGGCBE
+    - blacks: 0
+      whites: 3
+  -
+    - EHHFDC
+    - blacks: 3
+      whites: 1
+  -
+    - EHFADG
+    - blacks: 3
+      whites: 1
+  -
+    - EEFGDC
+    - blacks: 1
+      whites: 3
+evaluations: 26250
+---
+code: DIDFAF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - GECIDF
+    - blacks: 1
+      whites: 2
+  -
+    - GBGCFH
+    - blacks: 0
+      whites: 1
+  -
+    - IEFEAA
+    - blacks: 1
+      whites: 2
+  -
+    - FIDDDA
+    - blacks: 2
+      whites: 3
+  -
+    - AIFFDD
+    - blacks: 2
+      whites: 4
+evaluations: 20360
+---
+code: BICBAE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 2
+  -
+    - ADCCBI
+    - blacks: 1
+      whites: 3
+  -
+    - CACBAH
+    - blacks: 3
+      whites: 0
+  -
+    - DFCBAE
+    - blacks: 4
+      whites: 0
+  -
+    - DGCBAD
+    - blacks: 3
+      whites: 0
+evaluations: 23000
+---
+code: ECDHBC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - DEAAIF
+    - blacks: 0
+      whites: 2
+  -
+    - CIDBHH
+    - blacks: 1
+      whites: 3
+  -
+    - GDDCBI
+    - blacks: 2
+      whites: 1
+  -
+    - HCDEBC
+    - blacks: 4
+      whites: 2
+evaluations: 22470
+---
+code: ECCFDF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - AEGHBH
+    - blacks: 0
+      whites: 1
+  -
+    - EDCCFI
+    - blacks: 2
+      whites: 3
+  -
+    - IDCEIC
+    - blacks: 1
+      whites: 3
+  -
+    - FCCCDE
+    - blacks: 3
+      whites: 2
+  -
+    - DCCFFE
+    - blacks: 3
+      whites: 3
+evaluations: 24360
+---
+code: IDCFBA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 3
+  -
+    - DFFABB
+    - blacks: 1
+      whites: 3
+  -
+    - BEAGDB
+    - blacks: 0
+      whites: 3
+  -
+    - CBBACF
+    - blacks: 0
+      whites: 4
+  -
+    - FCHDBA
+    - blacks: 2
+      whites: 3
+  -
+    - ACDFBI
+    - blacks: 2
+      whites: 4
+evaluations: 26940
+---
+code: HBEAEH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - EBICHH
+    - blacks: 2
+      whites: 2
+  -
+    - HBDIIH
+    - blacks: 3
+      whites: 0
+  -
+    - HBFCIG
+    - blacks: 2
+      whites: 0
+  -
+    - HBEBBH
+    - blacks: 4
+      whites: 0
+evaluations: 36500
+---
+code: HCAAFI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - HFDCIA
+    - blacks: 1
+      whites: 4
+  -
+    - CADFDH
+    - blacks: 0
+      whites: 4
+  -
+    - HGIACD
+    - blacks: 2
+      whites: 2
+  -
+    - BHFAID
+    - blacks: 1
+      whites: 3
+  -
+    - HIAAFC
+    - blacks: 4
+      whites: 2
+evaluations: 23470
+---
+code: CDBAHC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 4
+  -
+    - DCBADG
+    - blacks: 2
+      whites: 2
+  -
+    - CCBBGA
+    - blacks: 2
+      whites: 2
+  -
+    - CCHABD
+    - blacks: 2
+      whites: 4
+  -
+    - CDBACH
+    - blacks: 4
+      whites: 2
+evaluations: 18226
+---
+code: EIHCIE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - HIFGGC
+    - blacks: 1
+      whites: 2
+  -
+    - EEDFGI
+    - blacks: 1
+      whites: 2
+  -
+    - FDFHDI
+    - blacks: 0
+      whites: 2
+  -
+    - HCHFEE
+    - blacks: 2
+      whites: 2
+  -
+    - EIHECE
+    - blacks: 4
+      whites: 1
+evaluations: 22000
+---
+code: FBGIFB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 0
+  -
+    - HBGDDE
+    - blacks: 2
+      whites: 0
+  -
+    - ABGIFI
+    - blacks: 4
+      whites: 0
+  -
+    - ABFIFE
+    - blacks: 3
+      whites: 1
+  -
+    - ABGFFF
+    - blacks: 3
+      whites: 1
+evaluations: 21000
+---
+code: IFICBB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - GHAIAD
+    - blacks: 0
+      whites: 1
+  -
+    - BFEDBF
+    - blacks: 2
+      whites: 1
+  -
+    - BBEBCH
+    - blacks: 0
+      whites: 3
+  -
+    - CFCEBA
+    - blacks: 2
+      whites: 1
+evaluations: 30000
+---
+code: EEIFBD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - IIFAGD
+    - blacks: 1
+      whites: 2
+  -
+    - FAECGF
+    - blacks: 0
+      whites: 2
+  -
+    - CCHGID
+    - blacks: 1
+      whites: 1
+  -
+    - BIHFHA
+    - blacks: 1
+      whites: 2
+  -
+    - ICIFBI
+    - blacks: 3
+      whites: 0
+  -
+    - DFIFBD
+    - blacks: 4
+      whites: 0
+evaluations: 27250
+---
+code: HFEBDI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - ECGBFC
+    - blacks: 1
+      whites: 2
+  -
+    - EFIFBD
+    - blacks: 1
+      whites: 4
+  -
+    - DFEBIH
+    - blacks: 3
+      whites: 3
+  -
+    - IFDBEH
+    - blacks: 2
+      whites: 4
+evaluations: 7700
+---
+code: FIDGCE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - FEDCGF
+    - blacks: 2
+      whites: 3
+  -
+    - CGDHFF
+    - blacks: 1
+      whites: 3
+  -
+    - FCDEEG
+    - blacks: 2
+      whites: 3
+  -
+    - EFDCDG
+    - blacks: 1
+      whites: 4
+  -
+    - DCGCEF
+    - blacks: 0
+      whites: 5
+evaluations: 37750
+---
+code: AHCIIE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 0
+  -
+    - AICEFG
+    - blacks: 2
+      whites: 2
+  -
+    - HICFEB
+    - blacks: 1
+      whites: 3
+  -
+    - CHCEAF
+    - blacks: 2
+      whites: 2
+  -
+    - AFCHIF
+    - blacks: 3
+      whites: 1
+  -
+    - AIEHAF
+    - blacks: 1
+      whites: 3
+evaluations: 42000
+---
+code: HHIEAD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - CIGDDE
+    - blacks: 0
+      whites: 3
+  -
+    - HBIEHC
+    - blacks: 3
+      whites: 1
+  -
+    - HBDEII
+    - blacks: 2
+      whites: 2
+  -
+    - GBIEBH
+    - blacks: 2
+      whites: 1
+  -
+    - EBICIC
+    - blacks: 1
+      whites: 1
+  -
+    - DBHEHD
+    - blacks: 2
+      whites: 2
+evaluations: 41500
+---
+code: BHCEDI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - CBGEBH
+    - blacks: 1
+      whites: 3
+  -
+    - CEDHFB
+    - blacks: 0
+      whites: 5
+  -
+    - EDHDBC
+    - blacks: 0
+      whites: 5
+evaluations: 22750
+---
+code: CAACIB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 3
+  -
+    - HHDACB
+    - blacks: 1
+      whites: 2
+  -
+    - BDABEB
+    - blacks: 2
+      whites: 0
+  -
+    - AFABCC
+    - blacks: 1
+      whites: 4
+  -
+    - CAAFGB
+    - blacks: 4
+      whites: 0
+evaluations: 22750
+---
+code: EHAECI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - FIAIHD
+    - blacks: 1
+      whites: 2
+  -
+    - GFDBHF
+    - blacks: 0
+      whites: 1
+  -
+    - ICAEFE
+    - blacks: 2
+      whites: 3
+  -
+    - CEAEIH
+    - blacks: 2
+      whites: 4
+  -
+    - EHACIE
+    - blacks: 3
+      whites: 3
+evaluations: 15976
+---
+code: FAAFBI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - BDEFBE
+    - blacks: 2
+      whites: 0
+  -
+    - BDGCHG
+    - blacks: 0
+      whites: 1
+  -
+    - IIEABA
+    - blacks: 1
+      whites: 3
+  -
+    - IAAFCE
+    - blacks: 3
+      whites: 1
+evaluations: 31750
+---
+code: BIICFI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - FFDBGI
+    - blacks: 1
+      whites: 2
+  -
+    - IEDGCG
+    - blacks: 0
+      whites: 2
+  -
+    - EIIBFA
+    - blacks: 3
+      whites: 1
+  -
+    - EIHBBF
+    - blacks: 1
+      whites: 2
+  -
+    - FIEAFA
+    - blacks: 2
+      whites: 0
+evaluations: 34750
+---
+code: DAGIHC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - BFBIGD
+    - blacks: 1
+      whites: 2
+  -
+    - CHBBEI
+    - blacks: 0
+      whites: 3
+  -
+    - BDDEFC
+    - blacks: 1
+      whites: 1
+  -
+    - HDGICA
+    - blacks: 2
+      whites: 4
+  -
+    - HIDCGA
+    - blacks: 0
+      whites: 6
+evaluations: 17202
+---
+code: BBGGFH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - ECGDIG
+    - blacks: 1
+      whites: 1
+  -
+    - EBHBEI
+    - blacks: 1
+      whites: 2
+  -
+    - EECAHC
+    - blacks: 0
+      whites: 1
+  -
+    - HGGBGB
+    - blacks: 1
+      whites: 4
+  -
+    - HBBGFG
+    - blacks: 3
+      whites: 3
+evaluations: 17610
+---
+code: CGEABH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - HDBCCG
+    - blacks: 0
+      whites: 4
+  -
+    - CIDFBH
+    - blacks: 3
+      whites: 0
+  -
+    - BEDGBH
+    - blacks: 2
+      whites: 2
+  -
+    - CGDAEH
+    - blacks: 4
+      whites: 1
+evaluations: 31250
+---
+code: CDBEIB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 3
+  -
+    - EDBAAF
+    - blacks: 2
+      whites: 1
+  -
+    - CABGAA
+    - blacks: 2
+      whites: 0
+  -
+    - DIBBAI
+    - blacks: 1
+      whites: 3
+  -
+    - BDBDHA
+    - blacks: 2
+      whites: 1
+  -
+    - CDBFIB
+    - blacks: 5
+      whites: 0
+evaluations: 28500
+---
+code: HDEAFD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - CEDCIH
+    - blacks: 0
+      whites: 3
+  -
+    - GCHFBE
+    - blacks: 0
+      whites: 3
+  -
+    - FHBIDI
+    - blacks: 0
+      whites: 3
+  -
+    - HDFEEA
+    - blacks: 2
+      whites: 3
+  -
+    - DDAEHF
+    - blacks: 1
+      whites: 5
+  -
+    - DAFHED
+    - blacks: 1
+      whites: 5
+evaluations: 23724
+---
+code: DAIBHH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - CADIFG
+    - blacks: 1
+      whites: 2
+  -
+    - CHAEGA
+    - blacks: 0
+      whites: 2
+  -
+    - HDBAFF
+    - blacks: 0
+      whites: 4
+  -
+    - DAFBDE
+    - blacks: 3
+      whites: 0
+  -
+    - FAFBCC
+    - blacks: 2
+      whites: 0
+  -
+    - DAIBHI
+    - blacks: 5
+      whites: 0
+  -
+    - DAHBHI
+    - blacks: 4
+      whites: 2
+evaluations: 25220
+---
+code: IBFFHC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - GBECIE
+    - blacks: 1
+      whites: 2
+  -
+    - EDCFHE
+    - blacks: 2
+      whites: 1
+  -
+    - EACCFI
+    - blacks: 0
+      whites: 3
+  -
+    - IDDDCE
+    - blacks: 1
+      whites: 1
+  -
+    - ACGGHE
+    - blacks: 1
+      whites: 1
+  -
+    - IBHFHC
+    - blacks: 5
+      whites: 0
+evaluations: 35250
+---
+code: GIEDHG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 0
+  -
+    - AIFEFG
+    - blacks: 2
+      whites: 1
+  -
+    - AIHHEE
+    - blacks: 1
+      whites: 2
+  -
+    - GIEEIB
+    - blacks: 3
+      whites: 0
+  -
+    - HICEIF
+    - blacks: 1
+      whites: 2
+  -
+    - GHHEFB
+    - blacks: 1
+      whites: 2
+evaluations: 25000
+---
+code: BEAIBD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 4
+  -
+    - CIEBBA
+    - blacks: 1
+      whites: 4
+  -
+    - GABBCE
+    - blacks: 0
+      whites: 4
+  -
+    - ECAIBD
+    - blacks: 4
+      whites: 1
+  -
+    - ECAABI
+    - blacks: 2
+      whites: 2
+evaluations: 32500
+---
+code: HEEAGC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - IGABHF
+    - blacks: 0
+      whites: 3
+  -
+    - GDBHEE
+    - blacks: 0
+      whites: 4
+  -
+    - DHECFG
+    - blacks: 1
+      whites: 3
+  -
+    - HEDAGG
+    - blacks: 4
+      whites: 0
+  -
+    - BEDFGG
+    - blacks: 2
+      whites: 0
+evaluations: 191500
+---
+code: BHDFIG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - FCBEEH
+    - blacks: 0
+      whites: 3
+  -
+    - IFHAIC
+    - blacks: 1
+      whites: 2
+  -
+    - CHDFDC
+    - blacks: 3
+      whites: 0
+  -
+    - IHDFBG
+    - blacks: 4
+      whites: 2
+evaluations: 12190
+---
+code: DAHBGG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - DDFECA
+    - blacks: 1
+      whites: 1
+  -
+    - GDHABH
+    - blacks: 1
+      whites: 4
+  -
+    - DIABHH
+    - blacks: 2
+      whites: 2
+evaluations: 11000
+---
+code: EBDDDH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 0
+  -
+    - EGCFEB
+    - blacks: 1
+      whites: 1
+  -
+    - AIHEIB
+    - blacks: 0
+      whites: 3
+  -
+    - CBCHHI
+    - blacks: 1
+      whites: 1
+  -
+    - FBFFAH
+    - blacks: 2
+      whites: 0
+evaluations: 36750
+---
+code: GHFBGD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - CGEFDG
+    - blacks: 0
+      whites: 4
+  -
+    - EHDGCH
+    - blacks: 1
+      whites: 2
+  -
+    - FIDCED
+    - blacks: 1
+      whites: 1
+  -
+    - DAGGEE
+    - blacks: 0
+      whites: 3
+  -
+    - GHACGF
+    - blacks: 3
+      whites: 1
+evaluations: 44000
+---
+code: FFHFBD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - GAEHDE
+    - blacks: 0
+      whites: 2
+  -
+    - DCIIHI
+    - blacks: 0
+      whites: 2
+  -
+    - IHABFF
+    - blacks: 0
+      whites: 4
+  -
+    - HFFGBC
+    - blacks: 2
+      whites: 2
+  -
+    - FFGAIC
+    - blacks: 2
+      whites: 0
+evaluations: 18250
+---
+code: CGIFAC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - HFFCEB
+    - blacks: 0
+      whites: 2
+  -
+    - DICECE
+    - blacks: 0
+      whites: 3
+  -
+    - AEDHHI
+    - blacks: 0
+      whites: 2
+  -
+    - EDEDBG
+    - blacks: 0
+      whites: 1
+  -
+    - FCIGAC
+    - blacks: 3
+      whites: 3
+evaluations: 16970
+---
+code: CACEFG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - HAGGIB
+    - blacks: 1
+      whites: 1
+  -
+    - IFFCEB
+    - blacks: 0
+      whites: 3
+  -
+    - CDCHIE
+    - blacks: 2
+      whites: 1
+  -
+    - EICAII
+    - blacks: 1
+      whites: 2
+  -
+    - FDEDIA
+    - blacks: 0
+      whites: 3
+  -
+    - GACFCE
+    - blacks: 2
+      whites: 4
+evaluations: 26970
+---
+code: EHAIDA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - DEBIBG
+    - blacks: 1
+      whites: 2
+  -
+    - DFAGCI
+    - blacks: 1
+      whites: 2
+  -
+    - BCBFHI
+    - blacks: 0
+      whites: 2
+  -
+    - DAEHIA
+    - blacks: 1
+      whites: 5
+  -
+    - EAAIDH
+    - blacks: 4
+      whites: 2
+  -
+    - HAAIDE
+    - blacks: 3
+      whites: 3
+evaluations: 19736
+---
+code: BAFGIG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - FAICHF
+    - blacks: 1
+      whites: 2
+  -
+    - GCAEHC
+    - blacks: 0
+      whites: 2
+  -
+    - EDDFCF
+    - blacks: 0
+      whites: 1
+  -
+    - FIGABI
+    - blacks: 0
+      whites: 5
+  -
+    - BFIGGA
+    - blacks: 2
+      whites: 4
+  -
+    - BAFIGG
+    - blacks: 4
+      whites: 2
+evaluations: 27724
+---
+code: AIEFGA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - IDCHGF
+    - blacks: 1
+      whites: 2
+  -
+    - CGECAF
+    - blacks: 1
+      whites: 3
+  -
+    - CECGBH
+    - blacks: 0
+      whites: 2
+  -
+    - GDGFAE
+    - blacks: 1
+      whites: 3
+evaluations: 23000
+---
+code: FFCEGB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 0
+  -
+    - EBCHGE
+    - blacks: 2
+      whites: 2
+  -
+    - AECCHE
+    - blacks: 1
+      whites: 1
+  -
+    - GBFDEE
+    - blacks: 0
+      whites: 4
+  -
+    - EGCFIB
+    - blacks: 2
+      whites: 3
+evaluations: 22750
+---
+code: AIEFCE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - FHICAI
+    - blacks: 0
+      whites: 4
+  -
+    - ICHFHB
+    - blacks: 1
+      whites: 2
+  -
+    - ACGICF
+    - blacks: 2
+      whites: 2
+  -
+    - AIHECG
+    - blacks: 3
+      whites: 1
+  -
+    - AAHIFG
+    - blacks: 1
+      whites: 2
+  -
+    - AIFFCE
+    - blacks: 5
+      whites: 0
+evaluations: 48750
+---
+code: FDHADI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - DHAHEI
+    - blacks: 1
+      whites: 3
+  -
+    - BHFEDH
+    - blacks: 1
+      whites: 2
+  -
+    - GHICHD
+    - blacks: 0
+      whites: 3
+  -
+    - HCFIEA
+    - blacks: 0
+      whites: 4
+  -
+    - EAHHCH
+    - blacks: 1
+      whites: 1
+  -
+    - DFDAIH
+    - blacks: 1
+      whites: 5
+evaluations: 26970
+---
+code: FBDFHA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - BCHCAH
+    - blacks: 0
+      whites: 3
+  -
+    - HBEADG
+    - blacks: 1
+      whites: 3
+  -
+    - CBIHGD
+    - blacks: 1
+      whites: 2
+  -
+    - AEDHDC
+    - blacks: 1
+      whites: 2
+  -
+    - FBAGEC
+    - blacks: 2
+      whites: 1
+evaluations: 24000
+---
+code: ADDCHG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - EBDEHA
+    - blacks: 2
+      whites: 1
+  -
+    - BBFEID
+    - blacks: 0
+      whites: 1
+  -
+    - DGADHA
+    - blacks: 1
+      whites: 4
+  -
+    - AADGHH
+    - blacks: 3
+      whites: 1
+  -
+    - AADHDA
+    - blacks: 2
+      whites: 2
+evaluations: 30250
+---
+code: HEEBFG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - FDGHGE
+    - blacks: 0
+      whites: 4
+  -
+    - IHFGCG
+    - blacks: 1
+      whites: 2
+  -
+    - HIDEHG
+    - blacks: 2
+      whites: 1
+  -
+    - EEAFHG
+    - blacks: 2
+      whites: 3
+  -
+    - EFHEBG
+    - blacks: 1
+      whites: 5
+evaluations: 18220
+---
+code: GIHCDG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - BEHBFI
+    - blacks: 1
+      whites: 1
+  -
+    - CDECGI
+    - blacks: 1
+      whites: 3
+  -
+    - GCDGHI
+    - blacks: 1
+      whites: 5
+  -
+    - CIHGDG
+    - blacks: 4
+      whites: 2
+evaluations: 11988
+---
+code: DBEBDF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - ECAIAH
+    - blacks: 0
+      whites: 1
+  -
+    - HDGBBB
+    - blacks: 1
+      whites: 2
+  -
+    - GGBCFB
+    - blacks: 0
+      whites: 3
+  -
+    - FBDFBE
+    - blacks: 1
+      whites: 4
+  -
+    - DBEBEF
+    - blacks: 5
+      whites: 0
+evaluations: 24250
+---
+code: GIBEBG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - HGHFDC
+    - blacks: 0
+      whites: 1
+  -
+    - BAGEIG
+    - blacks: 2
+      whites: 3
+  -
+    - IAGBGI
+    - blacks: 0
+      whites: 4
+  -
+    - BIBGEG
+    - blacks: 3
+      whites: 3
+evaluations: 11860
+---
+code: IDEFFA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - GIFHCD
+    - blacks: 0
+      whites: 3
+  -
+    - EFDEBG
+    - blacks: 0
+      whites: 3
+  -
+    - BEGCGI
+    - blacks: 0
+      whites: 2
+  -
+    - FABGHF
+    - blacks: 0
+      whites: 3
+  -
+    - DGHAEH
+    - blacks: 0
+      whites: 3
+  -
+    - IDAFFE
+    - blacks: 4
+      whites: 2
+evaluations: 20720
+---
+code: ICEBFH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - HIAIBF
+    - blacks: 0
+      whites: 4
+  -
+    - IFHACH
+    - blacks: 2
+      whites: 2
+  -
+    - IABEHH
+    - blacks: 2
+      whites: 2
+  -
+    - IAHFEA
+    - blacks: 1
+      whites: 3
+  -
+    - ICIAHE
+    - blacks: 2
+      whites: 2
+  -
+    - IFEBHC
+    - blacks: 3
+      whites: 3
+evaluations: 36190
+---
+code: HFAEGG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - FIGICC
+    - blacks: 0
+      whites: 2
+  -
+    - EGDEID
+    - blacks: 1
+      whites: 1
+  -
+    - HHFGGD
+    - blacks: 2
+      whites: 2
+  -
+    - IHHHFD
+    - blacks: 0
+      whites: 2
+  -
+    - GGFGDG
+    - blacks: 1
+      whites: 2
+  -
+    - HGEBGF
+    - blacks: 2
+      whites: 3
+evaluations: 29750
+---
+code: IFCIII
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 0
+  -
+    - HBFFGG
+    - blacks: 0
+      whites: 1
+  -
+    - DIDDIH
+    - blacks: 1
+      whites: 1
+  -
+    - EIHHAE
+    - blacks: 0
+      whites: 1
+  -
+    - GCCCII
+    - blacks: 3
+      whites: 0
+evaluations: 21750
+---
+code: GGBCAC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - IHADEA
+    - blacks: 0
+      whites: 1
+  -
+    - CGHBGB
+    - blacks: 1
+      whites: 3
+  -
+    - DBGCGF
+    - blacks: 1
+      whites: 3
+  -
+    - BFGICB
+    - blacks: 0
+      whites: 3
+  -
+    - ACBGGC
+    - blacks: 2
+      whites: 4
+evaluations: 26610
+---
+code: FFECFA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - DGECCH
+    - blacks: 2
+      whites: 0
+  -
+    - FAFHCH
+    - blacks: 1
+      whites: 3
+  -
+    - IFBCHH
+    - blacks: 2
+      whites: 0
+evaluations: 13000
+---
+code: EDGFAF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - GCIIAF
+    - blacks: 2
+      whites: 1
+  -
+    - GEFAAH
+    - blacks: 1
+      whites: 3
+  -
+    - HAIGAG
+    - blacks: 1
+      whites: 1
+  -
+    - FGDEAF
+    - blacks: 2
+      whites: 4
+evaluations: 10970
+---
+code: GFBAEG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - FFDIGA
+    - blacks: 1
+      whites: 2
+  -
+    - HEDGIC
+    - blacks: 0
+      whites: 2
+  -
+    - BFHFDF
+    - blacks: 1
+      whites: 1
+  -
+    - GFAEBE
+    - blacks: 2
+      whites: 3
+  -
+    - EFGABG
+    - blacks: 3
+      whites: 3
+evaluations: 22720
+---
+code: AEADAC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 3
+      whites: 1
+  -
+    - AIEDBB
+    - blacks: 2
+      whites: 1
+  -
+    - GCFDAB
+    - blacks: 2
+      whites: 1
+  -
+    - CBHDHB
+    - blacks: 1
+      whites: 1
+  -
+    - IICAAB
+    - blacks: 1
+      whites: 2
+  -
+    - ADBDAA
+    - blacks: 3
+      whites: 1
+evaluations: 36750
+---
+code: HBFIDG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - CDCHFG
+    - blacks: 1
+      whites: 3
+  -
+    - GFCGBC
+    - blacks: 0
+      whites: 3
+  -
+    - DBHFDG
+    - blacks: 3
+      whites: 2
+  -
+    - DGHFFB
+    - blacks: 0
+      whites: 5
+evaluations: 24750
+---
+code: DBIFEB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 1
+  -
+    - ACCGBH
+    - blacks: 0
+      whites: 1
+  -
+    - FAEDAE
+    - blacks: 0
+      whites: 3
+  -
+    - DBFBEB
+    - blacks: 4
+      whites: 1
+  -
+    - DBFEDB
+    - blacks: 3
+      whites: 2
+evaluations: 19500
+---
+code: CHDGCB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - HFIAAD
+    - blacks: 0
+      whites: 2
+  -
+    - DBDBGF
+    - blacks: 1
+      whites: 2
+  -
+    - CGDHCB
+    - blacks: 4
+      whites: 2
+  -
+    - CGDCHB
+    - blacks: 3
+      whites: 3
+evaluations: 10726
+---
+code: DAFCDA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 4
+  -
+    - BFAAIC
+    - blacks: 0
+      whites: 4
+  -
+    - DCFBCA
+    - blacks: 3
+      whites: 1
+  -
+    - DIBGCA
+    - blacks: 2
+      whites: 1
+  -
+    - DAHBFA
+    - blacks: 3
+      whites: 1
+  -
+    - DAFCEA
+    - blacks: 5
+      whites: 0
+evaluations: 34750
+---
+code: EGDBGI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - CHGGDI
+    - blacks: 1
+      whites: 3
+  -
+    - DEICHI
+    - blacks: 1
+      whites: 2
+  -
+    - DGEGCF
+    - blacks: 1
+      whites: 3
+  -
+    - HGFCDD
+    - blacks: 1
+      whites: 1
+  -
+    - BGDEGI
+    - blacks: 4
+      whites: 2
+evaluations: 40720
+---
+code: GFFAHC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - HIAEBG
+    - blacks: 0
+      whites: 3
+  -
+    - BFHCCI
+    - blacks: 1
+      whites: 2
+  -
+    - DGGICH
+    - blacks: 0
+      whites: 3
+  -
+    - IAHFID
+    - blacks: 0
+      whites: 3
+  -
+    - GDFBFI
+    - blacks: 2
+      whites: 1
+evaluations: 4419000
+---
+code: GGBBGH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - HCFGDI
+    - blacks: 0
+      whites: 2
+  -
+    - BDIEEE
+    - blacks: 0
+      whites: 1
+  -
+    - EAHCHC
+    - blacks: 0
+      whites: 1
+  -
+    - GIAIGA
+    - blacks: 2
+      whites: 0
+  -
+    - FFABGF
+    - blacks: 2
+      whites: 0
+  -
+    - GHBBGG
+    - blacks: 4
+      whites: 2
+evaluations: 23370
+---
+code: CCCFDI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - FBGBIE
+    - blacks: 0
+      whites: 2
+  -
+    - HDHIAG
+    - blacks: 0
+      whites: 2
+  -
+    - ICCFCD
+    - blacks: 3
+      whites: 3
+  -
+    - ICCCDF
+    - blacks: 3
+      whites: 3
+evaluations: 8748
+---
+code: HHDCBE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - GDACFE
+    - blacks: 2
+      whites: 1
+  -
+    - FDABID
+    - blacks: 0
+      whites: 2
+  -
+    - GHDCBC
+    - blacks: 4
+      whites: 0
+  -
+    - GHBCBF
+    - blacks: 3
+      whites: 0
+  -
+    - GGDCBG
+    - blacks: 3
+      whites: 0
+evaluations: 32250
+---
+code: CFCAAC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 1
+  -
+    - FBGDBE
+    - blacks: 0
+      whites: 1
+  -
+    - CCIHAB
+    - blacks: 2
+      whites: 1
+  -
+    - AHIIAD
+    - blacks: 1
+      whites: 1
+evaluations: 14000
+---
+code: BABDCA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 5
+  -
+    - BBACDA
+    - blacks: 2
+      whites: 4
+  -
+    - BDABAC
+    - blacks: 1
+      whites: 5
+  -
+    - ADBCBA
+    - blacks: 2
+      whites: 4
+evaluations: 514
+---
+code: HHGGHB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 0
+  -
+    - GGIEAE
+    - blacks: 0
+      whites: 2
+  -
+    - EICIHH
+    - blacks: 1
+      whites: 1
+  -
+    - FBFIGI
+    - blacks: 0
+      whites: 2
+  -
+    - DIHDDG
+    - blacks: 0
+      whites: 2
+  -
+    - AHGHFH
+    - blacks: 2
+      whites: 2
+evaluations: 31250
+---
+code: EEACCI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - DEAGFG
+    - blacks: 2
+      whites: 0
+  -
+    - HEEGBC
+    - blacks: 1
+      whites: 2
+  -
+    - CGBGCG
+    - blacks: 1
+      whites: 1
+  -
+    - BIAGIH
+    - blacks: 1
+      whites: 1
+  -
+    - DCHGHD
+    - blacks: 0
+      whites: 1
+evaluations: 39750
+---
+code: CDCBFB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 2
+  -
+    - ACFBHB
+    - blacks: 2
+      whites: 2
+  -
+    - GAFDCB
+    - blacks: 1
+      whites: 3
+  -
+    - EDCAHB
+    - blacks: 3
+      whites: 0
+  -
+    - FDCBIB
+    - blacks: 4
+      whites: 1
+  -
+    - BDCBFB
+    - blacks: 5
+      whites: 0
+evaluations: 34750
+---
+code: BDHFAA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 3
+  -
+    - GABCCB
+    - blacks: 0
+      whites: 2
+  -
+    - DBAFEA
+    - blacks: 2
+      whites: 3
+  -
+    - AHDBEA
+    - blacks: 1
+      whites: 4
+  -
+    - IBEADA
+    - blacks: 1
+      whites: 3
+  -
+    - BFADHA
+    - blacks: 2
+      whites: 4
+evaluations: 25220
+---
+code: FDGIEH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - EDIIFH
+    - blacks: 3
+      whites: 2
+  -
+    - FDIIEG
+    - blacks: 4
+      whites: 1
+  -
+    - DDIIEF
+    - blacks: 3
+      whites: 1
+evaluations: 11250
+---
+code: FDGEFI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - IGGIDF
+    - blacks: 1
+      whites: 3
+  -
+    - HDFIFG
+    - blacks: 2
+      whites: 3
+  -
+    - GFFHDG
+    - blacks: 0
+      whites: 4
+  -
+    - FDHIGD
+    - blacks: 2
+      whites: 2
+  -
+    - FIDIFH
+    - blacks: 2
+      whites: 2
+evaluations: 16750
+---
+code: HIGCBA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - CGAFFD
+    - blacks: 0
+      whites: 3
+  -
+    - GEDGBC
+    - blacks: 1
+      whites: 2
+  -
+    - DHFEBA
+    - blacks: 2
+      whites: 1
+  -
+    - BAFGGA
+    - blacks: 1
+      whites: 2
+  -
+    - ICGHBA
+    - blacks: 3
+      whites: 3
+evaluations: 18690
+---
+code: HGGGBE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - FFHIBF
+    - blacks: 1
+      whites: 1
+  -
+    - GHGIHC
+    - blacks: 1
+      whites: 2
+  -
+    - DGDHHF
+    - blacks: 1
+      whites: 1
+  -
+    - GAIGIF
+    - blacks: 1
+      whites: 1
+  -
+    - EAHEHI
+    - blacks: 0
+      whites: 2
+evaluations: 4321500
+---
+code: DIBAEF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - BHIAID
+    - blacks: 1
+      whites: 3
+  -
+    - CDBFIH
+    - blacks: 1
+      whites: 3
+  -
+    - HCABIG
+    - blacks: 0
+      whites: 3
+  -
+    - BFDFHA
+    - blacks: 0
+      whites: 4
+  -
+    - IAFADH
+    - blacks: 1
+      whites: 3
+  -
+    - DEBAFI
+    - blacks: 3
+      whites: 3
+evaluations: 30440
+---
+code: CCCAAG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 1
+  -
+    - ADFIAA
+    - blacks: 1
+      whites: 1
+  -
+    - ABHGFC
+    - blacks: 0
+      whites: 3
+  -
+    - CACIIB
+    - blacks: 2
+      whites: 1
+  -
+    - CGCCAD
+    - blacks: 3
+      whites: 2
+  -
+    - CGCDDA
+    - blacks: 2
+      whites: 2
+evaluations: 28750
+---
+code: AEBDBI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 2
+  -
+    - EBCIBA
+    - blacks: 1
+      whites: 4
+  -
+    - ABBGIC
+    - blacks: 2
+      whites: 2
+  -
+    - BBEHAC
+    - blacks: 0
+      whites: 4
+  -
+    - EABDIB
+    - blacks: 2
+      whites: 4
+  -
+    - AEBIDB
+    - blacks: 3
+      whites: 3
+evaluations: 28478
+---
+code: EEBCAD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 3
+  -
+    - CIADFA
+    - blacks: 0
+      whites: 3
+  -
+    - ACDBED
+    - blacks: 1
+      whites: 4
+  -
+    - DADCHB
+    - blacks: 1
+      whites: 3
+  -
+    - AEBCDE
+    - blacks: 3
+      whites: 3
+evaluations: 21470
+---
+code: EGIGAC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - BEIDDF
+    - blacks: 1
+      whites: 1
+  -
+    - FHIGAC
+    - blacks: 4
+      whites: 0
+  -
+    - IHIEAC
+    - blacks: 3
+      whites: 1
+  -
+    - FCIIAC
+    - blacks: 3
+      whites: 0
+evaluations: 28250
+---
+code: BFEDDH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - AFIIHD
+    - blacks: 1
+      whites: 2
+  -
+    - EAIFGB
+    - blacks: 0
+      whites: 3
+  -
+    - GFHDBG
+    - blacks: 2
+      whites: 2
+  -
+    - GEGDHA
+    - blacks: 1
+      whites: 2
+  -
+    - GBHIDH
+    - blacks: 2
+      whites: 1
+  -
+    - GDCIFG
+    - blacks: 0
+      whites: 2
+evaluations: 34500
+---
+code: HCAHFF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - EIAEHD
+    - blacks: 1
+      whites: 1
+  -
+    - GGAIFC
+    - blacks: 2
+      whites: 1
+  -
+    - GDDFHC
+    - blacks: 0
+      whites: 3
+  -
+    - DIBIFG
+    - blacks: 1
+      whites: 0
+  -
+    - HFACFF
+    - blacks: 4
+      whites: 1
+  -
+    - CHACFF
+    - blacks: 3
+      whites: 2
+evaluations: 36250
+---
+code: BBECIH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - AHBAGH
+    - blacks: 1
+      whites: 1
+  -
+    - BICFBH
+    - blacks: 2
+      whites: 3
+  -
+    - IHCBBE
+    - blacks: 0
+      whites: 6
+  -
+    - BBICEH
+    - blacks: 4
+      whites: 2
+  -
+    - BBIECH
+    - blacks: 3
+      whites: 3
+evaluations: 15982
+---
+code: HEBAIA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - FGAADI
+    - blacks: 1
+      whites: 2
+  -
+    - BGBFHD
+    - blacks: 1
+      whites: 1
+  -
+    - BEAICG
+    - blacks: 1
+      whites: 3
+  -
+    - ICAFBF
+    - blacks: 0
+      whites: 3
+  -
+    - BHEAIA
+    - blacks: 3
+      whites: 3
+  -
+    - BIHAEA
+    - blacks: 2
+      whites: 4
+evaluations: 21726
+---
+code: GEDGAC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - AAGBEH
+    - blacks: 0
+      whites: 3
+  -
+    - EBHEBC
+    - blacks: 1
+      whites: 1
+  -
+    - CBFAGG
+    - blacks: 0
+      whites: 4
+  -
+    - GFAFBB
+    - blacks: 1
+      whites: 1
+  -
+    - GGDHAC
+    - blacks: 4
+      whites: 1
+evaluations: 25250
+---
+code: EDGGDB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - AFHAIE
+    - blacks: 0
+      whites: 1
+  -
+    - IIBGGB
+    - blacks: 2
+      whites: 1
+  -
+    - GCGGHB
+    - blacks: 3
+      whites: 0
+  -
+    - DDGGEB
+    - blacks: 4
+      whites: 2
+evaluations: 18110
+---
+code: DHDAIF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - DEDHFA
+    - blacks: 2
+      whites: 3
+  -
+    - DFAHIE
+    - blacks: 2
+      whites: 3
+  -
+    - DADEIH
+    - blacks: 3
+      whites: 2
+  -
+    - DDFEIA
+    - blacks: 2
+      whites: 3
+evaluations: 16500
+---
+code: BGDHIA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - DDACHG
+    - blacks: 0
+      whites: 4
+  -
+    - CCGIDA
+    - blacks: 1
+      whites: 3
+  -
+    - CGHBCD
+    - blacks: 1
+      whites: 3
+  -
+    - BHGAID
+    - blacks: 2
+      whites: 4
+evaluations: 16690
+---
+code: EAHCCF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - EIFCFD
+    - blacks: 2
+      whites: 1
+  -
+    - BEFGDD
+    - blacks: 0
+      whites: 2
+  -
+    - EIIACG
+    - blacks: 2
+      whites: 1
+  -
+    - HIICBF
+    - blacks: 2
+      whites: 1
+  -
+    - EHACCF
+    - blacks: 4
+      whites: 2
+evaluations: 19720
+---
+code: FAEAID
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - GCDCEA
+    - blacks: 0
+      whites: 3
+  -
+    - CAIFFD
+    - blacks: 2
+      whites: 2
+  -
+    - BAFFDG
+    - blacks: 1
+      whites: 2
+  -
+    - HHAFCD
+    - blacks: 1
+      whites: 2
+  -
+    - CDEFBI
+    - blacks: 1
+      whites: 3
+  -
+    - DAAEFI
+    - blacks: 1
+      whites: 5
+evaluations: 36720
+---
+code: HAEAGC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - FDIBHC
+    - blacks: 1
+      whites: 1
+  -
+    - BCEAGC
+    - blacks: 4
+      whites: 0
+  -
+    - DCGAGC
+    - blacks: 3
+      whites: 0
+evaluations: 19000
+---
+code: BCABIG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 4
+  -
+    - BDBAIH
+    - blacks: 2
+      whites: 2
+  -
+    - CDABDH
+    - blacks: 2
+      whites: 1
+  -
+    - BDEBEA
+    - blacks: 2
+      whites: 1
+  -
+    - IDBBFC
+    - blacks: 1
+      whites: 3
+  -
+    - BCABII
+    - blacks: 5
+      whites: 0
+evaluations: 28750
+---
+code: ABADEG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 3
+      whites: 1
+  -
+    - GBCBAH
+    - blacks: 1
+      whites: 2
+  -
+    - ACEIAB
+    - blacks: 1
+      whites: 3
+  -
+    - IECDBB
+    - blacks: 1
+      whites: 2
+  -
+    - ABHDEA
+    - blacks: 4
+      whites: 1
+  -
+    - ABIDHA
+    - blacks: 3
+      whites: 1
+evaluations: 32250
+---
+code: DFGHCA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - EAAHHC
+    - blacks: 1
+      whites: 2
+  -
+    - IDBCHE
+    - blacks: 0
+      whites: 3
+  -
+    - DAHFCF
+    - blacks: 2
+      whites: 3
+evaluations: 13500
+---
+code: GADFGD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - CEAFGG
+    - blacks: 2
+      whites: 2
+  -
+    - FCIBGG
+    - blacks: 1
+      whites: 2
+  -
+    - CHGAGH
+    - blacks: 1
+      whites: 2
+  -
+    - GEDCGE
+    - blacks: 3
+      whites: 0
+evaluations: 39250
+---
+code: DEFAFC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - BDHIFC
+    - blacks: 2
+      whites: 1
+  -
+    - BEFAGC
+    - blacks: 4
+      whites: 0
+  -
+    - BEFBBC
+    - blacks: 3
+      whites: 0
+evaluations: 11500
+---
+code: EGBCEG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - CIDHHG
+    - blacks: 1
+      whites: 1
+  -
+    - HADEFF
+    - blacks: 0
+      whites: 1
+  -
+    - EEBCCG
+    - blacks: 4
+      whites: 1
+  -
+    - ECBCGG
+    - blacks: 4
+      whites: 1
+evaluations: 26000
+---
+code: ABCDDH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 4
+      whites: 0
+  -
+    - IBCGAB
+    - blacks: 2
+      whites: 1
+  -
+    - ABFDAI
+    - blacks: 3
+      whites: 0
+  -
+    - ABCDHD
+    - blacks: 4
+      whites: 2
+evaluations: 9970
+---
+code: DDHGFE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - GFEEGD
+    - blacks: 0
+      whites: 4
+  -
+    - IGGBEE
+    - blacks: 1
+      whites: 1
+  -
+    - HGDGFH
+    - blacks: 2
+      whites: 2
+  -
+    - EGDHDF
+    - blacks: 0
+      whites: 6
+  -
+    - DDFGEH
+    - blacks: 3
+      whites: 3
+evaluations: 15974
+---
+code: IBIFBA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - GBHBDD
+    - blacks: 1
+      whites: 1
+  -
+    - BBBCEI
+    - blacks: 1
+      whites: 2
+  -
+    - CDCBII
+    - blacks: 0
+      whites: 3
+  -
+    - BEFIAD
+    - blacks: 0
+      whites: 4
+  -
+    - IAHCFB
+    - blacks: 1
+      whites: 3
+  -
+    - IBIABF
+    - blacks: 4
+      whites: 2
+evaluations: 31610
+---
+code: CEGAFA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - GDAEGC
+    - blacks: 0
+      whites: 4
+  -
+    - EIDCDA
+    - blacks: 1
+      whites: 2
+  -
+    - CGEBDE
+    - blacks: 1
+      whites: 2
+  -
+    - CCDAHG
+    - blacks: 2
+      whites: 1
+  -
+    - CAGAEA
+    - blacks: 4
+      whites: 1
+evaluations: 36500
+---
+code: BDEDBD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - CIBGFB
+    - blacks: 0
+      whites: 2
+  -
+    - AAHICA
+    - blacks: 0
+      whites: 0
+  -
+    - BEEDBE
+    - blacks: 4
+      whites: 0
+  -
+    - BDDDBE
+    - blacks: 4
+      whites: 2
+  -
+    - BEDDBD
+    - blacks: 4
+      whites: 2
+evaluations: 11906
+---
+code: FFCFCA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - ACFGIC
+    - blacks: 0
+      whites: 4
+  -
+    - GFIIAA
+    - blacks: 2
+      whites: 0
+  -
+    - CFHCAE
+    - blacks: 1
+      whites: 3
+  -
+    - CHCICA
+    - blacks: 3
+      whites: 0
+  -
+    - EFCICD
+    - blacks: 3
+      whites: 0
+evaluations: 23750
+---
+code: DFCHAF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 1
+  -
+    - CBHEBB
+    - blacks: 0
+      whites: 2
+  -
+    - GHCDDA
+    - blacks: 1
+      whites: 3
+  -
+    - HDCFAI
+    - blacks: 2
+      whites: 3
+  -
+    - ADCCHF
+    - blacks: 2
+      whites: 3
+evaluations: 26000
+---
+code: BEEBIE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - FCAGII
+    - blacks: 1
+      whites: 0
+  -
+    - FHEBFD
+    - blacks: 2
+      whites: 0
+  -
+    - CCEEDD
+    - blacks: 1
+      whites: 1
+evaluations: 13500
+---
+code: FFDEBH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - HFBHCF
+    - blacks: 1
+      whites: 3
+  -
+    - EFFCDH
+    - blacks: 2
+      whites: 3
+  -
+    - CDFFCH
+    - blacks: 1
+      whites: 3
+  -
+    - BFDEFH
+    - blacks: 4
+      whites: 2
+evaluations: 32720
+---
+code: ACCHIF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 0
+  -
+    - CHCGEB
+    - blacks: 1
+      whites: 2
+  -
+    - AIHEFB
+    - blacks: 1
+      whites: 3
+  -
+    - EICHAI
+    - blacks: 2
+      whites: 2
+  -
+    - HECEAF
+    - blacks: 2
+      whites: 2
+evaluations: 29750
+---
+code: CFCGDC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - EGHIBB
+    - blacks: 0
+      whites: 1
+  -
+    - FACGFC
+    - blacks: 3
+      whites: 1
+  -
+    - FHCACC
+    - blacks: 2
+      whites: 2
+  -
+    - FACFHF
+    - blacks: 1
+      whites: 1
+evaluations: 25500
+---
+code: FGDFFH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - GCIFGH
+    - blacks: 2
+      whites: 1
+  -
+    - CHEFCH
+    - blacks: 2
+      whites: 0
+  -
+    - IDEFGE
+    - blacks: 1
+      whites: 2
+  -
+    - FHIFDF
+    - blacks: 2
+      whites: 3
+  -
+    - DIFFDH
+    - blacks: 2
+      whites: 2
+  -
+    - GHFFFD
+    - blacks: 2
+      whites: 4
+evaluations: 35740
+---
+code: ICAGIC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - FFBEGD
+    - blacks: 0
+      whites: 1
+  -
+    - HCDIHC
+    - blacks: 2
+      whites: 1
+evaluations: 12750
+---
+code: ECIGCG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - FDIGGF
+    - blacks: 2
+      whites: 1
+  -
+    - FEHGFC
+    - blacks: 1
+      whites: 2
+  -
+    - IGIGCE
+    - blacks: 3
+      whites: 2
+  -
+    - CGIGHI
+    - blacks: 2
+      whites: 2
+  -
+    - GCIGEE
+    - blacks: 3
+      whites: 2
+evaluations: 28000
+---
+code: AEEHFH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 0
+  -
+    - GBEIHF
+    - blacks: 1
+      whites: 2
+  -
+    - FFDDHI
+    - blacks: 0
+      whites: 2
+  -
+    - AGHGGF
+    - blacks: 1
+      whites: 2
+  -
+    - IHHIAG
+    - blacks: 0
+      whites: 3
+  -
+    - GICHGC
+    - blacks: 1
+      whites: 0
+evaluations: 33500
+---
+code: HBFCBA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 3
+  -
+    - DEHAAC
+    - blacks: 0
+      whites: 3
+  -
+    - AAFBDI
+    - blacks: 1
+      whites: 2
+  -
+    - HBDCBI
+    - blacks: 4
+      whites: 0
+  -
+    - HBDBBA
+    - blacks: 4
+      whites: 0
+evaluations: 18250
+---
+code: BCBECH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - BHFCED
+    - blacks: 1
+      whites: 3
+  -
+    - BIDECG
+    - blacks: 3
+      whites: 0
+  -
+    - BIBHCF
+    - blacks: 3
+      whites: 1
+  -
+    - BIDHFA
+    - blacks: 1
+      whites: 1
+evaluations: 17500
+---
+code: DHBHIB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - GIAHAC
+    - blacks: 1
+      whites: 1
+  -
+    - ECDHDB
+    - blacks: 2
+      whites: 1
+  -
+    - GADEEB
+    - blacks: 1
+      whites: 1
+  -
+    - BBDHIH
+    - blacks: 2
+      whites: 4
+  -
+    - HDBHIB
+    - blacks: 4
+      whites: 2
+evaluations: 9866
+---
+code: DHEEFG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - IFBFGI
+    - blacks: 0
+      whites: 2
+  -
+    - EIGAEH
+    - blacks: 0
+      whites: 4
+  -
+    - HGEEFD
+    - blacks: 3
+      whites: 3
+  -
+    - GEEHFD
+    - blacks: 2
+      whites: 4
+  -
+    - HEDEFG
+    - blacks: 3
+      whites: 3
+evaluations: 10244
+---
+code: EIGFCB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - ACHHIF
+    - blacks: 0
+      whites: 3
+  -
+    - EBFCGI
+    - blacks: 1
+      whites: 5
+  -
+    - FBIGCE
+    - blacks: 1
+      whites: 5
+  -
+    - GBEIFC
+    - blacks: 0
+      whites: 6
+  -
+    - FGCBEI
+    - blacks: 0
+      whites: 6
+evaluations: 5376
+---
+code: BFHBIC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - DGIAFC
+    - blacks: 1
+      whites: 2
+  -
+    - HFAAED
+    - blacks: 1
+      whites: 1
+  -
+    - CCBAHG
+    - blacks: 0
+      whites: 3
+  -
+    - HIDIBC
+    - blacks: 1
+      whites: 3
+  -
+    - BHIGBD
+    - blacks: 1
+      whites: 3
+evaluations: 47250
+---
+code: BGFBIB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - DHCFCG
+    - blacks: 0
+      whites: 2
+  -
+    - EDDIGB
+    - blacks: 1
+      whites: 2
+  -
+    - FEDDFA
+    - blacks: 0
+      whites: 1
+  -
+    - CCICEB
+    - blacks: 1
+      whites: 1
+  -
+    - GGEBHB
+    - blacks: 3
+      whites: 0
+  -
+    - GIAHHB
+    - blacks: 1
+      whites: 2
+evaluations: 31500
+---
+code: FACDHI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 1
+  -
+    - FBDDGA
+    - blacks: 2
+      whites: 1
+  -
+    - ICDDAE
+    - blacks: 1
+      whites: 3
+  -
+    - HGCDIA
+    - blacks: 2
+      whites: 3
+  -
+    - EACDGH
+    - blacks: 3
+      whites: 1
+evaluations: 28000
+---
+code: DCBDCA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 3
+  -
+    - BBDFCI
+    - blacks: 1
+      whites: 2
+  -
+    - HCBDCA
+    - blacks: 5
+      whites: 0
+  -
+    - HGBDCA
+    - blacks: 4
+      whites: 0
+evaluations: 16500
+---
+code: DHBBFB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - DBHAFD
+    - blacks: 2
+      whites: 2
+  -
+    - BBDIFH
+    - blacks: 1
+      whites: 4
+  -
+    - DBGBHF
+    - blacks: 2
+      whites: 3
+evaluations: 11250
+---
+code: ACAADD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 3
+  -
+    - ACBBHF
+    - blacks: 2
+      whites: 0
+  -
+    - AIBGDA
+    - blacks: 2
+      whites: 1
+  -
+    - ACDADD
+    - blacks: 5
+      whites: 0
+  -
+    - ACDADC
+    - blacks: 4
+      whites: 1
+  -
+    - ACEADD
+    - blacks: 5
+      whites: 0
+evaluations: 32500
+---
+code: HFDAAC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 3
+  -
+    - BBHCHA
+    - blacks: 0
+      whites: 3
+  -
+    - FFABDB
+    - blacks: 1
+      whites: 2
+  -
+    - ICDBAI
+    - blacks: 2
+      whites: 1
+  -
+    - GAFBAC
+    - blacks: 2
+      whites: 2
+  -
+    - AADBGH
+    - blacks: 1
+      whites: 3
+  -
+    - FHDAAC
+    - blacks: 4
+      whites: 2
+evaluations: 45970
+---
+code: DACDDD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 1
+  -
+    - AAGDDE
+    - blacks: 3
+      whites: 0
+  -
+    - HACDFE
+    - blacks: 3
+      whites: 0
+  -
+    - IAGDFB
+    - blacks: 2
+      whites: 0
+  -
+    - CACDDD
+    - blacks: 5
+      whites: 0
+evaluations: 24750
+---
+code: HHFGAF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 0
+  -
+    - FHEHAF
+    - blacks: 3
+      whites: 2
+  -
+    - AEEHFF
+    - blacks: 1
+      whites: 3
+  -
+    - IHHFAF
+    - blacks: 3
+      whites: 2
+  -
+    - HHEFAI
+    - blacks: 3
+      whites: 1
+evaluations: 30250
+---
+code: BAAFEB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 3
+  -
+    - DCGEBB
+    - blacks: 1
+      whites: 2
+  -
+    - BHCABF
+    - blacks: 1
+      whites: 3
+  -
+    - AFDCBI
+    - blacks: 0
+      whites: 3
+  -
+    - BDABHB
+    - blacks: 3
+      whites: 0
+evaluations: 32500
+---
+code: IFCDFE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 0
+  -
+    - AECCFH
+    - blacks: 2
+      whites: 1
+  -
+    - GECDIF
+    - blacks: 2
+      whites: 3
+  -
+    - FGCDFE
+    - blacks: 4
+      whites: 1
+  -
+    - EGCDFG
+    - blacks: 3
+      whites: 1
+evaluations: 20250
+---
+code: IFAHCA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - ECHBDH
+    - blacks: 0
+      whites: 2
+  -
+    - GAICBF
+    - blacks: 0
+      whites: 4
+  -
+    - FDAGCG
+    - blacks: 2
+      whites: 1
+  -
+    - FDBIIA
+    - blacks: 1
+      whites: 2
+  -
+    - HIAFCA
+    - blacks: 3
+      whites: 3
+evaluations: 23470
+---
+code: AADHAC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 2
+  -
+    - BFECAB
+    - blacks: 1
+      whites: 1
+  -
+    - DACHAA
+    - blacks: 3
+      whites: 3
+  -
+    - ACDHAA
+    - blacks: 4
+      whites: 2
+evaluations: 10250
+---
+code: BBGHCB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 1
+  -
+    - GBEIAC
+    - blacks: 1
+      whites: 2
+  -
+    - FFCGAD
+    - blacks: 0
+      whites: 2
+  -
+    - HBBDGI
+    - blacks: 1
+      whites: 3
+  -
+    - IBFEDB
+    - blacks: 2
+      whites: 0
+  -
+    - CBGHCB
+    - blacks: 5
+      whites: 0
+  -
+    - CBGHHB
+    - blacks: 4
+      whites: 1
+evaluations: 35250
+---
+code: BEAAHC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 4
+  -
+    - GCEBDA
+    - blacks: 0
+      whites: 4
+  -
+    - BIAACE
+    - blacks: 3
+      whites: 2
+evaluations: 17250
+---
+code: AEDFIG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - BEIFAG
+    - blacks: 3
+      whites: 2
+  -
+    - BHFEAG
+    - blacks: 1
+      whites: 3
+  -
+    - EBIFBG
+    - blacks: 2
+      whites: 2
+  -
+    - GCIFAE
+    - blacks: 1
+      whites: 4
+evaluations: 25750
+---
+code: CHCEFG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 0
+  -
+    - EBHHGE
+    - blacks: 0
+      whites: 3
+  -
+    - GIEDEF
+    - blacks: 0
+      whites: 3
+  -
+    - AEGIHI
+    - blacks: 0
+      whites: 3
+  -
+    - HFCEIH
+    - blacks: 2
+      whites: 2
+  -
+    - FHCEFG
+    - blacks: 5
+      whites: 0
+  -
+    - FHCECG
+    - blacks: 4
+      whites: 2
+evaluations: 30470
+---
+code: GBGCFH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - DCHDIG
+    - blacks: 0
+      whites: 3
+  -
+    - EHEICB
+    - blacks: 0
+      whites: 3
+  -
+    - FBIAGH
+    - blacks: 2
+      whites: 2
+  -
+    - FBGHFC
+    - blacks: 3
+      whites: 2
+  -
+    - HBGCFH
+    - blacks: 5
+      whites: 0
+evaluations: 34500
+---
+code: EBFGHG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 0
+  -
+    - HIFIAF
+    - blacks: 1
+      whites: 1
+  -
+    - HBGHFE
+    - blacks: 1
+      whites: 4
+  -
+    - EBEGHF
+    - blacks: 4
+      whites: 1
+evaluations: 13500
+---
+code: CEEACB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - HAFIAC
+    - blacks: 0
+      whites: 2
+  -
+    - DBDECF
+    - blacks: 1
+      whites: 2
+  -
+    - BCHEBB
+    - blacks: 1
+      whites: 2
+  -
+    - BFCBCG
+    - blacks: 1
+      whites: 2
+  -
+    - DFBHHB
+    - blacks: 1
+      whites: 0
+  -
+    - CEACCB
+    - blacks: 4
+      whites: 1
+evaluations: 27000
+---
+code: FCFHGI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - DEHIIH
+    - blacks: 0
+      whites: 2
+  -
+    - FFEFHA
+    - blacks: 1
+      whites: 2
+  -
+    - FGGEFD
+    - blacks: 1
+      whites: 2
+  -
+    - HIBFFG
+    - blacks: 0
+      whites: 5
+  -
+    - IFGHCF
+    - blacks: 1
+      whites: 5
+evaluations: 16970
+---
+code: BHEEBB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - CGIDEF
+    - blacks: 0
+      whites: 1
+  -
+    - HBBFFH
+    - blacks: 0
+      whites: 3
+  -
+    - BHHGAG
+    - blacks: 2
+      whites: 0
+  -
+    - BIHIIB
+    - blacks: 2
+      whites: 1
+  -
+    - BHEBBB
+    - blacks: 5
+      whites: 0
+evaluations: 40000
+---
+code: BFCGGE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - HDCIED
+    - blacks: 1
+      whites: 1
+  -
+    - IFCBIG
+    - blacks: 2
+      whites: 2
+  -
+    - GCCFIA
+    - blacks: 1
+      whites: 2
+  -
+    - FGCBFE
+    - blacks: 2
+      whites: 3
+  -
+    - FECGBG
+    - blacks: 2
+      whites: 4
+evaluations: 16720
+---
+code: AIBBEE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - EADGAH
+    - blacks: 0
+      whites: 2
+  -
+    - BBGIFD
+    - blacks: 0
+      whites: 3
+  -
+    - DICEBC
+    - blacks: 1
+      whites: 2
+  -
+    - FDCAIF
+    - blacks: 0
+      whites: 2
+  -
+    - AEBBBI
+    - blacks: 3
+      whites: 2
+evaluations: 39250
+---
+code: BHGCAI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - ACBEHF
+    - blacks: 0
+      whites: 4
+  -
+    - DHEAIB
+    - blacks: 1
+      whites: 3
+  -
+    - CBHACI
+    - blacks: 1
+      whites: 4
+  -
+    - EAICCB
+    - blacks: 1
+      whites: 3
+  -
+    - BACHII
+    - blacks: 2
+      whites: 3
+evaluations: 28500
+---
+code: BIHEEE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - GHDEEH
+    - blacks: 2
+      whites: 1
+  -
+    - GHHHGC
+    - blacks: 1
+      whites: 0
+  -
+    - EHAEII
+    - blacks: 1
+      whites: 3
+  -
+    - GEIEFA
+    - blacks: 1
+      whites: 2
+  -
+    - IHDIFE
+    - blacks: 1
+      whites: 2
+evaluations: 35500
+---
+code: CDEDID
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - BEGDDF
+    - blacks: 1
+      whites: 2
+  -
+    - IAHDGE
+    - blacks: 1
+      whites: 2
+  -
+    - CGDDII
+    - blacks: 3
+      whites: 1
+  -
+    - ECDDCI
+    - blacks: 1
+      whites: 4
+evaluations: 28750
+---
+code: EDHDIA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - EAGDIH
+    - blacks: 3
+      whites: 2
+  -
+    - IAEDFH
+    - blacks: 1
+      whites: 4
+  -
+    - EHIDIA
+    - blacks: 4
+      whites: 1
+  -
+    - EEHDIA
+    - blacks: 5
+      whites: 0
+evaluations: 27000
+---
+code: BICEIG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - HFGDBE
+    - blacks: 0
+      whites: 3
+  -
+    - FHCHGA
+    - blacks: 1
+      whites: 1
+  -
+    - EECBIG
+    - blacks: 3
+      whites: 2
+  -
+    - EDCIEG
+    - blacks: 2
+      whites: 2
+  -
+    - IECBEF
+    - blacks: 1
+      whites: 3
+evaluations: 24250
+---
+code: IFGGCD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - CHBIEI
+    - blacks: 0
+      whites: 2
+  -
+    - DCGCHG
+    - blacks: 1
+      whites: 3
+  -
+    - GCHAGF
+    - blacks: 0
+      whites: 4
+  -
+    - DGFFCH
+    - blacks: 1
+      whites: 3
+  -
+    - IFDGCG
+    - blacks: 4
+      whites: 2
+  -
+    - FIDGCG
+    - blacks: 2
+      whites: 4
+evaluations: 35224
+---
+code: ICDEBD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - BDFGCH
+    - blacks: 0
+      whites: 3
+  -
+    - CGEADI
+    - blacks: 0
+      whites: 4
+  -
+    - HIDBEA
+    - blacks: 1
+      whites: 3
+  -
+    - DEIBBG
+    - blacks: 1
+      whites: 3
+  -
+    - DCBIEC
+    - blacks: 1
+      whites: 4
+evaluations: 27750
+---
+code: BCFFBG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - HDIAGC
+    - blacks: 0
+      whites: 2
+  -
+    - DCEFBD
+    - blacks: 3
+      whites: 0
+  -
+    - DEEBBI
+    - blacks: 1
+      whites: 1
+  -
+    - FCBFBH
+    - blacks: 3
+      whites: 2
+  -
+    - BCGFBF
+    - blacks: 4
+      whites: 2
+evaluations: 29860
+---
+code: DDCIFB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 1
+  -
+    - BEDDAF
+    - blacks: 0
+      whites: 4
+  -
+    - ABEBFG
+    - blacks: 1
+      whites: 1
+  -
+    - AFCHDD
+    - blacks: 1
+      whites: 3
+evaluations: 15750
+---
+code: FIFCHD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - HAEECG
+    - blacks: 0
+      whites: 2
+  -
+    - IFFCHD
+    - blacks: 4
+      whites: 2
+  -
+    - IFHCFD
+    - blacks: 2
+      whites: 4
+  -
+    - DFFCHI
+    - blacks: 3
+      whites: 3
+  -
+    - CFFIHD
+    - blacks: 3
+      whites: 3
+evaluations: 3756
+---
+code: GEDDHB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 0
+  -
+    - EFCIAE
+    - blacks: 0
+      whites: 1
+  -
+    - IGDDIB
+    - blacks: 3
+      whites: 1
+  -
+    - IBDDHH
+    - blacks: 3
+      whites: 1
+  -
+    - IBHDII
+    - blacks: 1
+      whites: 2
+evaluations: 33000
+---
+code: HICIFB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 0
+  -
+    - HBFDIG
+    - blacks: 1
+      whites: 3
+  -
+    - EIFGAB
+    - blacks: 2
+      whites: 1
+  -
+    - GIHDAD
+    - blacks: 1
+      whites: 1
+  -
+    - HICHFB
+    - blacks: 5
+      whites: 0
+  -
+    - HICCFB
+    - blacks: 5
+      whites: 0
+  -
+    - HICFFB
+    - blacks: 5
+      whites: 0
+evaluations: 47250
+---
+code: EBCHGE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 0
+  -
+    - CBCHEG
+    - blacks: 3
+      whites: 2
+  -
+    - IBCCHG
+    - blacks: 2
+      whites: 2
+  -
+    - HBCEEC
+    - blacks: 2
+      whites: 3
+  -
+    - FBCHCE
+    - blacks: 4
+      whites: 0
+evaluations: 32000
+---
+code: GFEDCE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - AEHGGA
+    - blacks: 0
+      whites: 2
+  -
+    - EGCFDC
+    - blacks: 0
+      whites: 5
+  -
+    - FFEDCG
+    - blacks: 4
+      whites: 1
+  -
+    - GFEDCI
+    - blacks: 5
+      whites: 0
+evaluations: 20250
+---
+code: FCHDGH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - GAFHEB
+    - blacks: 0
+      whites: 3
+  -
+    - IFEIAC
+    - blacks: 0
+      whites: 2
+  -
+    - HECGDH
+    - blacks: 1
+      whites: 4
+  -
+    - HCDDGE
+    - blacks: 3
+      whites: 1
+  -
+    - HCGDHF
+    - blacks: 2
+      whites: 4
+evaluations: 33720
+---
+code: EGAEGA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - GDAIHG
+    - blacks: 1
+      whites: 2
+  -
+    - EDIHCI
+    - blacks: 1
+      whites: 0
+  -
+    - GFBAFI
+    - blacks: 0
+      whites: 2
+  -
+    - DDDGDA
+    - blacks: 1
+      whites: 1
+  -
+    - HAAHGA
+    - blacks: 3
+      whites: 0
+evaluations: 34000
+---
+code: GFAHIH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - CHIIGG
+    - blacks: 0
+      whites: 3
+  -
+    - IGFEID
+    - blacks: 1
+      whites: 2
+  -
+    - HFEFIC
+    - blacks: 2
+      whites: 1
+  -
+    - GGECFC
+    - blacks: 1
+      whites: 1
+  -
+    - EAEGIH
+    - blacks: 2
+      whites: 2
+  -
+    - GFHAIH
+    - blacks: 4
+      whites: 2
+evaluations: 22970
+---
+code: AEDAFD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - EBDGDA
+    - blacks: 1
+      whites: 3
+  -
+    - CDFDGA
+    - blacks: 0
+      whites: 4
+  -
+    - ACDHEG
+    - blacks: 2
+      whites: 1
+  -
+    - GFDBAG
+    - blacks: 1
+      whites: 2
+  -
+    - AADEFD
+    - blacks: 4
+      whites: 2
+evaluations: 20110
+---
+code: IECEAE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 0
+  -
+    - AGCFHG
+    - blacks: 1
+      whites: 1
+  -
+    - GECIEB
+    - blacks: 2
+      whites: 2
+  -
+    - GBCECC
+    - blacks: 2
+      whites: 0
+  -
+    - IECEAI
+    - blacks: 5
+      whites: 0
+  -
+    - EECEAI
+    - blacks: 4
+      whites: 2
+evaluations: 36490
+---
+code: CAIFEI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - IGHCFD
+    - blacks: 0
+      whites: 3
+  -
+    - HDAEHF
+    - blacks: 0
+      whites: 3
+  -
+    - EAEFCG
+    - blacks: 2
+      whites: 2
+  -
+    - CHEGCA
+    - blacks: 1
+      whites: 2
+  -
+    - FAEIIC
+    - blacks: 1
+      whites: 5
+  -
+    - ECIFIA
+    - blacks: 2
+      whites: 4
+evaluations: 15724
+---
+code: BAGGAD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 3
+  -
+    - IAHBAC
+    - blacks: 2
+      whites: 1
+  -
+    - DGABAG
+    - blacks: 1
+      whites: 5
+evaluations: 8110
+---
+code: HBEGBG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - AIEHBH
+    - blacks: 2
+      whites: 1
+  -
+    - FIAHAG
+    - blacks: 1
+      whites: 1
+  -
+    - GBEHEC
+    - blacks: 2
+      whites: 2
+  -
+    - EBEIBG
+    - blacks: 4
+      whites: 0
+  -
+    - HBEBBG
+    - blacks: 5
+      whites: 0
+evaluations: 27250
+---
+code: DHFABD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - FDBCCD
+    - blacks: 1
+      whites: 3
+  -
+    - CCAFHD
+    - blacks: 1
+      whites: 3
+  -
+    - CHBIDF
+    - blacks: 1
+      whites: 3
+  -
+    - ICBAFC
+    - blacks: 1
+      whites: 2
+  -
+    - BCHCDE
+    - blacks: 0
+      whites: 3
+evaluations: 42250
+---
+code: HDHCAE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - AAIFED
+    - blacks: 0
+      whites: 3
+  -
+    - GDEGAC
+    - blacks: 2
+      whites: 2
+  -
+    - GEBCAI
+    - blacks: 2
+      whites: 1
+  -
+    - DGBGAF
+    - blacks: 1
+      whites: 1
+  -
+    - CDHCAE
+    - blacks: 5
+      whites: 0
+  -
+    - EDHCAE
+    - blacks: 5
+      whites: 0
+evaluations: 34500
+---
+code: EABDIA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 3
+  -
+    - HACBHA
+    - blacks: 2
+      whites: 1
+  -
+    - BAIDGA
+    - blacks: 3
+      whites: 2
+  -
+    - IAADBA
+    - blacks: 3
+      whites: 2
+  -
+    - DABDIA
+    - blacks: 5
+      whites: 0
+evaluations: 29500
+---
+code: BEIHAF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - IDGGDB
+    - blacks: 0
+      whites: 2
+  -
+    - AEIEHD
+    - blacks: 2
+      whites: 2
+  -
+    - FHIDHA
+    - blacks: 1
+      whites: 3
+  -
+    - AHDFED
+    - blacks: 0
+      whites: 4
+  -
+    - DICEHF
+    - blacks: 1
+      whites: 3
+evaluations: 26500
+---
+code: BIFGBE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - HFDBIG
+    - blacks: 0
+      whites: 4
+  -
+    - GHIGDC
+    - blacks: 1
+      whites: 1
+  -
+    - IEBFDI
+    - blacks: 0
+      whites: 4
+  -
+    - FDEGBD
+    - blacks: 2
+      whites: 2
+  -
+    - GAEIBF
+    - blacks: 1
+      whites: 4
+evaluations: 25250
+---
+code: EBECHA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - GHEBCB
+    - blacks: 1
+      whites: 3
+  -
+    - IEBDCH
+    - blacks: 0
+      whites: 4
+  -
+    - CDHGGB
+    - blacks: 0
+      whites: 3
+  -
+    - BBEHDF
+    - blacks: 2
+      whites: 1
+  -
+    - HBECHA
+    - blacks: 5
+      whites: 0
+evaluations: 25000
+---
+code: FAADGI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - ACGIEA
+    - blacks: 0
+      whites: 4
+  -
+    - EHCABI
+    - blacks: 1
+      whites: 1
+  -
+    - EAADGG
+    - blacks: 4
+      whites: 0
+evaluations: 11250
+---
+code: AEBBHC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 3
+  -
+    - BBAHCH
+    - blacks: 0
+      whites: 5
+  -
+    - FHCBBA
+    - blacks: 1
+      whites: 4
+  -
+    - HABCBB
+    - blacks: 1
+      whites: 4
+  -
+    - ACBBHC
+    - blacks: 5
+      whites: 0
+evaluations: 19000
+---
+code: FBCEBE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 1
+  -
+    - EHCAAG
+    - blacks: 1
+      whites: 1
+  -
+    - CHIDHB
+    - blacks: 0
+      whites: 2
+  -
+    - AABIAF
+    - blacks: 0
+      whites: 2
+  -
+    - FBCEBC
+    - blacks: 5
+      whites: 0
+evaluations: 24000
+---
+code: CBHGEI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - HGHDBI
+    - blacks: 2
+      whites: 2
+  -
+    - CGIDHC
+    - blacks: 1
+      whites: 3
+  -
+    - HDADIG
+    - blacks: 0
+      whites: 3
+  -
+    - CBHIGI
+    - blacks: 4
+      whites: 1
+evaluations: 23500
+---
+code: BGEBIC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - DAGCCE
+    - blacks: 0
+      whites: 3
+  -
+    - GCFBID
+    - blacks: 2
+      whites: 2
+  -
+    - CDFHIA
+    - blacks: 1
+      whites: 1
+  -
+    - CCBBGF
+    - blacks: 1
+      whites: 3
+evaluations: 25500
+---
+code: FEBIII
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - DHFIGI
+    - blacks: 2
+      whites: 1
+  -
+    - HAFIHE
+    - blacks: 1
+      whites: 2
+  -
+    - EFFCGH
+    - blacks: 0
+      whites: 2
+  -
+    - DEDIDF
+    - blacks: 2
+      whites: 1
+  -
+    - BEIIFI
+    - blacks: 3
+      whites: 3
+evaluations: 23740
+---
+code: GCFDGD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - CCCGDI
+    - blacks: 1
+      whites: 2
+  -
+    - IBGIDF
+    - blacks: 0
+      whites: 3
+  -
+    - GFCFHD
+    - blacks: 2
+      whites: 2
+  -
+    - GDCEFG
+    - blacks: 1
+      whites: 4
+evaluations: 20000
+---
+code: CHAAIH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - DCFBCH
+    - blacks: 1
+      whites: 1
+  -
+    - IIBBGD
+    - blacks: 0
+      whites: 1
+  -
+    - DHDAEA
+    - blacks: 2
+      whites: 1
+  -
+    - CEFAIA
+    - blacks: 3
+      whites: 1
+  -
+    - CGEACA
+    - blacks: 2
+      whites: 1
+  -
+    - HCHAIA
+    - blacks: 2
+      whites: 4
+evaluations: 24360
+---
+code: EFDAGH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - HCDIGH
+    - blacks: 3
+      whites: 0
+evaluations: 5500
+---
+code: GIHABI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - DGIHCE
+    - blacks: 0
+      whites: 3
+  -
+    - IHBGFA
+    - blacks: 0
+      whites: 5
+  -
+    - FEABIH
+    - blacks: 0
+      whites: 4
+  -
+    - GAFAHI
+    - blacks: 3
+      whites: 1
+  -
+    - GAHIBI
+    - blacks: 4
+      whites: 2
+evaluations: 20970
+---
+code: IECBFC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - EFBGBB
+    - blacks: 0
+      whites: 3
+  -
+    - HBEICF
+    - blacks: 0
+      whites: 5
+  -
+    - FECBIE
+    - blacks: 3
+      whites: 2
+  -
+    - BICFIE
+    - blacks: 1
+      whites: 4
+  -
+    - CECBFI
+    - blacks: 4
+      whites: 2
+evaluations: 24720
+---
+code: IDACDC
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 3
+  -
+    - BEIFCA
+    - blacks: 0
+      whites: 3
+  -
+    - GCDAII
+    - blacks: 0
+      whites: 4
+  -
+    - DDAIBG
+    - blacks: 2
+      whites: 2
+  -
+    - HDBIGC
+    - blacks: 2
+      whites: 1
+  -
+    - EAAIGD
+    - blacks: 1
+      whites: 2
+evaluations: 19500
+---
+code: FIGAFD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - HEBGED
+    - blacks: 1
+      whites: 1
+  -
+    - CGBFGF
+    - blacks: 0
+      whites: 3
+  -
+    - ECFGCA
+    - blacks: 0
+      whites: 3
+  -
+    - GFICID
+    - blacks: 1
+      whites: 3
+  -
+    - FEDCFI
+    - blacks: 2
+      whites: 2
+  -
+    - BEIIFC
+    - blacks: 1
+      whites: 1
+evaluations: 31250
+---
+code: AHAHCE
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - HAGDFA
+    - blacks: 0
+      whites: 3
+  -
+    - BBIHDG
+    - blacks: 1
+      whites: 0
+  -
+    - ACAGCG
+    - blacks: 3
+      whites: 0
+  -
+    - AEAHCH
+    - blacks: 4
+      whites: 2
+  -
+    - ACAHEH
+    - blacks: 3
+      whites: 3
+evaluations: 9864
+---
+code: AGHGIF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 0
+  -
+    - AHHFHI
+    - blacks: 2
+      whites: 2
+  -
+    - IHEFAG
+    - blacks: 0
+      whites: 5
+  -
+    - AFGHII
+    - blacks: 2
+      whites: 3
+  -
+    - AIGGHF
+    - blacks: 3
+      whites: 3
+evaluations: 24220
+---
+code: BEBFFH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - IDHHFC
+    - blacks: 1
+      whites: 1
+  -
+    - GGIBEC
+    - blacks: 0
+      whites: 2
+  -
+    - CFFEFA
+    - blacks: 1
+      whites: 2
+  -
+    - FDAEDG
+    - blacks: 0
+      whites: 2
+  -
+    - ECEHCA
+    - blacks: 0
+      whites: 2
+evaluations: 21750
+---
+code: DFFEFB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - GAIGAH
+    - blacks: 0
+      whites: 0
+  -
+    - DCCCFF
+    - blacks: 2
+      whites: 1
+  -
+    - ECCEBC
+    - blacks: 1
+      whites: 1
+  -
+    - DECFDD
+    - blacks: 1
+      whites: 2
+evaluations: 10031
+---
+code: FBAIBI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - AAHFDF
+    - blacks: 0
+      whites: 2
+  -
+    - IEADCE
+    - blacks: 1
+      whites: 1
+  -
+    - FIABGB
+    - blacks: 2
+      whites: 3
+  -
+    - BFAIIB
+    - blacks: 2
+      whites: 4
+evaluations: 19610
+---
+code: CIHHFF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - GHGFCI
+    - blacks: 0
+      whites: 4
+  -
+    - CEFHEG
+    - blacks: 2
+      whites: 1
+  -
+    - CIFGIC
+    - blacks: 2
+      whites: 1
+  -
+    - CIHHFH
+    - blacks: 5
+      whites: 0
+  -
+    - CIHHGH
+    - blacks: 4
+      whites: 0
+evaluations: 19750
+---
+code: GCFBII
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - IGDCFC
+    - blacks: 0
+      whites: 4
+  -
+    - DCHIEG
+    - blacks: 1
+      whites: 2
+  -
+    - FCFAGI
+    - blacks: 3
+      whites: 1
+  -
+    - FCFFID
+    - blacks: 3
+      whites: 0
+  -
+    - CCFAIE
+    - blacks: 3
+      whites: 0
+  -
+    - BCFGII
+    - blacks: 4
+      whites: 2
+evaluations: 24970
+---
+code: AGIIEF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 0
+  -
+    - GIGIAH
+    - blacks: 1
+      whites: 3
+  -
+    - GHIGHB
+    - blacks: 1
+      whites: 1
+  -
+    - AFIIGF
+    - blacks: 4
+      whites: 1
+  -
+    - AIIEGF
+    - blacks: 3
+      whites: 3
+evaluations: 12970
+---
+code: FICGBI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - GCCCBH
+    - blacks: 2
+      whites: 1
+  -
+    - GCHDDE
+    - blacks: 0
+      whites: 2
+  -
+    - FHCFBI
+    - blacks: 4
+      whites: 0
+evaluations: 20500
+---
+code: DDEDFB
+combinations:
+  -
+    - ABCDAB
+    - blacks: 2
+      whites: 0
+  -
+    - HBDDEG
+    - blacks: 1
+      whites: 3
+  -
+    - ABHFGE
+    - blacks: 0
+      whites: 3
+  -
+    - IDEDFB
+    - blacks: 5
+      whites: 0
+  -
+    - FDEDFB
+    - blacks: 5
+      whites: 0
+evaluations: 24000
+---
+code: CHGCHA
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - EGICED
+    - blacks: 1
+      whites: 1
+  -
+    - EHAEBF
+    - blacks: 1
+      whites: 1
+  -
+    - CIIHBH
+    - blacks: 1
+      whites: 2
+  -
+    - BHHHGD
+    - blacks: 1
+      whites: 2
+  -
+    - DHFCCH
+    - blacks: 2
+      whites: 2
+evaluations: 18500
+---
+code: EHBEGG
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - CFGFIF
+    - blacks: 0
+      whites: 1
+  -
+    - IEIHED
+    - blacks: 0
+      whites: 3
+  -
+    - GDEGDH
+    - blacks: 0
+      whites: 4
+  -
+    - EGHEBG
+    - blacks: 3
+      whites: 3
+  -
+    - EGHBGE
+    - blacks: 2
+      whites: 4
+evaluations: 15616
+---
+code: CHIDFH
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 1
+  -
+    - EIBHBB
+    - blacks: 0
+      whites: 2
+  -
+    - GEEAAI
+    - blacks: 0
+      whites: 1
+  -
+    - DHCIDC
+    - blacks: 1
+      whites: 3
+  -
+    - HCCCED
+    - blacks: 0
+      whites: 3
+  -
+    - IHIDCH
+    - blacks: 4
+      whites: 1
+  -
+    - CHIDHH
+    - blacks: 5
+      whites: 0
+evaluations: 25750
+---
+code: EFDBFI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 2
+  -
+    - FHAIED
+    - blacks: 0
+      whites: 4
+  -
+    - GCHAFI
+    - blacks: 2
+      whites: 0
+  -
+    - EDEBFI
+    - blacks: 4
+      whites: 1
+  -
+    - EIDBFI
+    - blacks: 5
+      whites: 0
+evaluations: 29000
+---
+code: AGFCBI
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 2
+  -
+    - BICEDG
+    - blacks: 0
+      whites: 4
+  -
+    - IDHCFB
+    - blacks: 1
+      whites: 3
+  -
+    - GHBICB
+    - blacks: 0
+      whites: 4
+  -
+    - DBGBFI
+    - blacks: 1
+      whites: 3
+  -
+    - IBDAGH
+    - blacks: 0
+      whites: 4
+evaluations: 33750
+---
+code: CBEBBD
+combinations:
+  -
+    - ABCDAB
+    - blacks: 1
+      whites: 3
+  -
+    - DIBCGB
+    - blacks: 0
+      whites: 4
+  -
+    - BBDHCF
+    - blacks: 1
+      whites: 3
+  -
+    - CDGBAF
+    - blacks: 2
+      whites: 1
+  -
+    - CBEBDD
+    - blacks: 5
+      whites: 0
+evaluations: 19250
+---
+code: FGFBHF
+combinations:
+  -
+    - ABCDAB
+    - blacks: 0
+      whites: 1
+  -
+    - HDFIIG
+    - blacks: 1
+      whites: 2
+  -
+    - EEGIFC
+    - blacks: 0
+      whites: 2
+  -
+    - HGDGEH
+    - blacks: 1
+      whites: 1
+  -
+    - IHFFBH
+    - blacks: 1
+      whites: 3
+  
