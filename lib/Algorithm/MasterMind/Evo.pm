@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.11 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.12 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 use Algorithm::MasterMind qw(partitions);
@@ -48,7 +48,7 @@ sub initialize {
 
   # Variation operators
   my $mutation_rate = $options->{'mutation_rate'} || 1;
-  my $permutation_rate = $options->{'permutation_rate'} || 1;
+  my $permutation_rate = $options->{'permutation_rate'};
   my $permutation_iters = $options->{'permutation_iterations'} || factorial($options->{'length'}) - 1 ;
   my $xover_rate = $options->{'xover_rate'} || 1;
   my $max_number_of_consistent = $options->{'consistent_set_card'} 

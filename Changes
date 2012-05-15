@@ -1,3 +1,13 @@
+2012-05-15  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* lib/Algorithm/MasterMind.pm (check_combination): this is the
+	worst routine for the time being, after eliminating Permutation
+	and improving Tournament as bottlenecks (I was going to say
+	sources of slowness :-) 
+
+	* lib/Algorithm/MasterMind/Evo.pm (initialize): Eliminating
+	default value for permutation_rate, which is incredibly slow.
+
 2011-02-18  Juan Julian Merelo Guervos  <jjmerelo@gmail.com>
 
 	* lib/Algorithm/MasterMind/Evolutionary_Base.pm (reset): Changed
