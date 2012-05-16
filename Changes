@@ -1,3 +1,9 @@
+2012-05-16  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* lib/Algorithm/MasterMind/Secret.pm (check): This new class will
+	pre-compute part of the stuff needed for secret combinations,
+	speeding up (a bit) that critical part.
+
 2012-05-15  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
 	* lib/Algorithm/MasterMind.pm (check_combination): this is the

@@ -3,11 +3,12 @@
 use strict;
 use warnings;
 
-use Test::More tests => 28;
+use Test::More tests => 35;
 use lib qw( lib ../lib ../../lib  ); #Just in case we are testing it in-place
 
 BEGIN {
 	use_ok( 'Algorithm::MasterMind' );
+	use_ok( 'Algorithm::MasterMind::Secret');
 	use_ok( 'Algorithm::MasterMind::Test' );
 	BEGIN { use_ok('Algorithm::MasterMind', qw(check_combination)); };
 
@@ -32,10 +33,13 @@ my @results = ( { blacks => 1,
 
 while (@combinations ) {
   my $combination = shift @combinations;
+  my $secret = new Algorithm::MasterMind::Secret $combination;
   my $string = shift @strings;
   my $result = shift @results;
   my $result_obtained = check_combination( $combination, $string );
+  my $other_result_obtained = $secret->check($string);
   is_deeply( $result_obtained, $result, "$string vs $combination");
+  is_deeply( $other_result_obtained, $result, "Secret $string vs $combination");
 }
 
 #Mock play
