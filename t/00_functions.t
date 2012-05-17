@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 35;
+use Test::More;
 use lib qw( lib ../lib ../../lib  ); #Just in case we are testing it in-place
 
 BEGIN {
@@ -31,9 +31,11 @@ my @results = ( { blacks => 1,
 		{ blacks => 0,
 		  whites => 1} );
 
+my @secrets;
 while (@combinations ) {
   my $combination = shift @combinations;
   my $secret = new Algorithm::MasterMind::Secret $combination;
+  push @secrets, $secret;
   my $string = shift @strings;
   my $result = shift @results;
   my $result_obtained = check_combination( $combination, $string );
@@ -42,8 +44,15 @@ while (@combinations ) {
   is_deeply( $other_result_obtained, $result, "Secret $string vs $combination");
 }
 
-#Mock play
 my $code = 'BCAD';
+my $sikrit = new Algorithm::MasterMind::Secret $code;
+for my $s (@secrets ) {
+  my $one_result = check_combination( $s->{'_string'}, $code );
+  my $the_other = $sikrit->check_secret( $s );
+  is_deeply( $one_result, $the_other, "Checking secrets $s->{'_string'}");
+}
+#Mock play
+
 my @played = qw( ABCA BCAE BBAD BCAD );
 
 my $mm = new Algorithm::MasterMind::Test { options => ''};
@@ -66,3 +75,4 @@ for my $p ( @played ) {
   is( $mm->number_of_rules(), $number_of_rules, "Check self"  );
 }
 
+done_testing();

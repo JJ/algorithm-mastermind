@@ -50,6 +50,32 @@ sub check {
 	   whites => $whites };
 }
 
+sub check_secret {
+  my $self = shift;
+  my $other_secret = shift;
+  my %hash_secret = %{$self->{'_hash'}};
+  my %hash_other_secret =  %{$other_secret->{'_hash'}};
+  my $blacks = 0;
+  my ($c, $s);
+  my $string = $other_secret->{'_string'};
+  for my $c (@{$self->{'_chars'}} ) {
+    $s = chop( $string );
+    if ( $c eq $s ) {
+      $blacks++;
+      $hash_secret{ $c }--;
+      $hash_other_secret{ $c }--;
+    } 
+  }
+  my $whites = 0;
+  for my $k ( @{$self->{'_alphabet'}} ) {
+    next unless $hash_other_secret{$k};
+    $whites += ($hash_secret{$k} > $hash_other_secret{$k})
+      ?$hash_other_secret{$k}
+	:$hash_secret{$k};
+  }
+  return { blacks => $blacks,
+	   whites => $whites };
+}
 "Can't tell"; # Magic true value required at end of module
 
 __END__
