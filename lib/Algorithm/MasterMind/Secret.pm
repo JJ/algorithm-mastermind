@@ -41,7 +41,7 @@ sub check {
   }
   my $whites = 0;
   for my $k ( @{$self->{'_alphabet'}} ) {
-    next unless $hash_string{$k};
+    next unless exists $hash_string{$k};
     $whites += ($hash_secret{$k} > $hash_string{$k})
       ?$hash_string{$k}
 	:$hash_secret{$k};
@@ -68,7 +68,7 @@ sub check_secret {
   }
   my $whites = 0;
   for my $k ( @{$self->{'_alphabet'}} ) {
-    next unless $hash_other_secret{$k};
+    next unless exists $hash_other_secret{$k};
     $whites += ($hash_secret{$k} > $hash_other_secret{$k})
       ?$hash_other_secret{$k}
 	:$hash_secret{$k};
