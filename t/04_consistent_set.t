@@ -39,3 +39,7 @@ my %partitions = (
 for my $s (@strings) {
   is_deeply($c_set->partitions_for($s), $partitions{$s}, "Partitions for $s" );
 }
+my $secret = new Algorithm::MasterMind::Secret 'ABEE';
+my $result = $secret->check('DDDD'); # Simulating move
+$c_set->cull_inconsistent_with( 'DDDD', $result );
+is_deeply($c_set->partitions_for('AAAA'), { '0b-0w' => 2 }, "New partitioning" );

@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.1 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
 
 use Algorithm::MasterMind qw(partitions);
 use Algorithm::MasterMind::Secret;
@@ -19,8 +19,16 @@ sub new {
   my @secrets = map ( (new Algorithm::MasterMind::Secret $_), @$combinations );
   my $self = {  _combinations => \@secrets,
 		_partitions => {}};
-  my %hash_results;
   bless $self, $class;
+  $self->{'_partitions'} = compute_partitions( \@secrets );
+  return $self;
+}
+
+sub compute_partitions {
+  my $secrets_ref = shift;
+  my @secrets = @$secrets_ref;
+  my %partitions;
+  my %hash_results;
   for ( my $i = 0; $i <= $#secrets; $i ++ ) {
     for (my $j = 0; $j <= $#secrets; $j ++ ) {
       next if $i == $j;
@@ -31,10 +39,10 @@ sub new {
       } else {
 	$result = $hash_results{$secrets[$j]->{'_string'}}{$secrets[$i] ->{'_string'}} 
       }
-      $self->{'_partitions'}{$secrets[$i]->{'_string'}}{result_as_string($result)}++;
+      $partitions{$secrets[$i]->{'_string'}}{result_as_string($result)}++;
     }
   }
-  return $self;
+  return \%partitions
 }
 
 sub is_in {
@@ -67,6 +75,34 @@ sub partitions_for {
   return $self->{'_partitions'}->{$string};
 }
 
+sub cull_inconsistent_with {
+  my $self = shift;
+  my $string = shift;
+  my $result = shift;
+
+  my $secret = new Algorithm::MasterMind::Secret $string;
+  my $result_string = result_as_string( $result );
+  my %inconsistent = ();
+  for my $s (@{$self->{'_combinations'}} ) {
+    my $this_result = $secret->check_secret( $s);
+    if ( $result_string ne result_as_string($this_result) ) {
+      $inconsistent{$s->{'_string'}}=1;
+    }
+  }
+  #Eliminate them
+  my @new_set;
+  for (my $i = 0; $i < @{$self->{'_combinations'}}; $i ++  ){
+    unless ( exists $inconsistent{$self->{'_combinations'}->[$i]->{'_string'}} ) {
+      push @new_set, $self->{'_combinations'}->[$i];
+    }
+  }
+  #Compute new partitions
+  $self->{'_partitions'} = compute_partitions( \@new_set );
+  $self->{'_combinations'} = \@new_set;
+}
+      
+    
+
 "As Jack the Ripper said..."; # Magic true value required at end of module
 
 __END__
@@ -93,6 +129,11 @@ made so far.
 
 Creates set and associated data structures
 
+=head2 compute_partitions ( \@secrets ) 
+
+Computes partitions for an array of secrets, returns a hashref to the
+partition set.
+
 =head2 is_in ( $string )
 
 Checks whether the combination is in the consistent set already
@@ -109,6 +150,11 @@ avoid conversion errors
 =head2 partitions_for ( $string )
 
 Returns the partition hash for combination $string
+
+=head2 cull_inconsistent_with ( $string, $result )
+
+After a move, eliminates inconsistent elements, recomputing the partitions.
+
 
 =head1 AUTHOR
 
