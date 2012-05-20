@@ -13,7 +13,7 @@ use Algorithm::Combinatorics qw(variations_with_repetition);
 
 our @ISA = qw(Exporter);
 
-our @EXPORT_OK = qw( check_combination partitions entropy );
+our @EXPORT_OK = qw( check_combination partitions entropy random_string );
 
 use lib qw( ../../lib ../lib ../../../lib );
 
@@ -35,12 +35,18 @@ sub new {
 
 sub random_combination {
   my $self = shift;
-  my $string_to_play;
-  my @alphabet = @{ $self->{'_alphabet'} };
-  for (my $i = 0; $i <  $self->{'_length'}; $i++ ) {
-    $string_to_play .= $alphabet[ rand( @alphabet) ];
+  return random_string( $self->{'_alphabet'}, $self->{'_length'});
+}
+
+sub random_string {
+  my $alphabet = shift;
+  my $length = shift;
+  my $string;
+  my @alphabet = @{$alphabet};
+  for (my $i = 0; $i <  $length; $i++ ) {
+    $string .= $alphabet[ rand( @alphabet) ];
   }
-  return $string_to_play;
+  return $string;
 }
 
 sub issue_first { #Default implementation
