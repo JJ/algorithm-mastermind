@@ -23,6 +23,10 @@ sub new {
   return $self;
 }
 
+sub string {
+  return shift->{'_string'};
+}
+
 sub check {
   my $self = shift;
   my $string = shift;

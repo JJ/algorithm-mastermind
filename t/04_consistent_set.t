@@ -17,6 +17,10 @@ for (1..$size) {
 }
 
 my $c_set = new Algorithm::MasterMind::Consistent_Set( \@strings );
+my @sorted = sort @strings;
+my @sorted_set = sort $c_set->consistent_strings;
+is( $sorted_set[0], $sorted[0], 'Set OK' );
+is( $sorted_set[$#sorted_set], $sorted[$#sorted], 'Set OK' );
 
 for my $s (@strings ) {
   ok( $c_set->is_in( $s ), 'Added');
@@ -39,6 +43,11 @@ my %partitions = (
 for my $s (@strings) {
   is_deeply($c_set->partitions_for($s), $partitions{$s}, "Partitions for $s" );
 }
+$c_set->compute_most_score;
+is( $c_set->score_most( 'ABCD' ), 1, 'Scoring OK');
+is( $c_set->score_most( 'AAAA' ), 2, 'Scoring OK');
+my @top_scorers = $c_set->top_scorers('most');
+is_deeply ( scalar(@top_scorers), 3, 'Top scorers' );
 my $secret = new Algorithm::MasterMind::Secret 'ABEE';
 my $result = $secret->check('DDDD'); # Simulating move
 $c_set->cull_inconsistent_with( 'DDDD', $result );

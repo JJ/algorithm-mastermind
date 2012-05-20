@@ -40,6 +40,7 @@ while (@combinations ) {
   my $result = shift @results;
   my $result_obtained = check_combination( $combination, $string );
   my $other_result_obtained = $secret->check($string);
+  is( $secret->string, $combination, "Atributes");
   is_deeply( $result_obtained, $result, "$string vs $combination");
   is_deeply( $other_result_obtained, $result, "Secret $string vs $combination");
 }

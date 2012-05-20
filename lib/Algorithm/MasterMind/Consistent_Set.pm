@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.3 $ =~ /(\d+)\.(\d+)/g; 
 
 use Algorithm::MasterMind qw(partitions);
 use Algorithm::MasterMind::Secret;
@@ -21,6 +21,7 @@ sub new {
 		_partitions => {}};
   bless $self, $class;
   $self->{'_partitions'} = compute_partitions( \@secrets );
+  $self->{'_score'} = {}; # To store scores when they're available.
   return $self;
 }
 
@@ -82,26 +83,62 @@ sub cull_inconsistent_with {
 
   my $secret = new Algorithm::MasterMind::Secret $string;
   my $result_string = result_as_string( $result );
-  my %inconsistent = ();
+  my @new_set;
   for my $s (@{$self->{'_combinations'}} ) {
     my $this_result = $secret->check_secret( $s);
-    if ( $result_string ne result_as_string($this_result) ) {
-      $inconsistent{$s->{'_string'}}=1;
-    }
-  }
-  #Eliminate them
-  my @new_set;
-  for (my $i = 0; $i < @{$self->{'_combinations'}}; $i ++  ){
-    unless ( exists $inconsistent{$self->{'_combinations'}->[$i]->{'_string'}} ) {
-      push @new_set, $self->{'_combinations'}->[$i];
+#    print "Checking ", $s->string, " result " , result_as_string( $this_result), " with $result_string\n";
+    if ( $result_string eq result_as_string($this_result) ) {
+#      print "Added\n";
+      push @new_set, $s;
     }
   }
   #Compute new partitions
   $self->{'_partitions'} = compute_partitions( \@new_set );
   $self->{'_combinations'} = \@new_set;
+  $self->{'_score'} = {};
 }
-      
-    
+
+sub compute_most_score {
+  my $self = shift;
+  $self->{'_score'}->{'_most'} = {};
+  for my $s (keys %{$self->{'_partitions'}} ) {
+    $self->{'_score'}->{'_most'}->{$s} = keys %{$self->{'_partitions'}->{$s}};
+  }
+}
+   
+sub score_most {
+  my $self = shift;
+  my $str = shift;
+  return $self->{'_score'}->{'_most'}->{ $str };
+}
+   
+sub top_scorers {
+  my $self = shift;
+  my $score = "_".shift; # No checks
+  my @keys = keys %{$self->{'_partitions'}};
+  my @top_scorers;
+  if ( $#keys > 1 ) {
+    my $top_score = 0;
+    for my $s ( @keys  ) {
+      my $this_score = $self->{'_score'}->{$score}->{ $s } ;
+      if ( $this_score > $top_score ) {
+	$top_score = $this_score;
+      }
+    } 
+    for my $s ( @keys  ) {
+      if ( $self->{'_score'}{$score}->{ $s }  == $top_score ) {
+	push @top_scorers, $s;
+      }
+    }
+  } else { # either 0 or 1
+    @top_scorers = @keys;
+  } 
+  return @top_scorers;
+}
+
+sub consistent_strings {
+  return keys %{shift->{'_partitions'}};
+}   
 
 "As Jack the Ripper said..."; # Magic true value required at end of module
 
