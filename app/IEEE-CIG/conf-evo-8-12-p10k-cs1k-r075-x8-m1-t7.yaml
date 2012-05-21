@@ -1,0 +1,27 @@
+ID: log-8-12-p10k-cs1k-r075-x8-m1-t7
+Method: Evo
+Method_options:
+    alphabet:
+      - A
+      - B
+      - C
+      - D
+      - E
+      - F
+      - G
+      - H
+      - I
+      - J
+      - K
+      - L
+    length: 8
+    pop_size: 10000
+    consistent_set_card: 1000
+    replacement_rate: 0.75
+    xover_rate: 8
+    tournament_size: 7
+    permutation_rate: 0
+
+
+
+
