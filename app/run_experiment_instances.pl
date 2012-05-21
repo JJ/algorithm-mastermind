@@ -53,7 +53,8 @@ while ( my $combination = shift @combinaciones ) {
     $response = check_combination( $secret_code, $played_string);
     push @{$game->{'combinations'}}, [$played_string, $response] ;
     $solver->feedback( $response );
-    $played_string = $solver->issue_next;      
+    $played_string = $solver->issue_next; 
+    push @{$game->{'consistent_set'}}, $solver->{'_consistent'} ;
   }  
   $game->{'evaluations'} = $solver->evaluated();
   $io->print($game);
