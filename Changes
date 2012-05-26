@@ -1,7 +1,13 @@
+2012-05-26  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* lib/Algorithm/MasterMind/Secret.pm (check): Optimizing a bit
+	more by eliminating sub parameter copy. 
+
 2012-05-21  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
 	* app/run_experiment_instances.pl: Adding monitoring of consistent
 	set to make experiments on its evolution. 
+	Trying again after fixing crossover bug and but in monitoring.
 
 2012-05-16  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 

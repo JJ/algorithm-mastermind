@@ -28,23 +28,21 @@ sub string {
 }
 
 sub check {
-  my $self = shift;
-  my $string = shift;
-  my %hash_secret = %{$self->{'_hash'}};
-  my  %hash_string ;
+  my %hash_secret = %{$_[0]->{'_hash'}};
+  my %hash_string ;
   my $blacks = 0;
   my ($c, $s);
-  for my $c (@{$self->{'_chars'}} ) {
-    $s = chop( $string );
-    if ( $c eq $s ) {
+  for my $c (@{$_[0]->{'_chars'}} ) {
+    $s = chop( $_[1] );
+    if ( $c ne $s ) {
+      $hash_string{ $s }++;
+    } else {
       $blacks++;
       $hash_secret{ $c }--;      
-    } else {
-      $hash_string{ $s }++;
     }
   }
   my $whites = 0;
-  for my $k ( @{$self->{'_alphabet'}} ) {
+  for my $k ( @{$_[0]->{'_alphabet'}} ) {
     next unless exists $hash_string{$k};
     $whites += ($hash_secret{$k} > $hash_string{$k})
       ?$hash_string{$k}
@@ -55,14 +53,12 @@ sub check {
 }
 
 sub check_secret {
-  my $self = shift;
-  my $other_secret = shift;
-  my %hash_secret = %{$self->{'_hash'}};
-  my %hash_other_secret =  %{$other_secret->{'_hash'}};
+  my %hash_secret = %{$_[0]->{'_hash'}};
+  my %hash_other_secret =  %{$_[1]->{'_hash'}};
   my $blacks = 0;
   my ($c, $s);
-  my $string = $other_secret->{'_string'};
-  for my $c (@{$self->{'_chars'}} ) {
+  my $string = $_[1]->{'_string'};
+  for my $c (@{$_[0]->{'_chars'}} ) {
     $s = chop( $string );
     if ( $c eq $s ) {
       $blacks++;
@@ -71,7 +67,7 @@ sub check_secret {
     } 
   }
   my $whites = 0;
-  for my $k ( @{$self->{'_alphabet'}} ) {
+  for my $k ( @{$_[0]->{'_alphabet'}} ) {
     next unless exists $hash_other_secret{$k};
     $whites += ($hash_secret{$k} > $hash_other_secret{$k})
       ?$hash_other_secret{$k}

@@ -54,7 +54,7 @@ while ( my $combination = shift @combinaciones ) {
     push @{$game->{'combinations'}}, [$played_string, $response] ;
     $solver->feedback( $response );
     $played_string = $solver->issue_next; 
-    push @{$game->{'consistent_set'}}, $solver->{'_consistent'} ;
+    push @{$game->{'consistent_set'}}, [ keys %{$solver->{'_consistent'}} ] ;
   }  
   $game->{'evaluations'} = $solver->evaluated();
   $io->print($game);
