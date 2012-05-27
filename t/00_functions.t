@@ -49,7 +49,9 @@ my $code = 'BCAD';
 my $sikrit = new Algorithm::MasterMind::Secret $code;
 for my $s (@secrets ) {
   my $one_result = check_combination( $s->{'_string'}, $code );
-  my $the_other = $sikrit->check_secret( $s );
+  my $the_other = { blacks => 0,
+		    whites => 0};
+  $sikrit->check_secret( $s, $the_other );
   is_deeply( $one_result, $the_other, "Checking secrets $s->{'_string'}");
 }
 #Mock play

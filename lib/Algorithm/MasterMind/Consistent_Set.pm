@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.3 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.4 $ =~ /(\d+)\.(\d+)/g; 
 
 use Algorithm::MasterMind qw(partitions);
 use Algorithm::MasterMind::Secret;
@@ -33,9 +33,10 @@ sub compute_partitions {
   for ( my $i = 0; $i <= $#secrets; $i ++ ) {
     for (my $j = 0; $j <= $#secrets; $j ++ ) {
       next if $i == $j;
-      my $result;
+      my $result = { blacks => 0,
+		     whites => 0 } ;
       if ( $i < $j  ) {
-	$result = $secrets[$i]->check_secret ( $secrets[$j] );
+	$secrets[$i]->check_secret ( $secrets[$j], $result );
 	$hash_results{$secrets[$i]->{'_string'}}{$secrets[$j] ->{'_string'}} = $result;
       } else {
 	$result = $hash_results{$secrets[$j]->{'_string'}}{$secrets[$i] ->{'_string'}} 
@@ -58,7 +59,9 @@ sub add_combination {
   return if $self->is_in( $new_combination );
   my $new_secret = new Algorithm::MasterMind::Secret $new_combination;
   for (my $i = 0; $i < @{$self->{'_combinations'}}; $i ++ ) {
-    my $result = $self->{'_combinations'}[$i]->check_secret ( $new_secret );
+    my $result = { blacks => 0,
+		   whites => 0 };
+    $self->{'_combinations'}[$i]->check_secret ( $new_secret, $result );
     $self->{'_partitions'}{$self->{'_combinations'}[$i]->{'_string'}}{result_as_string($result)}++;
     $self->{'_partitions'}{$new_combination}{result_as_string($result)}++;
   }
@@ -85,7 +88,9 @@ sub cull_inconsistent_with {
   my $result_string = result_as_string( $result );
   my @new_set;
   for my $s (@{$self->{'_combinations'}} ) {
-    my $this_result = $secret->check_secret( $s);
+    my $this_result = { blacks => 0,
+			whites => 0 };
+    $secret->check_secret( $s, $this_result);
 #    print "Checking ", $s->string, " result " , result_as_string( $this_result), " with $result_string\n";
     if ( $result_string eq result_as_string($this_result) ) {
 #      print "Added\n";

@@ -51,26 +51,24 @@ sub check {
 	  whites => $whites } ;
 }
 
-sub check_secret {
+sub check_secret ($$$;) {
   my %hash_secret = %{$_[0]->{'_hash'}};
   my %hash_other_secret =  %{$_[1]->{'_hash'}};
-  my $blacks = 0;
+#  my $blacks = 0;
   my $s;
   my $string = $_[1]->{'_string'};
   map(  ($s = chop( $string ) ) 
 	&& ( $s eq $_ ) 
-	&& (  $blacks++,
+	&& (  $_[2]->{'blacks'}++,
 	      $hash_secret{ $s }--,
 	      $hash_other_secret{ $s }-- ), @{$_[0]->{'_chars'}});
 
   my $whites = 0;
   map( exists $hash_other_secret{$_} 
-       &&  ( $whites += ($hash_secret{$_} > $hash_other_secret{$_})
+       &&  ( $_[2]->{'whites'} += ($hash_secret{$_} > $hash_other_secret{$_})
 	     ?$hash_other_secret{$_}
 	     :$hash_secret{$_} ), @{$_[0]->{'_alphabet'}}  );
-
-  return { blacks => $blacks,
-	   whites => $whites };
+  return;
 }
 "Can't tell"; # Magic true value required at end of module
 
