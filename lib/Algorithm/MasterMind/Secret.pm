@@ -42,37 +42,33 @@ sub check {
     }
   }
   my $whites = 0;
-  for my $k ( @{$_[0]->{'_alphabet'}} ) {
-    next unless exists $hash_string{$k};
-    $whites += ($hash_secret{$k} > $hash_string{$k})
-      ?$hash_string{$k}
-	:$hash_secret{$k};
-  }
-  return { blacks => $blacks,
-	   whites => $whites };
+  map( exists $hash_string{$_} 
+       &&  ( $whites += ($hash_secret{$_} > $hash_string{$_})
+	     ?$hash_string{$_}
+	     :$hash_secret{$_} ), @{$_[0]->{'_alphabet'}}  );
+
+  return{ blacks => $blacks,
+	  whites => $whites } ;
 }
 
 sub check_secret {
   my %hash_secret = %{$_[0]->{'_hash'}};
   my %hash_other_secret =  %{$_[1]->{'_hash'}};
   my $blacks = 0;
-  my ($c, $s);
+  my $s;
   my $string = $_[1]->{'_string'};
-  for my $c (@{$_[0]->{'_chars'}} ) {
-    $s = chop( $string );
-    if ( $c eq $s ) {
-      $blacks++;
-      $hash_secret{ $c }--;
-      $hash_other_secret{ $c }--;
-    } 
-  }
+  map(  ($s = chop( $string ) ) 
+	&& ( $s eq $_ ) 
+	&& (  $blacks++,
+	      $hash_secret{ $s }--,
+	      $hash_other_secret{ $s }-- ), @{$_[0]->{'_chars'}});
+
   my $whites = 0;
-  for my $k ( @{$_[0]->{'_alphabet'}} ) {
-    next unless exists $hash_other_secret{$k};
-    $whites += ($hash_secret{$k} > $hash_other_secret{$k})
-      ?$hash_other_secret{$k}
-	:$hash_secret{$k};
-  }
+  map( exists $hash_other_secret{$_} 
+       &&  ( $whites += ($hash_secret{$_} > $hash_other_secret{$_})
+	     ?$hash_other_secret{$_}
+	     :$hash_secret{$_} ), @{$_[0]->{'_alphabet'}}  );
+
   return { blacks => $blacks,
 	   whites => $whites };
 }

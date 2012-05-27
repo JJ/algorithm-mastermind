@@ -1,2 +1,5 @@
-* Create a Consistent Set class to delegate responsability and avoid
-   repeated computations.
+* Create a Game class to store game results
+* Refactor the whole hierarchy, and create a Meta class that applies
+   heuristics to algorithms
+* Put this online.
+* See the possibility of improving even more combination check.
