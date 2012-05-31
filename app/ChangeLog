@@ -1,0 +1,201 @@
+2012-05-31  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* IEEE-CIG/conf-most1-4-6.yaml (Method): Testing this, result:
+	real	33m42.703s
+user	33m37.910s
+sys	0m0.690s
+
+	Obviously much better. Let's see the average.
+
+	* IEEE-CIG/conf-most-4-6.yaml (ID): 
+
+	Takes _really_ a long time 
+	Finished
+
+real	1464m22.442s
+user	1463m2.620s
+sys	0m12.530s
+
+
+2012-05-29  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* IEEE-CIG/conf-most-4-6.yaml (ID): Testing new exhaustive search
+	algorithm for speed and moves. 
+
+2012-05-28  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* IEEE-CIG/conf-evo-8-12-p20k-cs1k-r075-x8-m1-t7.yaml (ID):
+	Results not too good: 
+	real	5969m43.519s
+user	5212m43.540s
+sys	59m35.310s
+
+	and worse average than before:
+	  Evaluations          Played      
+ Min.   : 319996   Min.   : 6.000  
+ 1st Qu.:1143750   1st Qu.: 8.000  
+ Median :1536184   Median : 9.000  
+ Mean   :1676645   Mean   : 8.586  
+ 3rd Qu.:2022984   3rd Qu.: 9.000  
+ Max.   :4895320   Max.   :12.000  
+
+	More stuff is no solution.
+
+2012-05-24  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* IEEE-CIG/conf-evo-8-12-p10k-cs1k-r075-x8-m1-t7.yaml (ID): 
+	Results (not for this one) 
+	
+	real	3699m56.809s
+user	3697m4.740s
+sys	0m18.580s
+jmerelo@penny:~/proyectos/CPAN/Algorithm_Mastermind/app$ time ./run_experiment_instances.pl IEEE-CIG/conf-evo-8-12-p10k-cs1k-r075-x8-m1-t7.yaml samples8_12.txt 
+
+
+2012-05-19  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* IEEE-CIG/conf-evo-8-12-p10k-cs1k-r075-x8-m1-t7.yaml
+	(Method_options): Previous one took too long (more than 20
+	minutes). Let's try this one until we refactor and see what can be
+	fixed. 
+
+	* IEEE-CIG/conf-evo-8-12-p8k-cs2k-r075-x8-m1-t7.yaml
+	(Method_options): 
+	Let's try duplicating consistent set size to get closer to
+	Berghman's (even if this one is with only 100 combinations, not 500)
+
+	* IEEE-CIG/conf-evo-8-12-p8k-cs1k-r075-x8-m1-t7.yaml (ID): 
+	This one really takes a long time:
+	real	3917m51.488s
+user	3915m26.890s
+sys	0m28.560s
+twice as much (or more), probably due to the bigger consistent set size. 
+
+2012-05-16  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* IEEE-CIG/conf-evo-8-12-p10k-cs500-r075-x8-m1-t7.yaml (ID):
+	Finished first whole run with this size:
+	real	1683m10.634s
+user	1683m25.940s
+sys	0m20.860s
+
+
+2012-05-07  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* IEEE-CIG/conf-evo-6-9-p1k-cs100-r075-x8-m1-t7.yaml (ID): 
+	Eliminating permutation yields good results:
+
+	real	662m5.204s
+user	680m5.860s
+sys	2m39.980s
+
+and speeds up, just a bit...
+	
+2012-05-01  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* CIG/conf-evo-5-8-p600-cs40-r075-x8-p1-m1-t7.yaml (ID): 
+	Best results so far, from the speed point of view: real	
+(ID): real	125m13.586s
+user	125m6.150s
+sys	0m0.560s
+
+
+	Let's check the number of moves. Good, but not perfect:
+
+	> summary(evo.4.8.p300.cs30.r075.x8.p1.m1.t7)
+  Evaluations        Played     
+ Min.   :   48   Min.   :2.000  
+ 1st Qu.: 2949   1st Qu.:5.000  
+ Median : 4575   Median :5.000  
+ Mean   : 4510   Mean   :5.161  
+ 3rd Qu.: 6000   3rd Qu.:6.000  
+ Max.   :13500   Max.   :9.000 
+	
+
+	* CIG/conf-evo-5-9-p800-cs80-r075-x8-p1-m1-t7.yaml
+	(Method_options): 
+	real	236m39.588s
+user	236m22.550s
+sys	0m1.970s
+jmerelo@penny:~/proyectos/CPAN/Algorithm_Mastermind/app$ mv log-5-9-p800-cs80-r075-x8-p1-m1-t7-Evo-2012-04-30T17\:43\:10.yaml CIG/
+
+	These are the results. I have not kept the previous ones, but
+	looks good. 
+
+2012-04-30  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* CIG/conf-evo-6-9-p1k-cs100-r075-x8-p1-m1-t7.yaml
+	(Method_options): Previous version had permutation wrong. Changing
+	in this one (but I'm afraid it will not have much influence)
+
+	* CIG/conf-evo-6-9-p1k-cs100-r075-x8-p1-m1-t3.yaml
+	(Method_options): This one obtained much better results than
+	previous version, in half the time:
+	real	704m11.598s
+user	704m52.180s
+sys	0m7.750s
+> 42251/5000
+[1] 8.4502
+
+	seconds per game. Much better... But already too late for this
+	version of the paper.
+
+2012-04-29  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* CIG/conf-evo-6-9-p1k-cs100-r075-x8-p1-m1-t3.yaml
+	(Method_options): 
+	Results with the previous version of this: 
+	
+real	1614m44.566s
+user	1613m11.690s
+sys	0m13.270s
+
+	19.35820000000000000000 per game. Not bad, not great either. 
+
+	* CIG/conf-evo-4-8-p400-cs30-r025-x8-p1-m1.yaml (Method_options):
+	Problems here: I was using crossover_rate instead of xover_rate
+	for that parameter, which means that xover had default value all
+	over. Not a big deal, since results were not that bad, but it
+	would be interesting to see if this new value really has an
+	effect. 
+
+2012-04-28  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* CIG/conf-evo-5-8-p600-cs40-r075-x8-p1-m1.yaml (Method_options):
+	Fixed error in this conf file, mutation was set to 1 and
+	permutation to 0.
+
+2012-04-19  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* CIG/conf-evo-4-8-p400-x8-p1-m1-r075-cs30.yaml (Method_options): 
+	real	47m55.033s
+user	48m20.280s
+sys	0m0.700s
+jmerelo@penny:~/proyectos/CPAN/Algorithm_Mastermind/app$ time
+	./run_experiment_instances.pl
+	CIG/conf-evo-4-8-p400-x8-p1-m1-r075-cs30.yaml 
+
+	Best so far, from time POV. 
+
+2012-04-18  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* CIG/conf-evo-4-8-p400-x8-p1-m1-r075-cs30.yaml (ID): 
+	Results with this one:
+	(Method_options): Made a mistake here. Now will run with real
+	values. However, results were a bit better than before. 
+
+	real	71m2.808s
+user	70m54.570s
+sys	0m1.430s
+
+	From the get-go, it's slower. Let's look at numbers.
+
+	* CIG/conf-evo-4-8-p512.yaml (ID): OK, let's start writing an
+	experiment logl. I am testing this new file just to get a grasp of
+	how everything works. First results:
+
+	
+real	54m14.953s
+user	54m18.680s
+sys	0m4.960s
+
