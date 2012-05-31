@@ -1,3 +1,8 @@
+2012-05-31  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* app/IEEE-CIG/conf-entropy-4-6.yaml (ID): After adding an Entropy
+	algorithm, checking it with the most basic configuration. 
+
 2012-05-26  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
 	* lib/Algorithm/MasterMind/Secret.pm (check): Optimizing a bit
