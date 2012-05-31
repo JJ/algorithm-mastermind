@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.4 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.5 $ =~ /(\d+)\.(\d+)/g; 
 
 use Algorithm::MasterMind qw(partitions);
 use Algorithm::MasterMind::Secret;
@@ -45,6 +45,34 @@ sub compute_partitions {
     }
   }
   return \%partitions
+}
+
+sub create_consistent_with {
+  my $class = shift;
+  my $combinations = shift;
+  my $rules = shift;
+  my @secrets = map ( (new Algorithm::MasterMind::Secret $_), @$combinations );
+  my $self = {  _combinations => [],
+		_partitions => {}};
+  bless $self, $class;
+  my %rule_secrets;
+  map( ($rule_secrets{$_->{'combination'}} = new Algorithm::MasterMind::Secret $_->{'combination'}),
+       @$rules );
+  for my $s (@secrets ) {
+    my $matches;
+    for my $r (@$rules ) {
+      my $this_result = { blacks => 0,
+			  whites => 0 };
+      $s->check_secret( $rule_secrets{$r->{'combination'}}, $this_result);
+      $matches +=  result_as_string( $this_result ) eq result_as_string( $r );
+    }
+    if ( $matches == @$rules ) {
+      push @{$self->{'_combinations'}}, $s
+    }
+  }
+  $self->{'_partitions'} = compute_partitions( $self->{'_combinations'} );
+  $self->{'_score'} = {}; # To store scores when they're available.
+  return $self;
 }
 
 sub is_in {

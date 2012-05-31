@@ -90,7 +90,8 @@ Algorithm::MasterMind::Secret - Minimal framework for MM secrets
 =head1 DESCRIPTION
 
 Basically a string and a hash, caches the string in a hash so that it
-is faster to check against it in mastermind
+is faster to check against it in mastermind. This class is heavily
+optimized for speed, which might result in some inconvenients. 
 
 =head1 INTERFACE 
 
@@ -103,7 +104,9 @@ you will use to solve
 
 Checks a combination against the secret code, returning a hashref with
 the number of blacks (correct in position) and whites (correct in
-color, not position)
+color, not position). The string must be a variable, and it is
+_destroyed_ , which makes it marginally faster. So don't count on the
+variable after the call. 
 
 =head1 CONFIGURATION AND ENVIRONMENT
 
