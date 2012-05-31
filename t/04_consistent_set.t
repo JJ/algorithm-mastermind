@@ -32,7 +32,8 @@ $c_set->compute_most_score;
 my @top_scorers = $c_set->top_scorers('most');
 my $one_string = splice( @top_scorers, rand( @top_scorers ), 1);
 my $secret = new Algorithm::MasterMind::Secret $one_string; # to ensure non-zero partitions
-my $result = $secret->check( $top_scorers[ rand( @top_scorers )] ); # Another of the 
+my $other_string = $top_scorers[ rand( @top_scorers )];
+my $result = $secret->check( $other_string ); # Another of the 
 $c_set->cull_inconsistent_with( $one_string, $result );
 
 if (@{$c_set->{'_combinations'}} ) { # Check other ctor

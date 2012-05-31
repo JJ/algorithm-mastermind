@@ -1,4 +1,4 @@
-package Algorithm::MasterMind::Partition_Most;
+package Algorithm::MasterMind::Partition_Most_1st;
 
 use warnings;
 use strict;
@@ -6,10 +6,9 @@ use Carp;
 
 use lib qw(../../lib ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.1 $ =~ /(\d+)\.(\d+)/g; 
 
-use base 'Algorithm::MasterMind';
-use Algorithm::MasterMind::Consistent_Set;
+use parent 'Algorithm::MasterMind::Partition_Most';
 
 sub initialize {
   my $self = shift;
@@ -21,20 +20,23 @@ sub initialize {
 }
 
 sub issue_first {
-  my $self = shift;
-  my @combinations = $self->all_combinations();
-  $self->{'_evaluated'} = scalar( @combinations  );
-  $self->{'_partitions'} = new Algorithm::MasterMind::Consistent_Set \@combinations;
-  my $partitions = $self->{'_partitions'};
-  $partitions->compute_most_score;
-  my @top_scorers = $partitions->top_scorers( 'most' );
-  return $self->{'_last'} = $top_scorers[ rand(@top_scorers)];
+   my $self = shift;
+   $self->{'_first'} = 1; # Flag for next
+  return $self->{'_last'} = $self->issue_first_Knuth();
 }
 
 sub issue_next {
   my $self = shift;
   my $last_rule = $self->{'_rules'}->[scalar(@{$self->{'_rules'}})-1];
-  $self->{'_partitions'}->cull_inconsistent_with( $last_rule->{'combination'}, $last_rule );
+  if ( $self->{'_first'} ) {
+    delete $self->{'_first'};
+    my @combinations = $self->all_combinations();
+    $self->{'_partitions'} = 
+      Algorithm::MasterMind::Consistent_Set->create_consistent_with( \@combinations, $self->{'_rules'} );
+    $self->{'_evaluated'} = scalar( @{$self->{'_partitions'}->{'_combinations'}}  );
+  } else {
+    $self->{'_partitions'}->cull_inconsistent_with( $last_rule->{'combination'}, $last_rule );
+  }
   if ( @{$self->{'_partitions'}->{'_combinations'}} > 1 ) {
     $self->{'_partitions'}->compute_most_score;
     my @top_scorers = $self->{'_partitions'}->top_scorers('most');
@@ -50,7 +52,7 @@ __END__
 
 =head1 NAME
 
-Algorithm::MasterMind::Partition_Most - Plays combination with the highest number of partitions
+Algorithm::MasterMind::Partition_Most_1st - Exhaustive search with fixed 1st move
 
 
 =head1 SYNOPSIS
@@ -64,11 +66,8 @@ Algorithm::MasterMind::Partition_Most - Plays combination with the highest numbe
   
 =head1 DESCRIPTION
 
-Solves the algorithm by issuing each time a combination that maximizes
-the number of non-null partitions. This intends to maximally reduce
-the search space each time; I wouldn't advice using it for sizes over
-4-6. In fact, it will probably take a lot of time (and use a lot of
-memory) for 4-8 already, so use it carefully.
+Exactly the same as L<Algorithm::MasterMind::Partition_Most>, except
+that it issues a fixed first move in the same way Knuth does. 
 
 =head1 INTERFACE 
 
@@ -78,7 +77,9 @@ Called from C<new>, initializes data structures.
 
 =head2 issue_first ()
 
-Issues a random string among the top scorers.
+Issues it in the Knuth way, AABC. This should probably be computed
+from scratch (to be coherent with the algorithm), but it's already
+    published, so what the hell. 
 
 =head2 issue_next()
 

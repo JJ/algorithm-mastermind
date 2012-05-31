@@ -1,0 +1,15 @@
+ID: log-most-4-6
+Method: Partition_Most
+Method_options:
+    alphabet:
+      - A
+      - B
+      - C
+      - D
+      - E
+      - F
+    length: 4
+
+
+
+
