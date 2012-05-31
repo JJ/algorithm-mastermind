@@ -28,8 +28,12 @@ for my $s (@strings ) {
   ok( $c_set->is_in( $s ), 'Added');
 }
 
+$c_set->compute_entropy_score;
+my @top_scorers = $c_set->top_scorers('entropy');
+is( $top_scorers[0] ne '', 1, "Computing top scores");
+
 $c_set->compute_most_score;
-my @top_scorers = $c_set->top_scorers('most');
+@top_scorers = $c_set->top_scorers('most');
 my $one_string = splice( @top_scorers, rand( @top_scorers ), 1);
 my $secret = new Algorithm::MasterMind::Secret $one_string; # to ensure non-zero partitions
 my $other_string = $top_scorers[ rand( @top_scorers )];
@@ -43,6 +47,8 @@ if (@{$c_set->{'_combinations'}} ) { # Check other ctor
   my $other_c_set = Algorithm::MasterMind::Consistent_Set->create_consistent_with( \@strings, $rules );
   is_deeply( $other_c_set->{'_combinations'}, $c_set->{'_combinations'}, 'Consistent creation' );
 }
+
+
 
 my $new_random_string = (  random_string( \@alphabet, $length) );
 $c_set->add_combination( $new_random_string );

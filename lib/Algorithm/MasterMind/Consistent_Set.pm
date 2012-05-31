@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.5 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.6 $ =~ /(\d+)\.(\d+)/g; 
 
 use Algorithm::MasterMind qw(partitions);
 use Algorithm::MasterMind::Secret;
@@ -136,6 +136,21 @@ sub compute_most_score {
   $self->{'_score'}->{'_most'} = {};
   for my $s (keys %{$self->{'_partitions'}} ) {
     $self->{'_score'}->{'_most'}->{$s} = keys %{$self->{'_partitions'}->{$s}};
+  }
+}
+
+sub compute_entropy_score {
+  my $self = shift;
+  $self->{'_score'}->{'_entropy'} = {};
+  for my $s (keys %{$self->{'_partitions'}} ) {
+    my $sum;
+    map( ($sum += $self->{'_partitions'}->{$s}->{$_}), keys %{$self->{'_partitions'}->{$s}} );
+    my $entropy = 0;
+    for my $k ( keys %{$self->{'_partitions'}->{$s}} ) {
+      my $fraction = $self->{'_partitions'}->{$s}->{$k}/ $sum;
+      $entropy -= $fraction * log( $fraction );
+    }
+    $self->{'_score'}->{'_entropy'}->{$s} = $entropy; 
   }
 }
    
