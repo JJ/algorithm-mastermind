@@ -1,3 +1,8 @@
+2012-06-01  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* IEEE-CIG/conf-entropy1-4-6.yaml (Method): Testing this new
+	version with fixed first move. 
+
 2012-05-31  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
 	* IEEE-CIG/conf-most1-4-6.yaml (Method): Testing this, result:

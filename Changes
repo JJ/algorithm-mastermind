@@ -3,6 +3,11 @@
 	* app/IEEE-CIG/conf-entropy-4-6.yaml (ID): After adding an Entropy
 	algorithm, checking it with the most basic configuration. 
 
+	Result: 
+real	491m13.892s
+user	490m34.210s
+sys	0m9.330s
+
 2012-05-26  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
 	* lib/Algorithm/MasterMind/Secret.pm (check): Optimizing a bit
