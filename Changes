@@ -1,3 +1,9 @@
+2012-06-01  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* lib/Algorithm/MasterMind/Partition_Entropy_1st.pm (issue_first):
+	Changed first move to that one with biggest entropy (different
+	letters). 
+
 2012-05-31  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
 	* app/IEEE-CIG/conf-entropy-4-6.yaml (ID): After adding an Entropy

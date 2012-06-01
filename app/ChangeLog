@@ -1,7 +1,26 @@
 2012-06-01  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
+	* run_experiment_instances.pl: Fixing a bug counting the number of
+	moves (it counted 2 when the combination was found in the first
+	move) and running again entropy1 with a changed first move (ABCD).
+
+	* IEEE-CIG/conf-entropy-4-6.yaml (ID): This one really takes a
+	long time: 
+	real	1507m51.227s
+user	1506m23.890s
+sys	0m13.900s
+
+	Bit more than most-parts, indeed. Maybe simply due to the small
+	additional complication (but, then, 10% more?)
+
 	* IEEE-CIG/conf-entropy1-4-6.yaml (Method): Testing this new
 	version with fixed first move. 
+
+	real	34m42.293s
+user	34m39.940s
+sys	0m0.200s
+
+	Almost the same as most-parts.
 
 2012-05-31  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 

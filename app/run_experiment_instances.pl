@@ -39,23 +39,28 @@ while ( my $combination = shift @combinaciones ) {
   my $solver;
   eval "\$solver = new Algorithm::MasterMind::$method \$method_options";
   die "Can't instantiate $solver: $@\n" if !$solver;
+  print "Code $secret_code\n";
   my $game = { code => $secret_code,
 	       combinations => []};
-  my $first_string = $solver->issue_first;
-  my $response =  check_combination( $secret_code, $first_string);
-  push @{$game->{'combinations'}}, [$first_string,$response] ;
-  
-  $solver->feedback( $response );
-  print "Code $secret_code\n";
-  my $played_string = $solver->issue_next;
-  while ( $played_string ne $secret_code ) {
-    print "Playing $played_string\n";
-    $response = check_combination( $secret_code, $played_string);
-    push @{$game->{'combinations'}}, [$played_string, $response] ;
+  my $move = $solver->issue_first;
+  my $response =  check_combination( $secret_code, $move);
+  push @{$game->{'combinations'}}, [$move,$response] ;
+
+  while ( $move ne $secret_code ) {
     $solver->feedback( $response );
-    $played_string = $solver->issue_next; 
-    push @{$game->{'consistent_set'}}, [ keys %{$solver->{'_consistent'}} ] ;
-  }  
+    $move = $solver->issue_next;
+    print "Playing $move\n";
+    $response = check_combination( $secret_code, $move);
+    push @{$game->{'combinations'}}, [$move, $response] ;
+    $solver->feedback( $response );
+    if ( $solver->{'_consistent'} ) {
+      push @{$game->{'consistent_set'}}, [ keys %{$solver->{'_consistent'}} ] ;
+    }  else {
+      push @{$game->{'consistent_set'}}, 
+	[ map( $_->{'_string'}, @{$solver->{'_partitions'}->{'_combinations'}}) ];
+    }
+  }
+
   $game->{'evaluations'} = $solver->evaluated();
   $io->print($game);
   print "Finished\n";
