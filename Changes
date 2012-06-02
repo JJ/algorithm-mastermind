@@ -3,6 +3,8 @@
 	* lib/Algorithm/MasterMind/Partition_Entropy_1st.pm (issue_first):
 	Changed first move to that one with biggest entropy (different
 	letters). 
+	(issue_first): Going back to the first option: Knuth's. It works
+	better. 
 
 2012-05-31  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 

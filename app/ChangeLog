@@ -1,4 +1,25 @@
+2012-06-02  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* IEEE-CIG/conf-entropy1-4-8.yaml (ID): Time taken:
+	real	469m22.451s
+user	468m58.520s
+sys	0m3.190s
+
+
 2012-06-01  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* IEEE-CIG/conf-most1-4-6.yaml (ID): Running again to count the
+	number of moves correctly. 
+	real	36m41.627s
+user	36m38.520s
+sys	0m0.420s
+
+	Time is more or less the same. And for entropy1
+	real	36m54.195s
+user	36m51.220s
+sys	0m0.630s
+
+	Almost exactly the same.
 
 	* run_experiment_instances.pl: Fixing a bug counting the number of
 	moves (it counted 2 when the combination was found in the first

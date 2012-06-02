@@ -6,7 +6,7 @@ use Carp;
 
 use lib qw(../../lib ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.3 $ =~ /(\d+)\.(\d+)/g; 
 
 use parent 'Algorithm::MasterMind::Partition_Entropy';
 
@@ -22,7 +22,7 @@ sub initialize {
 sub issue_first {
    my $self = shift;
    $self->{'_first'} = 1; # Flag for next
-  return $self->{'_last'} = join("",@{$self->{'_alphabet'}}[0..($self->{'_length'}-1)]);
+   return $self->{'_last'} = $self->issue_first_Knuth();
 }
 
 sub issue_next {
