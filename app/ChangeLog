@@ -1,3 +1,22 @@
+2012-06-03  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* run_experiment_all.pl: Testing exhaustive search for the sake of
+	comparison: 
+
+	Entropy1
+	
+real	93m44.217s
+user	93m36.490s
+sys	0m1.910s
+
+	Most1:
+	real	93m18.826s
+user	93m12.460s
+sys	0m1.080s
+
+
+	Almost the same. Results can't be too different.
+	
 2012-06-02  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
 	* IEEE-CIG/conf-entropy1-4-8.yaml (ID): Time taken:
