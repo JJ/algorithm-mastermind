@@ -11,7 +11,7 @@ use lib qw(../../lib
 	   ../../Algorithm-Evolutionary/lib/
 	   ../Algorithm-Evolutionary/lib/);
 
-our $VERSION = sprintf "%d.%03d", q$Revision: 1.12 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION = sprintf "%d.%03d", q$Revision: 1.13 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
@@ -60,6 +60,7 @@ sub issue_first {
   my $self = shift;
   #Initialize population for next step
   $self->reset();
+  $self->{'_first'} = 1; # flag for first
   return $self->{'_last'} = $self->issue_first_Knuth();
 }
 

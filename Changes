@@ -1,3 +1,17 @@
+2012-06-03  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* lib/Algorithm/MasterMind/EvoC.pm (issue_next): This is
+	positively a hack. Changing the consistent set size to 5 times as
+	much in the first iteration, normal afterwards. The main
+	difference between these with limited set size is that the size
+	decreases more slowly. 
+	(issue_next): Multiplier set to 10 and result:
+
+	real	364m17.528s
+user	363m54.710s
+sys	0m4.060s
+
+
 2012-06-01  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
 	* lib/Algorithm/MasterMind/Partition_Entropy_1st.pm (issue_first):

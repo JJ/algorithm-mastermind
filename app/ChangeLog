@@ -1,4 +1,47 @@
+2012-06-04  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* ../lib/Algorithm/MasterMind/Partition_Entropy_1st.pm: Running
+	again after bug found in first version. 
+
+	* IEEE-CIG/conf-combined-4-6.yaml (Method): Trying this one that
+	combines Entropy and most; entropy seems to reduce more the
+	initial size of the consistent set size, but Most reduces it more
+	afterwards, so let's combine both. 
+
+	> tapply(X=(cset.entropy.4.6$Played), INDEX=list(cset.entropy.4.6$Evaluations), FUN=mean)
+         1          2          3          4          5 
+185.410811  23.069046   3.118054   1.128793   1.000000 
+> tapply(X=(cset.most.4.6$Played), INDEX=list(cset.most.4.6$Evaluations), FUN=mean)
+         1          2          3          4          5          6 
+185.410811  23.964618   3.422150   1.172143   1.028630   1.000000 
+
+	For the time being, it looks fast...
+
 2012-06-03  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* IEEE-CIG/conf-evoc-4-6-p300-cs20-r075-x8-t7.yaml (ID): Testing
+	teh new configuration with boosted initial consistent set:
+	real	100m26.549s
+user	100m18.700s
+sys	0m2.110s
+
+	Much slower this way... When set to 10:
+	
+	real	364m17.528s
+user	363m54.710s
+sys	0m4.060s
+
+
+	* IEEE-CIG/conf-evo-4-6-p300-cs20-r075-x8-t7.yaml (ID): Testing
+	the first evolutionary method to reproduce former results and
+	re-establish evolutionary baseline. 
+	Wow, that was fast:
+	real	56m40.216s
+user	56m33.430s
+sys	0m2.370s
+
+	Faster than exhaustive (which should be expected). Let's see if
+	it's better.
 
 	* run_experiment_all.pl: Testing exhaustive search for the sake of
 	comparison: 
