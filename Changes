@@ -1,3 +1,9 @@
+2012-06-05  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* lib/Algorithm/MasterMind/EvoD.pm (issue_next): Getting rid of
+	fixed-size consistent sets to use whatever stands unchanged for 5
+	generations. 
+
 2012-06-03  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
 	* lib/Algorithm/MasterMind/EvoC.pm (issue_next): This is

@@ -1,3 +1,12 @@
+2012-06-05  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* IEEE-CIG/conf-combined-4-8.yaml (Method_options): 
+Result: 
+	real	460m56.624s
+user	460m34.840s
+sys	0m3.120s
+
+
 2012-06-04  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
 	* ../lib/Algorithm/MasterMind/Partition_Entropy_1st.pm: Running
@@ -20,7 +29,7 @@
 2012-06-03  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
 	* IEEE-CIG/conf-evoc-4-6-p300-cs20-r075-x8-t7.yaml (ID): Testing
-	teh new configuration with boosted initial consistent set:
+	the new configuration with boosted initial consistent set:
 	real	100m26.549s
 user	100m18.700s
 sys	0m2.110s
