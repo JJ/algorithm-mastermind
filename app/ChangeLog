@@ -1,5 +1,15 @@
 2012-06-05  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
+	* IEEE-CIG/conf-evod-4-6-p300-r075-x8-t7-m1.yaml (Method_options):
+	Takes too long with m3 (max-generations-equal). Reduced to 1 (only
+	two generations). Will test with 3 tonight. 
+
+	real	513m9.719s
+user	512m35.770s
+sys	0m12.920s
+
+	With 1 only
+
 	* IEEE-CIG/conf-combined-4-8.yaml (Method_options): 
 Result: 
 	real	460m56.624s

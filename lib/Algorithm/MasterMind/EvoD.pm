@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.1 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 use Algorithm::MasterMind qw(partitions);
@@ -46,6 +46,7 @@ sub initialize {
   }
   croak "No population" if $self->{'_pop_size'} == 0;
 
+  $self->{'_max_generations_equal'} = $self->{'_max_generations_equal'} ||  MAX_GENERATIONS_EQUAL;
   # Variation operators
   my $mutation_rate = $options->{'mutation_rate'} || 1;
   my $permutation_rate = $options->{'permutation_rate'} || 0;
@@ -71,7 +72,6 @@ sub initialize {
     $self->{'_distance'} = 'distance_taxicab';
   }
 
-  $self->{'_max_consistent'} = $max_number_of_consistent;
 }
 
 sub compute_fitness {
@@ -255,7 +255,7 @@ sub issue_next {
       }
 #      print "N $this_number_of_consistent, G $generations_equal\n";
     } until  ( ( $this_number_of_consistent > 0 ) && 
-	       ( $generations_equal >= MAX_GENERATIONS_EQUAL) );
+	       ( $generations_equal >= $self->{'_max_generations_equal'}) );
 #    print "C ", join( " - ", keys %consistent), "\n";
     $self->{'_consistent'} = \%consistent; #This mainly for outside info
     if ( $this_number_of_consistent > 1 ) {
