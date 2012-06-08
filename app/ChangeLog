@@ -1,3 +1,35 @@
+2012-06-08  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* IEEE-CIG/conf-plus-4-6.yaml (ID): 
+	
+real	89m54.275s
+user	89m49.040s
+sys	0m1.010s
+
+	less than usual, but not too much.
+	
+	* IEEE-CIG/conf-plus-4-8.yaml (Method_options): 
+	
+real	459m21.295s
+user	458m58.880s
+sys	0m4.650s
+
+	Not too much. Actually, less than usual. 
+	
+2012-06-07  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* IEEE-CIG/conf-evod-4-6-p200-r075-x8-t7-m3.yaml (Method_options): 
+	Time needed:
+	real	784m26.065s
+user	783m33.170s
+sys	0m11.170s
+
+
+2012-06-06  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* IEEE-CIG/conf-evod-4-6-p100-r075-x8-t7-m3.yaml (Method_options):
+	Testing now with less population. Problem: gets stuck some times.
+
 2012-06-05  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
 	* IEEE-CIG/conf-evod-4-6-p300-r075-x8-t7-m1.yaml (Method_options):
@@ -8,7 +40,12 @@
 user	512m35.770s
 sys	0m12.920s
 
-	With 1 only
+	With 3 
+	real	886m39.428s
+user	885m28.410s
+sys	0m19.650s
+
+	Obviously, there can't be a big improvement...
 
 	* IEEE-CIG/conf-combined-4-8.yaml (Method_options): 
 Result: 

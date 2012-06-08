@@ -1,0 +1,17 @@
+ID: log-plus-4-8
+Method: Partition_Plus
+Method_options:
+    alphabet:
+      - A
+      - B
+      - C
+      - D
+      - E
+      - F
+      - G
+      - H
+    length: 4
+
+
+
+
