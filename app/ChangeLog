@@ -1,5 +1,13 @@
 2012-06-09  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
+	* IEEE-CIG/conf-evo-4-8-p400-cs100-r075-x8-m1.yaml (ID): 
+	Took much less than expected:
+	real	96m5.908s
+user	95m58.700s
+sys	0m0.990s
+
+	But three times as much as before.
+
 	* IEEE-CIG/conf-evo-4-8-p300-cs20-r075-x8-m1.yaml (ID): 
 	Results:
 	real	39m41.657s
