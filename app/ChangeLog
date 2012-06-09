@@ -1,5 +1,13 @@
 2012-06-09  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
+	* IEEE-CIG/conf-evo-4-8-p300-cs20-r075-x8-m1.yaml (ID): 
+	Results:
+	real	39m41.657s
+user	39m33.490s
+sys	0m5.320s
+
+	Much faster than exhaustive, obviously...
+
 	* IEEE-CIG/conf-most1-4-8.yaml (Method_options): Running this
 	again to get consistent set size right
 	(ID): 
