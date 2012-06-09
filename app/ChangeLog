@@ -1,4 +1,18 @@
+2012-06-09  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* IEEE-CIG/conf-most1-4-8.yaml (Method_options): Running this
+	again to get consistent set size right
+	(ID): 
+	real	462m19.747s
+user	461m56.540s
+sys	0m5.540s
+
+	Not too important, just for the record. 
+
 2012-06-08  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* IEEE-CIG/conf-plus-5-8.yaml (ID): Testing this, but I'm afraid
+	it's going to take a long time. 
 
 	* IEEE-CIG/conf-plus-4-6.yaml (ID): 
 	
@@ -14,7 +28,8 @@ real	459m21.295s
 user	458m58.880s
 sys	0m4.650s
 
-	Not too much. Actually, less than usual. 
+	Not too much. Actually, less than usual. Results better than
+	usual, actually...
 	
 2012-06-07  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
