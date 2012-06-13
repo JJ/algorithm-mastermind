@@ -1,3 +1,33 @@
+2012-06-13  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* IEEE-CIG/conf-plus-5-6.yaml (Method_options): 
+	real	845m20.914s
+user	844m26.620s
+sys	0m15.700s
+
+	A bit more than entropy. Curious. 
+
+2012-06-12  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* IEEE-CIG/conf-entropy1-5-6.yaml (Method_options): 
+	Terminado:
+	real	835m35.037s
+user	834m55.900s
+sys	0m7.320s
+
+	Time grows more or less lineally with search space size. 
+
+2012-06-10  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* run_experiment_all.pl: Reruning experiments to obtain the
+	probability of the winning combination being among the chosen. 
+
+	* IEEE-CIG/conf-entropy1-4-8.yaml (ID): real	471m0.751s
+user	470m31.340s
+sys	0m6.500s
+
+	a bit longer than usual, which probably implies it's worse. 
+
 2012-06-09  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
 	* IEEE-CIG/conf-evo-4-8-p400-cs100-r075-x8-m1.yaml (ID): 

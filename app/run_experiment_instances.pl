@@ -56,11 +56,20 @@ while ( my $combination = shift @combinaciones ) {
     if ( $solver->{'_consistent'} ) {
       push @{$game->{'consistent_set'}}, [ keys %{$solver->{'_consistent'}} ] ;
     }  else {
+      my $partitions = $solver->{'_partitions'};
       push @{$game->{'consistent_set'}}, 
-	[ map( $_->{'_string'}, @{$solver->{'_partitions'}->{'_combinations'}}) ];
+	[ map( $_->{'_string'}, @{$partitions->{'_combinations'}}) ];
+      if ( $partitions->{'_score'}->{'_most'} ) {
+	push @{$game->{'top_scorers'}}, [ $partitions->top_scorers('most') ];
+      } elsif ( $partitions->{'_score'}->{'_entropy'} ) {
+	push @{$game->{'top_scorers'}}, [ $partitions->top_scorers('entropy') ];
+      }
+    }
+    if ( $solver->{'_data'} ) {
+      push @{$game->{'data'}}, $solver->{'_data'};
     }
   }
-
+  
   $game->{'evaluations'} = $solver->evaluated();
   $io->print($game);
   print "Finished\n";
