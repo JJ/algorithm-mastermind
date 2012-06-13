@@ -6,7 +6,7 @@ use Carp;
 
 use lib qw(../../lib ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.1 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
 
 use parent 'Algorithm::MasterMind::Partition_Entropy';
 
@@ -56,6 +56,7 @@ sub issue_next {
       @all_top = @top_scorers_m;
       push @all_top, @top_scorers_e;
     }
+    $self->{'_data'} = \@all_top;
     return $self->{'_last'} = $all_top[ rand(@all_top)];
   } else {
     return $self->{'_last'} = $self->{'_partitions'}->{'_combinations'}->[0]->string;

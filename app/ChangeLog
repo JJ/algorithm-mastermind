@@ -19,7 +19,7 @@ sys	0m7.320s
 
 2012-06-10  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
-	* run_experiment_all.pl: Reruning experiments to obtain the
+	* run_experiment_all.pl: Re.running experiments to obtain the
 	probability of the winning combination being among the chosen. 
 
 	* IEEE-CIG/conf-entropy1-4-8.yaml (ID): real	471m0.751s

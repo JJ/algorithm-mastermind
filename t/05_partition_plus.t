@@ -11,6 +11,11 @@ BEGIN {
 
 my $secret_code = 'ADCB';
 my @alphabet = qw( A B C D E F );
+
+my @other_alphabet = qw( C D E F G H );
+
+my @intersection = Algorithm::MasterMind::Partition_Plus::intersection( \@alphabet, \@other_alphabet);
+is( $#intersection, 3, 'Intersection OK'); 
 my $solver = new Algorithm::MasterMind::Partition_Plus { alphabet => \@alphabet,
 							   length => length( $secret_code ) };
 
