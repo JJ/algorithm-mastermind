@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.6 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.7 $ =~ /(\d+)\.(\d+)/g; 
 
 use Algorithm::MasterMind qw(partitions);
 use Algorithm::MasterMind::Secret;
@@ -159,7 +159,13 @@ sub score_most {
   my $str = shift;
   return $self->{'_score'}->{'_most'}->{ $str };
 }
-   
+
+sub score_entropy {
+  my $self = shift;
+  my $str = shift;
+  return $self->{'_score'}->{'_entropy'}->{ $str };
+}
+
 sub top_scorers {
   my $self = shift;
   my $score = "_".shift; # No checks

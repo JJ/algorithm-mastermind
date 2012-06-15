@@ -1,6 +1,5 @@
-ID: log-plus-4-6
-Method: Partition_Plus
-repeats: 20
+ID: log-plus2-4-8
+Method: Partition_Plus2
 Method_options:
     alphabet:
       - A
@@ -9,6 +8,8 @@ Method_options:
       - D
       - E
       - F
+      - G
+      - H
     length: 4
 
 
