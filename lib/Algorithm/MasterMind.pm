@@ -13,7 +13,8 @@ use Algorithm::Combinatorics qw(variations_with_repetition);
 
 our @ISA = qw(Exporter);
 
-our @EXPORT_OK = qw( check_combination partitions entropy random_string );
+our @EXPORT_OK = qw( check_combination partitions entropy random_string 
+		     response_as_string);
 
 use lib qw( ../../lib ../lib ../../../lib );
 
@@ -318,6 +319,11 @@ sub entropy {
   }
   return $entropy;
 }
+
+sub response_as_string {
+  return $_[0]->{'blacks'}."b-".$_[0]->{'whites'}."w";
+}
+  
 
 "4 blacks, 0 white"; # Magic true value required at end of module
 
