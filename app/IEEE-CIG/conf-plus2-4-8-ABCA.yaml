@@ -1,0 +1,19 @@
+ID: log-plus2-4-8
+Method: Partition_Plus2
+Method_options:
+    alphabet:
+      - A
+      - B
+      - C
+      - D
+      - E
+      - F
+      - G
+      - H
+    length: 4
+    first_combination: ABCA
+
+
+
+
+

@@ -1,3 +1,8 @@
+2012-06-28  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* IEEE-CIG/conf-plus2-4-8-ABCA.yaml (Method_options): Testing with
+	different start combination to see the influence. 
+
 2012-06-13  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
 	* IEEE-CIG/conf-plus-5-6.yaml (Method_options): 
