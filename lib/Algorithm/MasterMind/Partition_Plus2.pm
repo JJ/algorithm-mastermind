@@ -6,7 +6,7 @@ use Carp;
 
 use lib qw(../../lib ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.1 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
 
 use parent 'Algorithm::MasterMind::Partition_Entropy';
 
@@ -22,7 +22,11 @@ sub initialize {
 sub issue_first {
    my $self = shift;
    $self->{'_first'} = 1; # Flag for next
-   return $self->{'_last'} = $self->issue_first_Knuth();
+   if ( ! $self->{'_first_combination'} ) {
+     return $self->{'_last'} = $self->issue_first_Knuth();
+   } else {
+     return $self->{'_last'} = $self->{'_first_combination'};
+   }
 }
 
 
@@ -51,7 +55,7 @@ sub issue_next {
       }
     }
     my @top_scorers = grep( $score_of{$_} == $top_score , @top_scorers_e );
-    $self->{'_data'} = \@top_scorers;
+    $self->{'_data'} = \@top_scorers; #payload for logging outside hereq
     return $self->{'_last'} = $top_scorers[ rand(@top_scorers)];
   } else {
     return $self->{'_last'} = $self->{'_partitions'}->{'_combinations'}->[0]->string;

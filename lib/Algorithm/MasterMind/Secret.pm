@@ -31,9 +31,10 @@ sub check {
   my %hash_secret = %{$_[0]->{'_hash'}};
   my %hash_string ;
   my $blacks = 0;
+  my $string = $_[1];
   my ($c, $s);
   for my $c (@{$_[0]->{'_chars'}} ) {
-    $s = chop( $_[1] );
+    $s = chop( $string );
     if ( $c ne $s ) {
       $hash_string{ $s }++;
     } else {
@@ -104,8 +105,7 @@ you will use to solve
 
 Checks a combination against the secret code, returning a hashref with
 the number of blacks (correct in position) and whites (correct in
-color, not position). The string must be a variable, and it is
-_destroyed_ , which makes it marginally faster. So don't count on the
+color, not position). The string must be a variable. So don't count on the
 variable after the call. 
 
 =head1 CONFIGURATION AND ENVIRONMENT
