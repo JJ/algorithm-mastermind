@@ -1,3 +1,10 @@
+2012-07-10  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* lib/Algorithm/MasterMind.pm: Starting 0.4.1 with a minor version
+	change for A::E.
+
+	* Makefile.PL: Changing Clone to Clone::Fast, more updated. 
+
 2012-06-05  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
 	* lib/Algorithm/MasterMind/EvoD.pm (issue_next): Getting rid of

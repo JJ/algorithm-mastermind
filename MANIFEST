@@ -7,6 +7,7 @@ lib/Algorithm/MasterMind/Canonical_GA.pm
 lib/Algorithm/MasterMind/CGA_Partitions.pm
 lib/Algorithm/MasterMind/EDA_Partitions.pm
 lib/Algorithm/MasterMind/EDA.pm
+lib/Algorithm/MasterMind/Evo.pm
 lib/Algorithm/MasterMind/Evolutionary_Base.pm
 lib/Algorithm/MasterMind/Evolutionary_MO.pm
 lib/Algorithm/MasterMind/Evolutionary_Partitions.pm
@@ -37,7 +38,8 @@ t/08_evo_part.t
 t/09_canonical_ga.t  
 t/09_evorank.t
 t/10_generational_partitions.t
-11_evorank_end.t
+t/11_evorank_end.t
+t/12_evo_mm.t
 app/mm-eda.cgi
 app/run_experiment.pl
 app/run_experiment_all.pl

@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.13 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.14 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 use Algorithm::MasterMind qw(partitions);
@@ -288,21 +288,23 @@ __END__
 
 =head1 NAME
 
-Algorithm::MasterMind::Evo - Testbed for evolutionary algorithms solving MM
+Algorithm::MasterMind::Evo -  New evolutionary algorithms solving MM - Evo* version
 
 
 =head1 SYNOPSIS
 
-    use Algorithm::MasterMind::Evolutionary_Partitions;
+    use Algorithm::MasterMind::Evo;
 
   
 =head1 DESCRIPTION
 
-The partition method was introduced in a 2010 paper, and then changed
-by Runarsson and Merelo to incorporate it in the genetic search. It
-was prepared for a conference paper.
+This algorithm is a new evolutionary algorithm that includes EndGames
+and also using Most Parts score for evolving solutions to
+Mastermind. I was introduced in "Improving and Scaling Evolutionary
+Approaches to the MasterMind Problem", by Merelo, Cotta and Mora which we
+expect you will cite if you include this in your work.
 
-=head1 INTERFACE 
+=head1 INTERFACE
 
 =head2 factorial
 
@@ -322,7 +324,10 @@ Processes "raw" fitness to assign fitness once consistency and/or
 distance to it is known. It's lineally scaled to make the lowes
 combination = 1
 
+=head2 eliminate_last_played()
 
+Eliminates the last string played to avoid having problems in the
+population, and substitute it for a random one. 
 
 =head1 AUTHOR
 
@@ -331,7 +336,7 @@ JJ Merelo  C<< <jj@merelo.net> >>
 
 =head1 LICENCE AND COPYRIGHT
 
-Copyright (c) 2009, 2010 JJ Merelo C<< <jj@merelo.net> >>. All rights reserved.
+Copyright (c) 2009, 2012 JJ Merelo C<< <jj@merelo.net> >>. All rights reserved.
 
 This module is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself. See L<perlartistic>.

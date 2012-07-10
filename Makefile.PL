@@ -12,8 +12,8 @@ WriteMakefile(
     PREREQ_PM => {
 		  'Test::More' => 0,
 		  'version'    => 0.77,
-		  'Clone' => 0,
-		  'Algorithm::Evolutionary' => 0.75,
+		  'Clone::Fast' => 0,
+		  'Algorithm::Evolutionary' => 0.78, # for Evo.pm
 		  'Algorithm::Combinatorics' => 0
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
