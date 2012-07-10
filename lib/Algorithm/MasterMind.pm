@@ -333,17 +333,17 @@ __END__
 
 Algorithm::MasterMind - Framework for algorithms that solve the MasterMind game
 
-
 =head1 VERSION
 
-This document describes Algorithm::MasterMind version 0.0.1
+This document describes Algorithm::MasterMind version 0.4.1 
 
 
 =head1 SYNOPSIS
 
     use Algorithm::MasterMind;
+    use Algorithm::MasterMind::Solver; # Change "solver" to your own.
 
-    my $solver = new Algorithm::MasterMind::Solver $options;
+    my $solver = new Algorithm::MasterMind::Solver $options; 
 
     my $first_string = $solver->issue_first();
     $solver->feedback( check_combination( $secret_code, $first_string) );
@@ -358,7 +358,6 @@ This document describes Algorithm::MasterMind version 0.0.1
 Includes common functions used in Mastermind solvers; it should not be
 used directly, but from derived classes. See examples in
 L<Algorithm::MasterMind::Random>, for instance.
-
 
 =head1 INTERFACE 
 
@@ -518,16 +517,17 @@ L<http://rt.cpan.org>.
 
 Other modules in CPAN which you might find more useful than this one
 are at L<Games::Mastermind::Solver>, which I didn't use and extend for
-no reason, although I should. Also L<Games::Mastermind::Cracker>
+no reason, although I should have. Also L<Games::Mastermind::Cracker>. 
 
-You can try and play this game at
+Formerly, you could try and play this game at
 http://geneura.ugr.es/~jmerelo/GenMM/mm-eda.cgi, restricted to 4 pegs
-and 6 colors. The program C<mm-eda.cgi> should also be available in
+and 6 colors. It's, for the time being, under reparations. The program C<mm-eda.cgi> should also be available in 
 the C<apps> directory of this distribution.
 
 The development of this projects is hosted at sourceforge,
 https://sourceforge.net/projects/opeal/develop, check it out for the
-    latest bleeding edge release. 
+latest bleeding edge release. In fact, right now this module is at
+least a year away from the latest development. 
 
 If you use any of these modules for your own research, we would very
 grateful if you would reference the papers that describe this, such as
@@ -542,6 +542,33 @@ this one:
   publisher={Springer}
  }
 
+or
+
+
+ @inproceedings{DBLP:conf/cec/GuervosMC11,
+  author    = {Juan-J. Merelo-Guerv{\'o}s and
+               Antonio-Miguel Mora and
+               Carlos Cotta},
+  title     = {Optimizing worst-case scenario in evolutionary solutions
+               to the {MasterMind} puzzle},
+  booktitle = {IEEE Congress on Evolutionary Computation},
+  year      = {2011},
+  pages     = {2669-2676},
+  ee        = {http://dx.doi.org/10.1109/CEC.2011.5949952},
+  crossref  = {DBLP:conf/cec/2011},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+ }
+
+ @proceedings{DBLP:conf/cec/2011,
+  title     = {Proceedings of the IEEE Congress on Evolutionary Computation,
+               CEC 2011, New Orleans, LA, USA, 5-8 June, 2011},
+  booktitle = {IEEE Congress on Evolutionary Computation},
+  publisher = {IEEE},
+  year      = {2011},
+  isbn      = {978-1-4244-7834-7},
+  ee        = {http://ieeexplore.ieee.org/xpl/mostRecentIssue.jsp?punumber=5936494},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+ }
 
 =head1 AUTHOR
 
