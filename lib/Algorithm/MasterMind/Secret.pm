@@ -52,7 +52,7 @@ sub check {
 	  whites => $whites } ;
 }
 
-sub check_secret ($$$;) {
+sub check_secret  {
   my %hash_secret = %{$_[0]->{'_hash'}};
   my %hash_other_secret =  %{$_[1]->{'_hash'}};
 #  my $blacks = 0;
@@ -107,6 +107,14 @@ Checks a combination against the secret code, returning a hashref with
 the number of blacks (correct in position) and whites (correct in
 color, not position). The string must be a variable. So don't count on the
 variable after the call. 
+
+=head2 check_secret( $secret )
+
+Same as above, but the argument must be a L<Algorithm::Mastermind::Secret>. 
+
+=head2 string()
+
+Returns the string corresponding to this secret.
 
 =head1 CONFIGURATION AND ENVIRONMENT
 

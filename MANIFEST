@@ -16,8 +16,10 @@ lib/Algorithm/MasterMind/EvoRank.pm
 lib/Algorithm/MasterMind/EvoRank_End_Games.pm
 lib/Algorithm/MasterMind/Generational_Partitions.pm
 lib/Algorithm/MasterMind/MOGA.pm
+lib/Algorithm/MasterMind/Partition/Most.pm
 lib/Algorithm/MasterMind/Partition_Worst.pm 
 lib/Algorithm/MasterMind/Random.pm
+lib/Algorithm/MasterMind/Secret.pm
 lib/Algorithm/MasterMind/Sequential.pm
 lib/Algorithm/MasterMind/Sequential_Alt.pm
 lib/Algorithm/MasterMind/Test.pm
@@ -29,6 +31,7 @@ t/01_random.t
 t/02_eda.t  
 t/03_sequential_alt.t 
 t/04_partitions.t 
+t/05_partition_most.t
 t/05_partition_worst.t 
 t/06_moga.t 
 t/07_evo.t 

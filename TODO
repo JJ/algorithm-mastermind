@@ -1,3 +1,4 @@
+* Expand a bit Evo documentation, mainly the synopsis.
 * Incorporate changes in code to the CPAN module 
 * Create a Game class to store game results
 * Refactor the whole hierarchy, and create a Meta class that applies

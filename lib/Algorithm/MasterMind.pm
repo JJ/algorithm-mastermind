@@ -4,7 +4,7 @@ use warnings;
 use strict;
 use Carp;
 
-use version; our $VERSION = qv("v0.4.1"); 
+use version; our $VERSION = qv("v0.4.2"); 
 
 use Algorithm::Combinatorics qw(variations_with_repetition);
 
@@ -487,6 +487,15 @@ dimensions. Returns as a arrayref with [$distance, matches]
 
 Returns all possible responses (combination of black and white pegs)
 for the combination length
+
+=head2 random_string
+
+Returns a random string in with the length and alphabet defined
+
+=head2 response_as_string ( $response )
+
+From a hash that uses keys C<blacks> and C<whites>, returns a string
+"xb-yw" in a standard format that can be used for comparing.
 
 =head1 CONFIGURATION AND ENVIRONMENT
 
