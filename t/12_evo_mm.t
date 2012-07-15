@@ -10,7 +10,6 @@ BEGIN {
 	use_ok( 'Algorithm::MasterMind::Evo' );
 }
 
-
 my @secret_codes = qw( AAAA ABCD CDEF ACAC BAFE EFEF ABBB BAAC DEFF BFFF AAFF );
 
 for my $secret_code ( @secret_codes ) {

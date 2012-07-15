@@ -4,7 +4,7 @@ use warnings;
 use strict;
 use Carp;
 
-use version; our $VERSION = qv("v0.4.2"); 
+use version; our $VERSION = qv("v0.4.3");  #Quest for non-failing tests
 
 use Algorithm::Combinatorics qw(variations_with_repetition);
 

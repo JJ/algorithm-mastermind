@@ -1,5 +1,25 @@
 #!/usr/bin/perl
 
+=head1 NAME
+
+mm-eda.cgi - CGI for playing an Mastermind using an Estimation of Distribution Algorithms
+
+=head1 SYNOPSIS
+
+  http://localhost/cgi-bin/mm-eda.cgi
+
+=head1 DESCRIPTION  
+
+This script uses L<Algorithm::Mastermind::EDA> for playing a basic
+Mastermind game, with 6 colors and 4 pegs. When called without
+parameters it shows a form for introducing the secret combination, if
+called with parameter C<code> it will call the algorithm and produce
+the solution. It usually takes less than a second, but your mileage
+may vary depending on the server and Perl version. 
+
+=cut 
+
+
 use strict;
 use warnings;
 
@@ -83,3 +103,50 @@ sub print_combination {
 			     ($response->{'whites'}?(" ".$response->{'whites'}." white(s)"):"") );
 
 }
+
+=head1 INTERFACE
+
+Not really intended to be called as a module, but there are a few
+functions you could use
+
+=head2 print_combination( $combination, $response );
+
+Prints combination and response in HTML
+
+=head2 solve ($code )
+
+Runs the algorithm for $code
+
+=head2 show_form
+
+Shows the form page in absence of code.
+
+=head2 form
+
+Actually prints the form part in HTML
+
+
+=head1 SEE ALSO
+
+
+First, you should obviously check, L<Algorithm::MasterMind>, and maybe
+also L<Algorithm::Evolutionary::Op::EDA_step );
+
+=head1 AUTHOR
+
+J. J. Merelo, C<jj (at) merelo.net>
+
+=cut
+
+=head1 Copyright
+  
+  This file is released under the GPL. See the LICENSE file included in this distribution,
+  or go to http://www.fsf.org/licenses/gpl.txt
+
+  CVS Info: $Date: 2012-07-15 07:45:23 $ 
+  $Header: /media/Backup/CVScopies/a_m/app/mm-eda.cgi,v 1.2 2012-07-15 07:45:23 jmerelo Exp $ 
+  $Author: jmerelo $ 
+  $Revision: 1.2 $
+
+
+=cut

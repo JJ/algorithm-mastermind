@@ -6,7 +6,7 @@ use Carp;
 
 use lib qw(../../lib ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.1 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind';
 
@@ -81,7 +81,7 @@ Algorithm::MasterMind::Partition - Base class for exhaustive partion-based metho
   
 =head1 DESCRIPTION
 
-This is a base class for 
+This is a base class for endgames based on partitions. 
 
 =head1 INTERFACE 
 

@@ -1,7 +1,12 @@
+2012-07-15  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* MANIFEST: Re-adding some missing files.
+
 2012-07-14  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
 	* MANIFEST: Adding missing files in Distro. 
-	Eliminated Generational_Partitions, sometimes it gets stuck. 
+	Eliminated Generational_Partitions, sometimes it gets
+	stuck. Removing old test files from the folders too. 
 
 2012-07-10  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
