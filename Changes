@@ -1,3 +1,10 @@
+2012-07-17  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* lib/Algorithm/MasterMind/Consistent_Set.pm (consistent_strings):
+	Adding pod docs for this module.
+
+	* MANIFEST: Adding Consistent_Set , also missing.
+
 2012-07-15  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
 	* MANIFEST: Re-adding some missing files.

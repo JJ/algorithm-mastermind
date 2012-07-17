@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.7 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.8 $ =~ /(\d+)\.(\d+)/g; 
 
 use Algorithm::MasterMind qw(partitions);
 use Algorithm::MasterMind::Secret;
@@ -246,6 +246,41 @@ Returns the partition hash for combination $string
 
 After a move, eliminates inconsistent elements, recomputing the partitions.
 
+=head2 compute_entropy_score
+
+Computes the entropy score of existent partitions
+
+=head2 compute_most_score
+
+Computes the Most Parts score of existent partitions, that is, the number of non-zero parts
+
+=head2 consistent_strings
+
+Returns the consistent set
+
+=head2 create_consistent_with( $combinations, $rules )
+
+Creates a consistent eliminating from the set of combinations those
+not consistent with the rules
+
+=head2 result_as_string
+
+Returns the response as a fixed format string, for comparisons
+
+=head2 score_entropy ($string)
+
+Returns the Entropy score of the C<$string>, if it's in the consistent
+set. 
+
+=head2 score_most ($string)
+
+Returns the Most Parts score of the C<$string>, if it's in the consistent
+set. 
+
+=head2 top_scorers ( $mode )
+
+Returns the set of top scorers for a particular mode. Now $mode can be
+"most" or "entropy"
 
 =head1 AUTHOR
 

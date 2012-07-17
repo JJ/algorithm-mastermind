@@ -5,6 +5,7 @@ README
 lib/Algorithm/MasterMind.pm
 lib/Algorithm/MasterMind/Canonical_GA.pm
 lib/Algorithm/MasterMind/CGA_Partitions.pm
+lib/Algorithm/MasterMind/Consistent_Set.pm
 lib/Algorithm/MasterMind/EDA_Partitions.pm
 lib/Algorithm/MasterMind/EDA.pm
 lib/Algorithm/MasterMind/Evo.pm
@@ -30,7 +31,8 @@ t/00_sequential.t
 t/01_random.t 
 t/02_eda.t  
 t/03_sequential_alt.t 
-t/04_partitions.t 
+t/04_partitions.t
+t/04_consistent_set.t
 t/05_partition_most.t
 t/05_partition_worst.t 
 t/06_moga.t 
