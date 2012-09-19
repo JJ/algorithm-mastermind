@@ -1,3 +1,38 @@
+2012-09-19  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* conf-evo-5-8-p800-cs80-r075-x8-p1-m1-t7.yaml (Method_options): 
+
+	real	242m42.017s
+user	242m23.070s
+sys	0m0.700s
+jmerelo@penny:~/proyectos/CPAN/Algorithm_Mastermind/app$ time ./run_experiment_instances.pl conf-evo-5-8-p800-cs80-r075-x8-p1-m1-t7.yaml instancias5_8.txt 
+
+	real	385m22.875s
+user	384m54.350s
+sys	0m8.550s
+jmerelo@penny:~/proyectos/CPAN/Algorithm_Mastermind/app$ time ./run_experiment_instances.pl conf-evo-5-8-p600-cs200-r075-x8-p1-m1-t7.yaml  instancias5_8.txt 
+
+	
+
+2012-09-18  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* EvoStar13/log-5-8-p600-cs60-r075-x8-p1-m1-t7-Evo-2012-09-18T15:59:07.yaml: 
+Changed to 60:
+	real	151m1.022s
+user	150m44.300s
+sys	0m0.430s
+
+	Consistent set size has an influence on the number of evaluations,
+	but probably little on real performance.
+	
+
+	* EvoStar13/log-5-8-p600-cs80-r075-x8-p1-m1-t7-Evo-2012-09-18T07:17:54.yaml
+	(code): Starting new experiments. Time
+	real	170m0.887s
+user	169m52.850s
+sys	0m1.230s
+
+
 2012-06-28  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
 	* IEEE-CIG/conf-plus2-4-8-ABCA.yaml (Method_options): Testing with

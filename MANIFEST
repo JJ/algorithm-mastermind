@@ -42,7 +42,6 @@ t/08_eda_part.t
 t/08_evo_part.t  
 t/09_canonical_ga.t  
 t/09_evorank.t
-t/11_evorank_end.t
 t/12_evo_mm.t
 app/mm-eda.cgi
 app/run_experiment.pl
