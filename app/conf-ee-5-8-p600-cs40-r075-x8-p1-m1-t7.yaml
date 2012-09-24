@@ -1,0 +1,22 @@
+ID: log-ee2-5-8-p600-cs40-r075-x8-p1-m1-t7
+Method: Evo_Entropy
+Method_options:
+    alphabet:
+      - A
+      - B
+      - C
+      - D
+      - E
+      - F
+      - G
+      - H
+    length: 5
+    pop_size: 600
+    consistent_set_card: 40
+    replacement_rate: 0.75
+    xover_rate: 8
+    permutation_rate: 1
+    tournament_size: 7
+
+
+
