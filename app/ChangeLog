@@ -1,7 +1,14 @@
 2012-09-24  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
 	* conf-evo-6-10-p1k-cs10-r075-x8-p1-m1-t7.yaml (Method_options):
-	Trying with this size; 800 is too small and search gets stuck.
+	Trying with this size; 800 is too small and search gets stuck. 
+
+
+	real	391m7.568s
+user	390m42.020s
+sys	0m3.140s
+
+	Not bad.
 
 2012-09-23  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
