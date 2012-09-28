@@ -1,3 +1,9 @@
+2012-09-21  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* lib/Algorithm/MasterMind/Evo_Entropy.pm (issue_next): Fixed bug
+	that optimized according to entropy but played according to most
+	parts. Curiously, it resulted in better results than most parts.
+
 2012-07-19  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
 	* MANIFEST: Taking out test for obsolete module. 

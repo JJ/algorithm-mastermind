@@ -1,3 +1,13 @@
+2012-09-28  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* conf-ee-6-9-p2k-cs200-r075-x8-p1-m1-t7.yaml (ID): 
+	
+real	1488m46.299s
+user	1487m39.810s
+sys	0m7.620s
+
+	Not bad. Better than before. Let's try with normal Evo.
+
 2012-09-24  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
 	* conf-evo-6-10-p1k-cs10-r075-x8-p1-m1-t7.yaml (Method_options):

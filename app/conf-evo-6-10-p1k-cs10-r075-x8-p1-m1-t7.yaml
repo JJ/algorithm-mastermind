@@ -1,0 +1,24 @@
+ID: log-6-10-p1k-cs10-r075-x8-p1-m1-t7
+Method: Evo
+Method_options:
+    alphabet:
+      - A
+      - B
+      - C
+      - D
+      - E
+      - F
+      - G
+      - H
+      - I
+      - J
+    length: 6
+    pop_size: 1000
+    consistent_set_card: 10
+    replacement_rate: 0.75
+    xover_rate: 8
+    permutation_rate: 1
+    tournament_size: 7
+
+
+

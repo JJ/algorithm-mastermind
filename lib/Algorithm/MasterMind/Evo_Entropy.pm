@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.1 $ =~ /(\d+)\.(\d+)/g; 
+our $VERSION =   sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/g; 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 use Algorithm::MasterMind qw(partitions);
@@ -105,12 +105,11 @@ sub eliminate_last_played {
 sub compute_entropy_score {
   my $partitions = shift;
   my %score;
+  my $total= keys %{$partitions};
   for my $s (keys %{$partitions} ) {
-    my $sum;
-    map( ($sum += $partitions->{$s}->{$_}), keys %{$partitions->{$s}} );
     my $entropy = 0;
     for my $k ( keys %{$partitions->{$s}} ) {
-      my $fraction = $partitions->{$s}->{$k}/ $sum;
+      my $fraction = $partitions->{$s}->{$k}/ $total;
       $entropy -= $fraction * log( $fraction );
     }
     $score{$s} = $entropy;
@@ -201,10 +200,11 @@ sub issue_next {
 	}
     }
     
+    my %score;
     my $number_of_consistent = keys %consistent;
     if ( $number_of_consistent > 1 ) {
       $partitions = partitions( keys %consistent );
-      my %score = compute_entropy_score( $partitions );
+      %score = compute_entropy_score( $partitions );
       # Need this to compute fitness
       for my $c ( keys %$partitions ) {
 	for my $p ( @{$consistent{$c}} ) {
@@ -214,7 +214,7 @@ sub issue_next {
     } elsif ( $number_of_consistent == 1 ) {
       for my $c ( keys %consistent ) {
 	for my $p ( @{$consistent{$c}} ) {
-	  $p->{'_entropy'} = 0.001;
+	  $p->{'_entropy'} = 0.001;  #Minimal non-0 value, it should be 0
 	}
       }
     }
@@ -222,7 +222,6 @@ sub issue_next {
     my $this_number_of_consistent = $number_of_consistent;
 
     while ( $this_number_of_consistent < $max_number_of_consistent ) {  
-      my %score;
       compute_fitness( $pop ); 
       my $new_pop = $ga->apply( $pop, @$pop * $self->{'_replacement_rate'} );  #Apply GA
       for my $p ( @$new_pop ) {
@@ -277,17 +276,17 @@ sub issue_next {
     
     $self->{'_consistent'} = \%consistent; #This mainly for outside info
     if ( $this_number_of_consistent > 1 ) {
-	my $max_partitions = 0;
+	my $max_entropy = 0;
 	my %max_c;
 	for my $c ( keys %$partitions ) {
-	    my $this_max =  keys %{$partitions->{$c}};
+	    my $this_max =  $score{$c};
 	    $max_c{$c} = $this_max;
-	    if ( $this_max > $max_partitions ) {
-		$max_partitions = $this_max;
+	    if ( $this_max > $max_entropy ) {
+		$max_entropy = $this_max;
 	    }
 	}
 	# Find all partitions with that max
-	my @max_c = grep( $max_c{$_} == $max_partitions, keys %max_c );
+	my @max_c = grep( $max_c{$_} == $max_entropy, keys %max_c );
 	# Break ties
 	my $string = $max_c[ rand( @max_c )];
 	# Obtain next
