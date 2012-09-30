@@ -1,3 +1,14 @@
+2012-09-29  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* conf-evo-6-9-p2k-cs200-r075-x8-p1-m1-t7.yaml (Method): Takes a
+	bit more
+
+
+real	1551m51.803s
+user	1550m41.990s
+sys	0m6.510s
+
+
 2012-09-28  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
 	* conf-ee-6-9-p2k-cs200-r075-x8-p1-m1-t7.yaml (ID): 
