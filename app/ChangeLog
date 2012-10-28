@@ -1,3 +1,25 @@
+2012-10-28  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* conf-evo-6-9-p1.5k-cs10-r075-x8-p1-m1-t7.yaml (Method_options): 
+	Result:
+	
+	real	447m25.068s
+user	446m58.760s
+sys	0m6.710s
+
+
+2012-10-27  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* conf-evo-8-10-p2.5k-cs10-r075-x8-p1-m1-t7.yaml (Method_options): 
+	It's still not very practical to tackle this size:
+	^C
+
+real	1m15.553s
+user	1m15.490s
+sys	0m0.030s
+
+	And it hadn't even finished a single game...
+
 2012-09-29  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
 	* conf-evo-6-9-p2k-cs200-r075-x8-p1-m1-t7.yaml (Method): Takes a
