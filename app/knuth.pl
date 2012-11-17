@@ -6,7 +6,7 @@ use Algorithm::MasterMind qw(check_combination partitions);
 use Algorithm::MasterMind::Partition_Worst;
 use YAML;
 
-my $secret_code = 'ADCB';
+my $secret_code = shift || 'ADCB';
 my @alphabet = qw( A B C D E F );
 my $solver = new Algorithm::MasterMind::Partition_Worst { alphabet => \@alphabet,
 							  length => length( $secret_code ) };

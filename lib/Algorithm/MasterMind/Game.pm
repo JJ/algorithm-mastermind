@@ -65,7 +65,7 @@ __END__
 
 =head1 NAME
 
-Algorithm::MasterMind::Secret - Minimal framework for MM secrets
+Algorithm::MasterMind::Game - Minimal framework for Playing a Game
 
 
 =head1 SYNOPSIS
