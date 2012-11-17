@@ -6,7 +6,7 @@ use Carp;
 
 use lib qw(../../lib ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.1 $ =~ /(\d+)\.(\d+)/g; 
+use version; our $VERSION = qv("v0.0.1"); 
 
 use base 'Exporter';
 use Algorithm::MasterMind qw(check_combination);
