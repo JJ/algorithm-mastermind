@@ -7,7 +7,7 @@ use Algorithm::MasterMind qw(check_combination);
 
 BEGIN {
 	use_ok( 'Algorithm::MasterMind::Random' );
-	use_ok( 'Algorithm::MasterMind::Gamer', ( 'play' ) );
+	use_ok( 'Algorithm::MasterMind::Player', ( 'play' ) );
 }
 
 my $secret_code = 'EAFC';

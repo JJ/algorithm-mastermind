@@ -14,7 +14,8 @@ WriteMakefile(
 		  'version'    => 0.77,
 		  'Clone::Fast' => 0,
 		  'Algorithm::Evolutionary' => 0.78, # for Evo.pm
-		  'Algorithm::Combinatorics' => 0
+		  'Algorithm::Combinatorics' => 0,
+		  'BSD::Resource' # for measuring time
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean               => { FILES => 'Algorithm-MasterMind-*' },

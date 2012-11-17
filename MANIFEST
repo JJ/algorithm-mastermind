@@ -19,6 +19,7 @@ lib/Algorithm/MasterMind/Partition.pm
 lib/Algorithm/MasterMind/Partition/Most.pm
 lib/Algorithm/MasterMind/Partition_Most.pm
 lib/Algorithm/MasterMind/Partition_Worst.pm 
+lib/Algorithm/MasterMind/Player.pm 
 lib/Algorithm/MasterMind/Random.pm
 lib/Algorithm/MasterMind/Secret.pm
 lib/Algorithm/MasterMind/Sequential.pm
@@ -29,6 +30,7 @@ t/00.load.t
 t/00_functions.t 
 t/00_sequential.t  
 t/01_random.t 
+t/011_play.t 
 t/02_eda.t  
 t/03_sequential_alt.t 
 t/04_partitions.t

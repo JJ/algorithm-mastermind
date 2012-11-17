@@ -1,4 +1,4 @@
-package Algorithm::MasterMind::Gamer;
+package Algorithm::MasterMind::Player;
 
 use warnings;
 use strict;
@@ -10,6 +10,7 @@ use version; our $VERSION = qv("v0.0.1");
 
 use base 'Exporter';
 use Algorithm::MasterMind qw(check_combination);
+use BSD::Resource qw(times);
 
 use Test::More;
 
@@ -20,7 +21,7 @@ sub play {
   my $method = shift || croak "No method";
   my $method_options = shift || croak "No options";
   my $solver;
-  eval "\$solver = new Algorithm::MasterMind::$method \$method_options";
+  eval "\$solver = new Algorithm::MasterMind::$method \$method_options"; ## no critic
   die "Can't instantiate $solver: $@\n" if !$solver;
   print "Code $secret_code\n";
   my $game = { code => $secret_code,
@@ -54,6 +55,8 @@ sub play {
   }
   
   $game->{'evaluations'} = $solver->evaluated();
+  my @times = times();
+  $game->{'times'} = [ @times[0,1] ];
   print "Finished\n";
   return $game;
 }
@@ -64,12 +67,12 @@ __END__
 
 =head1 NAME
 
-Algorithm::MasterMind::Gamer - Instantiate and test solvers
+Algorithm::MasterMind::Player - Instantiate and test solvers
 
 
 =head1 SYNOPSIS
 
-    use Algorithm::MasterMind::Gamer qw(play)
+    use Algorithm::MasterMind::Player qw(play)
 
     my $secret_code = 'EAFC';
     my $population_size = 256;
@@ -77,17 +80,17 @@ Algorithm::MasterMind::Gamer - Instantiate and test solvers
     my @alphabet = qw( A B C D E F );
     play( $secret_code, "Canonical_GA", $method_options );
 
-  
 =head1 DESCRIPTION
 
 Used as a test bed for algorithms.
 
 =head1 INTERFACE 
 
-=head2 play($solver, $secret_code, $io )
+=head2 play( $secret_code, $solver, $method_options )
 
 Tries to find the secret code via the issued solver, and performs
-basic tests on the obtained combinations.
+basic tests on the obtained combinations. $solver will be expanded to
+"Algorithm::Evolutionary::$solver" and instantiated to solve the problem
 
 =head1 AUTHOR
 

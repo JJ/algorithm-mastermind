@@ -4,14 +4,11 @@ use warnings;
 use strict;
 use Carp;
 
-use version; our $VERSION = qv("v0.4.5");  #Quest for non-failing tests
+use version; our $VERSION = qv("v0.4.6");  #First in git repo
 
 use Algorithm::Combinatorics qw(variations_with_repetition);
 
-#use Memoize;
-#memoize( "check_rule" );
-
-our @ISA = qw(Exporter);
+use parent 'Exporter';
 
 our @EXPORT_OK = qw( check_combination partitions entropy random_string 
 		     response_as_string);
@@ -533,10 +530,10 @@ http://geneura.ugr.es/~jmerelo/GenMM/mm-eda.cgi, restricted to 4 pegs
 and 6 colors. It's, for the time being, under reparations. The program C<mm-eda.cgi> should also be available in 
 the C<apps> directory of this distribution.
 
-The development of this projects is hosted at sourceforge,
-https://sourceforge.net/projects/opeal/develop, check it out for the
+The development of this projects is hosted at GitHub,
+https://github.com/JJ/algorithm-mastermind/, check it out for the
 latest bleeding edge release. In fact, right now this module is at
-least a year away from the latest development. 
+least a year away from the latest development.
 
 If you use any of these modules for your own research, we would very
 grateful if you would reference the papers that describe this, such as
