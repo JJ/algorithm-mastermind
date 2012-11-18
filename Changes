@@ -1,3 +1,56 @@
+2012-11-18  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* ../Algorithm-Evolutionary/lib/Algorithm/Evolutionary/Op/Replace_Different.pm
+	(apply): 
+	As expected, there's a decreasing number of individuals added to
+	the population to avoid repetitions:
+
+	Code FCAA
+Playing AFAB
+Eliminating 126
+Eliminating 97
+Eliminating 82
+Eliminating 83
+Eliminating 72
+Playing AABD
+Eliminating 131
+Eliminating 89
+Eliminating 59
+Eliminating 55
+Eliminating 58
+Eliminating 44
+Eliminating 64
+Playing CBAF
+Eliminating 133
+Eliminating 100
+Eliminating 76
+Eliminating 77
+Eliminating 80
+Playing FCAA
+Finished
+
+	* lib/Algorithm/MasterMind/Evo.pm (issue_next): Testing the
+	possibility of not eliminating the last combination played, which
+	was introduced a long time ago...
+
+	     Played      Evaluations         Time       
+ Min.   :  24   Min.   :2.000   Min.   : 0.020  
+ 1st Qu.:1350   1st Qu.:4.000   1st Qu.: 0.305  
+ Median :2325   Median :4.000   Median : 0.545  
+ Mean   :2013   Mean   :4.333   Mean   : 2.910  
+ 3rd Qu.:2600   3rd Qu.:5.000   3rd Qu.: 0.605  
+ Max.   :3850   Max.   :6.000   Max.   :88.590  
+> summary(conelim)
+     Played      Evaluations        Time        
+ Min.   :  32   Min.   :3.00   Min.   : 0.0200  
+ 1st Qu.:1150   1st Qu.:4.00   1st Qu.: 0.2500  
+ Median :1637   Median :4.00   Median : 0.4000  
+ Mean   :1832   Mean   :4.25   Mean   : 2.4478  
+ 3rd Qu.:2562   3rd Qu.:5.00   3rd Qu.: 0.6175  
+ Max.   :4450   Max.   :6.00   Max.   :73.1900  
+
+	Not too significant, but seems better like it is now.
+
 2012-09-21  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
 	* lib/Algorithm/MasterMind/Evo_Entropy.pm (issue_next): Fixed bug

@@ -8,7 +8,7 @@ use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
 
-our $VERSION =   sprintf "%d.%03d", q$Revision: 1.14 $ =~ /(\d+)\.(\d+)/g; 
+use version; our $VERSION = qv("v1.141"); 
 
 use base 'Algorithm::MasterMind::Evolutionary_Base';
 use Algorithm::MasterMind qw(partitions);
@@ -118,7 +118,7 @@ sub issue_next {
   my $last_rule = $rules[$#rules];
   my $alphabet_size = @{$self->{'_alphabet'}};
 
-  if ( $self->{'_played_out'} ) {
+  if ( $self->{'_played_out'} ) { # better results
     $self->eliminate_last_played;
   }
   #Check for combination guessed right except for permutation
@@ -304,13 +304,23 @@ Mastermind. I was introduced in "Improving and Scaling Evolutionary
 Approaches to the MasterMind Problem", by Merelo, Cotta and Mora which we
 expect you will cite if you include this in your work.
 
+  @InProceedings{merelo2011improving,
+    title={Improving and scaling evolutionary approaches to the mastermind problem},
+    author={Merelo, J. and Cotta, C. and Mora, A.},
+    booktitle={Applications of Evolutionary Computation},
+    pages={103--112},
+    year={2011},
+    publisher={Springer}
+  }
+
+
 =head1 INTERFACE
 
-=head2 factorial
+=head2 factorial( $number )
 
-Computes factorial, needed as a default value for the permutation operator 
+Computes factorial of C<$number>, needed as a default value for the permutation operator 
 
-=head2 initialize
+=head2 initialize( $options )
 
 Initializes the genetic part of the algorithm
 
@@ -332,7 +342,6 @@ population, and substitute it for a random one.
 =head1 AUTHOR
 
 JJ Merelo  C<< <jj@merelo.net> >>
-
 
 =head1 LICENCE AND COPYRIGHT
 
