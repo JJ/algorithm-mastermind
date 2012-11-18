@@ -60,7 +60,7 @@ eval "require Algorithm::MasterMind::$method" || die "Can't load $method: $@\n";
 my $slug = $conf->{'ID'}."-$method-".DateTime->now();
 my $io = IO::YAML->new("$output_dir/$slug.yaml", ">");
 
-my @data = (['Played','Evaluations','Time']);
+my @data = (['Evaluations','Played','Time']);
 
 my $method_options = $conf->{'Method_options'};
 $io->print( $method, $method_options );

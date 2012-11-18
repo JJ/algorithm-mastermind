@@ -71,7 +71,7 @@ for my $k ( @{$method_options->{$key}} ) {
   #create conf file
   my $this_conf = clone( $conf );
   $this_conf->{'Method_options'}->{$key} = $k;
-  $this_conf->{'ID'} = $this_conf->{'ID'}."-$key=$k-";
+  $this_conf->{'ID'} = $this_conf->{'ID'}."-$key:$k-";
   DumpFile( "$output_dir/conf-$slug.yaml", $this_conf );
   print "Running  ./run_experiment_instances.pl $output_dir/conf-$slug.yaml $instances_file $output_dir\n";
   `./run_experiment_instances.pl $output_dir/conf-$slug.yaml $instances_file $output_dir`;

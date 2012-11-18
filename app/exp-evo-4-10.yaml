@@ -14,10 +14,10 @@ Method_options:
       - J
     length: 4
     pop_size: 
-      - 64
-      - 128
       - 256
       - 512
+      - 1024
+      - 2048
     consistent_set_card: 10
     replacement_rate: 0.75
     xover_rate: 8

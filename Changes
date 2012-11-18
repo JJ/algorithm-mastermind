@@ -1,5 +1,8 @@
 2012-11-18  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
+	* app/exp-evo-t8.yaml (Method_options): 
+	Eliminated size=64 , it gets stuck always Also for 4-8
+
 	* ../Algorithm-Evolutionary/lib/Algorithm/Evolutionary/Op/Replace_Different.pm
 	(apply): 
 	As expected, there's a decreasing number of individuals added to
