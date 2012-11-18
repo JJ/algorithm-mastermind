@@ -143,10 +143,4 @@ J. J. Merelo, C<jj (at) merelo.net>
   This file is released under the GPL. See the LICENSE file included in this distribution,
   or go to http://www.fsf.org/licenses/gpl.txt
 
-  CVS Info: $Date: 2012-07-15 07:45:23 $ 
-  $Header: /media/Backup/CVScopies/a_m/app/mm-eda.cgi,v 1.2 2012-07-15 07:45:23 jmerelo Exp $ 
-  $Author: jmerelo $ 
-  $Revision: 1.2 $
-
-
 =cut
