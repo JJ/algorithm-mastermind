@@ -1,0 +1,21 @@
+ID: test
+Method: Evo
+Method_options:
+    alphabet:
+      - A
+      - B
+      - C
+      - D
+      - E
+      - F
+    length: 4
+    pop_size: 
+      - 64
+      - 128
+      - 256
+      - 512
+    consistent_set_card: 10
+    replacement_rate: 0.75
+    xover_rate: 8
+    permutation_rate: 1
+    tournament_size:  2
