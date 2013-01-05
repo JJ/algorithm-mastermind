@@ -15,6 +15,7 @@ use Algorithm::MasterMind qw(partitions);
 
 use Algorithm::Evolutionary qw(Op::String_Mutation
 			       Op::Permutation
+			       Op::String_Swap
 			       Op::Uniform_Crossover_Diff
 			       Op::Breeder_Diverser
 			       Op::Replace_Different
@@ -49,6 +50,7 @@ sub initialize {
   # Variation operators
   my $mutation_rate = $options->{'mutation_rate'} || 1;
   my $permutation_rate = $options->{'permutation_rate'} || 0;
+  my $swap_rate = $options->{'swap_rate'} || 0;
   my $permutation_iters = $options->{'permutation_iterations'} || factorial($options->{'length'}) - 1 ;
   my $xover_rate = $options->{'xover_rate'} || 1;
   my $max_number_of_consistent = $options->{'consistent_set_card'} 
@@ -60,6 +62,10 @@ sub initialize {
   if ( $permutation_rate > 0 ) {
     my $p =  new Algorithm::Evolutionary::Op::Permutation $permutation_rate, $permutation_iters; 
     push @$operators, $p;
+  }
+   if ( $swap_rate > 0 ) {
+    my $s =  new Algorithm::Evolutionary::Op::String_Swap $permutation_rate; 
+    push @$operators, $s;
   }
   my $select = new Algorithm::Evolutionary::Op::Tournament_Selection $self->{'_tournament_size'} || 2;
   if (! $self->{'_ga'} ) { # Not given as an option

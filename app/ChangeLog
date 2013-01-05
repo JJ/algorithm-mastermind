@@ -1,3 +1,19 @@
+2013-01-05  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* ../experiments/GECCO/conf-e-5-8-p800-r075-x8-s1-m1-t7.yaml
+	(Method_options): Shut down experiment with swap and big cs
+	size. Took too long, Will have to re-evaluate how this works.
+
+	* ../experiments/GECCO/exp-e-5-8-p800-r075-x8-s1-m1-t7.yaml
+	(Method_options): From now on the algorithm is faster from changes
+	mades in the underlying evolutionary algorithm library. 
+
+2013-01-03  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* ../lib/Algorithm/MasterMind/Evo_Random.pm: Testing a new
+	configuration with randon draw of consistent combinations. After
+	all, the top scorers need not be the hidden one.
+
 2012-11-19  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
 	* exp-evo-4-8-t8.yaml (Method_options): Eliminated also smaller

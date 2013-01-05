@@ -1,3 +1,10 @@
+2013-01-05  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* ../Algorithm-Evolutionary/lib/Algorithm/Evolutionary/Op/Permutation.pm
+	(apply): The algorithm expends an inordinate amount of time in
+	this particular subroutine. I seem to remember I was going to
+	change it to a simple Swap, but I didn't do it. Will do it now. 
+
 2012-11-18  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
 	* app/exp-evo-t8.yaml (Method_options): 
