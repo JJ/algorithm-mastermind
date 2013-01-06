@@ -3,14 +3,18 @@ package Algorithm::MasterMind;
 use warnings;
 use strict;
 use Carp;
+use lib qw(../lib 
+	   /home/jmerelo/proyectos/CPAN/string-mmm/String-MMM/blib/lib 
+	   /home/jmerelo/proyectos/CPAN/string-mmm/String-MMM/blib/arch);
 
-use version; our $VERSION = qv("v0.4.6");  #First in git repo
+use version; our $VERSION = qv("v0.5");  #Includes "fast" 
+use String::MMM qw(match_strings);
 
 use Algorithm::Combinatorics qw(variations_with_repetition);
 
 use parent 'Exporter';
 
-our @EXPORT_OK = qw( check_combination partitions entropy random_string 
+our @EXPORT_OK = qw( check_combination partitions partitions_xs entropy random_string 
 		     response_as_string);
 
 use lib qw( ../../lib ../lib ../../../lib );
@@ -28,6 +32,9 @@ sub new {
 
   bless $self, $class;
   $self->initialize( $options );
+  if ( $self->{'_alphabet'} ) {
+    $self->{'_kappa'} = @{$self->{'_alphabet'}};
+  }
   return $self;
 }
 
@@ -110,8 +117,22 @@ sub evaluated {
   return $self->{'_evaluated'};
 }
 
-sub matches {
+sub matches_xs {
 
+  my $self = shift;
+  my $string = shift || croak "No string\n";
+  my @rules = @{$self->{'_rules'}};
+  my $result = [] ;
+#  print "Checking $string, ", $self->{'_evaluated'}, "\n";
+  for my $r ( @rules ) {    
+    my $rule_result = $self->check_rule_xs( $r, $string );
+    push @$result, $rule_result;
+  }
+  $self->{'_evaluated'}++;
+  return $result;
+}
+
+sub matches {
   my $self = shift;
   my $string = shift || croak "No string\n";
   my @rules = @{$self->{'_rules'}};
@@ -169,6 +190,20 @@ sub check_combination {
   }
   return { blacks => $blacks,
 	   whites => $whites };
+}
+
+sub distance_xs {
+  my $self = shift;
+  my $string = shift || croak "Can't compute distance to nothing";
+  my $distance = 0;
+  my @rules = @{$self->{'_rules'}};
+  for ( my $r = 0; $r <= $#rules; $r++) {
+    my @result =  match_strings( $rules[$r]->{'combination'}, $string, $self->{'_kappa'} ); # skip the cache
+    $distance -= abs( $rules[$r]->{'blacks'} - $result[0] ) +
+      abs( $rules[$r]->{'whites'} - $result[1] ) ;
+  }
+
+  return $distance;
 }
 
 sub distance_taxicab {
@@ -252,6 +287,28 @@ sub not_in_combination {
   return keys %alphabet_hash;
 }
 
+sub partitions_xs {
+  my $colors = shift;
+  my @combinations = sort @_;
+
+  my %partitions;
+  my %hash_results;
+  for my $c ( @combinations ) {
+    for my $cc ( @combinations ) {
+      next if $c eq $cc;
+      my @result;
+      if ( $c lt $cc ) {
+	@result = match_strings ( $c, $cc, $colors );
+	$hash_results{$c}{$cc} = \@result;
+      } else {
+	@result = @{$hash_results{$cc}{$c}};
+      }
+      $partitions{$c}{$result[0]."b-".$result[1]."w"}++;
+    }
+    
+  }
+  return \%partitions;
+}
 sub partitions {
   my @combinations = sort @_;
 

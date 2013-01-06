@@ -4,14 +4,15 @@ use strict;
 use warnings;
 
 use Test::More;
-use lib qw( lib ../lib ../../lib  ); #Just in case we are testing it in-place
+use lib qw( lib ../lib ../../lib 
+	   /home/jmerelo/proyectos/CPAN/string-mmm/String-MMM/blib/lib 
+	   /home/jmerelo/proyectos/CPAN/string-mmm/String-MMM/blib/arch ); #Just in case we are testing it in-place
 
 BEGIN {
-	use_ok( 'Algorithm::MasterMind' );
 	use_ok( 'Algorithm::MasterMind::Secret');
 	use_ok( 'Algorithm::MasterMind::Test' );
-	BEGIN { use_ok('Algorithm::MasterMind', qw(check_combination)); };
-
+	use_ok('Algorithm::MasterMind', qw(check_combination));
+	use_ok('String::MMM', qw(match_strings));
 }
 
 diag( "Testing Algorithm::Mastermind $Algorithm::MasterMind::VERSION, Perl $], $^X" );
@@ -39,10 +40,14 @@ while (@combinations ) {
   my $string = shift @strings;
   my $result = shift @results;
   my $result_obtained = check_combination( $combination, $string );
+  my @result = match_strings($combination, $string, 6 );
+  my $another_result = { blacks => $result[0],
+			 whites=>$result[1] };
   my $other_result_obtained = $secret->check($string);
   is( $secret->string, $combination, "Atributes");
   is_deeply( $result_obtained, $result, "$string vs $combination");
   is_deeply( $other_result_obtained, $result, "Secret $string vs $combination");
+  is_deeply( $another_result, $result, "XS $string vs $combination" );
 }
 
 my $code = 'BCAD';

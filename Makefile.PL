@@ -15,6 +15,7 @@ WriteMakefile(
 		  'Clone::Fast' => 0,
 		  'Algorithm::Evolutionary' => 0.78, # for Evo.pm
 		  'Algorithm::Combinatorics' => 0,
+		  'String::MMM' => 0, # fast comparison
 		  'BSD::Resource' # for measuring time
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
