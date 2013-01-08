@@ -202,7 +202,7 @@ sub distance_xs {
     $distance -= abs( $rules[$r]->{'blacks'} - $result[0] ) +
       abs( $rules[$r]->{'whites'} - $result[1] ) ;
   }
-
+  $self->{'_evaluated'}++;
   return $distance;
 }
 
