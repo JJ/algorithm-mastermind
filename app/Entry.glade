@@ -77,7 +77,7 @@
                       <widget class="GtkLabel" id="SecretComb">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="label" translatable="yes">Secret Combination</property>
+                        <property name="label" translatable="yes">Secret (in CAPS)</property>
                       </widget>
                       <packing>
                         <property name="top_attach">2</property>
