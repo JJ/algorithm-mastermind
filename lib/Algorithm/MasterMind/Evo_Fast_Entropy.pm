@@ -118,7 +118,7 @@ sub compute_fitness {
 sub compute_entropy_score {
   my $partitions = shift;
   my %score;
-  my $total= keys %{$partitions};
+  my $total= keys %{$partitions}; # This should be the total sum, but it's a constant, so no harm done
   for my $s (keys %{$partitions} ) {
     my $entropy = 0;
     for my $k ( keys %{$partitions->{$s}} ) {
