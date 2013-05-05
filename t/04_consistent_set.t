@@ -9,7 +9,7 @@ BEGIN {
 	use_ok( 'Algorithm::MasterMind::Consistent_Set' );
 }
 
-my $size = 128;
+my $size = 512;
 my @alphabet = qw( A B C D E F );
 my $length = 4;
 
@@ -18,7 +18,7 @@ for (1..$size) {
   push @strings, random_string( \@alphabet, $length);
 }
 
-my $c_set = new Algorithm::MasterMind::Consistent_Set( \@strings );
+my $c_set = new Algorithm::MasterMind::Consistent_Set( \@strings, scalar( @alphabet ) );
 my @sorted = sort @strings;
 my @sorted_set = sort $c_set->consistent_strings;
 is( $sorted_set[0], $sorted[0], 'Set OK' );
@@ -40,12 +40,12 @@ my $other_string = $top_scorers[ rand( @top_scorers )];
 my $result = $secret->check( $other_string ); # Another of the 
 $c_set->cull_inconsistent_with( $one_string, $result );
 
-if (@{$c_set->{'_combinations'}} ) { # Check other ctor
+if (@{$c_set->{'_strings'}} ) { # Check other ctor
   my $rules = [ { combination => $one_string,
 		  blacks => $result->{'blacks'},
 		  whites => $result->{'whites'}} ];
-  my $other_c_set = Algorithm::MasterMind::Consistent_Set->create_consistent_with( \@strings, $rules );
-  is_deeply( $other_c_set->{'_combinations'}, $c_set->{'_combinations'}, 'Consistent creation' );
+  my $other_c_set = Algorithm::MasterMind::Consistent_Set->create_consistent_with( \@strings, $rules, scalar( @alphabet ) );
+  is_deeply( $other_c_set->{'_strings'}, $c_set->{'_strings'}, 'Consistent creation' );
 }
 
 

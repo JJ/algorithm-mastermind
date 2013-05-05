@@ -1,3 +1,8 @@
+2013-05-05  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
+
+	* t/04_consistent_set.t: Boosting the consistent set size to use
+	for benchmarking.
+
 2013-01-09  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
 	* lib/Algorithm/MasterMind/Evo_Fast_Entropy.pm (issue_next): Fixed

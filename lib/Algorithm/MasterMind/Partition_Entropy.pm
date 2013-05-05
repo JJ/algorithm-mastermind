@@ -50,8 +50,7 @@ __END__
 
 =head1 NAME
 
-Algorithm::MasterMind::Partition_Entropy - Plays combination with the
-highest number of partitions
+Algorithm::MasterMind::Partition_Entropy - Plays combination  using max entropy for all moves
 
 
 =head1 SYNOPSIS

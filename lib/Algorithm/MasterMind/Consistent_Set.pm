@@ -12,20 +12,26 @@ our $VERSION =   sprintf "%d.%03d", q$Revision: 1.8 $ =~ /(\d+)\.(\d+)/g;
 
 use Algorithm::MasterMind qw(partitions);
 use Algorithm::MasterMind::Secret;
+use String::MMM qw(match_strings);
 
 sub new {
   my $class = shift;
   my $combinations = shift;
-  my @secrets = map ( (new Algorithm::MasterMind::Secret $_), @$combinations );
-  my $self = {  _combinations => \@secrets,
-		_partitions => {}};
+  my $kappa = shift || 6; # Default mastermind value
+#  my @secrets = map ( (new Algorithm::MasterMind::Secret $_), @$combinations );
+  my $self = { _kappa => $kappa, 
+	       _strings => $combinations,
+#	       _combinations => \@secrets,
+	       _partitions => {}};
   bless $self, $class;
-  $self->{'_partitions'} = compute_partitions( \@secrets );
+#  $self->{'_partitions'} = $self->compute_partitions( \@secrets );
+  $self->{'_partitions'} = $self->compute_partitions( $combinations );
   $self->{'_score'} = {}; # To store scores when they're available.
   return $self;
 }
 
 sub compute_partitions {
+  my $self = shift;
   my $secrets_ref = shift;
   my @secrets = @$secrets_ref;
   my %partitions;
@@ -36,12 +42,15 @@ sub compute_partitions {
       my $result = { blacks => 0,
 		     whites => 0 } ;
       if ( $i < $j  ) {
-	$secrets[$i]->check_secret ( $secrets[$j], $result );
-	$hash_results{$secrets[$i]->{'_string'}}{$secrets[$j] ->{'_string'}} = $result;
+	($result->{'blacks'}, $result->{'whites'}) = match_strings( $secrets[$i], 
+								    $secrets[$j], 
+								    $self->{'_kappa'} );
+#	$secrets[$i]->check_secret ( $secrets[$j], $result );
+	$hash_results{$secrets[$i]}{$secrets[$j]} = $result;
       } else {
-	$result = $hash_results{$secrets[$j]->{'_string'}}{$secrets[$i] ->{'_string'}} 
+	$result = $hash_results{$secrets[$j]}{$secrets[$i]} 
       }
-      $partitions{$secrets[$i]->{'_string'}}{result_as_string($result)}++;
+      $partitions{$secrets[$i]}{result_as_string($result)}++;
     }
   }
   return \%partitions
@@ -51,26 +60,29 @@ sub create_consistent_with {
   my $class = shift;
   my $combinations = shift;
   my $rules = shift;
-  my @secrets = map ( (new Algorithm::MasterMind::Secret $_), @$combinations );
-  my $self = {  _combinations => [],
-		_partitions => {}};
+  my $kappa = shift;
+#  my @secrets = map ( (new Algorithm::MasterMind::Secret $_), @$combinations );
+  my $self = {  _strings => [],
+		_partitions => {},
+	     _kappa => $kappa };
   bless $self, $class;
-  my %rule_secrets;
-  map( ($rule_secrets{$_->{'combination'}} = new Algorithm::MasterMind::Secret $_->{'combination'}),
-       @$rules );
-  for my $s (@secrets ) {
+  #my %rule_secrets;
+  #map( ($rule_secrets{$_->{'combination'}} = new Algorithm::MasterMind::Secret $_->{'combination'}),
+  #     @$rules );
+  for my $s (@$combinations ) {
     my $matches;
+    my $this_result = { blacks => 0,
+			whites => 0 };
     for my $r (@$rules ) {
-      my $this_result = { blacks => 0,
-			  whites => 0 };
-      $s->check_secret( $rule_secrets{$r->{'combination'}}, $this_result);
+      ($this_result->{'blacks'}, $this_result->{'whites'}) = match_strings( $s, $r->{'combination'}, $kappa  );
+#      $s->check_secret( $rule_secrets{$r->{'combination'}}, $this_result);
       $matches +=  result_as_string( $this_result ) eq result_as_string( $r );
     }
     if ( $matches == @$rules ) {
-      push @{$self->{'_combinations'}}, $s
+      push @{$self->{'_strings'}}, $s
     }
   }
-  $self->{'_partitions'} = compute_partitions( $self->{'_combinations'} );
+  $self->{'_partitions'} = $self->compute_partitions( $self->{'_strings'} );
   $self->{'_score'} = {}; # To store scores when they're available.
   return $self;
 }
@@ -85,15 +97,17 @@ sub add_combination {
   my $self = shift;
   my $new_combination = shift;
   return if $self->is_in( $new_combination );
-  my $new_secret = new Algorithm::MasterMind::Secret $new_combination;
-  for (my $i = 0; $i < @{$self->{'_combinations'}}; $i ++ ) {
-    my $result = { blacks => 0,
-		   whites => 0 };
-    $self->{'_combinations'}[$i]->check_secret ( $new_secret, $result );
-    $self->{'_partitions'}{$self->{'_combinations'}[$i]->{'_string'}}{result_as_string($result)}++;
+#  my $new_secret = new Algorithm::MasterMind::Secret $new_combination;
+  my $result = { blacks => 0,
+		 whites => 0 };
+  for (my $i = 0; $i < @{$self->{'_strings'}}; $i ++ ) {
+    ($result->{'blacks'}, $result->{'whites'}) = 
+      match_strings( $self->{'_strings'}[$i], $new_combination, $self->{'_kappa'}  );
+#    $self->{'_strings'}[$i]->check_secret ( $new_secret, $result );
+    $self->{'_partitions'}{$self->{'_strings'}[$i]}{result_as_string($result)}++;
     $self->{'_partitions'}{$new_combination}{result_as_string($result)}++;
   }
-  push @{$self->{'_combinations'}}, $new_secret;
+  push @{$self->{'_strings'}}, $new_combination;
 }
 
 sub result_as_string {
@@ -115,10 +129,11 @@ sub cull_inconsistent_with {
   my $secret = new Algorithm::MasterMind::Secret $string;
   my $result_string = result_as_string( $result );
   my @new_set;
-  for my $s (@{$self->{'_combinations'}} ) {
-    my $this_result = { blacks => 0,
-			whites => 0 };
-    $secret->check_secret( $s, $this_result);
+  my $this_result = { blacks => 0,
+		      whites => 0 };
+  for my $s (@{$self->{'_strings'}} ) {
+    ($this_result->{'blacks'}, $this_result->{'whites'}) = match_strings( $s, $string, $self->{'_kappa'} );
+#    $secret->check_secret( $s, $this_result);
 #    print "Checking ", $s->string, " result " , result_as_string( $this_result), " with $result_string\n";
     if ( $result_string eq result_as_string($this_result) ) {
 #      print "Added\n";
@@ -126,8 +141,8 @@ sub cull_inconsistent_with {
     }
   }
   #Compute new partitions
-  $self->{'_partitions'} = compute_partitions( \@new_set );
-  $self->{'_combinations'} = \@new_set;
+  $self->{'_partitions'} = $self->compute_partitions( \@new_set );
+  $self->{'_strings'} = \@new_set;
   $self->{'_score'} = {};
 }
 
