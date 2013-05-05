@@ -11,6 +11,7 @@ use DateTime;
 use Algorithm::Combinatorics qw(variations_with_repetition);
 
 use Algorithm::MasterMind qw( check_combination );
+use BSD::Resource qw(times);
 
 my $config_file = shift || die "Usage: $0 <configfile.yaml>\n";
 
@@ -31,6 +32,7 @@ my $engine = variations_with_repetition($method_options->{'alphabet'},
 
 my $combination;
 my $repeats = $conf->{'repeats'} || 10;
+my $last_time = 0;
 while ( $combination = $engine->next() ) {
   my $secret_code = join("",@$combination);
   for ( 1..$repeats ) {
@@ -69,6 +71,9 @@ while ( $combination = $engine->next() ) {
     }
 
     $game->{'evaluations'} = $solver->evaluated();
+    my @times = times();
+    $game->{'times'} = $times[0] - $last_time;
+    $last_time = $times[0];
     $io->print($game);
     print "Finished\n";
   }

@@ -12,8 +12,6 @@ use base 'Exporter';
 use Algorithm::MasterMind qw(check_combination);
 use BSD::Resource qw(times);
 
-use Test::More;
-
 our @EXPORT_OK = qw( play );
 
 sub play {
