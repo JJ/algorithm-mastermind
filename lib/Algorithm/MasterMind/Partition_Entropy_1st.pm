@@ -36,17 +36,18 @@ sub issue_next {
     delete $self->{'_first'};
     my @combinations = $self->all_combinations();
     $self->{'_partitions'} = 
-      Algorithm::MasterMind::Consistent_Set->create_consistent_with( \@combinations, $self->{'_rules'} );
-    $self->{'_evaluated'} = scalar( @{$self->{'_partitions'}->{'_combinations'}}  );
+      Algorithm::MasterMind::Consistent_Set->create_consistent_with( \@combinations, 
+								     $self->{'_rules'}, $self->{'_kappa'}  );
+    $self->{'_evaluated'} = scalar( @{$self->{'_partitions'}->{'_strings'}}  );
   } else {
     $self->{'_partitions'}->cull_inconsistent_with( $last_rule->{'combination'}, $last_rule );
   }
-  if ( @{$self->{'_partitions'}->{'_combinations'}} > 1 ) {
+  if ( @{$self->{'_partitions'}->{'_strings'}} > 1 ) {
     $self->{'_partitions'}->compute_entropy_score;
     my @top_scorers = $self->{'_partitions'}->top_scorers('entropy');
     return $self->{'_last'} = $top_scorers[ rand(@top_scorers)];
   } else {
-    return $self->{'_last'} = $self->{'_partitions'}->{'_combinations'}->[0]->string;
+    return $self->{'_last'} = $self->{'_partitions'}->{'_strings'}->[0];
   }
 }
 

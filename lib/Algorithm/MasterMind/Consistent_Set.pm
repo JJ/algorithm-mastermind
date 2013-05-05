@@ -12,7 +12,7 @@ our $VERSION =   sprintf "%d.%03d", q$Revision: 1.8 $ =~ /(\d+)\.(\d+)/g;
 
 use Algorithm::MasterMind qw(partitions);
 use Algorithm::MasterMind::Secret;
-use String::MMM qw(match_strings);
+use String::MMM qw(match_strings s_match_strings);
 
 sub new {
   my $class = shift;
@@ -39,18 +39,16 @@ sub compute_partitions {
   for ( my $i = 0; $i <= $#secrets; $i ++ ) {
     for (my $j = 0; $j <= $#secrets; $j ++ ) {
       next if $i == $j;
-      my $result = { blacks => 0,
-		     whites => 0 } ;
+      my $result;
       if ( $i < $j  ) {
-	($result->{'blacks'}, $result->{'whites'}) = match_strings( $secrets[$i], 
-								    $secrets[$j], 
-								    $self->{'_kappa'} );
+	$result = s_match_strings( $secrets[$i], $secrets[$j], 
+				      $self->{'_kappa'} );
 #	$secrets[$i]->check_secret ( $secrets[$j], $result );
 	$hash_results{$secrets[$i]}{$secrets[$j]} = $result;
       } else {
 	$result = $hash_results{$secrets[$j]}{$secrets[$i]} 
       }
-      $partitions{$secrets[$i]}{result_as_string($result)}++;
+      $partitions{$secrets[$i]}{$result}++;
     }
   }
   return \%partitions
@@ -71,12 +69,10 @@ sub create_consistent_with {
   #     @$rules );
   for my $s (@$combinations ) {
     my $matches;
-    my $this_result = { blacks => 0,
-			whites => 0 };
     for my $r (@$rules ) {
-      ($this_result->{'blacks'}, $this_result->{'whites'}) = match_strings( $s, $r->{'combination'}, $kappa  );
+      my $this_result =  s_match_strings( $s, $r->{'combination'}, $kappa  );
 #      $s->check_secret( $rule_secrets{$r->{'combination'}}, $this_result);
-      $matches +=  result_as_string( $this_result ) eq result_as_string( $r );
+      $matches +=   $this_result  eq result_as_string( $r );
     }
     if ( $matches == @$rules ) {
       push @{$self->{'_strings'}}, $s
@@ -98,14 +94,11 @@ sub add_combination {
   my $new_combination = shift;
   return if $self->is_in( $new_combination );
 #  my $new_secret = new Algorithm::MasterMind::Secret $new_combination;
-  my $result = { blacks => 0,
-		 whites => 0 };
   for (my $i = 0; $i < @{$self->{'_strings'}}; $i ++ ) {
-    ($result->{'blacks'}, $result->{'whites'}) = 
-      match_strings( $self->{'_strings'}[$i], $new_combination, $self->{'_kappa'}  );
+    my $result = s_match_strings( $self->{'_strings'}[$i], $new_combination, $self->{'_kappa'}  );
 #    $self->{'_strings'}[$i]->check_secret ( $new_secret, $result );
-    $self->{'_partitions'}{$self->{'_strings'}[$i]}{result_as_string($result)}++;
-    $self->{'_partitions'}{$new_combination}{result_as_string($result)}++;
+    $self->{'_partitions'}{$self->{'_strings'}[$i]}{$result}++;
+    $self->{'_partitions'}{$new_combination}{$result}++;
   }
   push @{$self->{'_strings'}}, $new_combination;
 }

@@ -1,5 +1,8 @@
 2013-05-05  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
 
+	* lib/Algorithm/MasterMind/Consistent_Set.pm (add_combination):
+	Refactoring to use new s_match_strings and avoid calls to result_as_string
+
 	* t/04_consistent_set.t: Boosting the consistent set size to use
 	for benchmarking.
 
