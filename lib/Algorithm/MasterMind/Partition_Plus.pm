@@ -40,13 +40,14 @@ sub issue_next {
   if ( $self->{'_first'} ) {
     my @combinations = $self->all_combinations();
     $self->{'_partitions'} = 
-      Algorithm::MasterMind::Consistent_Set->create_consistent_with( \@combinations, $self->{'_rules'} );
-    $self->{'_evaluated'} = scalar( @{$self->{'_partitions'}->{'_combinations'}}  );
+      Algorithm::MasterMind::Consistent_Set->create_consistent_with( \@combinations, 
+								     $self->{'_rules'}, $self->{'_kappa'} );
+    $self->{'_evaluated'} = scalar( @{$self->{'_partitions'}->{'_strings'}}  );
     delete $self->{'_first'};
   } else {
     $self->{'_partitions'}->cull_inconsistent_with( $last_rule->{'combination'}, $last_rule );
   }
-  if ( @{$self->{'_partitions'}->{'_combinations'}} > 1 ) {
+  if ( @{$self->{'_partitions'}->{'_strings'}} > 1 ) {
     $self->{'_partitions'}->compute_entropy_score;
     my @top_scorers_e = $self->{'_partitions'}->top_scorers('entropy');
     $self->{'_partitions'}->compute_most_score;
@@ -59,7 +60,7 @@ sub issue_next {
     $self->{'_data'} = \@all_top;
     return $self->{'_last'} = $all_top[ rand(@all_top)];
   } else {
-    return $self->{'_last'} = $self->{'_partitions'}->{'_combinations'}->[0]->string;
+    return $self->{'_last'} = $self->{'_partitions'}->{'_strings'}->[0];
   }
 }
 
