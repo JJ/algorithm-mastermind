@@ -8,3 +8,4 @@
 * [ ] Refactor the whole hierarchy, and create a Meta class that applies
    heuristics to algorithms
 * [ ] Put this online.
+* [ ] Refactor to use Data::Clone. Clone::Fast is dead.
