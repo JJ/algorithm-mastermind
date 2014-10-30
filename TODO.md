@@ -1,6 +1,7 @@
 #TO DO list
 
 * [x] Move to github
+* [ ] Add continuous integration
 * [ ] Adapt version numbers to manual change.
 * [ ] Expand a bit Evo documentation, mainly the synopsis.
 * [ ] Incorporate changes in code to the CPAN module 
