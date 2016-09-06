@@ -12,11 +12,10 @@ WriteMakefile(
     PREREQ_PM => {
 		  'Test::More' => 0,
 		  'version'    => 0.77,
-		  'Clone::Fast' => 0,
 		  'Algorithm::Evolutionary' => 0.78, # for Evo.pm
 		  'Algorithm::Combinatorics' => 0,
 		  'String::MMM' => 0, # fast comparison
-		  'BSD::Resource' # for measuring time
+		  'BSD::Resource'=> 0 # for measuring time
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean               => { FILES => 'Algorithm-MasterMind-*' },
