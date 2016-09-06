@@ -39,26 +39,13 @@ sub compute_partitions {
   my %partitions;
   my %hash_results;
   for ( my $i = 0; $i <= $#secrets; $i ++ ) {
- #    for (my $j = 0; $j <= $#secrets; $j ++ ) {
-#       next if $i == $j;
-#       my $result;
-#       if ( $i < $j  ) {
-# 	$result = s_match_strings( $secrets[$i], $secrets[$j], 
-# 				      $self->{'_kappa'} );
-# #	$secrets[$i]->check_secret ( $secrets[$j], $result );
-# 	$hash_results{$secrets[$i]}{$secrets[$j]} = $result;
-#       } else {
-# 	$result = $hash_results{$secrets[$j]}{$secrets[$i]} 
-#       }
-#       $partitions{$secrets[$i]}{$result}++;
-#     }
-     for (my $j = $i+1; $j <= $#secrets; $j ++ ) {
-       my $result = s_match_strings( $secrets[$i], $secrets[$j], 
-				  $self->{'_kappa'} );
-       $partitions{$secrets[$i]}{$result}++;
-       $partitions{$secrets[$j]}{$result}++;
-     }
-   }
+    for (my $j = $i+1; $j <= $#secrets; $j ++ ) {
+      my $result = s_match_strings( $secrets[$i], $secrets[$j], 
+				    $self->{'_kappa'} );
+      $partitions{$secrets[$i]}{$result}++;
+      $partitions{$secrets[$j]}{$result}++;
+    }
+  }
   return \%partitions
 }
 
@@ -70,7 +57,7 @@ sub create_consistent_with {
 #  my @secrets = map ( (new Algorithm::MasterMind::Secret $_), @$combinations );
   my $self = {  _strings => [],
 		_partitions => {},
-	     _kappa => $kappa };
+		_kappa => $kappa };
   bless $self, $class;
   #my %rule_secrets;
   #map( ($rule_secrets{$_->{'combination'}} = new Algorithm::MasterMind::Secret $_->{'combination'}),

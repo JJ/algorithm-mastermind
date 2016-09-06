@@ -47,3 +47,4 @@ for my $s (@stats) {
   }
   diag( "Average combinations " . $combinations / @$s  . " Games " . $games / @$s );
 }
+

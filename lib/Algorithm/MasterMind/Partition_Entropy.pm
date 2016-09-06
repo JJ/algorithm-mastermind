@@ -35,12 +35,12 @@ sub issue_next {
   my $self = shift;
   my $last_rule = $self->{'_rules'}->[scalar(@{$self->{'_rules'}})-1];
   $self->{'_partitions'}->cull_inconsistent_with( $last_rule->{'combination'}, $last_rule );
-  if ( @{$self->{'_partitions'}->{'_combinations'}} > 1 ) {
+  if ( @{$self->{'_partitions'}->{'_strings'}} > 1 ) {
     $self->{'_partitions'}->compute_entropy_score;
     my @top_scorers = $self->{'_partitions'}->top_scorers('entropy');
     return $self->{'_last'} = $top_scorers[ rand(@top_scorers)];
   } else {
-    return $self->{'_last'} = $self->{'_partitions'}->{'_combinations'}->[0]->string;
+    return $self->{'_last'} = $self->{'_partitions'}->{'_strings'}->[0];
   }
 }
 

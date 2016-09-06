@@ -22,7 +22,7 @@ use Algorithm::Evolutionary qw(Op::QuadXOver
 			       Op::Canonical_GA_NN
 			       Individual::String );
 
-use Clone::Fast qw(clone);
+use Data::Clone;
 
 # ---------------------------------------------------------------------------
 use constant { MAX_CONSISTENT_SET => 20, # This number 20 was computed in NICSO paper, valid for default 4-6 mastermind

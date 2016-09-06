@@ -1,4 +1,5 @@
 #!perl 
+# -*- cperl -*-
 
 use Test::More qw( no_plan ); #Random initial string...
 use lib qw( lib ../lib ../../lib  ); #Just in case we are testing it in-place
@@ -29,3 +30,4 @@ while ( $played_string ne $secret_code ) {
   $played_string = $solver->issue_next;
 }
 is( $played_string, $secret_code, "Found code after ".$solver->evaluated()." combinations" );
+
