@@ -4,6 +4,8 @@ use warnings;
 use strict;
 use Carp;
 
+use v5.14;
+
 use lib qw(../../lib ../../../../Algorithm-Evolutionary/lib/ 
 	   ../../Algorithm-Evolutionary/lib/
 	   ../../../lib);
@@ -73,14 +75,17 @@ sub create_consistent_with {
   #my %rule_secrets;
   #map( ($rule_secrets{$_->{'combination'}} = new Algorithm::MasterMind::Secret $_->{'combination'}),
   #     @$rules );
+  my $num_rules = scalar @$rules;
   for my $s (@$combinations ) {
     my $matches;
     for my $r (@$rules ) {
       my $this_result =  s_match_strings( $s, $r->{'combination'}, $kappa  );
 #      $s->check_secret( $rule_secrets{$r->{'combination'}}, $this_result);
-      $matches +=   $this_result  eq result_as_string( $r );
+#      say "Result $this_result ", $r->{'blacks'}."b".$r->{'whites'}."w";
+      $matches +=   $this_result  eq $r->{'blacks'}."b".$r->{'whites'}."w";
     }
-    if ( $matches == @$rules ) {
+#    say "Comparing ", $matches, " ",  $num_rules;
+    if ( $matches == $num_rules ) {
       push @{$self->{'_strings'}}, $s
     }
   }
@@ -109,10 +114,10 @@ sub add_combination {
   push @{$self->{'_strings'}}, $new_combination;
 }
 
-sub result_as_string {
-  my $result = shift;
-  return $result->{'blacks'}."b-".$result->{'whites'}."w";
-}
+# sub result_as_string {
+#   my $result = shift;
+#   return $result->{'blacks'}."b-".$result->{'whites'}."w";
+# }
 
 sub partitions_for {
   my $self = shift;
@@ -126,16 +131,13 @@ sub cull_inconsistent_with {
   my $result = shift;
 
   my $secret = new Algorithm::MasterMind::Secret $string;
-  my $result_string = result_as_string( $result );
+  my $result_string = $result->{'blacks'}."b".$result->{'whites'}."w";
   my @new_set;
   my $this_result = { blacks => 0,
 		      whites => 0 };
   for my $s (@{$self->{'_strings'}} ) {
     ($this_result->{'blacks'}, $this_result->{'whites'}) = match_strings( $s, $string, $self->{'_kappa'} );
-#    $secret->check_secret( $s, $this_result);
-#    print "Checking ", $s->string, " result " , result_as_string( $this_result), " with $result_string\n";
-    if ( $result_string eq result_as_string($this_result) ) {
-#      print "Added\n";
+    if ( $result_string eq $this_result->{'blacks'}."b".$this_result->{'whites'}."w" ) {
       push @new_set, $s;
     }
   }
@@ -247,11 +249,6 @@ Checks whether the combination is in the consistent set already
 
 Adds another combination checking it against previous combinations
 
-=head2 result_to_string ( $result )
-
-Converts result hash into string in a more or less standard way, to
-avoid conversion errors
-
 =head2 partitions_for ( $string )
 
 Returns the partition hash for combination $string
@@ -276,10 +273,6 @@ Returns the consistent set
 
 Creates a consistent eliminating from the set of combinations those
 not consistent with the rules
-
-=head2 result_as_string
-
-Returns the response as a fixed format string, for comparisons
 
 =head2 score_entropy ($string)
 
