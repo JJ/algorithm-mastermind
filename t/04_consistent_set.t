@@ -57,13 +57,13 @@ ok( $c_set->is_in( $new_random_string ), 'Added');
 @strings = qw(AAAA BBBB CCCC ABCD);
 $c_set = new Algorithm::MasterMind::Consistent_Set( \@strings );
 my %partitions = (   
-		  'AAAA' =>  { '0b-0w' => 2,
-			       '1b-0w' => 1},
-		  'ABCD' =>{ '1b-0w' => 3 },
-		  'BBBB' => { '0b-0w' => 2,
-			      '1b-0w' => 1 },
-		  'CCCC' => { '0b-0w' => 2,
-			      '1b-0w' => 1 } );
+		  'AAAA' =>  { '0b0w' => 2,
+			       '1b0w' => 1},
+		  'ABCD' =>{ '1b0w' => 3 },
+		  'BBBB' => { '0b0w' => 2,
+			      '1b0w' => 1 },
+		  'CCCC' => { '0b0w' => 2,
+			      '1b0w' => 1 } );
 for my $s (@strings) {
   is_deeply($c_set->partitions_for($s), $partitions{$s}, "Partitions for $s" );
 }
@@ -76,4 +76,4 @@ $secret = new Algorithm::MasterMind::Secret 'ABEE';
 my $a_move = 'DDDD';
 $result = $secret->check( $a_move); # Simulating move
 $c_set->cull_inconsistent_with( 'DDDD', $result );
-is_deeply($c_set->partitions_for('AAAA'), { '0b-0w' => 2 }, "New partitioning" );
+is_deeply($c_set->partitions_for('AAAA'), { '0b0w' => 2 }, "New partitioning" );
