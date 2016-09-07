@@ -178,19 +178,19 @@ sub issue_next {
     }
 
     #Recalculate distances, new turn
-    my (%consistent );
+    my %consistent;
     my $partitions;
     my $distance = $self->{'_distance'};
 #    print "Evaluating all \n";
     for my $p ( @$pop ) {
-	($p->{'_distance'}, $p->{'_matches'}) = @{$self->$distance( $p->{'_str'} )};
+      ($p->{'_distance'}, $p->{'_matches'}) = @{$self->$distance( $p->{'_str'} )};
 #      ($p->{'_distance'}, $p->{'_matches'}) = @{$self->distance( $p )};
 #	print "$p->{'_distance'}, $p->{'_matches'}) =  $p->{'_str'} \n";
-	if ($p->{'_matches'} == $rules) {
-	  push @{$consistent{$p->{'_str'}}}, $p;
-	} else {
-	  $p->{'_partitions'} = 0;
-	}
+      if ($p->{'_matches'} == $rules) {
+	push @{$consistent{$p->{'_str'}}}, $p;
+      } else {
+	$p->{'_partitions'} = 0;
+      }
     }
     
     my $number_of_consistent = keys %consistent;
