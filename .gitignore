@@ -8,3 +8,6 @@ pm_to_blib*
 .lwpcookies
 Algorithm-MasterMind-*
 cover_db
+*~
+MYMETA.json
+MYMETA.yml
