@@ -117,20 +117,19 @@ sub evaluated {
   return $self->{'_evaluated'};
 }
 
-sub matches_xs {
-
-  my $self = shift;
-  my $string = shift || croak "No string\n";
-  my @rules = @{$self->{'_rules'}};
-  my $result = [] ;
-#  print "Checking $string, ", $self->{'_evaluated'}, "\n";
-  for my $r ( @rules ) {    
-    my $rule_result = $self->check_rule_xs( $r, $string );
-    push @$result, $rule_result;
-  }
-  $self->{'_evaluated'}++;
-  return $result;
-}
+# sub matches_xs {
+#   my $self = shift;
+#   my $string = shift || croak "No string\n";
+#   my @rules = @{$self->{'_rules'}};
+#   my $result = [] ;
+# #  print "Checking $string, ", $self->{'_evaluated'}, "\n";
+#   for my $r ( @rules ) {    
+#     my $rule_result = $self->match_string( $r, $string, $self->{'_kappa'} );
+#     push @$result, $rule_result;
+#   }
+#   $self->{'_evaluated'}++;
+#   return $result;
+# }
 
 sub matches {
   my $self = shift;
